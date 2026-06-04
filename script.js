@@ -105,6 +105,7 @@ let savedScrollY = 0;
 function openMobileNav(){
   document.getElementById('mobile-nav').classList.add('open');
   document.querySelector('.nav-mobile-menu').classList.add('active');
+  document.querySelector('nav').classList.add('nav-menu-open');
   savedScrollY = window.scrollY;
   document.body.style.position = 'fixed';
   document.body.style.top = `-${savedScrollY}px`;
@@ -115,6 +116,7 @@ function openMobileNav(){
 function closeMobileNav(){
   document.getElementById('mobile-nav').classList.remove('open');
   document.querySelector('.nav-mobile-menu').classList.remove('active');
+  document.querySelector('nav').classList.remove('nav-menu-open');
   document.body.style.position = '';
   document.body.style.top = '';
   document.body.style.left = '';
