@@ -277,6 +277,145 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 .reveal-delay-2{transition-delay:.2s}
 .reveal-delay-3{transition-delay:.3s}
 
+
+/* ===== HERO: ROTIERENDER GESTRICHELTER RING ===== */
+.hero-photo-ring{
+  position:absolute;
+  top:50%;left:50%;
+  width:268px;height:268px;
+  margin:-134px 0 0 -134px;
+  border-radius:50%;
+  border:2px dashed var(--green-mid);
+  opacity:.55;
+  animation:ringSpin 18s linear infinite;
+  pointer-events:none;
+  z-index:0;
+}
+@keyframes ringSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+/* Foto über dem Ring, eigener Hintergrund-Ring weg */
+.hero-photo-circle{z-index:1}
+
+/* ===== HERO: SANFTES SCHWEBEN DES FOTOS ===== */
+.hero-photo-circle{animation:floaty 6s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* ===== HERO: SCROLL-INDIKATOR ===== */
+.scroll-indicator{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  margin-top:48px;
+  text-decoration:none;
+  opacity:.6;
+  transition:opacity .2s;
+}
+.scroll-indicator:hover{opacity:1}
+.scroll-mouse{
+  width:24px;height:38px;
+  border:2px solid var(--ink-muted);
+  border-radius:14px;
+  display:flex;
+  justify-content:center;
+  padding-top:6px;
+}
+.scroll-wheel{
+  width:4px;height:8px;
+  border-radius:2px;
+  background:var(--green-mid);
+  animation:scrollWheel 1.6s ease-in-out infinite;
+}
+@keyframes scrollWheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}60%{opacity:1;transform:translateY(8px)}100%{opacity:0;transform:translateY(10px)}}
+.scroll-text{
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:.2em;
+  color:var(--ink-muted);
+}
+
+/* ===== CASE CARDS: stärkerer Hover ===== */
+.case-card{position:relative}
+.case-card::after{
+  content:'';
+  position:absolute;inset:0;
+  border-radius:24px;
+  border:2px solid transparent;
+  transition:border-color .25s;
+  pointer-events:none;
+}
+.case-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 48px rgba(78,139,92,0.18),0 4px 12px rgba(22,31,23,0.08);
+}
+.case-card:hover::after{border-color:var(--green-mid)}
+.case-card:hover .case-tag-pill{background:rgba(78,139,92,0.85);border-color:rgba(255,255,255,.3)}
+.case-card:hover .case-thumb-inner{transform:scale(1.12)}
+.case-card .case-arrow-btn{transition:background .2s,transform .25s cubic-bezier(.4,0,.2,1)}
+.case-card:hover .case-arrow-btn{transform:translate(4px,-4px) scale(1.1)}
+
+/* ===== DRIVES: neuer Hover (Akzentbalken oben statt Zahl-Rutsch) ===== */
+.drives-num{transition:none !important}
+.drives-card:hover .drives-num{transform:none !important}
+.drives-card{position:relative;overflow:hidden}
+.drives-card::before{
+  content:'';
+  position:absolute;top:0;left:0;
+  width:100%;height:3px;
+  background:linear-gradient(90deg,var(--green) 0%,var(--amber) 100%);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+}
+.drives-card:hover::before{transform:scaleX(1)}
+.drives-card:hover{background:linear-gradient(160deg,white 0%,var(--green-light) 100%)}
+
+/* ===== ABOUT: Badge halb aufs Bild ===== */
+.about-photo-stage{position:relative;display:inline-block}
+.about-photo-stage .about-badge{
+  position:absolute;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%) rotate(-3deg);
+  margin-top:0;
+  z-index:2;
+}
+
+/* ===== ERFAHRUNG: Karten mit PDF-Vorschau ===== */
+.tl-card-haspdf{display:grid;grid-template-columns:1fr 150px;gap:20px;align-items:stretch}
+.tl-card-main{min-width:0}
+.tl-cert-preview{
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+  background:white;
+  border:1px solid rgba(78,139,92,0.2);
+  display:block;
+  min-height:120px;
+}
+.tl-cert-preview img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.tl-cert-preview.no-img{background:linear-gradient(135deg,var(--green-light),#d4e8d8)}
+.tl-cert-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  background:rgba(31,77,40,0.0);
+  color:transparent;
+  font-family:var(--font-mono);
+  font-size:11px;
+  transition:background .25s,color .25s;
+}
+.tl-cert-overlay svg.lucide{width:18px;height:18px;stroke:white}
+.tl-cert-preview:hover .tl-cert-overlay{background:rgba(31,77,40,0.55);color:white}
+.tl-cert-preview.no-img .tl-cert-overlay{background:transparent;color:var(--green-dark)}
+.tl-cert-preview.no-img .tl-cert-overlay svg.lucide{stroke:var(--green-dark)}
+
+/* ===== KONTAKT: Umbruch-Text sauberer Abstand ===== */
+.contact-desc br{content:'';display:block;margin-bottom:2px}
+
 /* RESPONSIVE */
 @media(max-width:1100px){
   .container{max-width:100%;padding:0 40px}
@@ -297,6 +436,10 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
   .contact-inner{padding:0 32px}
   .site-footer-inner{padding:0 32px}
   section{padding:88px 0}
+}
+@media(max-width:768px){
+  .tl-card-haspdf{grid-template-columns:1fr}
+  .tl-cert-preview{min-height:160px}
 }
 @media(max-width:600px){
   .container{padding:0 20px}
