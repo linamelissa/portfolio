@@ -53,12 +53,13 @@ const skillsData = [
 function buildBanner(lang){
   const marquee = document.getElementById('skills-marquee');
   if(!marquee) return;
-  let group = '<div class="skills-group">';
+  let group = '';
   skillsData.forEach(s => {
     group += '<span class="skill-item">'+svgIcon(s.icon)+(lang==='de'?s.de:s.en)+'</span>';
   });
-  group += '</div>';
-  marquee.innerHTML = group + group;
+  // Vier Kopien: zwei sichtbare Hälften, die per -50% nahtlos loopen.
+  // Mehr Kopien = keine Lücke auch auf breiten Bildschirmen.
+  marquee.innerHTML = '<div class="skills-group">'+group+'</div><div class="skills-group">'+group+'</div>';
 }
 
 // ===== NOW INTRO =====
