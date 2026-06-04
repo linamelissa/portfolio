@@ -27,6 +27,7 @@ const ICONS = {
   'package':'<path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/>',
   'moon':'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
   'arrow-right':'<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+  'git-branch':'<line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>',
   'linkedin':'<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>',
   'instagram':'<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>',
   'dribbble':'<circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"/>',
@@ -72,9 +73,9 @@ function setNowIntro(){
   const el = document.getElementById('now-intro');
   if(!el) return;
   if(currentLang === 'de'){
-    el.innerHTML = 'Was ich gerade mache, denke und beschäftigt. Kein Social Media, keine Highlights — nur was wirklich gerade los ist. Eine Idee von Derek Sivers — <a href="https://nownownow.com/about" target="_blank" style="color:var(--green-mid);text-decoration:none;">mehr erfahren ↗</a>';
+    el.innerHTML = 'Was mich gerade beschäftigt, woran ich arbeite und worüber ich nachdenke. Kein Social Media, keine Highlights — nur der ehrliche Stand der Dinge. Eine Idee von Derek Sivers — <a href="https://nownownow.com/about" target="_blank" style="color:var(--green-mid);text-decoration:none;">mehr erfahren ↗</a>';
   } else {
-    el.innerHTML = "What I'm doing, thinking and working on right now. No social media highlights — just what's actually going on. An idea by Derek Sivers — <a href='https://nownownow.com/about' target='_blank' style='color:var(--green-mid);text-decoration:none;'>learn more ↗</a>";
+    el.innerHTML = "What's on my mind right now, what I'm working on and thinking about. No social media, no highlights — just the honest state of things. An idea by Derek Sivers — <a href='https://nownownow.com/about' target='_blank' style='color:var(--green-mid);text-decoration:none;'>learn more ↗</a>";
   }
 }
 
