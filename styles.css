@@ -44,6 +44,13 @@ nav.scrolled{background:rgba(255,254,250,0.95);box-shadow:0 8px 32px rgba(22,31,
 .nav-links a.nav-cta:hover{color:#fff;filter:brightness(0.92);transform:translateY(-1px);box-shadow:0 4px 12px rgba(31,77,40,0.3)}
 
 
+
+/* Nav wenn Mobilmenü offen: nur Burger sichtbar, über Overlay */
+nav.nav-menu-open{z-index:400;background:transparent;box-shadow:none;border-color:transparent}
+nav.nav-menu-open .nav-name{opacity:0;pointer-events:none}
+nav.nav-menu-open .lang-toggle-mobile{opacity:0;pointer-events:none}
+nav.nav-menu-open .nav-mobile-menu{background:white;box-shadow:0 4px 16px rgba(22,31,23,0.12)}
+
 /* PROGRESS BAR */
 #progress-bar{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--green) 0%,var(--green-mid) 50%,var(--amber) 100%);z-index:1000;border-radius:0 2px 2px 0;transition:width .1s linear;box-shadow:0 0 8px rgba(78,139,92,0.4)}
 
@@ -268,9 +275,8 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 /* MOBILE NAV */
 .nav-mobile-cluster{display:none;align-items:center;gap:10px}
 .lang-toggle-mobile{display:none}
-.nav-mobile-menu{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:9px 10px;border:1px solid var(--border);border-radius:8px;background:white;z-index:320;position:relative}
-.nav-mobile-menu span{width:20px;height:2px;background:var(--ink) !important;border-radius:2px;display:block;transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .25s}
-.nav-mobile-menu.active{opacity:0;pointer-events:none}
+.nav-mobile-menu{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:9px 10px;border:1px solid var(--border);border-radius:8px;background:white;z-index:320;position:relative;transition:background .2s,box-shadow .2s}
+.nav-mobile-menu span{width:20px;height:2px;background:var(--ink) !important;border-radius:2px;display:block;transition:transform .4s cubic-bezier(.65,0,.35,1),opacity .3s cubic-bezier(.65,0,.35,1)}
 .nav-mobile-menu.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-mobile-menu.active span:nth-child(2){opacity:0;transform:scaleX(0)}
 .nav-mobile-menu.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
