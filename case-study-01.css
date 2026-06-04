@@ -135,6 +135,12 @@
 .cs-morework .masonry-grid{max-width:1100px;margin:0 auto;padding:0 56px}
 
 /* RESPONSIVE */
+
+/* Optische Mitte: Inhalt leicht nach rechts, da Sidebar links schwebt */
+@media(min-width:1280px){
+  .cs-wrap{padding-left:96px;padding-right:56px}
+  .cs-hero .cs-wrap{padding-left:56px;padding-right:56px}
+}
 @media(max-width:1100px){
   .cs-wrap{padding:0 40px}
   .cs-hero-body{grid-template-columns:1fr;gap:36px;max-width:640px}
@@ -144,25 +150,34 @@
   .cs-morework .masonry-grid{padding:0 40px}
 }
 @media(max-width:900px){
-  /* Sidebar wird zur horizontalen Leiste unten */
+  /* Sidebar wird zur schwebenden Pillen-Leiste unten mit Abstand */
   .cs-sidebar{
-    top:auto;bottom:12px;left:50%;transform:translateX(-50%);
-    border-radius:16px;border-left:1px solid rgba(255,255,255,0.6);
-    max-width:calc(100% - 24px);overflow-x:auto;
+    top:auto;bottom:16px;left:50%;transform:translateX(-50%);
+    border-radius:100px;border:1px solid rgba(255,255,255,0.6);
+    max-width:calc(100% - 32px);overflow-x:auto;
+    padding:8px 10px;
+    -webkit-overflow-scrolling:touch;
   }
-  .cs-nav-list{flex-direction:row;gap:4px}
-  .cs-nav-item{padding:8px 10px}
+  .cs-sidebar::-webkit-scrollbar{display:none}
+  .cs-sidebar{scrollbar-width:none}
+  .cs-nav-list{flex-direction:row;gap:2px}
+  .cs-nav-item{padding:8px 12px;white-space:nowrap}
   .cs-nav-item span:not(.cs-nav-dot){display:none}
   .cs-nav-item.active span:not(.cs-nav-dot){display:inline}
+  .cs-nav-item.active{background:var(--green-light)}
+  /* Inhalt bekommt unten Platz für die Leiste */
+  body{padding-bottom:80px}
 }
 @media(max-width:600px){
-  .cs-wrap{padding:0 20px}
-  .cs-hero{padding:48px 0 64px}
-  .cs-hero-title{font-size:clamp(52px,18vw,90px)}
-  .cs-section{padding:64px 0}
+  .cs-wrap{padding:0 24px}
+  .cs-hero{padding:40px 0 56px}
+  .cs-hero-title{font-size:clamp(48px,16vw,80px);margin-bottom:40px}
+  .cs-hero-tags{margin-bottom:28px}
+  .cs-section{padding:56px 0}
+  .cs-section-title{font-size:clamp(32px,9vw,48px)}
   .cs-statement-main{font-size:32px}
   .cs-beforeafter{grid-template-columns:1fr}
-  .cs-image-block{height:280px}
-  .cs-morework{padding:72px 0}
-  .cs-morework .masonry-grid{padding:0 20px}
+  .cs-image-block{height:240px}
+  .cs-morework{padding:64px 0}
+  .cs-morework .masonry-grid{padding:0 24px;column-count:1}
 }
