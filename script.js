@@ -83,6 +83,8 @@ let currentLang = 'de';
 function toggleLang(){
   currentLang = currentLang === 'de' ? 'en' : 'de';
   document.getElementById('lang-btn').textContent = currentLang === 'de' ? 'EN' : 'DE';
+  const lm = document.getElementById('lang-btn-mobile');
+  if(lm) lm.textContent = currentLang === 'de' ? 'English' : 'Deutsch';
   document.querySelectorAll('[data-de]').forEach(el => {
     const text = currentLang === 'de' ? el.dataset.de : el.dataset.en;
     if(text) el.textContent = text;
