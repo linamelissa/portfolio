@@ -24,9 +24,12 @@
       <li><a href="#blog" data-de="Blog" data-en="Blog">Blog</a></li>
       <li><a href="#weitere" data-de="Mehr" data-en="More">Mehr</a></li>
       <li><a href="#kontakt" class="nav-cta" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
-      <li><button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button></li>
+      <li class="nav-lang-desktop"><button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button></li>
     </ul>
-    <div class="nav-mobile-menu" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
+    <div class="nav-mobile-cluster">
+      <button class="lang-toggle lang-toggle-mobile" onclick="toggleLang()" id="lang-btn-mobile">EN</button>
+      <div class="nav-mobile-menu" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
+    </div>
   </div>
 </nav>
 
@@ -42,7 +45,6 @@
   <a href="#blog" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Blog" data-en="Blog">Blog</a>
   <a href="#weitere" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Mehr" data-en="More">Mehr</a>
   <a href="#kontakt" class="mobile-nav-contact" onclick="closeMobileNav()" data-de="Kontakt" data-en="Contact">Kontakt</a>
-  <button class="mobile-nav-lang" onclick="toggleLang()" id="lang-btn-mobile">English</button>
 </div>
 
 <div class="container">
