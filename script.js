@@ -105,7 +105,6 @@ function closeMobileNav(){
 }
 function handleOverlayClick(e){ if(e.target === e.currentTarget) closeMobileNav(); }
 
-
 // ===== PROGRESS BAR + NAV SCROLL =====
 function onScroll(){
   const st = window.scrollY || document.documentElement.scrollTop;
@@ -176,3 +175,16 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 // ===== INIT =====
 buildBanner('de');
 setNowIntro();
+
+// ===== SMOOTH SCROLL (mit Offset für fixe Nav) =====
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e){
+    const id = this.getAttribute('href');
+    if(id === '#' || id.length < 2) return;
+    const target = document.querySelector(id);
+    if(!target) return;
+    e.preventDefault();
+    const y = target.getBoundingClientRect().top + window.scrollY - 100;
+    window.scrollTo({ top:y, behavior:'smooth' });
+  });
+});
