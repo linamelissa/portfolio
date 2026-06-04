@@ -105,20 +105,6 @@ function closeMobileNav(){
 }
 function handleOverlayClick(e){ if(e.target === e.currentTarget) closeMobileNav(); }
 
-// ===== PHOTO UPLOAD =====
-function uploadPhoto(e){
-  const file = e.target.files[0];
-  if(!file) return;
-  const url = URL.createObjectURL(file);
-  const heroImg = document.getElementById('hero-img');
-  const heroHint = document.querySelector('.hero-photo-hint');
-  if(heroImg){ heroImg.src = url; heroImg.style.display = 'block'; }
-  if(heroHint) heroHint.style.display = 'none';
-  const aboutImg = document.getElementById('about-img');
-  const aboutHint = document.querySelector('.about-photo-hint');
-  if(aboutImg){ aboutImg.src = url; aboutImg.style.display = 'block'; }
-  if(aboutHint) aboutHint.style.display = 'none';
-}
 
 // ===== PROGRESS BAR + NAV SCROLL =====
 function onScroll(){
