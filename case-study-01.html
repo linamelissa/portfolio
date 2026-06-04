@@ -15,23 +15,17 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-name">Lina Melissa</a>
-    <ul class="nav-links">
-      <li><a href="index.html#work" data-de="Work" data-en="Work">Work</a></li>
-      <li><a href="index.html#about" data-de="About" data-en="About">About</a></li>
-      <li><a href="index.html#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
-      <li><button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button></li>
-    </ul>
-    <div class="nav-mobile-menu" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+      <span data-de="Alle Projekte" data-en="All projects">Alle Projekte</span>
+    </a>
+    <a href="index.html" class="nav-name nav-name-center">Lina Melissa</a>
+    <div class="nav-right">
+      <a href="index.html#kontakt" class="nav-contact-link" data-de="Kontakt" data-en="Contact">Kontakt</a>
+      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button>
+    </div>
   </div>
 </nav>
-
-<div class="mobile-nav-overlay" id="mobile-nav" onclick="handleOverlayClick(event)">
-  <a href="index.html#work" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Work" data-en="Work">Work</a>
-  <a href="index.html#about" class="mobile-nav-link" onclick="closeMobileNav()" data-de="About" data-en="About">About</a>
-  <a href="index.html#now" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Now" data-en="Now">Now</a>
-  <a href="index.html#kontakt" class="mobile-nav-contact" onclick="closeMobileNav()" data-de="Kontakt" data-en="Contact">Kontakt</a>
-</div>
 
 <!-- FIXE SIDEBAR LINKS -->
 <aside class="cs-sidebar">
