@@ -48,7 +48,7 @@ nav.scrolled{background:rgba(255,254,250,0.95);box-shadow:0 8px 32px rgba(22,31,
 @media(hover:none){#custom-cursor{display:none}}
 
 /* HERO */
-.hero{padding:88px 0 104px;border-bottom:1px solid var(--border);text-align:center;position:relative}
+.hero{padding:48px 0 72px;border-bottom:1px solid var(--border);text-align:center;position:relative}
 .hero::before{content:"";position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:min(700px,90vw);height:440px;background:radial-gradient(ellipse,rgba(78,139,92,0.12) 0%,rgba(242,203,90,0.06) 40%,transparent 70%);pointer-events:none;z-index:-1;filter:blur(20px);max-width:100%}
 .hero-available{position:relative;display:inline-flex;align-items:center;gap:7px;background:white;border:1px solid var(--border);border-radius:100px;padding:6px 14px;font-size:13px;color:var(--ink-soft);margin-bottom:44px;box-shadow:0 1px 4px rgba(22,31,23,0.06);transition:box-shadow .2s,transform .2s}
 .hero-available:hover{box-shadow:0 4px 12px rgba(22,31,23,0.08);transform:translateY(-1px)}
@@ -63,7 +63,7 @@ nav.scrolled{background:rgba(255,254,250,0.95);box-shadow:0 8px 32px rgba(22,31,
 .hero-photo-stage{position:relative;display:inline-block;margin-bottom:52px}
 .hero-photo-circle{width:240px;height:240px;border-radius:50%;background:linear-gradient(135deg,var(--green-light) 0%,#d4e8d8 100%);border:3px solid transparent;background-clip:padding-box;box-shadow:0 0 0 3px var(--green-mid),0 8px 32px rgba(22,31,23,0.12),0 2px 8px rgba(22,31,23,0.06);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;margin:0 auto}
 .hero-photo-circle img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
-.hero-badge{position:absolute;bottom:8px;right:-32px;display:inline-flex;align-items:center;gap:6px;background:white;border:1px solid var(--border);border-radius:100px;padding:6px 14px;font-size:12px;color:var(--ink-soft);white-space:nowrap;box-shadow:0 4px 16px rgba(22,31,23,0.08),0 1px 4px rgba(22,31,23,0.04)}
+.hero-badge{position:absolute;bottom:8px;right:-32px;z-index:5;display:inline-flex;align-items:center;gap:6px;background:white;border:1px solid var(--border);border-radius:100px;padding:6px 14px;font-size:12px;color:var(--ink-soft);white-space:nowrap;box-shadow:0 4px 16px rgba(22,31,23,0.08),0 1px 4px rgba(22,31,23,0.04)}
 .hero-sub{font-size:18px;color:var(--ink-soft);max-width:560px;margin:0 auto 44px;line-height:1.75}
 .hero-actions{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
 .btn-primary{display:inline-flex;align-items:center;background:linear-gradient(120deg,var(--green) 0%,var(--green-dark) 100%);color:white;text-decoration:none;padding:14px 30px;border-radius:100px;font-size:14px;font-weight:500;transition:transform .15s,box-shadow .2s,filter .2s;box-shadow:0 1px 3px rgba(31,77,40,0.2),inset 0 1px 0 rgba(255,255,255,0.15);position:relative;overflow:hidden}
@@ -287,51 +287,14 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
   border-radius:50%;
   border:2px dashed var(--green-mid);
   opacity:.55;
-  animation:ringSpin 18s linear infinite;
+  animation:ringSpin 30s linear infinite;
   pointer-events:none;
-  z-index:0;
+  z-index:1;
 }
 @keyframes ringSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-/* Foto über dem Ring, eigener Hintergrund-Ring weg */
-.hero-photo-circle{z-index:1}
+/* Foto über dem Ring */
+.hero-photo-circle{z-index:2}
 
-/* ===== HERO: SANFTES SCHWEBEN DES FOTOS ===== */
-.hero-photo-circle{animation:floaty 6s ease-in-out infinite}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-
-/* ===== HERO: SCROLL-INDIKATOR ===== */
-.scroll-indicator{
-  display:inline-flex;
-  flex-direction:column;
-  align-items:center;
-  gap:8px;
-  margin-top:48px;
-  text-decoration:none;
-  opacity:.6;
-  transition:opacity .2s;
-}
-.scroll-indicator:hover{opacity:1}
-.scroll-mouse{
-  width:24px;height:38px;
-  border:2px solid var(--ink-muted);
-  border-radius:14px;
-  display:flex;
-  justify-content:center;
-  padding-top:6px;
-}
-.scroll-wheel{
-  width:4px;height:8px;
-  border-radius:2px;
-  background:var(--green-mid);
-  animation:scrollWheel 1.6s ease-in-out infinite;
-}
-@keyframes scrollWheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}60%{opacity:1;transform:translateY(8px)}100%{opacity:0;transform:translateY(10px)}}
-.scroll-text{
-  font-family:var(--font-mono);
-  font-size:10px;
-  letter-spacing:.2em;
-  color:var(--ink-muted);
-}
 
 /* ===== CASE CARDS: stärkerer Hover ===== */
 .case-card{position:relative}
@@ -387,13 +350,18 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
   position:relative;
   border-radius:12px;
   overflow:hidden;
-  background:white;
+  background:linear-gradient(135deg,var(--green-light),#d4e8d8);
   border:1px solid rgba(78,139,92,0.2);
   display:block;
-  min-height:120px;
+  min-height:140px;
 }
-.tl-cert-preview img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
-.tl-cert-preview.no-img{background:linear-gradient(135deg,var(--green-light),#d4e8d8)}
+.tl-cert-embed{
+  width:100%;height:100%;
+  position:absolute;inset:0;
+  border:none;
+  pointer-events:none;
+  background:white;
+}
 .tl-cert-overlay{
   position:absolute;
   inset:0;
@@ -402,16 +370,15 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
   align-items:center;
   justify-content:center;
   gap:6px;
-  background:rgba(31,77,40,0.0);
+  background:rgba(31,77,40,0);
   color:transparent;
   font-family:var(--font-mono);
   font-size:11px;
+  letter-spacing:.04em;
   transition:background .25s,color .25s;
 }
 .tl-cert-overlay svg.lucide{width:18px;height:18px;stroke:white}
 .tl-cert-preview:hover .tl-cert-overlay{background:rgba(31,77,40,0.55);color:white}
-.tl-cert-preview.no-img .tl-cert-overlay{background:transparent;color:var(--green-dark)}
-.tl-cert-preview.no-img .tl-cert-overlay svg.lucide{stroke:var(--green-dark)}
 
 /* ===== KONTAKT: Umbruch-Text sauberer Abstand ===== */
 .contact-desc br{content:'';display:block;margin-bottom:2px}
