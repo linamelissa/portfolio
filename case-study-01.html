@@ -17,9 +17,9 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-name">Lina Melissa</a>
     <ul class="nav-links">
-      <li><a href="index.html#work">Projects</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#contact" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+      <li><a href="index.html#work" data-de="Work" data-en="Work">Work</a></li>
+      <li><a href="index.html#about" data-de="About" data-en="About">About</a></li>
+      <li><a href="index.html#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
       <li><button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button></li>
     </ul>
     <div class="nav-mobile-menu" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
@@ -27,15 +27,33 @@
 </nav>
 
 <div class="mobile-nav-overlay" id="mobile-nav" onclick="handleOverlayClick(event)">
-  <a href="index.html#work" class="mobile-nav-link" onclick="closeMobileNav()">Projects</a>
-  <a href="index.html#about" class="mobile-nav-link" onclick="closeMobileNav()">About</a>
-  <a href="index.html#now" class="mobile-nav-link" onclick="closeMobileNav()">Now</a>
-  <a href="index.html#contact" class="mobile-nav-contact" onclick="closeMobileNav()" data-de="Kontakt" data-en="Contact">Kontakt</a>
+  <a href="index.html#work" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Work" data-en="Work">Work</a>
+  <a href="index.html#about" class="mobile-nav-link" onclick="closeMobileNav()" data-de="About" data-en="About">About</a>
+  <a href="index.html#now" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Now" data-en="Now">Now</a>
+  <a href="index.html#kontakt" class="mobile-nav-contact" onclick="closeMobileNav()" data-de="Kontakt" data-en="Contact">Kontakt</a>
 </div>
+
+<!-- FIXE SIDEBAR LINKS -->
+<aside class="cs-sidebar">
+  <ul class="cs-nav-list">
+    <li><a class="cs-nav-item active" data-target="problem"><span class="cs-nav-dot"></span><span data-de="Problem" data-en="Problem">Problem</span></a></li>
+    <li><a class="cs-nav-item" data-target="research"><span class="cs-nav-dot"></span><span data-de="Research" data-en="Research">Research</span></a></li>
+    <li><a class="cs-nav-item" data-target="hmw"><span class="cs-nav-dot"></span><span data-de="How Might We" data-en="How Might We">How Might We</span></a></li>
+    <li><a class="cs-nav-item" data-target="process"><span class="cs-nav-dot"></span><span data-de="Prozess" data-en="Process">Prozess</span></a></li>
+    <li><a class="cs-nav-item" data-target="testing"><span class="cs-nav-dot"></span><span data-de="Testing" data-en="Testing">Testing</span></a></li>
+    <li><a class="cs-nav-item" data-target="beforeafter"><span class="cs-nav-dot"></span><span data-de="Vorher &amp; Nachher" data-en="Before &amp; After">Vorher &amp; Nachher</span></a></li>
+    <li><a class="cs-nav-item" data-target="solution"><span class="cs-nav-dot"></span><span data-de="Lösung" data-en="Solution">Lösung</span></a></li>
+    <li><a class="cs-nav-item" data-target="prototype"><span class="cs-nav-dot"></span><span data-de="Prototyp" data-en="Prototype">Prototyp</span></a></li>
+    <li><a class="cs-nav-item" data-target="ki"><span class="cs-nav-dot"></span><span data-de="KI in Design" data-en="AI in Design">KI in Design</span></a></li>
+    <li><a class="cs-nav-item" data-target="kpis"><span class="cs-nav-dot"></span><span data-de="KPIs" data-en="KPIs">KPIs</span></a></li>
+    <li><a class="cs-nav-item" data-target="outlook"><span class="cs-nav-dot"></span><span data-de="Ausblick" data-en="Outlook">Ausblick</span></a></li>
+    <li><a class="cs-nav-item" data-target="lessons"><span class="cs-nav-dot"></span><span data-de="Learnings" data-en="Lessons">Learnings</span></a></li>
+  </ul>
+</aside>
 
 <!-- HERO -->
 <div class="cs-hero">
-  <div class="cs-hero-inner">
+  <div class="cs-wrap">
     <div class="cs-hero-tags">
       <span class="cs-hero-tag">[Tag 1]</span>
       <span class="cs-hero-tag">[Tag 2]</span>
@@ -46,203 +64,197 @@
     <h1 class="cs-hero-title">[Projekt&shy;name]</h1>
     <div class="cs-hero-body">
       <div class="cs-meta">
-        <div class="cs-meta-item"><span class="cs-meta-label">Type</span><span class="cs-meta-value">[z.B. Solo Product Design Case]</span></div>
-        <div class="cs-meta-item"><span class="cs-meta-label">Role</span><span class="cs-meta-value">[z.B. Product Designer & UI/UX]</span></div>
-        <div class="cs-meta-item"><span class="cs-meta-label">Scope</span><span class="cs-meta-value">[z.B. UX Research · Strategy · UI]</span></div>
-        <div class="cs-meta-item"><span class="cs-meta-label">Duration</span><span class="cs-meta-value">[z.B. 4 Monate]</span></div>
-        <div class="cs-meta-item"><span class="cs-meta-label">Tools</span><span class="cs-meta-value">[z.B. Figma · Framer · Miro]</span></div>
-        <div class="cs-meta-item"><span class="cs-meta-label">Status</span><span class="cs-meta-value">[z.B. In Handoff]</span></div>
+        <div class="cs-meta-item"><span class="cs-meta-label" data-de="Typ" data-en="Type">Typ</span><span class="cs-meta-value">[z.B. Solo Product Design Case]</span></div>
+        <div class="cs-meta-item"><span class="cs-meta-label" data-de="Rolle" data-en="Role">Rolle</span><span class="cs-meta-value">[z.B. Product Designer & UI/UX]</span></div>
+        <div class="cs-meta-item"><span class="cs-meta-label" data-de="Umfang" data-en="Scope">Umfang</span><span class="cs-meta-value">[z.B. UX Research · Strategie · UI]</span></div>
+        <div class="cs-meta-item"><span class="cs-meta-label" data-de="Dauer" data-en="Duration">Dauer</span><span class="cs-meta-value">[z.B. 4 Monate]</span></div>
+        <div class="cs-meta-item"><span class="cs-meta-label" data-de="Tools" data-en="Tools">Tools</span><span class="cs-meta-value">[z.B. Figma · Framer · Miro]</span></div>
+        <div class="cs-meta-item"><span class="cs-meta-label" data-de="Status" data-en="Status">Status</span><span class="cs-meta-value">[z.B. In Handoff]</span></div>
         <div class="cs-meta-buttons">
           <a href="#" class="cs-btn-dark"><span data-de="Landingpage" data-en="Landing page">Landingpage</span> <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
           <a href="#" class="cs-btn-outline">Figma <svg viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
         </div>
       </div>
-      <div class="cs-intro-box">
-        <p>[Hier kommt dein Intro-Text hin. Beschreibe kurz worum es bei dem Projekt geht und welches <strong>Problem</strong> du gelöst hast. Du kannst einzelne Wörter <strong>fett</strong> machen um sie hervorzuheben.]</p>
+      <div class="cs-hero-right">
+        <div class="cs-intro-box">
+          <p data-de="[Hier kommt dein Intro-Text hin. Beschreibe kurz worum es bei dem Projekt geht und welches Problem du gelöst hast.]" data-en="[Your intro text goes here. Briefly describe what the project is about and which problem you solved.]">[Hier kommt dein Intro-Text hin. Beschreibe kurz worum es bei dem Projekt geht und welches Problem du gelöst hast.]</p>
+        </div>
+        <div class="cs-hero-image">
+          <img src="case-hero.jpg" alt="[Projekt]" onerror="this.style.display='none';this.parentElement.querySelector('.cs-img-hint').style.display='block'">
+          <span class="cs-img-hint" style="display:none" data-de="[Hero-Bild: case-hero.jpg]" data-en="[Hero image: case-hero.jpg]">[Hero-Bild: case-hero.jpg]</span>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- MAIN with SIDEBAR -->
-<div class="cs-layout">
-  <aside class="cs-sidebar">
-    <div class="cs-sidebar-inner">
-      <ul class="cs-nav-list">
-        <li><a class="cs-nav-item active" data-target="problem"><span class="cs-nav-dot"></span>Problem</a></li>
-        <li><a class="cs-nav-item" data-target="research"><span class="cs-nav-dot"></span>Research</a></li>
-        <li><a class="cs-nav-item" data-target="hmw"><span class="cs-nav-dot"></span>How Might We</a></li>
-        <li><a class="cs-nav-item" data-target="process"><span class="cs-nav-dot"></span>Process</a></li>
-        <li><a class="cs-nav-item" data-target="testing"><span class="cs-nav-dot"></span>Testing</a></li>
-        <li><a class="cs-nav-item" data-target="beforeafter"><span class="cs-nav-dot"></span>Before &amp; After</a></li>
-        <li><a class="cs-nav-item" data-target="solution"><span class="cs-nav-dot"></span>Solution</a></li>
-        <li><a class="cs-nav-item" data-target="prototype"><span class="cs-nav-dot"></span>Prototype</a></li>
-        <li><a class="cs-nav-item" data-target="kpis"><span class="cs-nav-dot"></span>KPIs</a></li>
-        <li><a class="cs-nav-item" data-target="outlook"><span class="cs-nav-dot"></span>Outlook</a></li>
-        <li><a class="cs-nav-item" data-target="lessons"><span class="cs-nav-dot"></span>Lessons</a></li>
-      </ul>
+<!-- INHALT -->
+<div class="cs-wrap">
+
+  <section class="cs-section" id="problem">
+    <span class="cs-section-label" data-de="Das Problem" data-en="The Problem">Das Problem</span>
+    <div class="cs-statement">
+      <div class="cs-statement-main"><span data-de="[Kernproblem in einem Satz]" data-en="[Core problem in one sentence]">[Kernproblem in einem Satz]</span><em data-de="[kursiver Teil der Aussage.]" data-en="[italic part of the statement.]">[kursiver Teil der Aussage.]</em></div>
+      <div class="cs-statement-side"><span data-de="[Erkläre hier das Problem genauer. Was ist die Schmerzgrenze für die Nutzer? Warum ist es relevant?]" data-en="[Explain the problem in more detail. What's the pain point for users? Why does it matter?]">[Erkläre hier das Problem genauer. Was ist die Schmerzgrenze für die Nutzer? Warum ist es relevant?]</span></div>
     </div>
-  </aside>
+  </section>
 
-  <main class="cs-main">
+  <section class="cs-section" id="research">
+    <span class="cs-section-label" data-de="Research" data-en="Research">Research</span>
+    <h2 class="cs-section-title"><span data-de="[Research-Titel]" data-en="[Research title]">[Research-Titel]</span> <em data-de="[kursiv]" data-en="[italic]">[kursiv]</em></h2>
+    <p class="cs-section-sub" data-de="[Kurze Einleitung zu deiner Research-Phase — Methoden, Anzahl Teilnehmer, was du herausfinden wolltest.]" data-en="[Brief intro to your research phase — methods, number of participants, what you wanted to find out.]">[Kurze Einleitung zu deiner Research-Phase — Methoden, Anzahl Teilnehmer, was du herausfinden wolltest.]</p>
+    <div class="cs-cards-3">
+      <div class="cs-content-card"><div class="cs-content-icon" data-icon="search"></div><h3 data-de="[Methode 1]" data-en="[Method 1]">[Methode 1]</h3><p data-de="[z.B. 4 qualitative Interviews mit der Zielgruppe.]" data-en="[e.g. 4 qualitative interviews with the target group.]">[z.B. 4 qualitative Interviews mit der Zielgruppe.]</p></div>
+      <div class="cs-content-card"><div class="cs-content-icon" data-icon="user"></div><h3 data-de="[Methode 2]" data-en="[Method 2]">[Methode 2]</h3><p data-de="[z.B. 52-Personen-Umfrage zur Validierung.]" data-en="[e.g. 52-person survey for validation.]">[z.B. 52-Personen-Umfrage zur Validierung.]</p></div>
+      <div class="cs-content-card"><div class="cs-content-icon" data-icon="layers"></div><h3 data-de="[Methode 3]" data-en="[Method 3]">[Methode 3]</h3><p data-de="[z.B. Wettbewerbsanalyse von 4 Apps.]" data-en="[e.g. competitive analysis of 4 apps.]">[z.B. Wettbewerbsanalyse von 4 Apps.]</p></div>
+    </div>
+  </section>
 
-    <!-- PROBLEM -->
-    <section class="cs-section" id="problem">
-      <span class="cs-section-label">The Problem</span>
-      <div class="cs-statement">
-        <div class="cs-statement-main">[Kernproblem in einem Satz]<em>[kursiver Teil der Aussage.]</em></div>
-        <div class="cs-statement-side">[Erkläre hier das Problem genauer. Was ist die <strong>Schmerzgrenze</strong> für die Nutzer? Warum ist es relevant?]</div>
+  <section class="cs-section" id="hmw">
+    <span class="cs-section-label" data-de="How Might We" data-en="How Might We">How Might We</span>
+    <div class="cs-statement">
+      <div class="cs-statement-main"><span data-de="[Deine HMW-Frage]" data-en="[Your HMW question]">[Deine HMW-Frage]</span></div>
+      <div class="cs-statement-side"><span data-de="[Erkläre wie du von der Research zu dieser Leitfrage gekommen bist.]" data-en="[Explain how you got from research to this guiding question.]">[Erkläre wie du von der Research zu dieser Leitfrage gekommen bist.]</span></div>
+    </div>
+  </section>
+
+  <section class="cs-section" id="process">
+    <span class="cs-section-label" data-de="Prozess" data-en="Process">Prozess</span>
+    <h2 class="cs-section-title"><span data-de="[Prozess-Titel]" data-en="[Process title]">[Prozess-Titel]</span> <em data-de="[kursiv]" data-en="[italic]">[kursiv]</em></h2>
+    <p class="cs-section-sub" data-de="[Beschreibe deinen Designprozess — von der Idee bis zum Prototyp.]" data-en="[Describe your design process — from idea to prototype.]">[Beschreibe deinen Designprozess — von der Idee bis zum Prototyp.]</p>
+    <div class="cs-image-block"><span class="cs-image-hint" data-de="[Bild / Screenshot hier einfügen]" data-en="[Insert image / screenshot here]">[Bild / Screenshot hier einfügen]</span></div>
+  </section>
+
+  <section class="cs-section" id="testing">
+    <span class="cs-section-label" data-de="Testing" data-en="Testing">Testing</span>
+    <h2 class="cs-section-title"><span data-de="[Testing-Titel]" data-en="[Testing title]">[Testing-Titel]</span> <em data-de="[kursiv]" data-en="[italic]">[kursiv]</em></h2>
+    <p class="cs-section-sub" data-de="[Wie hast du getestet? Was kam dabei heraus?]" data-en="[How did you test? What came out of it?]">[Wie hast du getestet? Was kam dabei heraus?]</p>
+    <div class="cs-cards-3">
+      <div class="cs-content-card"><div class="cs-content-icon" data-icon="zap"></div><h3 data-de="[Erkenntnis 1]" data-en="[Insight 1]">[Erkenntnis 1]</h3><p data-de="[Was hast du gelernt?]" data-en="[What did you learn?]">[Was hast du gelernt?]</p></div>
+      <div class="cs-content-card"><div class="cs-content-icon" data-icon="sparkles"></div><h3 data-de="[Erkenntnis 2]" data-en="[Insight 2]">[Erkenntnis 2]</h3><p data-de="[Was hast du gelernt?]" data-en="[What did you learn?]">[Was hast du gelernt?]</p></div>
+      <div class="cs-content-card"><div class="cs-content-icon" data-icon="star"></div><h3 data-de="[Erkenntnis 3]" data-en="[Insight 3]">[Erkenntnis 3]</h3><p data-de="[Was hast du gelernt?]" data-en="[What did you learn?]">[Was hast du gelernt?]</p></div>
+    </div>
+  </section>
+
+  <section class="cs-section" id="beforeafter">
+    <span class="cs-section-label" data-de="Vorher & Nachher" data-en="Before & After">Vorher & Nachher</span>
+    <h2 class="cs-section-title"><span data-de="Was sich" data-en="What">Was sich</span> <em data-de="verändert hat" data-en="changed">verändert hat</em></h2>
+    <p class="cs-section-sub" data-de="[Stelle den Zustand vorher und nachher gegenüber.]" data-en="[Compare the before and after state.]">[Stelle den Zustand vorher und nachher gegenüber.]</p>
+    <div class="cs-beforeafter">
+      <div class="cs-ba-col cs-ba-before">
+        <span class="cs-ba-tag" data-de="Vorher" data-en="Before">Vorher</span>
+        <ul><li data-de="[Problem 1]" data-en="[Problem 1]">[Problem 1]</li><li data-de="[Problem 2]" data-en="[Problem 2]">[Problem 2]</li><li data-de="[Problem 3]" data-en="[Problem 3]">[Problem 3]</li><li data-de="[Problem 4]" data-en="[Problem 4]">[Problem 4]</li></ul>
       </div>
-    </section>
-
-    <!-- RESEARCH -->
-    <section class="cs-section" id="research">
-      <span class="cs-section-label">Research</span>
-      <h2 class="cs-section-title">[Research-Titel] <em>[kursiver Teil]</em></h2>
-      <p class="cs-section-sub">[Kurze Einleitung zu deiner Research-Phase — Methoden, Anzahl Teilnehmer, was du herausfinden wolltest.]</p>
-      <div class="cs-cards-3">
-        <div class="cs-content-card"><div class="cs-content-icon" data-icon="search"></div><h3>[Methode 1]</h3><p>[Beschreibung — z.B. 4 qualitative Interviews mit der Zielgruppe.]</p></div>
-        <div class="cs-content-card"><div class="cs-content-icon" data-icon="user"></div><h3>[Methode 2]</h3><p>[Beschreibung — z.B. 52-Personen-Umfrage zur Validierung.]</p></div>
-        <div class="cs-content-card"><div class="cs-content-icon" data-icon="layers"></div><h3>[Methode 3]</h3><p>[Beschreibung — z.B. Competitive Analysis von 4 Apps.]</p></div>
+      <div class="cs-ba-col cs-ba-after">
+        <span class="cs-ba-tag" data-de="Nachher" data-en="After">Nachher</span>
+        <ul><li data-de="[Lösung 1]" data-en="[Solution 1]">[Lösung 1]</li><li data-de="[Lösung 2]" data-en="[Solution 2]">[Lösung 2]</li><li data-de="[Lösung 3]" data-en="[Solution 3]">[Lösung 3]</li><li data-de="[Lösung 4]" data-en="[Solution 4]">[Lösung 4]</li></ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- HOW MIGHT WE -->
-    <section class="cs-section" id="hmw">
-      <span class="cs-section-label">How Might We</span>
-      <div class="cs-statement">
-        <div class="cs-statement-main">[Deine HMW-Frage]<em>[kursiver Teil?]</em></div>
-        <div class="cs-statement-side">[Erkläre wie du von der Research zu dieser Leitfrage gekommen bist.]</div>
+  <section class="cs-section" id="solution">
+    <span class="cs-section-label" data-de="Lösung" data-en="Solution">Lösung</span>
+    <h2 class="cs-section-title"><span data-de="[Lösungs-Titel]" data-en="[Solution title]">[Lösungs-Titel]</span> <em data-de="[kursiv]" data-en="[italic]">[kursiv]</em></h2>
+    <p class="cs-section-sub" data-de="[Beschreibe deine finale Lösung — was macht sie besonders?]" data-en="[Describe your final solution — what makes it special?]">[Beschreibe deine finale Lösung — was macht sie besonders?]</p>
+    <div class="cs-image-block"><span class="cs-image-hint" data-de="[Hauptscreen der Lösung]" data-en="[Main screen of the solution]">[Hauptscreen der Lösung]</span></div>
+  </section>
+
+  <section class="cs-section" id="prototype">
+    <span class="cs-section-label" data-de="Prototyp" data-en="Prototype">Prototyp</span>
+    <h2 class="cs-section-title"><span data-de="[Prototyp-Titel]" data-en="[Prototype title]">[Prototyp-Titel]</span> <em data-de="[kursiv]" data-en="[italic]">[kursiv]</em></h2>
+    <p class="cs-section-sub" data-de="[Zeige deinen interaktiven Prototyp oder verlinke ihn.]" data-en="[Show your interactive prototype or link to it.]">[Zeige deinen interaktiven Prototyp oder verlinke ihn.]</p>
+    <div class="cs-image-block"><span class="cs-image-hint" data-de="[Prototyp-Screens / Video]" data-en="[Prototype screens / video]">[Prototyp-Screens / Video]</span></div>
+  </section>
+
+  <section class="cs-section" id="ki">
+    <span class="cs-section-label" data-de="KI in Design" data-en="AI in Design">KI in Design</span>
+    <h2 class="cs-section-title"><span data-de="Wie KI mir" data-en="How AI">Wie KI mir</span> <em data-de="geholfen hat" data-en="helped me">geholfen hat</em></h2>
+    <p class="cs-section-sub" data-de="[Wo und wie hast du KI im Designprozess eingesetzt? Was hat es gebracht?]" data-en="[Where and how did you use AI in the design process? What did it bring?]">[Wo und wie hast du KI im Designprozess eingesetzt? Was hat es gebracht?]</p>
+    <div class="cs-cards-3">
+      <div class="cs-content-card"><div class="cs-content-icon" data-icon="search"></div><h3 data-de="[Einsatz 1]" data-en="[Use 1]">[Einsatz 1]</h3><p data-de="[z.B. Research-Synthese mit Claude.]" data-en="[e.g. research synthesis with Claude.]">[z.B. Research-Synthese mit Claude.]</p></div>
+      <div class="cs-content-card"><div class="cs-content-icon" data-icon="pen-tool"></div><h3 data-de="[Einsatz 2]" data-en="[Use 2]">[Einsatz 2]</h3><p data-de="[z.B. Ideation & Varianten.]" data-en="[e.g. ideation & variants.]">[z.B. Ideation & Varianten.]</p></div>
+      <div class="cs-content-card"><div class="cs-content-icon" data-icon="layers"></div><h3 data-de="[Einsatz 3]" data-en="[Use 3]">[Einsatz 3]</h3><p data-de="[z.B. Prototyp per Vibe Coding.]" data-en="[e.g. prototype via vibe coding.]">[z.B. Prototyp per Vibe Coding.]</p></div>
+    </div>
+  </section>
+
+  <section class="cs-section" id="kpis">
+    <span class="cs-section-label" data-de="KPIs" data-en="KPIs">KPIs</span>
+    <h2 class="cs-section-title"><span data-de="Was wirklich" data-en="Measuring what">Was wirklich</span> <em data-de="zählt" data-en="actually matters">zählt</em></h2>
+    <p class="cs-section-sub" data-de="[Welche Kennzahlen zeigen dass deine Lösung funktioniert?]" data-en="[Which metrics show your solution works?]">[Welche Kennzahlen zeigen dass deine Lösung funktioniert?]</p>
+    <div class="cs-cards">
+      <div class="cs-card">
+        <div class="cs-card-num">01</div>
+        <div class="cs-card-title" data-de="[KPI 1 Name]" data-en="[KPI 1 name]">[KPI 1 Name]</div>
+        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Messung" data-en="Measure">Messung</span><span class="cs-card-row-value" data-de="[Was wird gemessen]" data-en="[What is measured]">[Was wird gemessen]</span></div>
+        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Ziel" data-en="Target">Ziel</span><span class="cs-card-row-value" data-de="[Zielwert]" data-en="[Target value]">[Zielwert]</span></div>
+        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Signal" data-en="Signal">Signal</span><span class="cs-card-row-value" data-de="[Was es bestätigt]" data-en="[What it confirms]">[Was es bestätigt]</span></div>
+        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Ergebnis" data-en="Results">Ergebnis</span><span class="cs-card-row-value" data-de="[Ergebnis]" data-en="[Result]">[Ergebnis]</span></div>
       </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="cs-section" id="process">
-      <span class="cs-section-label">Process</span>
-      <h2 class="cs-section-title">[Prozess-Titel] <em>[kursiver Teil]</em></h2>
-      <p class="cs-section-sub">[Beschreibe deinen Designprozess — von der Idee bis zum Prototyp.]</p>
-      <div class="cs-image-block"><span class="cs-image-hint">[Bild / Screenshot hier einfügen]</span></div>
-    </section>
-
-    <!-- TESTING -->
-    <section class="cs-section" id="testing">
-      <span class="cs-section-label">Testing</span>
-      <h2 class="cs-section-title">[Testing-Titel] <em>[kursiver Teil]</em></h2>
-      <p class="cs-section-sub">[Wie hast du getestet? Was kam dabei heraus?]</p>
-      <div class="cs-cards-3">
-        <div class="cs-content-card"><div class="cs-content-icon" data-icon="zap"></div><h3>[Erkenntnis 1]</h3><p>[Was hast du gelernt?]</p></div>
-        <div class="cs-content-card"><div class="cs-content-icon" data-icon="sparkles"></div><h3>[Erkenntnis 2]</h3><p>[Was hast du gelernt?]</p></div>
-        <div class="cs-content-card"><div class="cs-content-icon" data-icon="star"></div><h3>[Erkenntnis 3]</h3><p>[Was hast du gelernt?]</p></div>
+      <div class="cs-card">
+        <div class="cs-card-num">02</div>
+        <div class="cs-card-title" data-de="[KPI 2 Name]" data-en="[KPI 2 name]">[KPI 2 Name]</div>
+        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Messung" data-en="Measure">Messung</span><span class="cs-card-row-value" data-de="[Was wird gemessen]" data-en="[What is measured]">[Was wird gemessen]</span></div>
+        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Ziel" data-en="Target">Ziel</span><span class="cs-card-row-value" data-de="[Zielwert]" data-en="[Target value]">[Zielwert]</span></div>
+        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Signal" data-en="Signal">Signal</span><span class="cs-card-row-value" data-de="[Was es bestätigt]" data-en="[What it confirms]">[Was es bestätigt]</span></div>
+        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Ergebnis" data-en="Results">Ergebnis</span><span class="cs-card-row-value" data-de="[Ergebnis]" data-en="[Result]">[Ergebnis]</span></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- BEFORE & AFTER -->
-    <section class="cs-section" id="beforeafter">
-      <span class="cs-section-label">Before &amp; After</span>
-      <h2 class="cs-section-title">Was sich <em>verändert hat</em></h2>
-      <p class="cs-section-sub">[Stelle den Zustand vorher und nachher gegenüber.]</p>
-      <div class="cs-beforeafter">
-        <div class="cs-ba-col cs-ba-before">
-          <span class="cs-ba-tag">Vorher</span>
-          <ul><li>[Problem 1]</li><li>[Problem 2]</li><li>[Problem 3]</li><li>[Problem 4]</li></ul>
-        </div>
-        <div class="cs-ba-col cs-ba-after">
-          <span class="cs-ba-tag">Nachher</span>
-          <ul><li>[Lösung 1]</li><li>[Lösung 2]</li><li>[Lösung 3]</li><li>[Lösung 4]</li></ul>
-        </div>
-      </div>
-    </section>
+  <section class="cs-section" id="outlook">
+    <span class="cs-section-label" data-de="Ausblick" data-en="Outlook">Ausblick</span>
+    <div class="cs-statement">
+      <div class="cs-statement-main"><span data-de="Was als" data-en="What comes">Was als</span> <em data-de="Nächstes kommt" data-en="next">Nächstes kommt</em></div>
+      <div class="cs-statement-side"><span data-de="[Wie würde es weitergehen? Welche nächsten Schritte sind geplant?]" data-en="[How would it continue? What next steps are planned?]">[Wie würde es weitergehen? Welche nächsten Schritte sind geplant?]</span></div>
+    </div>
+  </section>
 
-    <!-- SOLUTION -->
-    <section class="cs-section" id="solution">
-      <span class="cs-section-label">Solution</span>
-      <h2 class="cs-section-title">[Lösungs-Titel] <em>[kursiver Teil]</em></h2>
-      <p class="cs-section-sub">[Beschreibe deine finale Lösung — was macht sie besonders?]</p>
-      <div class="cs-image-block"><span class="cs-image-hint">[Hauptscreen / Hero-Shot der Lösung]</span></div>
-    </section>
+  <section class="cs-section" id="lessons">
+    <span class="cs-section-label" data-de="Learnings" data-en="Lessons">Learnings</span>
+    <h2 class="cs-section-title"><span data-de="Was ich" data-en="What I">Was ich</span> <em data-de="gelernt habe" data-en="learned">gelernt habe</em></h2>
+    <p class="cs-section-sub" data-de="[Deine ehrlichen Learnings aus dem Projekt.]" data-en="[Your honest learnings from the project.]">[Deine ehrlichen Learnings aus dem Projekt.]</p>
+    <div class="cs-cards-3">
+      <div class="cs-content-card"><div class="cs-content-icon" data-icon="book-open"></div><h3 data-de="[Learning 1]" data-en="[Lesson 1]">[Learning 1]</h3><p data-de="[Was hast du mitgenommen?]" data-en="[What did you take away?]">[Was hast du mitgenommen?]</p></div>
+      <div class="cs-content-card"><div class="cs-content-icon" data-icon="pen-tool"></div><h3 data-de="[Learning 2]" data-en="[Lesson 2]">[Learning 2]</h3><p data-de="[Was hast du mitgenommen?]" data-en="[What did you take away?]">[Was hast du mitgenommen?]</p></div>
+      <div class="cs-content-card"><div class="cs-content-icon" data-icon="zap"></div><h3 data-de="[Learning 3]" data-en="[Lesson 3]">[Learning 3]</h3><p data-de="[Was hast du mitgenommen?]" data-en="[What did you take away?]">[Was hast du mitgenommen?]</p></div>
+    </div>
+  </section>
 
-    <!-- PROTOTYPE -->
-    <section class="cs-section" id="prototype">
-      <span class="cs-section-label">Prototype</span>
-      <h2 class="cs-section-title">[Prototyp-Titel] <em>[kursiver Teil]</em></h2>
-      <p class="cs-section-sub">[Zeige deinen interaktiven Prototyp oder verlinke ihn.]</p>
-      <div class="cs-image-block"><span class="cs-image-hint">[Prototyp-Screens / Video]</span></div>
-    </section>
-
-    <!-- KPIs -->
-    <section class="cs-section" id="kpis">
-      <span class="cs-section-label">KPIs</span>
-      <h2 class="cs-section-title">Measuring what <em>actually matters</em></h2>
-      <p class="cs-section-sub">[Welche Kennzahlen zeigen dass deine Lösung funktioniert?]</p>
-      <div class="cs-cards">
-        <div class="cs-card">
-          <div class="cs-card-num">01</div>
-          <div class="cs-card-title">[KPI 1 Name]</div>
-          <div class="cs-card-row"><span class="cs-card-row-label">Measure</span><span class="cs-card-row-value">[Was wird gemessen]</span></div>
-          <div class="cs-card-row"><span class="cs-card-row-label">Target</span><span class="cs-card-row-value">[Zielwert]</span></div>
-          <div class="cs-card-row"><span class="cs-card-row-label">Signal</span><span class="cs-card-row-value">[Was es bestätigt]</span></div>
-          <div class="cs-card-row"><span class="cs-card-row-label">Results</span><span class="cs-card-row-value">[Ergebnis]</span></div>
-        </div>
-        <div class="cs-card">
-          <div class="cs-card-num">02</div>
-          <div class="cs-card-title">[KPI 2 Name]</div>
-          <div class="cs-card-row"><span class="cs-card-row-label">Measure</span><span class="cs-card-row-value">[Was wird gemessen]</span></div>
-          <div class="cs-card-row"><span class="cs-card-row-label">Target</span><span class="cs-card-row-value">[Zielwert]</span></div>
-          <div class="cs-card-row"><span class="cs-card-row-label">Signal</span><span class="cs-card-row-value">[Was es bestätigt]</span></div>
-          <div class="cs-card-row"><span class="cs-card-row-label">Results</span><span class="cs-card-row-value">[Ergebnis]</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OUTLOOK -->
-    <section class="cs-section" id="outlook">
-      <span class="cs-section-label">Outlook</span>
-      <div class="cs-statement">
-        <div class="cs-statement-main">Was als <em>Nächstes kommt</em></div>
-        <div class="cs-statement-side">[Wie würde es weitergehen? Welche nächsten Schritte sind geplant?]</div>
-      </div>
-    </section>
-
-    <!-- LESSONS -->
-    <section class="cs-section" id="lessons">
-      <span class="cs-section-label">Lessons</span>
-      <h2 class="cs-section-title">Was ich <em>gelernt habe</em></h2>
-      <p class="cs-section-sub">[Deine ehrlichen Learnings aus dem Projekt.]</p>
-      <div class="cs-cards-3">
-        <div class="cs-content-card"><div class="cs-content-icon" data-icon="book-open"></div><h3>[Lesson 1]</h3><p>[Was hast du mitgenommen?]</p></div>
-        <div class="cs-content-card"><div class="cs-content-icon" data-icon="pen-tool"></div><h3>[Lesson 2]</h3><p>[Was hast du mitgenommen?]</p></div>
-        <div class="cs-content-card"><div class="cs-content-icon" data-icon="zap"></div><h3>[Lesson 3]</h3><p>[Was hast du mitgenommen?]</p></div>
-      </div>
-    </section>
-
-  </main>
 </div>
 
-<!-- MORE WORK -->
+<!-- MORE WORK — Masonry wie Startseite -->
 <div class="cs-morework">
-  <span class="cs-section-label">More Work</span>
-  <h2 class="cs-section-title" style="margin-bottom:56px;">You might also <em>like these.</em></h2>
-  <div class="cs-morework-grid">
-    <a href="case-study.html" class="cs-work-card">
-      <div class="cs-work-thumb cs-work-thumb-1">📱</div>
-      <div class="cs-work-body">
-        <div class="cs-work-tags"><span>[Tag]</span><span>[Tag]</span><span>[Tag]</span></div>
-        <h3 class="cs-work-title">[Anderes Projekt]</h3>
-        <span class="cs-work-link" data-de="Case Study ansehen →" data-en="View case study →">Case Study ansehen →</span>
-      </div>
-    </a>
-    <a href="case-study.html" class="cs-work-card">
-      <div class="cs-work-thumb cs-work-thumb-2">🤖</div>
-      <div class="cs-work-body">
-        <div class="cs-work-tags"><span>[Tag]</span><span>[Tag]</span></div>
-        <h3 class="cs-work-title">[Anderes Projekt]</h3>
-        <span class="cs-work-link" data-de="Experimente ansehen →" data-en="View experiments →">Experimente ansehen →</span>
-      </div>
-    </a>
+  <span class="cs-section-label" data-de="Weitere Arbeiten" data-en="More Work">Weitere Arbeiten</span>
+  <h2 class="cs-section-title" style="margin-bottom:56px;"><span data-de="Das könnte dir" data-en="You might also">Das könnte dir</span> <em data-de="auch gefallen." data-en="like these.">auch gefallen.</em></h2>
+  <div class="masonry-grid">
+    <div class="masonry-card card-scroll">
+      <div class="scroll-container"><img src="tm.jpg" alt="Projekt tm" class="masonry-img scroll-img"></div>
+      <div class="masonry-body"><span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span><div class="masonry-title" data-de="E-Commerce & Branding für tm" data-en="E-Commerce & Branding for tm">E-Commerce & Branding für tm</div></div>
+    </div>
+    <div class="masonry-card card-scroll">
+      <div class="scroll-container"><img src="elan.jpg" alt="Projekt elan" class="masonry-img scroll-img"></div>
+      <div class="masonry-body"><span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span><div class="masonry-title" data-de="Landingpage für elan" data-en="Landing page for elan">Landingpage für elan</div></div>
+    </div>
+    <div class="masonry-card card-scroll">
+      <div class="scroll-container"><img src="prdruck.jpg" alt="Projekt prdruck" class="masonry-img scroll-img"></div>
+      <div class="masonry-body"><span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span><div class="masonry-title" data-de="Corporate Website für pr.druck" data-en="Corporate website for pr.druck">Corporate Website für pr.druck</div></div>
+    </div>
+    <div class="masonry-card">
+      <video src="greensip.mov" class="masonry-video" autoplay loop muted playsinline></video>
+      <div class="masonry-body"><span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span><div class="masonry-title" data-de="Landingpage für GreenSip" data-en="Landing page for GreenSip">Landingpage für GreenSip</div></div>
+    </div>
+    <div class="masonry-card">
+      <img src="cover_yumi.jpg" alt="Projekt yumi" class="masonry-img">
+      <div class="masonry-body"><span class="masonry-tag" data-de="App Design" data-en="App Design">App Design</span><div class="masonry-title" data-de="Mobile App UI für yumi" data-en="Mobile app UI for yumi">Mobile App UI für yumi</div></div>
+    </div>
+    <div class="masonry-card">
+      <img src="blender.jpg" alt="3D Room Illustration" class="masonry-img">
+      <div class="masonry-body"><span class="masonry-tag" data-de="3D Illustration" data-en="3D Illustration">3D Illustration</span><div class="masonry-title" data-de="Isometrischer Raum in Blender" data-en="Isometric room in Blender">Isometrischer Raum in Blender</div></div>
+    </div>
   </div>
 </div>
 
-<!-- CONTACT -->
+<!-- KONTAKT -->
 <div id="kontakt">
   <div class="contact-inner">
     <p class="contact-label" data-de="● Offen für neue Möglichkeiten" data-en="● Open for new opportunities">● Offen für neue Möglichkeiten</p>
@@ -273,6 +285,6 @@
 </footer>
 
 <script src="script.js"></script>
-<script src="case-study.js"></script>
+<script src="case-study-01.js"></script>
 </body>
 </html>
