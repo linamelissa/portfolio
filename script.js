@@ -27,10 +27,12 @@ const ICONS = {
   'package':'<path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/>',
   'moon':'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>'
 };
+
 function svgIcon(name, cls){
   const path = ICONS[name] || ICONS['star'];
   return '<svg class="lucide '+(cls||'')+'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">'+path+'</svg>';
 }
+
 function renderIcons(){
   document.querySelectorAll('[data-icon]').forEach(el => {
     if(el.querySelector('svg')) return;
@@ -47,16 +49,15 @@ const skillsData = [
   {icon:'moon', de:'zu wenig Schlaf', en:'too little sleep'},
   {icon:'sparkles', de:'UX Designerin', en:'UX Designer'}
 ];
+
 function buildBanner(lang){
   const marquee = document.getElementById('skills-marquee');
   if(!marquee) return;
-  // one group of items
   let group = '<div class="skills-group">';
   skillsData.forEach(s => {
     group += '<span class="skill-item">'+svgIcon(s.icon)+(lang==='de'?s.de:s.en)+'</span>';
   });
   group += '</div>';
-  // duplicate the group so -50% translate loops seamlessly
   marquee.innerHTML = group + group;
 }
 
@@ -138,6 +139,7 @@ function animCursor(){
   requestAnimationFrame(animCursor);
 }
 animCursor();
+
 document.querySelectorAll('a,button,.masonry-card,.drives-card,.expertise-card,.tl-card,.now-block,.blog-card,.case-card').forEach(el => {
   el.addEventListener('mouseenter', () => cursor && cursor.classList.add('hovering'));
   el.addEventListener('mouseleave', () => cursor && cursor.classList.remove('hovering'));
