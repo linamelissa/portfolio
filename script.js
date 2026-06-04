@@ -82,9 +82,9 @@ function setNowIntro(){
 let currentLang = 'de';
 function toggleLang(){
   currentLang = currentLang === 'de' ? 'en' : 'de';
-  document.getElementById('lang-btn').textContent = currentLang === 'de' ? 'EN' : 'DE';
-  const lm = document.getElementById('lang-btn-mobile');
-  if(lm) lm.textContent = currentLang === 'de' ? 'English' : 'Deutsch';
+  const lbl = currentLang === 'de' ? 'EN' : 'DE';
+  const lb = document.getElementById('lang-btn'); if(lb) lb.textContent = lbl;
+  const lm = document.getElementById('lang-btn-mobile'); if(lm) lm.textContent = lbl;
   document.querySelectorAll('[data-de]').forEach(el => {
     const text = currentLang === 'de' ? el.dataset.de : el.dataset.en;
     if(text) el.textContent = text;
@@ -101,15 +101,26 @@ function toggleMobileNav(){
   const nav = document.getElementById('mobile-nav');
   nav.classList.contains('open') ? closeMobileNav() : openMobileNav();
 }
+let savedScrollY = 0;
 function openMobileNav(){
   document.getElementById('mobile-nav').classList.add('open');
   document.querySelector('.nav-mobile-menu').classList.add('active');
-  document.body.style.overflow = 'hidden';
+  savedScrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${savedScrollY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.width = '100%';
 }
 function closeMobileNav(){
   document.getElementById('mobile-nav').classList.remove('open');
   document.querySelector('.nav-mobile-menu').classList.remove('active');
-  document.body.style.overflow = '';
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.width = '';
+  window.scrollTo(0, savedScrollY);
 }
 function handleOverlayClick(e){ if(e.target === e.currentTarget) closeMobileNav(); }
 
