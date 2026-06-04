@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Projektname] — Case Study · Lina Melissa</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<div id="custom-cursor"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">Lina Melissa</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Projects</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+      <li><button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button></li>
+    </ul>
+    <div class="nav-mobile-menu" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-nav-overlay" id="mobile-nav" onclick="handleOverlayClick(event)">
+  <a href="index.html#work" class="mobile-nav-link" onclick="closeMobileNav()">Projects</a>
+  <a href="index.html#about" class="mobile-nav-link" onclick="closeMobileNav()">About</a>
+  <a href="index.html#now" class="mobile-nav-link" onclick="closeMobileNav()">Now</a>
+  <a href="index.html#contact" class="mobile-nav-contact" onclick="closeMobileNav()" data-de="Kontakt" data-en="Contact">Kontakt</a>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-tags">
+      <span class="cs-hero-tag">[Tag 1]</span>
+      <span class="cs-hero-tag">[Tag 2]</span>
+      <span class="cs-hero-tag">[Tag 3]</span>
+      <span class="cs-hero-tag">[Tag 4]</span>
+      <span class="cs-hero-tag">[Tag 5]</span>
+    </div>
+    <h1 class="cs-hero-title">[Projekt&shy;name]</h1>
+    <div class="cs-hero-body">
+      <div class="cs-meta">
+        <div class="cs-meta-item"><span class="cs-meta-label">Type</span><span class="cs-meta-value">[z.B. Solo Product Design Case]</span></div>
+        <div class="cs-meta-item"><span class="cs-meta-label">Role</span><span class="cs-meta-value">[z.B. Product Designer & UI/UX]</span></div>
+        <div class="cs-meta-item"><span class="cs-meta-label">Scope</span><span class="cs-meta-value">[z.B. UX Research · Strategy · UI]</span></div>
+        <div class="cs-meta-item"><span class="cs-meta-label">Duration</span><span class="cs-meta-value">[z.B. 4 Monate]</span></div>
+        <div class="cs-meta-item"><span class="cs-meta-label">Tools</span><span class="cs-meta-value">[z.B. Figma · Framer · Miro]</span></div>
+        <div class="cs-meta-item"><span class="cs-meta-label">Status</span><span class="cs-meta-value">[z.B. In Handoff]</span></div>
+        <div class="cs-meta-buttons">
+          <a href="#" class="cs-btn-dark"><span data-de="Landingpage" data-en="Landing page">Landingpage</span> <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a href="#" class="cs-btn-outline">Figma <svg viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+        </div>
+      </div>
+      <div class="cs-intro-box">
+        <p>[Hier kommt dein Intro-Text hin. Beschreibe kurz worum es bei dem Projekt geht und welches <strong>Problem</strong> du gelöst hast. Du kannst einzelne Wörter <strong>fett</strong> machen um sie hervorzuheben.]</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN with SIDEBAR -->
+<div class="cs-layout">
+  <aside class="cs-sidebar">
+    <div class="cs-sidebar-inner">
+      <ul class="cs-nav-list">
+        <li><a class="cs-nav-item active" data-target="problem"><span class="cs-nav-dot"></span>Problem</a></li>
+        <li><a class="cs-nav-item" data-target="research"><span class="cs-nav-dot"></span>Research</a></li>
+        <li><a class="cs-nav-item" data-target="hmw"><span class="cs-nav-dot"></span>How Might We</a></li>
+        <li><a class="cs-nav-item" data-target="process"><span class="cs-nav-dot"></span>Process</a></li>
+        <li><a class="cs-nav-item" data-target="testing"><span class="cs-nav-dot"></span>Testing</a></li>
+        <li><a class="cs-nav-item" data-target="beforeafter"><span class="cs-nav-dot"></span>Before &amp; After</a></li>
+        <li><a class="cs-nav-item" data-target="solution"><span class="cs-nav-dot"></span>Solution</a></li>
+        <li><a class="cs-nav-item" data-target="prototype"><span class="cs-nav-dot"></span>Prototype</a></li>
+        <li><a class="cs-nav-item" data-target="kpis"><span class="cs-nav-dot"></span>KPIs</a></li>
+        <li><a class="cs-nav-item" data-target="outlook"><span class="cs-nav-dot"></span>Outlook</a></li>
+        <li><a class="cs-nav-item" data-target="lessons"><span class="cs-nav-dot"></span>Lessons</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="cs-main">
+
+    <!-- PROBLEM -->
+    <section class="cs-section" id="problem">
+      <span class="cs-section-label">The Problem</span>
+      <div class="cs-statement">
+        <div class="cs-statement-main">[Kernproblem in einem Satz]<em>[kursiver Teil der Aussage.]</em></div>
+        <div class="cs-statement-side">[Erkläre hier das Problem genauer. Was ist die <strong>Schmerzgrenze</strong> für die Nutzer? Warum ist es relevant?]</div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="cs-section" id="research">
+      <span class="cs-section-label">Research</span>
+      <h2 class="cs-section-title">[Research-Titel] <em>[kursiver Teil]</em></h2>
+      <p class="cs-section-sub">[Kurze Einleitung zu deiner Research-Phase — Methoden, Anzahl Teilnehmer, was du herausfinden wolltest.]</p>
+      <div class="cs-cards-3">
+        <div class="cs-content-card"><div class="cs-content-icon" data-icon="search"></div><h3>[Methode 1]</h3><p>[Beschreibung — z.B. 4 qualitative Interviews mit der Zielgruppe.]</p></div>
+        <div class="cs-content-card"><div class="cs-content-icon" data-icon="user"></div><h3>[Methode 2]</h3><p>[Beschreibung — z.B. 52-Personen-Umfrage zur Validierung.]</p></div>
+        <div class="cs-content-card"><div class="cs-content-icon" data-icon="layers"></div><h3>[Methode 3]</h3><p>[Beschreibung — z.B. Competitive Analysis von 4 Apps.]</p></div>
+      </div>
+    </section>
+
+    <!-- HOW MIGHT WE -->
+    <section class="cs-section" id="hmw">
+      <span class="cs-section-label">How Might We</span>
+      <div class="cs-statement">
+        <div class="cs-statement-main">[Deine HMW-Frage]<em>[kursiver Teil?]</em></div>
+        <div class="cs-statement-side">[Erkläre wie du von der Research zu dieser Leitfrage gekommen bist.]</div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="cs-section" id="process">
+      <span class="cs-section-label">Process</span>
+      <h2 class="cs-section-title">[Prozess-Titel] <em>[kursiver Teil]</em></h2>
+      <p class="cs-section-sub">[Beschreibe deinen Designprozess — von der Idee bis zum Prototyp.]</p>
+      <div class="cs-image-block"><span class="cs-image-hint">[Bild / Screenshot hier einfügen]</span></div>
+    </section>
+
+    <!-- TESTING -->
+    <section class="cs-section" id="testing">
+      <span class="cs-section-label">Testing</span>
+      <h2 class="cs-section-title">[Testing-Titel] <em>[kursiver Teil]</em></h2>
+      <p class="cs-section-sub">[Wie hast du getestet? Was kam dabei heraus?]</p>
+      <div class="cs-cards-3">
+        <div class="cs-content-card"><div class="cs-content-icon" data-icon="zap"></div><h3>[Erkenntnis 1]</h3><p>[Was hast du gelernt?]</p></div>
+        <div class="cs-content-card"><div class="cs-content-icon" data-icon="sparkles"></div><h3>[Erkenntnis 2]</h3><p>[Was hast du gelernt?]</p></div>
+        <div class="cs-content-card"><div class="cs-content-icon" data-icon="star"></div><h3>[Erkenntnis 3]</h3><p>[Was hast du gelernt?]</p></div>
+      </div>
+    </section>
+
+    <!-- BEFORE & AFTER -->
+    <section class="cs-section" id="beforeafter">
+      <span class="cs-section-label">Before &amp; After</span>
+      <h2 class="cs-section-title">Was sich <em>verändert hat</em></h2>
+      <p class="cs-section-sub">[Stelle den Zustand vorher und nachher gegenüber.]</p>
+      <div class="cs-beforeafter">
+        <div class="cs-ba-col cs-ba-before">
+          <span class="cs-ba-tag">Vorher</span>
+          <ul><li>[Problem 1]</li><li>[Problem 2]</li><li>[Problem 3]</li><li>[Problem 4]</li></ul>
+        </div>
+        <div class="cs-ba-col cs-ba-after">
+          <span class="cs-ba-tag">Nachher</span>
+          <ul><li>[Lösung 1]</li><li>[Lösung 2]</li><li>[Lösung 3]</li><li>[Lösung 4]</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="cs-section" id="solution">
+      <span class="cs-section-label">Solution</span>
+      <h2 class="cs-section-title">[Lösungs-Titel] <em>[kursiver Teil]</em></h2>
+      <p class="cs-section-sub">[Beschreibe deine finale Lösung — was macht sie besonders?]</p>
+      <div class="cs-image-block"><span class="cs-image-hint">[Hauptscreen / Hero-Shot der Lösung]</span></div>
+    </section>
+
+    <!-- PROTOTYPE -->
+    <section class="cs-section" id="prototype">
+      <span class="cs-section-label">Prototype</span>
+      <h2 class="cs-section-title">[Prototyp-Titel] <em>[kursiver Teil]</em></h2>
+      <p class="cs-section-sub">[Zeige deinen interaktiven Prototyp oder verlinke ihn.]</p>
+      <div class="cs-image-block"><span class="cs-image-hint">[Prototyp-Screens / Video]</span></div>
+    </section>
+
+    <!-- KPIs -->
+    <section class="cs-section" id="kpis">
+      <span class="cs-section-label">KPIs</span>
+      <h2 class="cs-section-title">Measuring what <em>actually matters</em></h2>
+      <p class="cs-section-sub">[Welche Kennzahlen zeigen dass deine Lösung funktioniert?]</p>
+      <div class="cs-cards">
+        <div class="cs-card">
+          <div class="cs-card-num">01</div>
+          <div class="cs-card-title">[KPI 1 Name]</div>
+          <div class="cs-card-row"><span class="cs-card-row-label">Measure</span><span class="cs-card-row-value">[Was wird gemessen]</span></div>
+          <div class="cs-card-row"><span class="cs-card-row-label">Target</span><span class="cs-card-row-value">[Zielwert]</span></div>
+          <div class="cs-card-row"><span class="cs-card-row-label">Signal</span><span class="cs-card-row-value">[Was es bestätigt]</span></div>
+          <div class="cs-card-row"><span class="cs-card-row-label">Results</span><span class="cs-card-row-value">[Ergebnis]</span></div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-num">02</div>
+          <div class="cs-card-title">[KPI 2 Name]</div>
+          <div class="cs-card-row"><span class="cs-card-row-label">Measure</span><span class="cs-card-row-value">[Was wird gemessen]</span></div>
+          <div class="cs-card-row"><span class="cs-card-row-label">Target</span><span class="cs-card-row-value">[Zielwert]</span></div>
+          <div class="cs-card-row"><span class="cs-card-row-label">Signal</span><span class="cs-card-row-value">[Was es bestätigt]</span></div>
+          <div class="cs-card-row"><span class="cs-card-row-label">Results</span><span class="cs-card-row-value">[Ergebnis]</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTLOOK -->
+    <section class="cs-section" id="outlook">
+      <span class="cs-section-label">Outlook</span>
+      <div class="cs-statement">
+        <div class="cs-statement-main">Was als <em>Nächstes kommt</em></div>
+        <div class="cs-statement-side">[Wie würde es weitergehen? Welche nächsten Schritte sind geplant?]</div>
+      </div>
+    </section>
+
+    <!-- LESSONS -->
+    <section class="cs-section" id="lessons">
+      <span class="cs-section-label">Lessons</span>
+      <h2 class="cs-section-title">Was ich <em>gelernt habe</em></h2>
+      <p class="cs-section-sub">[Deine ehrlichen Learnings aus dem Projekt.]</p>
+      <div class="cs-cards-3">
+        <div class="cs-content-card"><div class="cs-content-icon" data-icon="book-open"></div><h3>[Lesson 1]</h3><p>[Was hast du mitgenommen?]</p></div>
+        <div class="cs-content-card"><div class="cs-content-icon" data-icon="pen-tool"></div><h3>[Lesson 2]</h3><p>[Was hast du mitgenommen?]</p></div>
+        <div class="cs-content-card"><div class="cs-content-icon" data-icon="zap"></div><h3>[Lesson 3]</h3><p>[Was hast du mitgenommen?]</p></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- MORE WORK -->
+<div class="cs-morework">
+  <span class="cs-section-label">More Work</span>
+  <h2 class="cs-section-title" style="margin-bottom:56px;">You might also <em>like these.</em></h2>
+  <div class="cs-morework-grid">
+    <a href="case-study.html" class="cs-work-card">
+      <div class="cs-work-thumb cs-work-thumb-1">📱</div>
+      <div class="cs-work-body">
+        <div class="cs-work-tags"><span>[Tag]</span><span>[Tag]</span><span>[Tag]</span></div>
+        <h3 class="cs-work-title">[Anderes Projekt]</h3>
+        <span class="cs-work-link" data-de="Case Study ansehen →" data-en="View case study →">Case Study ansehen →</span>
+      </div>
+    </a>
+    <a href="case-study.html" class="cs-work-card">
+      <div class="cs-work-thumb cs-work-thumb-2">🤖</div>
+      <div class="cs-work-body">
+        <div class="cs-work-tags"><span>[Tag]</span><span>[Tag]</span></div>
+        <h3 class="cs-work-title">[Anderes Projekt]</h3>
+        <span class="cs-work-link" data-de="Experimente ansehen →" data-en="View experiments →">Experimente ansehen →</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="kontakt">
+  <div class="contact-inner">
+    <p class="contact-label" data-de="● Offen für neue Möglichkeiten" data-en="● Open for new opportunities">● Offen für neue Möglichkeiten</p>
+    <h2 class="contact-title"><span data-de="Ich freue mich" data-en="I look forward">Ich freue mich</span><br><span data-de="von dir zu hören." data-en="to hearing from you.">von dir zu hören.</span></h2>
+    <p class="contact-desc"><span data-de="Ob Jobmöglichkeit, Freelance-Anfrage oder einfach ein nettes Hallo —" data-en="Whether it's a job opportunity, freelance project or just a friendly hello —">Ob Jobmöglichkeit, Freelance-Anfrage oder einfach ein nettes Hallo —</span><br><span data-de="ich bin immer offen für neue Gespräche." data-en="I'm always open for a chat.">ich bin immer offen für neue Gespräche.</span></p>
+    <div class="contact-buttons">
+      <a href="CV_Lina-Melissa-Arndt.pdf" download class="contact-btn-outline"><span class="icon" data-icon="download"></span>CV</a>
+      <a href="mailto:Lina-Melissa@web.de" class="contact-btn-primary"><span class="icon" data-icon="mail"></span><span data-de="Mail me" data-en="Mail me">Mail me</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-left">
+      <span class="site-footer-name-text">Lina Melissa</span>
+      <span class="site-footer-sub">UX & Product Design · Hamburg · 2026</span>
+    </div>
+    <div class="site-footer-right">
+      <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" class="site-footer-link"><span class="icon" data-icon="external-link"></span>LinkedIn</a>
+      <a href="https://www.behance.net/linwelss" target="_blank" class="site-footer-link"><span class="icon" data-icon="globe"></span>Behance</a>
+      <a href="https://dribbble.com/linwelss" target="_blank" class="site-footer-link"><span class="icon" data-icon="external-link"></span>Dribbble</a>
+      <a href="https://www.instagram.com/linwelss/" target="_blank" class="site-footer-link"><span class="icon" data-icon="external-link"></span>Instagram</a>
+      <a href="impressum.html" class="site-footer-impressum">Impressum</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="case-study.js"></script>
+</body>
+</html>
