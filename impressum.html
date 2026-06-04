@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum — Lina Melissa</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#4E8B5C;--green-light:#EEF4EF;--green-mid:#4E8B5C;--green-dark:#1F4D28;
+  --cream:#FFFEFA;--ink:#161F17;--ink-soft:#3a4a3c;--ink-muted:#6b7d6d;
+  --amber:#F2CB5A;--border:rgba(22,31,23,0.08);--font-body:'DM Sans',sans-serif;--font-mono:'Space Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--cream);color:var(--ink);font-size:16px;line-height:1.6}
+
+nav{position:sticky;top:0;background:rgba(250,250,247,0.92);backdrop-filter:blur(12px);z-index:100;border-bottom:1px solid var(--border)}
+.nav-inner{max-width:900px;margin:0 auto;padding:0 36px;display:flex;justify-content:space-between;align-items:center;height:60px}
+.nav-name{font-family:var(--font-mono);font-size:13px;color:var(--ink);text-decoration:none;letter-spacing:.02em}
+.nav-back{font-size:14px;color:var(--ink-muted);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--green)}
+
+.impressum-wrap{max-width:600px;margin:0 auto;padding:80px 36px 120px}
+.impressum-eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;display:block}
+.impressum-heading{font-size:36px;font-weight:300;letter-spacing:-.02em;color:var(--ink);margin-bottom:48px;line-height:1.15}
+.impressum-block{margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--border)}
+.impressum-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.impressum-block-label{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;display:block}
+.impressum-block p{font-size:15px;color:var(--ink-soft);line-height:1.85}
+.impressum-block a{color:var(--green-mid);text-decoration:none}
+.impressum-block a:hover{text-decoration:underline}
+
+.site-footer{background:var(--cream);border-top:1px solid var(--border);padding:32px 0 36px}
+.site-footer-inner{max-width:900px;margin:0 auto;padding:0 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.site-footer-left{display:flex;flex-direction:column;gap:3px}
+.site-footer-name-text{font-family:var(--font-mono);font-size:13px;color:var(--ink)}
+.site-footer-sub{font-size:11px;color:var(--ink-muted);font-family:var(--font-mono)}
+.site-footer-right{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.site-footer-link{font-size:13px;color:var(--ink-muted);text-decoration:none;transition:color .2s;font-family:var(--font-mono)}
+.site-footer-link:hover{color:var(--green)}
+
+@media(max-width:600px){
+  .nav-inner{padding:0 18px}
+  .impressum-wrap{padding:48px 18px 80px}
+  .impressum-heading{font-size:28px}
+  .impressum-block p{font-size:14px}
+  .site-footer-inner{padding:0 18px;flex-direction:column;align-items:flex-start;gap:12px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">Lina Melissa</a>
+    <a href="index.html" class="nav-back">← Zurück</a>
+  </div>
+</nav>
+
+<div class="impressum-wrap">
+  <span class="impressum-eyebrow">Rechtliches</span>
+  <h1 class="impressum-heading">Impressum</h1>
+
+  <div class="impressum-block">
+    <span class="impressum-block-label">Angaben gemäß § 5 TMG</span>
+    <p>
+      Lina Melissa<br>
+      [Deine Straße & Hausnummer]<br>
+      [PLZ] Hamburg<br>
+      Deutschland
+    </p>
+  </div>
+
+  <div class="impressum-block">
+    <span class="impressum-block-label">Kontakt</span>
+    <p>
+      E-Mail: <a href="mailto:deine@email.com">deine@email.com</a>
+    </p>
+  </div>
+
+  <div class="impressum-block">
+    <span class="impressum-block-label">Inhalt & Haftung</span>
+    <p>Diese Website dient ausschließlich der persönlichen Selbstpräsentation. Die Inhalte wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird keine Gewähr übernommen.</p>
+  </div>
+
+  <div class="impressum-block">
+    <span class="impressum-block-label">Datenschutz</span>
+    <p>Es werden keine personenbezogenen Daten erhoben, gespeichert oder weitergegeben. Diese Website verwendet keine Cookies und keine Tracking-Tools.</p>
+  </div>
+
+  <div class="impressum-block">
+    <span class="impressum-block-label">Urheberrecht</span>
+    <p>Alle Inhalte dieser Website — Texte, Bilder, Grafiken und Designs — sind urheberrechtlich geschützt und dürfen ohne ausdrückliche Genehmigung nicht verwendet werden.</p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-left">
+      <span class="site-footer-name-text">Lina Melissa</span>
+      <span class="site-footer-sub">UX & Product Design · Hamburg · 2026</span>
+    </div>
+    <div class="site-footer-right">
+      <a href="https://linkedin.com/in/DEIN-PROFIL" target="_blank" class="site-footer-link">LinkedIn ↗</a>
+      <a href="https://behance.net/DEIN-PROFIL" target="_blank" class="site-footer-link">Behance ↗</a>
+      <a href="https://dribbble.com/DEIN-PROFIL" target="_blank" class="site-footer-link">Dribbble ↗</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
