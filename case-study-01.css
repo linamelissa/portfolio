@@ -1,21 +1,39 @@
 /* ===== CASE STUDY — vollbreites Layout mit fixer Sidebar links ===== */
 
+/* ===== CASE-STUDY NAV (Zurück-Link, zentrierter Name) ===== */
+.nav-back{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:13px;color:var(--ink-soft);text-decoration:none;transition:color .2s,transform .15s}
+.nav-back svg{stroke:currentColor;transition:transform .2s}
+.nav-back:hover{color:var(--green)}
+.nav-back:hover svg{transform:translateX(-3px)}
+.nav-name-center{position:absolute;left:50%;transform:translateX(-50%)}
+.nav-right{display:flex;align-items:center;gap:18px}
+.nav-contact-link{font-size:14px;color:var(--ink-soft);text-decoration:none;transition:color .2s}
+.nav-contact-link:hover{color:var(--green)}
+@media(max-width:600px){
+  .nav-name-center{display:none}
+  .nav-back span{display:none}
+  .nav-contact-link{display:none}
+}
+
+
 /* Sidebar klebt ganz links am Bildschirmrand */
 .cs-sidebar{
   position:fixed;
   top:50%;
   left:0;
   transform:translateY(-50%);
-  z-index:250;
-  padding:16px 14px;
-  background:rgba(255,254,250,0.82);
+  z-index:90;
+  padding:14px 12px;
+  background:rgba(255,254,250,0.78);
   backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   border:1px solid rgba(255,255,255,0.6);
   border-left:none;
-  border-top-right-radius:18px;
-  border-bottom-right-radius:18px;
-  box-shadow:0 8px 32px rgba(22,31,23,0.1),0 1px 4px rgba(22,31,23,0.06);
+  border-top-right-radius:16px;
+  border-bottom-right-radius:16px;
+  box-shadow:0 8px 32px rgba(22,31,23,0.08),0 1px 4px rgba(22,31,23,0.05);
+  max-height:calc(100vh - 140px);
+  overflow-y:auto;
 }
 .cs-nav-list{list-style:none;display:flex;flex-direction:column;gap:2px}
 .cs-nav-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;font-size:12.5px;color:var(--ink-muted);text-decoration:none;cursor:pointer;transition:background .2s,color .2s;white-space:nowrap}
@@ -28,7 +46,7 @@
 .cs-wrap{max-width:1100px;margin:0 auto;padding:0 56px}
 
 /* CS HERO — volle Breite, Punkteraster wie Referenz */
-.cs-hero{padding:72px 0 96px;border-bottom:1px solid var(--border);background-image:radial-gradient(var(--border) 1px,transparent 1px);background-size:24px 24px;position:relative}
+.cs-hero{padding:80px 0 120px;border-bottom:1px solid var(--border);background-image:radial-gradient(var(--border) 1px,transparent 1px);background-size:24px 24px;position:relative}
 .cs-hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:36px}
 .cs-hero-tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--border);background:white;border-radius:100px;padding:6px 14px}
 .cs-hero-title{font-size:clamp(64px,12vw,150px);font-weight:600;line-height:.92;letter-spacing:-.04em;text-align:center;color:var(--green-dark);margin-bottom:56px}
