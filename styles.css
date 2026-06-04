@@ -410,16 +410,18 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
   .hero-role{margin-bottom:24px}
   .hero-available{margin-bottom:28px}
   .hero-stats{margin-top:36px;padding-top:32px}
-  .hero-photo-circle{width:280px;height:280px}
-  .hero-photo-ring{width:316px;height:316px;margin:-158px 0 0 -158px}
+  .hero-photo-circle{width:340px;height:340px}
+  .hero-photo-ring{width:380px;height:380px;margin:-190px 0 0 -190px}
+  .hero-badge{right:0;bottom:18px}
   .scroll-indicator{bottom:16px}
 }
 @media (max-height: 740px) and (min-width: 901px){
   .hero{padding:16px 0 56px}
   .hero-name{font-size:clamp(44px,6vw,72px)}
   .hero-stat-num{font-size:32px}
-  .hero-photo-circle{width:240px;height:240px}
-  .hero-photo-ring{width:272px;height:272px;margin:-136px 0 0 -136px}
+  .hero-photo-circle{width:300px;height:300px}
+  .hero-photo-ring{width:336px;height:336px;margin:-168px 0 0 -168px}
+  .hero-badge{right:0;bottom:14px}
   .scroll-indicator{display:none}
 }
 
