@@ -49,6 +49,7 @@
     <p class="hero-role" data-de="UX & Product Design · Hamburg" data-en="UX & Product Design · Hamburg">UX & Product Design · Hamburg</p>
 
     <div class="hero-photo-stage">
+      <span class="hero-photo-ring"></span>
       <div class="hero-photo-circle">
         <img id="hero-img" src="bild1.jpg" alt="Lina Melissa">
       </div>
@@ -70,6 +71,10 @@
       <div><div class="hero-stat-num">3</div><div class="hero-stat-label" data-de="Case Studies" data-en="Case Studies">Case Studies</div></div>
       <div><div class="hero-stat-num">7</div><div class="hero-stat-label" data-de="Umzüge" data-en="Times moved">Umzüge</div></div>
     </div>
+    <a href="#work" class="scroll-indicator" aria-label="Scroll">
+      <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+      <span class="scroll-text">SCROLL</span>
+    </a>
   </section>
 </div>
 
@@ -141,6 +146,8 @@
           <span data-de="Umfragen" data-en="Surveys">Umfragen</span>
           <span data-de="Persona Mapping" data-en="Persona Mapping">Persona Mapping</span>
           <span data-de="Usability Testing" data-en="Usability Testing">Usability Testing</span>
+          <span data-de="User Flows" data-en="User Flows">User Flows</span>
+          <span data-de="Wettbewerbsanalyse" data-en="Competitive Analysis">Wettbewerbsanalyse</span>
         </div>
       </div>
       <div class="expertise-card reveal reveal-delay-1">
@@ -160,6 +167,8 @@
         <div class="expertise-tags">
           <span>InDesign</span><span>Illustrator</span><span>Photoshop</span>
           <span data-de="Druckproduktion" data-en="Print Production">Druckproduktion</span>
+          <span data-de="Branding" data-en="Branding">Branding</span>
+          <span data-de="Video-Schnitt" data-en="Video Editing">Video-Schnitt</span>
         </div>
       </div>
       <div class="expertise-card reveal reveal-delay-3">
@@ -169,6 +178,7 @@
           <span>Framer</span>
           <span data-de="Hi-Fi Prototypen" data-en="Hi-Fi Prototypes">Hi-Fi Prototypen</span>
           <span>Blender</span><span>Notion</span>
+          <span>Vibe Coding</span><span>HTML &amp; CSS</span>
         </div>
       </div>
     </div>
@@ -185,12 +195,14 @@
         <p class="about-text" data-de="Ich bin UX Designerin — und komme eigentlich aus der Mediengestaltung. Irgendwo zwischen Grafikdesign, einem Jahr in London und einem Umzug nach Australien habe ich gemerkt: mich interessiert nicht nur wie etwas aussieht, sondern wie es sich anfühlt wenn man es benutzt. Genau das treibt mich seitdem an." data-en="I'm a UX Designer — originally from media design. Somewhere between graphic design, a year in London and a move to Australia I realised: I'm not just interested in how things look, but how they feel to use. That's what drives me.">Ich bin UX Designerin — und komme eigentlich aus der Mediengestaltung. Irgendwo zwischen Grafikdesign, einem Jahr in London und einem Umzug nach Australien habe ich gemerkt: mich interessiert nicht nur wie etwas aussieht, sondern wie es sich anfühlt wenn man es benutzt. Genau das treibt mich seitdem an.</p>
       </div>
       <div class="about-intro-photo-col">
-        <div class="about-photo-wrap">
-          <img id="about-img" src="bild2.jpg" alt="Lina Melissa">
-        </div>
-        <div class="about-badge">
-          <span class="icon" data-icon="footprints"></span>
-          <span data-de="läuft. buchstäblich." data-en="always walking. literally.">läuft. buchstäblich.</span>
+        <div class="about-photo-stage">
+          <div class="about-photo-wrap">
+            <img id="about-img" src="bild2.jpg" alt="Lina Melissa">
+          </div>
+          <div class="about-badge">
+            <span class="icon" data-icon="footprints"></span>
+            <span data-de="läuft. buchstäblich." data-en="always walking. literally.">läuft. buchstäblich.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -200,17 +212,23 @@
       <div class="tl-item">
         <div class="tl-left"><div class="tl-date" data-de="Apr 2026 — heute" data-en="Apr 2026 — present">Apr 2026 — heute</div></div>
         <div class="tl-dot-wrap"><div class="tl-dot tl-dot-active"></div></div>
-        <div class="tl-card tl-card-cert">
-          <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="graduation-cap"></span><span data-de="Weiterbildung" data-en="Further Education">Weiterbildung</span></span><span class="tl-badge" data-de="aktuell" data-en="current">aktuell</span></div>
-          <div class="tl-role" data-de="Product Design Bootcamp" data-en="Product Design Bootcamp">Product Design Bootcamp</div>
-          <div class="tl-where">Digitale Leute School · Remote</div>
-          <ul class="tl-bullets">
-            <li data-de="UX Research, Wireframing, Prototyping & Interaction Design" data-en="UX Research, Wireframing, Prototyping & Interaction Design">UX Research, Wireframing, Prototyping & Interaction Design</li>
-            <li data-de="User Flows, Personas & User Journeys entwickelt" data-en="Developed User Flows, Personas & User Journeys">User Flows, Personas & User Journeys entwickelt</li>
-            <li data-de="Design Systems aufgebaut und eigenständig angewendet" data-en="Built and independently applied Design Systems">Design Systems aufgebaut und eigenständig angewendet</li>
-            <li data-de="Praxisprojekt bis Hi-Fi Prototyp in Figma & Framer" data-en="Practical project up to Hi-Fi Prototype in Figma & Framer">Praxisprojekt bis Hi-Fi Prototyp in Figma & Framer</li>
-          </ul>
-          <div class="tl-pills"><span>UX Research</span><span>Wireframing</span><span>Prototyping</span><span>Design Systems</span></div>
+        <div class="tl-card tl-card-cert tl-card-haspdf">
+          <div class="tl-card-main">
+            <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="graduation-cap"></span><span data-de="Weiterbildung" data-en="Further Education">Weiterbildung</span></span><span class="tl-badge" data-de="aktuell" data-en="current">aktuell</span></div>
+            <div class="tl-role" data-de="Product Design Bootcamp" data-en="Product Design Bootcamp">Product Design Bootcamp</div>
+            <div class="tl-where">Digitale Leute School · Remote</div>
+            <ul class="tl-bullets">
+              <li data-de="UX Research, Wireframing, Prototyping & Interaction Design" data-en="UX Research, Wireframing, Prototyping & Interaction Design">UX Research, Wireframing, Prototyping & Interaction Design</li>
+              <li data-de="User Flows, Personas & User Journeys entwickelt" data-en="Developed User Flows, Personas & User Journeys">User Flows, Personas & User Journeys entwickelt</li>
+              <li data-de="Design Systems aufgebaut und eigenständig angewendet" data-en="Built and independently applied Design Systems">Design Systems aufgebaut und eigenständig angewendet</li>
+              <li data-de="Praxisprojekt bis Hi-Fi Prototyp in Figma & Framer" data-en="Practical project up to Hi-Fi Prototype in Figma & Framer">Praxisprojekt bis Hi-Fi Prototyp in Figma & Framer</li>
+            </ul>
+            <div class="tl-pills"><span>UX Research</span><span>Wireframing</span><span>Prototyping</span><span>Design Systems</span></div>
+          </div>
+          <a class="tl-cert-preview" href="zertifikat-bootcamp.pdf" target="_blank" title="Zertifikat ansehen">
+            <img src="zertifikat-bootcamp.jpg" alt="Zertifikat Product Design Bootcamp" onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+            <span class="tl-cert-overlay"><span class="icon" data-icon="external-link"></span><span data-de="Zertifikat" data-en="Certificate">Zertifikat</span></span>
+          </a>
         </div>
       </div>
       <div class="tl-item">
@@ -231,15 +249,21 @@
       <div class="tl-item">
         <div class="tl-left"><div class="tl-date" data-de="Nov — Dez 2025" data-en="Nov — Dec 2025">Nov — Dez 2025</div></div>
         <div class="tl-dot-wrap"><div class="tl-dot tl-dot-cert"></div></div>
-        <div class="tl-card tl-card-cert">
-          <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="award"></span><span data-de="Zertifikat" data-en="Certificate">Zertifikat</span></span></div>
-          <div class="tl-role" data-de="Google UX Design Certificate" data-en="Google UX Design Certificate">Google UX Design Certificate</div>
-          <div class="tl-where">Coursera · Remote</div>
-          <ul class="tl-bullets">
-            <li data-de="UX Research, Wireframing, Prototyping & nutzerzentriertes Design" data-en="UX Research, Wireframing, Prototyping & user-centred design">UX Research, Wireframing, Prototyping & nutzerzentriertes Design</li>
-            <li data-de="Empathize-Define-Ideate-Prozess & agile Arbeitsmethoden" data-en="Empathize-Define-Ideate process & agile working methods">Empathize-Define-Ideate-Prozess & agile Arbeitsmethoden</li>
-          </ul>
-          <div class="tl-pills"><span data-de="Nutzerzentriertes Design" data-en="User-centred Design">Nutzerzentriertes Design</span><span data-de="Agile Methoden" data-en="Agile Methods">Agile Methoden</span></div>
+        <div class="tl-card tl-card-cert tl-card-haspdf">
+          <div class="tl-card-main">
+            <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="award"></span><span data-de="Zertifikat" data-en="Certificate">Zertifikat</span></span></div>
+            <div class="tl-role" data-de="Google UX Design Certificate" data-en="Google UX Design Certificate">Google UX Design Certificate</div>
+            <div class="tl-where">Coursera · Remote</div>
+            <ul class="tl-bullets">
+              <li data-de="UX Research, Wireframing, Prototyping & nutzerzentriertes Design" data-en="UX Research, Wireframing, Prototyping & user-centred design">UX Research, Wireframing, Prototyping & nutzerzentriertes Design</li>
+              <li data-de="Empathize-Define-Ideate-Prozess & agile Arbeitsmethoden" data-en="Empathize-Define-Ideate process & agile working methods">Empathize-Define-Ideate-Prozess & agile Arbeitsmethoden</li>
+            </ul>
+            <div class="tl-pills"><span data-de="Nutzerzentriertes Design" data-en="User-centred Design">Nutzerzentriertes Design</span><span data-de="Agile Methoden" data-en="Agile Methods">Agile Methoden</span></div>
+          </div>
+          <a class="tl-cert-preview" href="zertifikat-google.pdf" target="_blank" title="Zertifikat ansehen">
+            <img src="zertifikat-google.jpg" alt="Google UX Design Certificate" onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+            <span class="tl-cert-overlay"><span class="icon" data-icon="external-link"></span><span data-de="Zertifikat" data-en="Certificate">Zertifikat</span></span>
+          </a>
         </div>
       </div>
       <div class="tl-item">
@@ -253,6 +277,19 @@
             <li data-de="Web-Grafiken, Print-Materialien & Animationen für Kundenprojekte" data-en="Web graphics, print materials & animations for client projects">Web-Grafiken, Print-Materialien & Animationen für Kundenprojekte</li>
             <li data-de="Praxiserfahrung mit WordPress & Typo3" data-en="Hands-on experience with WordPress & Typo3">Praxiserfahrung mit WordPress & Typo3</li>
             <li data-de="Abschlussprojekt: Website mit HTML, CSS & JavaScript" data-en="Final project: website with HTML, CSS & JavaScript">Abschlussprojekt: Website mit HTML, CSS & JavaScript</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-date">Aug 2016 — Jun 2018</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="graduation-cap"></span><span data-de="Schule & Praktikum" data-en="School & Internship">Schule & Praktikum</span></span></div>
+          <div class="tl-role" data-de="Fachhochschulreife Gestaltung & Jahrespraktikum Mediengestaltung" data-en="Vocational Diploma in Design & Internship Year in Media Design">Fachhochschulreife Gestaltung & Jahrespraktikum Mediengestaltung</div>
+          <div class="tl-where">Media Marketing GmbH & BBS · Winsen (Luhe)</div>
+          <ul class="tl-bullets">
+            <li data-de="Digitale Werbemittel & Print-Materialien mit Adobe Suite gestaltet" data-en="Designed digital advertising & print materials with Adobe Suite">Digitale Werbemittel & Print-Materialien mit Adobe Suite gestaltet</li>
+            <li data-de="Imagefilm-Produktion: Storyboard, Schnitt und Dreharbeiten" data-en="Image film production: storyboard, editing and filming">Imagefilm-Produktion: Storyboard, Schnitt und Dreharbeiten</li>
           </ul>
         </div>
       </div>
@@ -374,7 +411,7 @@
   <div class="contact-inner">
     <p class="contact-label" data-de="● Offen für neue Möglichkeiten" data-en="● Open for new opportunities">● Offen für neue Möglichkeiten</p>
     <h2 class="contact-title"><span data-de="Ich freue mich" data-en="I look forward">Ich freue mich</span><br><span data-de="von dir zu hören." data-en="to hearing from you.">von dir zu hören.</span></h2>
-    <p class="contact-desc" data-de="Ob Jobmöglichkeit, Freelance-Anfrage oder einfach ein nettes Hallo — ich bin immer offen für neue Gespräche." data-en="Whether it's a job opportunity, freelance project or just a friendly hello — I'm always open for a chat.">Ob Jobmöglichkeit, Freelance-Anfrage oder einfach ein nettes Hallo — ich bin immer offen für neue Gespräche.</p>
+    <p class="contact-desc"><span data-de="Ob Jobmöglichkeit, Freelance-Anfrage oder einfach ein nettes Hallo —" data-en="Whether it's a job opportunity, freelance project or just a friendly hello —">Ob Jobmöglichkeit, Freelance-Anfrage oder einfach ein nettes Hallo —</span><br><span data-de="ich bin immer offen für neue Gespräche." data-en="I'm always open for a chat.">ich bin immer offen für neue Gespräche.</span></p>
     <div class="contact-buttons">
       <a href="CV_Lina-Melissa-Arndt.pdf" download class="contact-btn-outline"><span class="icon" data-icon="download"></span>CV</a>
       <a href="mailto:Lina-Melissa@web.de" class="contact-btn-primary"><span class="icon" data-icon="mail"></span><span data-de="Mail me" data-en="Mail me">Mail me</span></a>
