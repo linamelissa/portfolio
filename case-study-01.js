@@ -1,14 +1,12 @@
-// ===== SCROLL SPY for sticky sidebar =====
+// ===== SCROLL SPY für die fixe Sidebar =====
 const csSections = document.querySelectorAll('.cs-section[id]');
 const csNavItems = document.querySelectorAll('.cs-nav-item');
 
 function updateActiveNav(){
   let current = '';
-  const scrollPos = window.scrollY + 200;
+  const scrollPos = window.scrollY + 220;
   csSections.forEach(sec => {
-    if(scrollPos >= sec.offsetTop){
-      current = sec.id;
-    }
+    if(scrollPos >= sec.offsetTop) current = sec.id;
   });
   csNavItems.forEach(item => {
     item.classList.toggle('active', item.dataset.target === current);
@@ -17,7 +15,7 @@ function updateActiveNav(){
 window.addEventListener('scroll', updateActiveNav, { passive:true });
 updateActiveNav();
 
-// Smooth scroll on sidebar click
+// Klick auf Sidebar -> sanft scrollen
 csNavItems.forEach(item => {
   item.addEventListener('click', e => {
     e.preventDefault();
