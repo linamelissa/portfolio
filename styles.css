@@ -30,13 +30,19 @@ nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:calc(100% 
 nav.scrolled{background:rgba(255,254,250,0.95);box-shadow:0 8px 32px rgba(22,31,23,0.12),0 2px 8px rgba(22,31,23,0.06),inset 0 1px 0 rgba(255,255,255,0.8)}
 .nav-inner{padding:0 28px;display:flex;justify-content:space-between;align-items:center;height:58px}
 .nav-name{font-family:var(--font-mono);font-size:13px;color:var(--ink);text-decoration:none;letter-spacing:.02em}
-.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links{display:flex;gap:22px;list-style:none;align-items:center}
 .nav-links a{font-size:14px;color:var(--ink-soft);text-decoration:none;transition:color .2s;position:relative;padding-bottom:2px}
 .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:var(--green);border-radius:2px;transition:width .25s cubic-bezier(.4,0,.2,1)}
 .nav-links a:hover{color:var(--green)}
 .nav-links a:hover::after{width:100%}
 .lang-toggle{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);background:white;border:1px solid var(--border);border-radius:100px;padding:5px 12px;cursor:pointer;letter-spacing:.06em;transition:color .2s,border-color .2s,box-shadow .2s,transform .15s}
 .lang-toggle:hover{color:var(--green);border-color:var(--green-mid);box-shadow:0 4px 12px rgba(22,31,23,0.08);transform:translateY(-1px)}
+
+/* Nav CTA — Kontakt hervorgehoben */
+.nav-links a.nav-cta{background:linear-gradient(120deg,var(--green) 0%,var(--green-dark) 100%);color:#fff;padding:8px 18px;border-radius:100px;font-weight:500;transition:filter .2s,transform .15s,box-shadow .2s;box-shadow:0 2px 8px rgba(31,77,40,0.2)}
+.nav-links a.nav-cta::after{display:none}
+.nav-links a.nav-cta:hover{color:#fff;filter:brightness(0.92);transform:translateY(-1px);box-shadow:0 4px 12px rgba(31,77,40,0.3)}
+
 
 /* PROGRESS BAR */
 #progress-bar{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--green) 0%,var(--green-mid) 50%,var(--amber) 100%);z-index:1000;border-radius:0 2px 2px 0;transition:width .1s linear;box-shadow:0 0 8px rgba(78,139,92,0.4)}
