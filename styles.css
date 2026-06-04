@@ -269,6 +269,7 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 .nav-mobile-menu{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:9px 10px;border:1px solid var(--border);border-radius:8px;background:white;z-index:320;position:relative}
 .nav-mobile-menu span{width:20px;height:2px;background:var(--ink) !important;border-radius:2px;display:block;transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .25s}
 .nav-mobile-menu.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-mobile-menu.active{background:white;box-shadow:0 4px 16px rgba(22,31,23,0.12)}
 .nav-mobile-menu.active span:nth-child(2){opacity:0;transform:scaleX(0)}
 .nav-mobile-menu.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .mobile-nav-overlay{position:fixed;inset:0;height:100vh;height:100dvh;background:rgba(255,254,250,0.92);backdrop-filter:saturate(180%) blur(28px);-webkit-backdrop-filter:saturate(180%) blur(28px);z-index:305;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 32px 48px;opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.4,0,.2,1)}
@@ -454,7 +455,7 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
   .site-footer-inner{padding:0 40px}
 }
 @media(max-width:900px){
-  .nav-mobile-menu{position:fixed;top:22px;right:28px}
+  .nav-mobile-menu{position:fixed;top:17px;right:32px}
   .hero{min-height:auto;padding:48px 0 72px;text-align:center}
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .hero-content{align-items:center}
@@ -484,6 +485,7 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 @media(max-width:600px){
   .container{padding:0 20px}
   .nav-inner{padding:0 18px;height:52px}
+  .nav-mobile-menu{top:17px;right:24px}
   body{padding-top:72px}
   nav{top:8px;width:calc(100% - 28px);border-radius:14px}
 
@@ -522,7 +524,7 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
   .about-socials{justify-content:center}
 
   /* Timeline mobil — kompakter, PDF unter Text */
-  .tl-item{grid-template-columns:80px 18px 1fr;gap:0 10px}
+  .tl-item{grid-template-columns:84px 16px 1fr;gap:0 10px}
   .tl-left{padding-top:14px}
   .tl-date{font-size:9px}
   .tl-card{padding:15px 16px}
