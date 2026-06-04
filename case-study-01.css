@@ -150,22 +150,18 @@
   .cs-morework .masonry-grid{padding:0 40px}
 }
 @media(max-width:900px){
-  /* Sidebar wird zur schwebenden Pillen-Leiste unten mit Abstand */
+  /* Sidebar wird zur schwebenden Punkte-Leiste unten — nur Punkte */
   .cs-sidebar{
     top:auto;bottom:16px;left:50%;transform:translateX(-50%);
     border-radius:100px;border:1px solid rgba(255,255,255,0.6);
-    max-width:calc(100% - 32px);overflow-x:auto;
-    padding:8px 10px;
-    -webkit-overflow-scrolling:touch;
+    padding:10px 14px;
   }
-  .cs-sidebar::-webkit-scrollbar{display:none}
-  .cs-sidebar{scrollbar-width:none}
-  .cs-nav-list{flex-direction:row;gap:2px}
-  .cs-nav-item{padding:8px 12px;white-space:nowrap}
+  .cs-nav-list{flex-direction:row;gap:0}
+  .cs-nav-item{padding:6px}
   .cs-nav-item span:not(.cs-nav-dot){display:none}
-  .cs-nav-item.active span:not(.cs-nav-dot){display:inline}
-  .cs-nav-item.active{background:var(--green-light)}
-  /* Inhalt bekommt unten Platz für die Leiste */
+  .cs-nav-item.active span:not(.cs-nav-dot){display:none}
+  .cs-nav-dot{width:8px;height:8px}
+  .cs-nav-item.active .cs-nav-dot{transform:scale(1.5);box-shadow:0 0 0 4px rgba(78,139,92,.2)}
   body{padding-bottom:80px}
 }
 @media(max-width:600px){
