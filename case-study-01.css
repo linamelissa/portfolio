@@ -1,40 +1,56 @@
-/* ===== CASE STUDY SPECIFIC STYLES ===== */
+/* ===== CASE STUDY — vollbreites Layout mit fixer Sidebar links ===== */
 
-/* Layout with sticky sidebar */
-.cs-layout{max-width:1240px;margin:0 auto;padding:0 56px;display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
-.cs-main{min-width:0}
-
-/* STICKY SIDEBAR NAV */
-.cs-sidebar{position:sticky;top:104px;align-self:start}
-.cs-sidebar-inner{background:white;border:1px solid var(--border);border-radius:20px;padding:20px;box-shadow:0 1px 3px rgba(22,31,23,0.04)}
+/* Sidebar klebt ganz links am Bildschirmrand */
+.cs-sidebar{
+  position:fixed;
+  top:50%;
+  left:0;
+  transform:translateY(-50%);
+  z-index:250;
+  padding:16px 14px;
+  background:rgba(255,254,250,0.82);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border:1px solid rgba(255,255,255,0.6);
+  border-left:none;
+  border-top-right-radius:18px;
+  border-bottom-right-radius:18px;
+  box-shadow:0 8px 32px rgba(22,31,23,0.1),0 1px 4px rgba(22,31,23,0.06);
+}
 .cs-nav-list{list-style:none;display:flex;flex-direction:column;gap:2px}
-.cs-nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;font-size:13px;color:var(--ink-muted);text-decoration:none;cursor:pointer;transition:background .2s,color .2s}
+.cs-nav-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;font-size:12.5px;color:var(--ink-muted);text-decoration:none;cursor:pointer;transition:background .2s,color .2s;white-space:nowrap}
 .cs-nav-item:hover{background:var(--green-light);color:var(--green-dark)}
 .cs-nav-dot{width:7px;height:7px;border-radius:50%;background:var(--border);flex-shrink:0;transition:background .2s,transform .2s}
 .cs-nav-item.active{color:var(--ink);font-weight:500}
-.cs-nav-item.active .cs-nav-dot{background:var(--green);transform:scale(1.3)}
+.cs-nav-item.active .cs-nav-dot{background:var(--green);transform:scale(1.4);box-shadow:0 0 0 3px rgba(78,139,92,.2)}
 
-/* CS HERO */
-.cs-hero{padding:64px 0 88px;border-bottom:1px solid var(--border);background-image:radial-gradient(var(--border) 1px,transparent 1px);background-size:24px 24px}
-.cs-hero-inner{max-width:1240px;margin:0 auto;padding:0 56px}
+/* Inhalt nutzt volle Breite, nur etwas Platz für die Sidebar */
+.cs-wrap{max-width:1100px;margin:0 auto;padding:0 56px}
+
+/* CS HERO — volle Breite, Punkteraster wie Referenz */
+.cs-hero{padding:72px 0 96px;border-bottom:1px solid var(--border);background-image:radial-gradient(var(--border) 1px,transparent 1px);background-size:24px 24px;position:relative}
 .cs-hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:36px}
 .cs-hero-tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--border);background:white;border-radius:100px;padding:6px 14px}
-.cs-hero-title{font-size:clamp(60px,11vw,140px);font-weight:600;line-height:.95;letter-spacing:-.04em;text-align:center;color:var(--green-dark);margin-bottom:48px}
-.cs-hero-body{display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start;max-width:1000px;margin:0 auto}
-.cs-meta{display:flex;flex-direction:column;gap:22px}
-.cs-meta-item{display:flex;flex-direction:column;gap:5px;padding-bottom:18px;border-bottom:1px solid var(--border)}
-.cs-meta-item:last-of-type{border-bottom:none}
+.cs-hero-title{font-size:clamp(64px,12vw,150px);font-weight:600;line-height:.92;letter-spacing:-.04em;text-align:center;color:var(--green-dark);margin-bottom:56px}
+.cs-hero-body{display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start;max-width:1000px;margin:0 auto}
+.cs-meta{display:flex;flex-direction:column;gap:20px}
+.cs-meta-item{display:flex;flex-direction:column;gap:5px;padding-bottom:16px;border-bottom:1px solid var(--border)}
 .cs-meta-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}
 .cs-meta-value{font-size:14px;color:var(--ink);font-weight:500;line-height:1.4}
 .cs-meta-buttons{display:flex;flex-direction:column;gap:10px;margin-top:8px}
-.cs-btn-dark{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:white;text-decoration:none;padding:14px 22px;border-radius:100px;font-size:13px;font-weight:500;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 2px 8px rgba(22,31,23,0.15)}
-.cs-btn-dark:hover{background:var(--green-dark);transform:translateY(-1px);box-shadow:0 6px 16px rgba(22,31,23,0.2)}
+.cs-btn-dark{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(120deg,var(--green) 0%,var(--green-dark) 100%);color:white;text-decoration:none;padding:14px 22px;border-radius:100px;font-size:13px;font-weight:500;transition:filter .2s,transform .15s,box-shadow .2s;box-shadow:0 2px 8px rgba(31,77,40,0.2)}
+.cs-btn-dark:hover{filter:brightness(0.92);transform:translateY(-1px);box-shadow:0 6px 16px rgba(31,77,40,0.28)}
 .cs-btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:white;color:var(--ink);text-decoration:none;padding:14px 22px;border-radius:100px;font-size:13px;font-weight:500;border:1px solid var(--border);transition:border-color .2s,color .2s,transform .15s}
 .cs-btn-outline:hover{border-color:var(--green-mid);color:var(--green);transform:translateY(-1px)}
 .cs-btn-dark svg,.cs-btn-outline svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.cs-hero-right{display:flex;flex-direction:column;gap:24px}
 .cs-intro-box{background:white;border:1px solid var(--border);border-radius:20px;padding:32px;box-shadow:0 1px 3px rgba(22,31,23,0.04)}
 .cs-intro-box p{font-size:17px;line-height:1.8;color:var(--ink-soft)}
 .cs-intro-box strong{color:var(--ink);font-weight:600}
+/* Bild unter Introtext, neben den Infos (rechte Spalte) */
+.cs-hero-image{border-radius:20px;overflow:hidden;border:1px solid var(--border);background:linear-gradient(135deg,var(--green-light) 0%,#d4e8d8 100%);min-height:280px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(22,31,23,0.04)}
+.cs-hero-image img{width:100%;height:100%;object-fit:cover;display:block}
+.cs-hero-image .cs-img-hint{font-family:var(--font-mono);font-size:12px;color:var(--green-dark)}
 
 /* CS SECTIONS */
 .cs-section{padding:96px 0;border-bottom:1px solid var(--border)}
@@ -44,14 +60,14 @@
 .cs-section-title em{font-style:italic;font-weight:400;color:var(--green-mid)}
 .cs-section-sub{font-size:16px;line-height:1.7;color:var(--ink-muted);text-align:center;max-width:600px;margin:0 auto 56px}
 
-/* Big problem statement style */
+/* Statement */
 .cs-statement{display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:start;max-width:1100px;margin:0 auto}
 .cs-statement-main{font-size:clamp(40px,6vw,72px);font-weight:600;line-height:1.05;letter-spacing:-.03em;color:var(--ink)}
 .cs-statement-main em{font-style:italic;font-weight:400;color:var(--green-mid);display:block}
 .cs-statement-side{font-size:16px;line-height:1.8;color:var(--ink-soft);padding-top:12px}
 .cs-statement-side strong{color:var(--ink);font-weight:600}
 
-/* Numbered cards (KPIs style) — hover fills green */
+/* KPI-Karten — hover grün */
 .cs-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1000px;margin:0 auto}
 .cs-card{background:white;border:1px solid var(--border);border-radius:24px;padding:36px;transition:background .3s,border-color .3s,transform .3s,box-shadow .3s}
 .cs-card:hover{background:var(--green);border-color:var(--green);transform:translateY(-4px);box-shadow:0 12px 32px rgba(78,139,92,0.2)}
@@ -66,20 +82,21 @@
 .cs-card-row-value{font-size:14px;color:var(--ink-soft);transition:color .3s}
 .cs-card:hover .cs-card-row-value{color:white}
 
-/* Simple content cards (3-up) */
+/* 3er-Karten — hover grün */
 .cs-cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
 .cs-content-card{background:white;border:1px solid var(--border);border-radius:24px;padding:32px;transition:background .3s,border-color .3s,transform .3s,box-shadow .3s}
 .cs-content-card:hover{background:var(--green);border-color:var(--green);transform:translateY(-4px);box-shadow:0 12px 32px rgba(78,139,92,0.2)}
 .cs-content-card h3{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:12px;transition:color .3s}
 .cs-content-card p{font-size:14px;line-height:1.7;color:var(--ink-soft);transition:color .3s}
 .cs-content-card:hover h3,.cs-content-card:hover p{color:white}
-.cs-content-card .cs-content-icon{width:46px;height:46px;border-radius:13px;background:var(--green-light);display:inline-flex;align-items:center;justify-content:center;margin-bottom:20px;transition:background .3s}
+.cs-content-icon{width:46px;height:46px;border-radius:13px;background:var(--green-light);display:inline-flex;align-items:center;justify-content:center;margin-bottom:20px;transition:background .3s}
 .cs-content-card:hover .cs-content-icon{background:rgba(255,255,255,0.2)}
 .cs-content-icon svg{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
 .cs-content-card:hover .cs-content-icon svg{stroke:white}
 
-/* Image placeholder block */
+/* Bild-Block */
 .cs-image-block{max-width:1000px;margin:0 auto;border-radius:24px;height:420px;background:linear-gradient(135deg,var(--green-light) 0%,#d4e8d8 100%);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);overflow:hidden}
+.cs-image-block img{width:100%;height:100%;object-fit:cover}
 .cs-image-hint{font-family:var(--font-mono);font-size:12px;color:var(--green-dark);text-align:center}
 
 /* Before/After */
@@ -95,47 +112,39 @@
 .cs-ba-before li::before{content:'×';position:absolute;left:0;color:#c66;font-weight:700}
 .cs-ba-after li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
 
-/* MORE WORK */
+/* MORE WORK — Masonry wie Startseite */
 .cs-morework{background:var(--green-light);padding:112px 0}
-.cs-morework-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1100px;margin:0 auto;padding:0 56px}
-.cs-work-card{background:white;border-radius:24px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .25s,box-shadow .25s;box-shadow:0 1px 4px rgba(22,31,23,0.06)}
-.cs-work-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(22,31,23,0.12)}
-.cs-work-thumb{height:300px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative}
-.cs-work-thumb-1{background:linear-gradient(135deg,#E6F1FB,#A8D0F0)}
-.cs-work-thumb-2{background:linear-gradient(135deg,#E8E8E8,#C8C8C8)}
-.cs-work-body{padding:28px}
-.cs-work-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-.cs-work-tags span{font-family:var(--font-mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--border);border-radius:100px;padding:4px 10px}
-.cs-work-title{font-size:22px;font-weight:600;color:var(--ink);margin-bottom:12px;letter-spacing:-.02em}
-.cs-work-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-muted);font-family:var(--font-mono)}
-.cs-work-card:hover .cs-work-link{color:var(--green)}
+.cs-morework .masonry-grid{max-width:1100px;margin:0 auto;padding:0 56px}
 
 /* RESPONSIVE */
-@media(max-width:1000px){
-  .cs-layout{grid-template-columns:1fr;gap:0;padding:0 40px}
-  .cs-sidebar{display:none}
-  .cs-hero-inner{padding:0 40px}
+@media(max-width:1100px){
+  .cs-wrap{padding:0 40px}
   .cs-hero-body{grid-template-columns:1fr;gap:36px;max-width:640px}
-  .cs-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  .cs-meta-buttons{grid-column:span 2;flex-direction:row}
-  .cs-meta-buttons a{flex:1}
   .cs-statement{grid-template-columns:1fr;gap:32px}
   .cs-cards{grid-template-columns:1fr}
   .cs-cards-3{grid-template-columns:1fr}
-  .cs-morework-grid{padding:0 40px}
+  .cs-morework .masonry-grid{padding:0 40px}
+}
+@media(max-width:900px){
+  /* Sidebar wird zur horizontalen Leiste unten */
+  .cs-sidebar{
+    top:auto;bottom:12px;left:50%;transform:translateX(-50%);
+    border-radius:16px;border-left:1px solid rgba(255,255,255,0.6);
+    max-width:calc(100% - 24px);overflow-x:auto;
+  }
+  .cs-nav-list{flex-direction:row;gap:4px}
+  .cs-nav-item{padding:8px 10px}
+  .cs-nav-item span:not(.cs-nav-dot){display:none}
+  .cs-nav-item.active span:not(.cs-nav-dot){display:inline}
 }
 @media(max-width:600px){
+  .cs-wrap{padding:0 20px}
   .cs-hero{padding:48px 0 64px}
-  .cs-hero-inner{padding:0 20px}
-  .cs-layout{padding:0 20px}
-  .cs-hero-title{font-size:clamp(48px,18vw,80px)}
-  .cs-meta{grid-template-columns:1fr}
-  .cs-meta-buttons{grid-column:span 1;flex-direction:column}
+  .cs-hero-title{font-size:clamp(52px,18vw,90px)}
   .cs-section{padding:64px 0}
   .cs-statement-main{font-size:32px}
   .cs-beforeafter{grid-template-columns:1fr}
   .cs-image-block{height:280px}
   .cs-morework{padding:72px 0}
-  .cs-morework-grid{grid-template-columns:1fr;padding:0 20px}
-  .cs-work-thumb{height:220px}
+  .cs-morework .masonry-grid{padding:0 20px}
 }
