@@ -257,7 +257,8 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 .contact-btn-outline:hover{background:var(--ink);color:white;box-shadow:0 4px 12px rgba(22,31,23,0.1)}
 
 /* FOOTER */
-.site-footer{background:var(--green-light);padding:48px 0 0;box-shadow:0 -8px 24px rgba(22,31,23,0.06)}
+.site-footer{background:#E2EDE4;padding:48px 0 0;position:relative}
+.site-footer::before{content:"";position:absolute;top:0;left:0;right:0;height:24px;background:linear-gradient(180deg,rgba(22,31,23,0.10) 0%,transparent 100%);pointer-events:none}
 .site-footer-inner{max-width:1240px;margin:0 auto;padding:0 56px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
 .site-footer-brand{display:flex;flex-direction:column;gap:8px}
 .site-footer-name-text{font-family:var(--font-mono);font-size:15px;color:var(--ink)}
@@ -559,7 +560,7 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
   .contact-btn-primary,.contact-btn-outline{width:100%;justify-content:center}
 
   /* Footer mobil */
-  .site-footer{padding:44px 0 0;box-shadow:0 -8px 24px rgba(22,31,23,0.06)}
+  .site-footer{padding:44px 0 0;box-shadow:0 -12px 32px rgba(22,31,23,0.12)}
   .site-footer-inner{flex-direction:column;gap:28px;padding:0 20px;text-align:center}
   .site-footer-brand{align-items:center}
   .site-footer-socials{justify-content:center}
