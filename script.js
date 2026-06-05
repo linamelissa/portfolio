@@ -28,6 +28,14 @@ const ICONS = {
   'moon':'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
   'arrow-right':'<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
   'git-branch':'<line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>',
+  'tool-figma':'<rect x="7" y="3" width="5" height="6" rx="2.5"/><rect x="7" y="9" width="5" height="6" rx="2.5"/><rect x="12" y="3" width="5" height="6" rx="2.5"/><circle cx="14.5" cy="12" r="2.5"/><rect x="7" y="15" width="5" height="6" rx="2.5"/>',
+  'tool-app':'<rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 8h8v8H8z"/>',
+  'tool-pen':'<path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/>',
+  'tool-image':'<rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>',
+  'tool-cube':'<path d="m21 16-9 5-9-5V8l9-5 9 5z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/>',
+  'tool-doc':'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/>',
+  'tool-board':'<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="M15 3v18"/>',
+  'tool-frame':'<line x1="22" x2="2" y1="6" y2="6"/><line x1="22" x2="2" y1="18" y2="18"/><line x1="6" x2="6" y1="2" y2="22"/><line x1="18" x2="18" y1="2" y2="22"/>',
   'linkedin':'<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>',
   'instagram':'<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>',
   'dribbble':'<circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"/>',
@@ -88,7 +96,7 @@ function toggleLang(){
   const lm = document.getElementById('lang-btn-mobile'); if(lm) lm.textContent = lbl;
   document.querySelectorAll('[data-de]').forEach(el => {
     const text = currentLang === 'de' ? el.dataset.de : el.dataset.en;
-    if(text) el.textContent = text;
+    if(text){ if(text.indexOf('<') !== -1){ el.innerHTML = text; } else { el.textContent = text; } }
   });
   buildBanner(currentLang);
   setNowIntro();
