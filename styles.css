@@ -146,8 +146,7 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 .expertise-card h3{font-size:19px;font-weight:500;color:var(--ink);letter-spacing:-.01em;margin-bottom:18px}
 .expertise-tags{display:flex;flex-wrap:wrap;gap:8px}
 .expertise-tags span{background:var(--green-light);color:var(--green-dark);border-radius:100px;padding:6px 13px;font-size:12px;font-family:var(--font-mono);letter-spacing:.02em}
-.expertise-tags span.tool{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#fff;border:none;font-weight:500}
-.expertise-tags span.tool svg.lucide{width:13px;height:13px;stroke:#fff;flex-shrink:0}
+.expertise-tags span.tool{background:#7DAB88;color:#fff;border:none;font-weight:500}
 
 /* ABOUT */
 .about-intro-row{display:grid;grid-template-columns:1fr 260px;gap:64px;align-items:start;margin-bottom:64px}
