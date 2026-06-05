@@ -241,7 +241,7 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 .masonry-tag{display:inline-block;font-size:10px;font-family:var(--font-mono);border:1px solid rgba(255,255,255,0.3);padding:3px 8px;border-radius:100px;background:rgba(0,0,0,0.2);color:rgba(255,255,255,0.9);letter-spacing:.04em}
 
 /* KONTAKT */
-#kontakt{width:100%;max-width:100%;display:block;clear:both;padding:120px 0;text-align:center;background:linear-gradient(180deg,var(--cream) 0%,var(--green-light) 100%);border-top:1px solid var(--border);position:relative;overflow:hidden}
+#kontakt{width:100%;max-width:100%;display:block;clear:both;padding:120px 0;text-align:center;background:linear-gradient(180deg,var(--cream) 0%,var(--green-light) 100%);position:relative;overflow:hidden}
 #kontakt::before{content:"";position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);width:min(800px,95vw);height:440px;background:radial-gradient(ellipse,rgba(242,203,90,0.15) 0%,transparent 70%);pointer-events:none;filter:blur(30px);max-width:100%}
 .contact-inner{max-width:680px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
 .contact-label{font-family:var(--font-mono);font-size:11px;color:var(--green-mid);letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px}
@@ -255,7 +255,7 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 .contact-btn-outline:hover{background:var(--ink);color:white;box-shadow:0 4px 12px rgba(22,31,23,0.1)}
 
 /* FOOTER */
-.site-footer{background:var(--cream);border-top:1px solid var(--border);padding:48px 0 0}
+.site-footer{background:var(--cream);padding:48px 0 0}
 .site-footer-inner{max-width:1240px;margin:0 auto;padding:0 56px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
 .site-footer-brand{display:flex;flex-direction:column;gap:8px}
 .site-footer-name-text{font-family:var(--font-mono);font-size:15px;color:var(--ink)}
