@@ -4,110 +4,62 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Impressum — Lina Melissa</title>
+<meta name="robots" content="noindex">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --green:#4E8B5C;--green-light:#EEF4EF;--green-mid:#4E8B5C;--green-dark:#1F4D28;
-  --cream:#FFFEFA;--ink:#161F17;--ink-soft:#3a4a3c;--ink-muted:#6b7d6d;
-  --amber:#F2CB5A;--border:rgba(22,31,23,0.08);--font-body:'DM Sans',sans-serif;--font-mono:'Space Mono',monospace;
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--font-body);background:var(--cream);color:var(--ink);font-size:16px;line-height:1.6}
-
-nav{position:sticky;top:0;background:rgba(250,250,247,0.92);backdrop-filter:blur(12px);z-index:100;border-bottom:1px solid var(--border)}
-.nav-inner{max-width:900px;margin:0 auto;padding:0 36px;display:flex;justify-content:space-between;align-items:center;height:60px}
-.nav-name{font-family:var(--font-mono);font-size:13px;color:var(--ink);text-decoration:none;letter-spacing:.02em}
-.nav-back{font-size:14px;color:var(--ink-muted);text-decoration:none;transition:color .2s}
-.nav-back:hover{color:var(--green)}
-
-.impressum-wrap{max-width:600px;margin:0 auto;padding:80px 36px 120px}
-.impressum-eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;display:block}
-.impressum-heading{font-size:36px;font-weight:300;letter-spacing:-.02em;color:var(--ink);margin-bottom:48px;line-height:1.15}
-.impressum-block{margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--border)}
-.impressum-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.impressum-block-label{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;display:block}
-.impressum-block p{font-size:15px;color:var(--ink-soft);line-height:1.85}
-.impressum-block a{color:var(--green-mid);text-decoration:none}
-.impressum-block a:hover{text-decoration:underline}
-
-.site-footer{background:var(--cream);border-top:1px solid var(--border);padding:32px 0 36px}
-.site-footer-inner{max-width:900px;margin:0 auto;padding:0 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.site-footer-left{display:flex;flex-direction:column;gap:3px}
-.site-footer-name-text{font-family:var(--font-mono);font-size:13px;color:var(--ink)}
-.site-footer-sub{font-size:11px;color:var(--ink-muted);font-family:var(--font-mono)}
-.site-footer-right{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.site-footer-link{font-size:13px;color:var(--ink-muted);text-decoration:none;transition:color .2s;font-family:var(--font-mono)}
-.site-footer-link:hover{color:var(--green)}
-
-@media(max-width:600px){
-  .nav-inner{padding:0 18px}
-  .impressum-wrap{padding:48px 18px 80px}
-  .impressum-heading{font-size:28px}
-  .impressum-block p{font-size:14px}
-  .site-footer-inner{padding:0 18px;flex-direction:column;align-items:flex-start;gap:12px}
-}
+  .legal-wrap{max-width:680px;margin:0 auto;padding:64px 24px 96px}
+  .legal-wrap h1{font-size:clamp(34px,5vw,48px);font-weight:500;letter-spacing:-.02em;color:var(--ink);margin-bottom:40px}
+  .legal-wrap h2{font-size:20px;font-weight:500;color:var(--ink);margin:36px 0 12px}
+  .legal-wrap p{font-size:16px;line-height:1.7;color:var(--ink-soft);margin-bottom:8px}
+  .legal-wrap a{color:var(--green);text-decoration:underline;text-underline-offset:3px}
+  .legal-ph{background:var(--green-light);color:var(--green-dark);padding:1px 8px;border-radius:6px;font-family:var(--font-mono);font-size:14px}
+  .legal-note{margin-top:48px;padding:18px 20px;background:var(--green-light);border-radius:14px;font-size:13px;color:var(--ink-soft);line-height:1.6}
 </style>
 </head>
 <body>
 
+<div id="custom-cursor"></div>
+
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-name">Lina Melissa</a>
-    <a href="index.html" class="nav-back">← Zurück</a>
+    <a href="index.html" class="nav-back" style="display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:13px;color:var(--ink-soft);text-decoration:none">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+      <span data-de="Zur Startseite" data-en="Back to home">Zur Startseite</span>
+    </a>
+    <a href="index.html" class="nav-name nav-name-center" style="position:absolute;left:50%;transform:translateX(-50%)">Lina Melissa</a>
+    <button class="lang-toggle" onclick="toggleLang()" id="lang-btn" style="margin-left:auto">EN</button>
   </div>
 </nav>
 
-<div class="impressum-wrap">
-  <span class="impressum-eyebrow">Rechtliches</span>
-  <h1 class="impressum-heading">Impressum</h1>
+<div class="legal-wrap">
+  <h1>Impressum</h1>
 
-  <div class="impressum-block">
-    <span class="impressum-block-label">Angaben gemäß § 5 TMG</span>
-    <p>
-      Lina Melissa<br>
-      [Deine Straße & Hausnummer]<br>
-      [PLZ] Hamburg<br>
-      Deutschland
-    </p>
-  </div>
+  <h2 data-de="Angaben gemäß § 5 DDG" data-en="Information pursuant to § 5 DDG">Angaben gemäß § 5 DDG</h2>
+  <p>Lina Melissa Arndt</p>
+  <p><span class="legal-ph">[Straße und Hausnummer]</span></p>
+  <p><span class="legal-ph">[PLZ und Ort]</span></p>
+  <p data-de="Deutschland" data-en="Germany">Deutschland</p>
 
-  <div class="impressum-block">
-    <span class="impressum-block-label">Kontakt</span>
-    <p>
-      E-Mail: <a href="mailto:deine@email.com">deine@email.com</a>
-    </p>
-  </div>
+  <h2 data-de="Kontakt" data-en="Contact">Kontakt</h2>
+  <p>E-Mail: <a href="mailto:Lina-Melissa@web.de">Lina-Melissa@web.de</a></p>
 
-  <div class="impressum-block">
-    <span class="impressum-block-label">Inhalt & Haftung</span>
-    <p>Diese Website dient ausschließlich der persönlichen Selbstpräsentation. Die Inhalte wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird keine Gewähr übernommen.</p>
-  </div>
+  <h2 data-de="Verantwortlich für den Inhalt" data-en="Responsible for content">Verantwortlich für den Inhalt</h2>
+  <p>Lina Melissa Arndt</p>
+  <p><span class="legal-ph">[gleiche Adresse wie oben]</span></p>
 
-  <div class="impressum-block">
-    <span class="impressum-block-label">Datenschutz</span>
-    <p>Es werden keine personenbezogenen Daten erhoben, gespeichert oder weitergegeben. Diese Website verwendet keine Cookies und keine Tracking-Tools.</p>
-  </div>
+  <h2 data-de="Haftung für Inhalte" data-en="Liability for content">Haftung für Inhalte</h2>
+  <p data-de="Als Diensteanbieterin bin ich gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG bin ich als Diensteanbieterin jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen." data-en="As a service provider, I am responsible for my own content on these pages in accordance with general law (Section 7 (1) DDG). However, under Sections 8 to 10 DDG, I am not obliged to monitor transmitted or stored third-party information.">Als Diensteanbieterin bin ich gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG bin ich als Diensteanbieterin jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
 
-  <div class="impressum-block">
-    <span class="impressum-block-label">Urheberrecht</span>
-    <p>Alle Inhalte dieser Website — Texte, Bilder, Grafiken und Designs — sind urheberrechtlich geschützt und dürfen ohne ausdrückliche Genehmigung nicht verwendet werden.</p>
-  </div>
+  <h2 data-de="Haftung für Links" data-en="Liability for links">Haftung für Links</h2>
+  <p data-de="Mein Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich." data-en="My website contains links to external third-party websites over whose content I have no influence. Therefore, I cannot accept any liability for this third-party content. The respective provider or operator is always responsible.">Mein Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+
+  <h2 data-de="Urheberrecht" data-en="Copyright">Urheberrecht</h2>
+  <p data-de="Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen meiner schriftlichen Zustimmung." data-en="The content and works created by me on these pages are subject to German copyright law. Reproduction, editing, distribution and any kind of use beyond the limits of copyright law require my written consent.">Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen meiner schriftlichen Zustimmung.</p>
+
+  <div class="legal-note" data-de="Hinweis: Ersetze die grün markierten Platzhalter durch deine echte, ladungsfähige Adresse (kein Postfach). Dieses Impressum ist eine solide Grundlage, aber keine Rechtsberatung — im Zweifel kurz von einer offiziellen Stelle (z.B. IHK) prüfen lassen." data-en="Note: Replace the green placeholders with your real, summonable address (no PO box). This imprint is a solid basis but not legal advice.">Hinweis: Ersetze die grün markierten Platzhalter durch deine echte, ladungsfähige Adresse (kein Postfach). Dieses Impressum ist eine solide Grundlage, aber keine Rechtsberatung — im Zweifel kurz von einer offiziellen Stelle (z.B. IHK) prüfen lassen.</div>
 </div>
 
-<footer class="site-footer">
-  <div class="site-footer-inner">
-    <div class="site-footer-left">
-      <span class="site-footer-name-text">Lina Melissa</span>
-      <span class="site-footer-sub">UX & Product Design · Hamburg · 2026</span>
-    </div>
-    <div class="site-footer-right">
-      <a href="https://linkedin.com/in/DEIN-PROFIL" target="_blank" class="site-footer-link">LinkedIn ↗</a>
-      <a href="https://behance.net/DEIN-PROFIL" target="_blank" class="site-footer-link">Behance ↗</a>
-      <a href="https://dribbble.com/DEIN-PROFIL" target="_blank" class="site-footer-link">Dribbble ↗</a>
-    </div>
-  </div>
-</footer>
-
+<script src="script.js"></script>
 </body>
 </html>
