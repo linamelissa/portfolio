@@ -208,10 +208,10 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 .blog-card{background:white;border:1px solid var(--border);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .2s,box-shadow .25s;box-shadow:0 1px 3px rgba(22,31,23,0.04)}
 .blog-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(22,31,23,0.09),0 2px 8px rgba(22,31,23,0.05)}
 .blog-thumb{height:160px;position:relative;display:flex;align-items:flex-start;padding:14px;overflow:hidden}
-.blog-thumb-1{background:linear-gradient(135deg,#EEF4EF 0%,#97C459 100%)}
-.blog-thumb-2{background:linear-gradient(135deg,#E6F1FB 0%,#378ADD 100%)}
-.blog-thumb-3{background:linear-gradient(135deg,#FAEEDA 0%,#EF9F27 100%)}
-.blog-thumb-4{background:linear-gradient(135deg,#F1EFE8 0%,#888780 100%)}
+.blog-thumb-1{background:linear-gradient(135deg,#EEF4EF 0%,#7DAB88 100%)}
+.blog-thumb-2{background:linear-gradient(135deg,#EEF4EF 0%,#4E8B5C 100%)}
+.blog-thumb-3{background:linear-gradient(135deg,#F3F7F0 0%,#1F4D28 100%)}
+.blog-thumb-4{background:linear-gradient(135deg,#EEF4EF 0%,#5E9C6E 100%)}
 .blog-tag-pill{background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.5);border-radius:100px;padding:4px 10px;font-size:10px;font-family:var(--font-mono);color:var(--ink);letter-spacing:.04em;z-index:2}
 .blog-body{padding:18px;display:flex;flex-direction:column;gap:6px;flex:1}
 .blog-meta{font-family:var(--font-mono);font-size:10px;color:var(--ink-muted)}
