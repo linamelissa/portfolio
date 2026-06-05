@@ -206,7 +206,7 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 .blog-thumb-2{background:linear-gradient(135deg,#EEF4EF 0%,#4E8B5C 100%)}
 .blog-thumb-3{background:linear-gradient(135deg,#F3F7F0 0%,#1F4D28 100%)}
 .blog-thumb-4{background:linear-gradient(135deg,#EEF4EF 0%,#5E9C6E 100%)}
-.blog-tag-pill{background:var(--green-light);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:4px 10px;font-size:10px;font-family:var(--font-mono);color:#fff;letter-spacing:.04em;z-index:2}
+.blog-tag-pill{background:#7DAB88;border:none;border-radius:100px;padding:4px 10px;font-size:10px;font-family:var(--font-mono);color:#fff;font-weight:500;letter-spacing:.04em;z-index:2}
 .blog-body{padding:18px;display:flex;flex-direction:column;gap:6px;flex:1}
 .blog-meta{font-family:var(--font-mono);font-size:10px;color:var(--ink-muted)}
 .blog-title{font-size:14px;font-weight:500;line-height:1.4;color:var(--ink)}
