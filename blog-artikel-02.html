@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- TITEL ANPASSEN -->
+<title>Navigationsarchitektur und Prototyping — Lina Melissa</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="blog-artikel.css">
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<div id="custom-cursor"></div>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+      <span data-de="Zum Blog" data-en="Back to Blog">Zum Blog</span>
+    </a>
+    <a href="index.html" class="nav-name nav-name-center">Lina Melissa</a>
+    <div class="nav-right">
+      <a href="index.html#kontakt" class="nav-contact-link" data-de="Kontakt" data-en="Contact">Kontakt</a>
+      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== ARTIKEL ===== -->
+<article class="blog-article">
+
+  <!-- HEADER: Meta + Titel + Lead -->
+  <header class="ba-header">
+    <div class="ba-meta">
+      <span class="ba-category" data-de="UX Design" data-en="UX Design">UX Design</span>
+      <span class="ba-dot">·</span>
+      <time data-de="Juni 2026" data-en="June 2026">Juni 2026</time>
+      <span class="ba-dot">·</span>
+      <span data-de="7 Min. Lesezeit" data-en="7 min read">7 Min. Lesezeit</span>
+    </div>
+
+    <h1 class="ba-title" data-de="Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping" data-en="First the plan, then the feeling: navigation architecture and prototyping">Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping</h1>
+
+    <p class="ba-lead" data-de="Zwei Dinge faszinieren mich an UX besonders: wie man eine Struktur baut, in der sich Menschen nicht verlaufen — und wie man diese Struktur zum Leben erweckt, bevor eine einzige Zeile Code geschrieben ist. Über beide möchte ich hier schreiben, weil sie für mich untrennbar zusammengehören." data-en="Two things fascinate me about UX in particular: how to build a structure people don't get lost in — and how to bring that structure to life before a single line of code is written. I want to write about both here, because to me they're inseparable.">Zwei Dinge faszinieren mich an UX besonders: wie man eine Struktur baut, in der sich Menschen nicht verlaufen — und wie man diese Struktur zum Leben erweckt, bevor eine einzige Zeile Code geschrieben ist. Über beide möchte ich hier schreiben, weil sie für mich untrennbar zusammengehören.</p>
+  </header>
+
+  <div class="ba-body">
+
+    <p data-de="Wenn ich an einem Produkt arbeite, fange ich nie mit dem an, was schön aussieht. Ich fange mit der Frage an: Wo will der Mensch eigentlich hin — und findet er den Weg dorthin, ohne nachzudenken? Genau das ist Navigationsarchitektur. Sie ist das unsichtbare Gerüst, auf dem alles andere steht." data-en="When I work on a product, I never start with what looks pretty. I start with the question: where does the person actually want to go — and can they find the way there without thinking? That's exactly what navigation architecture is. It's the invisible framework everything else stands on.">Wenn ich an einem Produkt arbeite, fange ich nie mit dem an, was schön aussieht. Ich fange mit der Frage an: Wo will der Mensch eigentlich hin — und findet er den Weg dorthin, ohne nachzudenken? Genau das ist Navigationsarchitektur. Sie ist das unsichtbare Gerüst, auf dem alles andere steht.</p>
+
+    <h2 data-de="Warum Struktur vor Schönheit kommt" data-en="Why structure comes before beauty">Warum Struktur vor Schönheit kommt</h2>
+
+    <p data-de="Eine wunderschöne Oberfläche rettet keine schlechte Struktur. Wenn jemand nicht versteht, wo er ist, wie er hierher kam und wie er weiterkommt, hilft kein noch so gutes Visual Design. Deshalb beginne ich mit der Informationsarchitektur: Welche Inhalte gibt es, wie gehören sie zusammen, und in welcher Hierarchie?" data-en="A beautiful interface doesn't save a bad structure. If someone doesn't understand where they are, how they got here and how to move on, no amount of good visual design helps. That's why I start with information architecture: what content exists, how does it belong together, and in what hierarchy?">Eine wunderschöne Oberfläche rettet keine schlechte Struktur. Wenn jemand nicht versteht, wo er ist, wie er hierher kam und wie er weiterkommt, hilft kein noch so gutes Visual Design. Deshalb beginne ich mit der Informationsarchitektur: Welche Inhalte gibt es, wie gehören sie zusammen, und in welcher Hierarchie?</p>
+
+    <p data-de="Ein Werkzeug, das ich dafür liebe, ist Card Sorting. Man gibt Menschen die einzelnen Inhalte in die Hand und lässt sie selbst gruppieren. Oft sortieren sie ganz anders, als ich es als Designerin getan hätte — und genau das ist Gold wert. Denn die Struktur soll ja für sie funktionieren, nicht für mich." data-en="A tool I love for this is card sorting. You hand people the individual pieces of content and let them group them themselves. They often sort quite differently than I would have as a designer — and that's worth gold. Because the structure is meant to work for them, not for me.">Ein Werkzeug, das ich dafür liebe, ist Card Sorting. Man gibt Menschen die einzelnen Inhalte in die Hand und lässt sie selbst gruppieren. Oft sortieren sie ganz anders, als ich es als Designerin getan hätte — und genau das ist Gold wert. Denn die Struktur soll ja für sie funktionieren, nicht für mich.</p>
+
+    <blockquote data-de="Gute Navigation merkt man nicht. Man merkt nur, wenn sie fehlt." data-en="Good navigation goes unnoticed. You only notice it when it's missing.">Gute Navigation merkt man nicht. Man merkt nur, wenn sie fehlt.</blockquote>
+
+    <p data-de="Aus dieser Struktur entstehen dann User Flows — die konkreten Wege, die jemand durch das Produkt nimmt. „Ich will von hier nach dort, welche Schritte liegen dazwischen?“ Je weniger Schritte, je klarer jeder einzelne, desto besser. Hier entscheidet sich, ob ein Produkt sich leicht oder anstrengend anfühlt." data-en="From this structure, user flows emerge — the concrete paths someone takes through the product. &quot;I want to get from here to there, what steps lie between?&quot; The fewer steps, the clearer each one, the better. This is where it's decided whether a product feels effortless or exhausting.">Aus dieser Struktur entstehen dann User Flows — die konkreten Wege, die jemand durch das Produkt nimmt. „Ich will von hier nach dort, welche Schritte liegen dazwischen?“ Je weniger Schritte, je klarer jeder einzelne, desto besser. Hier entscheidet sich, ob ein Produkt sich leicht oder anstrengend anfühlt.</p>
+
+    <h2 data-de="Und dann: das Gefühl testen" data-en="And then: testing the feeling">Und dann: das Gefühl testen</h2>
+
+    <p data-de="Eine Struktur auf Papier kann perfekt aussehen und sich trotzdem falsch anfühlen, sobald man sie benutzt. Genau dafür ist Prototyping da. Für mich ist ein Prototyp kein hübsches Endprodukt, sondern ein Werkzeug zum Fragenstellen: Funktioniert dieser Weg? Verstehen Menschen diesen Button? Wo zögern sie?" data-en="A structure on paper can look perfect and still feel wrong the moment you use it. That's exactly what prototyping is for. To me, a prototype isn't a pretty end product, it's a tool for asking questions: does this path work? Do people understand this button? Where do they hesitate?">Eine Struktur auf Papier kann perfekt aussehen und sich trotzdem falsch anfühlen, sobald man sie benutzt. Genau dafür ist Prototyping da. Für mich ist ein Prototyp kein hübsches Endprodukt, sondern ein Werkzeug zum Fragenstellen: Funktioniert dieser Weg? Verstehen Menschen diesen Button? Wo zögern sie?</p>
+
+    <p data-de="Ich arbeite mich dabei bewusst in Stufen vor:" data-en="I deliberately work my way up in stages:">Ich arbeite mich dabei bewusst in Stufen vor:</p>
+
+    <ol>
+      <li data-de="<strong>Lo-Fi zuerst.</strong> Graue Kästen, keine Farben, keine Details. So testet man die Struktur, ohne dass sich jemand am Design aufhängt — und ohne dass ich mich in Pixel verliebe, die vielleicht wieder fliegen." data-en="<strong>Lo-fi first.</strong> Grey boxes, no colours, no details. This lets you test the structure without anyone fixating on the design — and without me falling in love with pixels that might get cut."><strong>Lo-Fi zuerst.</strong> Graue Kästen, keine Farben, keine Details. So testet man die Struktur, ohne dass sich jemand am Design aufhängt — und ohne dass ich mich in Pixel verliebe, die vielleicht wieder fliegen.</li>
+      <li data-de="<strong>Dann Hi-Fi.</strong> Erst wenn die Struktur sitzt, kommen Farbe, Typografie und echte Inhalte dazu. Jetzt teste ich nicht mehr den Weg, sondern das Gefühl." data-en="<strong>Then hi-fi.</strong> Only once the structure holds do colour, typography and real content come in. Now I'm no longer testing the path, but the feeling."><strong>Dann Hi-Fi.</strong> Erst wenn die Struktur sitzt, kommen Farbe, Typografie und echte Inhalte dazu. Jetzt teste ich nicht mehr den Weg, sondern das Gefühl.</li>
+      <li data-de="<strong>Testen, nicht raten.</strong> Ich gebe den Prototyp echten Menschen und schaue zu — ohne zu helfen. Das Schweigen, wenn jemand einen Button nicht findet, sagt mehr als jede Meinung." data-en="<strong>Test, don't guess.</strong> I hand the prototype to real people and watch — without helping. The silence when someone can't find a button says more than any opinion."><strong>Testen, nicht raten.</strong> Ich gebe den Prototyp echten Menschen und schaue zu — ohne zu helfen. Das Schweigen, wenn jemand einen Button nicht findet, sagt mehr als jede Meinung.</li>
+    </ol>
+
+    <h2 data-de="Warum beides zusammengehört" data-en="Why the two belong together">Warum beides zusammengehört</h2>
+
+    <p data-de="Navigationsarchitektur ist der Plan, Prototyping ist die Probe. Das eine ohne das andere ist riskant: Eine Struktur, die nie getestet wurde, ist nur eine Vermutung. Und ein Prototyp ohne durchdachte Struktur ist eine schöne Hülle ohne Fundament. Erst zusammen ergeben sie ein Produkt, das sich richtig anfühlt." data-en="Navigation architecture is the plan, prototyping is the rehearsal. One without the other is risky: a structure that was never tested is just an assumption. And a prototype without a thought-through structure is a pretty shell with no foundation. Only together do they make a product that feels right.">Navigationsarchitektur ist der Plan, Prototyping ist die Probe. Das eine ohne das andere ist riskant: Eine Struktur, die nie getestet wurde, ist nur eine Vermutung. Und ein Prototyp ohne durchdachte Struktur ist eine schöne Hülle ohne Fundament. Erst zusammen ergeben sie ein Produkt, das sich richtig anfühlt.</p>
+
+    <p data-de="Und ehrlich gesagt: Es ist genau dieser Teil — das Gerüst bauen und es dann erwachen sehen — der mich an UX immer wieder begeistert. :)" data-en="And honestly: it's exactly this part — building the framework and then watching it come alive — that excites me about UX again and again. :)">Und ehrlich gesagt: Es ist genau dieser Teil — das Gerüst bauen und es dann erwachen sehen — der mich an UX immer wieder begeistert. :)</p>
+
+  </div>
+
+  <!-- ===== AUTOR / SIGNATUR ===== -->
+  <footer class="ba-author">
+    <img src="bild2.jpg" alt="Lina Melissa" class="ba-author-img">
+    <div>
+      <span class="ba-author-name">Lina Melissa</span>
+      <span class="ba-author-role" data-de="UX & Product Designerin" data-en="UX & Product Designer">UX & Product Designerin</span>
+    </div>
+  </footer>
+
+</article>
+
+<!-- ===== WEITERE ARTIKEL ===== -->
+<section class="ba-more">
+  <h2 class="ba-more-heading" data-de="Weitere Gedanken" data-en="More thoughts">Weitere Gedanken</h2>
+  <div class="ba-more-grid">
+    <!-- WEITERE ARTIKEL VERLINKEN — duplizieren/anpassen -->
+    <a href="blog-artikel-01.html" class="ba-more-card">
+      <span class="ba-more-cat" data-de="Prozess" data-en="Process">Prozess</span>
+      <h3 data-de="Wie ich dieses Portfolio mit Vibe Coding gebaut habe" data-en="How I built this portfolio with vibe coding">Wie ich dieses Portfolio mit Vibe Coding gebaut habe</h3>
+      <span class="ba-more-link" data-de="Lesen →" data-en="Read →">Lesen →</span>
+    </a>
+    <a href="#" class="ba-more-card">
+      <span class="ba-more-cat" data-de="Research" data-en="Research">Research</span>
+      <h3 data-de="52 Leute befragt — was ich wirklich gelernt habe" data-en="Surveyed 52 people — what I actually learned">52 Leute befragt — was ich wirklich gelernt habe</h3>
+      <span class="ba-more-link" data-de="Lesen →" data-en="Read →">Lesen →</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <span class="site-footer-name-text">Lina Melissa</span>
+      <span class="site-footer-sub" data-de="UX & Product Design · Hamburg" data-en="UX & Product Design · Hamburg">UX & Product Design · Hamburg</span>
+      <span class="site-footer-status"><span class="site-footer-dot"></span><span data-de="Verfügbar ab August 2026" data-en="Available from August 2026">Verfügbar ab August 2026</span></span>
+    </div>
+    <div class="site-footer-socials">
+      <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" class="site-footer-link" aria-label="LinkedIn"><span class="icon" data-icon="linkedin"></span></a>
+      <a href="https://www.behance.net/linwelss" target="_blank" class="site-footer-link" aria-label="Behance"><span class="icon" data-icon="behance"></span></a>
+      <a href="https://dribbble.com/linwelss" target="_blank" class="site-footer-link" aria-label="Dribbble"><span class="icon" data-icon="dribbble"></span></a>
+      <a href="https://www.instagram.com/linwelss/" target="_blank" class="site-footer-link" aria-label="Instagram"><span class="icon" data-icon="instagram"></span></a>
+    </div>
+  </div>
+  <div class="site-footer-bottom">
+    <span class="site-footer-copy">© 2026 Lina Melissa Arndt</span>
+    <a href="impressum.html" class="site-footer-impressum">Impressum</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
