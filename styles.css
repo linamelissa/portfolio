@@ -51,6 +51,9 @@ nav.nav-menu-open .nav-name{opacity:0;pointer-events:none}
 nav.nav-menu-open .lang-toggle-mobile{opacity:0;pointer-events:none}
 nav.nav-menu-open .nav-mobile-menu{background:white;box-shadow:0 4px 16px rgba(22,31,23,0.12)}
 
+.now-link{color:var(--green);text-decoration:underline;text-underline-offset:2px;transition:color .2s}
+.now-link:hover{color:var(--green-dark)}
+
 /* PROGRESS BAR */
 #progress-bar{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--green) 0%,var(--green-mid) 50%,var(--amber) 100%);z-index:1000;border-radius:0 2px 2px 0;transition:width .1s linear;box-shadow:0 0 8px rgba(78,139,92,0.4)}
 
@@ -143,7 +146,8 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 .expertise-card h3{font-size:19px;font-weight:500;color:var(--ink);letter-spacing:-.01em;margin-bottom:18px}
 .expertise-tags{display:flex;flex-wrap:wrap;gap:8px}
 .expertise-tags span{background:var(--green-light);color:var(--green-dark);border-radius:100px;padding:6px 13px;font-size:12px;font-family:var(--font-mono);letter-spacing:.02em}
-.expertise-tags span.tool{background:rgba(78,139,92,0.16);color:var(--green-dark);border:1px solid rgba(78,139,92,0.35);font-weight:500}
+.expertise-tags span.tool{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#fff;border:none;font-weight:500}
+.expertise-tags span.tool svg.lucide{width:13px;height:13px;stroke:#fff;flex-shrink:0}
 
 /* ABOUT */
 .about-intro-row{display:grid;grid-template-columns:1fr 260px;gap:64px;align-items:start;margin-bottom:64px}
