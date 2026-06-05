@@ -1,146 +1,519 @@
-/* ===== NAV (Zurück-Link, zentrierter Name) ===== */
-.nav-back{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:13px;color:var(--ink-soft);text-decoration:none;transition:color .2s,transform .15s}
-.nav-back svg{stroke:currentColor;transition:transform .2s}
-.nav-back:hover{color:var(--green)}
-.nav-back:hover svg{transform:translateX(-3px)}
-.nav-name-center{position:absolute;left:50%;transform:translateX(-50%)}
-.nav-right{display:flex;align-items:center;gap:18px}
-.nav-contact-link{font-size:14px;color:var(--ink-soft);text-decoration:none;transition:color .2s}
-.nav-contact-link:hover{color:var(--green)}
-@media(max-width:600px){
-  .nav-name-center{display:none}
-  .nav-back span{display:none}
-  .nav-contact-link{display:none}
-}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lina Melissa — UX/UI Design</title>
 
-/* ===== BLOGARTIKEL — schlichte, textfokussierte Lesespalte ===== */
+<!-- ===== SEO ===== -->
+<meta name="description" content="Lina Melissa Arndt — UX/UI Designerin aus Hamburg. Aus der Mediengestaltung kommend, gestalte ich digitale Produkte, die sich gut anfühlen. Portfolio, Case Studies und Gedanken zu Design.">
+<meta name="keywords" content="UX Design, Product Design, UX Designerin, Hamburg, Portfolio, Mediengestaltung, UI Design, Lina Melissa Arndt">
+<meta name="author" content="Lina Melissa Arndt">
+<link rel="canonical" href="https://linamelissa.de/">
 
-.blog-article{
-  max-width:780px;
-  margin:0 auto;
-  padding:64px 24px 0;
-}
+<!-- ===== OPEN GRAPH (Link-Vorschau auf LinkedIn, WhatsApp etc.) ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lina Melissa — UX/UI Design">
+<meta property="og:description" content="UX/UI Designerin aus Hamburg. Ich gestalte digitale Produkte, die sich gut anfühlen.">
+<meta property="og:url" content="https://linamelissa.de/">
+<meta property="og:image" content="https://linamelissa.de/og-image.jpg">
+<meta property="og:locale" content="de_DE">
 
-/* --- Header --- */
-.ba-header{margin-bottom:48px}
-.ba-meta{
-  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);
-  letter-spacing:.04em;margin-bottom:24px;
-}
-.ba-category{color:var(--green);font-weight:500}
-.ba-dot{opacity:.5}
-.ba-title{
-  font-size:clamp(34px,5vw,52px);
-  line-height:1.12;letter-spacing:-.02em;font-weight:500;
-  color:var(--ink);margin-bottom:24px;
-}
-.ba-lead{
-  font-size:21px;line-height:1.6;color:var(--ink-soft);
-  font-weight:300;
-}
+<!-- ===== TWITTER CARD ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lina Melissa — UX/UI Design">
+<meta name="twitter:description" content="UX/UI Designerin aus Hamburg. Ich gestalte digitale Produkte, die sich gut anfühlen.">
+<meta name="twitter:image" content="https://linamelissa.de/og-image.jpg">
 
-/* --- Titelbild --- */
-.ba-hero-image{margin:0 0 48px}
-.ba-hero-image img{
-  width:100%;border-radius:16px;display:block;
-  background:var(--green-light);
-}
-.ba-hero-image figcaption,
-.ba-inline-image figcaption{
-  font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);
-  margin-top:10px;text-align:center;
-}
+<!-- ===== FAVICON ===== -->
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 
-/* --- Fließtext --- */
-.ba-body{font-size:18px;line-height:1.75;color:var(--ink-soft)}
-.ba-body > * + *{margin-top:24px}
-.ba-body p{color:var(--ink-soft)}
-.ba-body strong{color:var(--ink);font-weight:500}
-.ba-body a{color:var(--green);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;transition:color .2s}
-.ba-body a:hover{color:var(--green-dark)}
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-.ba-body h2{
-  font-size:28px;line-height:1.25;font-weight:500;color:var(--ink);
-  letter-spacing:-.01em;margin-top:48px;
-}
-.ba-body h3{
-  font-size:21px;line-height:1.3;font-weight:500;color:var(--ink);
-  margin-top:36px;
-}
+<div id="progress-bar"></div>
+<div id="custom-cursor"></div>
 
-/* Zitat / Key-Insight */
-.ba-body blockquote{
-  margin:40px 0;padding:24px 28px;
-  border-left:3px solid var(--green-mid);
-  background:var(--green-light);
-  border-radius:0 14px 14px 0;
-  font-size:20px;line-height:1.55;color:var(--green-dark);
-  font-weight:300;font-style:italic;
-}
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Lina Melissa</a>
+    <ul class="nav-links">
+      <li><a href="#work" data-de="Projekte" data-en="Projects">Projekte</a></li>
+      <li><a href="#antreibt" data-de="Antrieb" data-en="Values">Antrieb</a></li>
+      <li><a href="#expertise" data-de="Expertise" data-en="Expertise">Expertise</a></li>
+      <li><a href="#about" data-de="Über mich" data-en="About">Über mich</a></li>
+      <li><a href="#now" data-de="Aktuell" data-en="Now">Aktuell</a></li>
+      <li><a href="#blog" data-de="Blog" data-en="Blog">Blog</a></li>
+      <li><a href="#weitere" data-de="Mehr" data-en="More">Mehr</a></li>
+      <li><a href="#kontakt" class="nav-cta" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+      <li class="nav-lang-desktop"><button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button></li>
+    </ul>
+    <div class="nav-mobile-cluster">
+      <button class="lang-toggle lang-toggle-mobile" onclick="toggleLang()" id="lang-btn-mobile">EN</button>
+      <div class="nav-mobile-menu" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
 
-/* Listen */
-.ba-body ul,.ba-body ol{padding-left:24px}
-.ba-body li{margin-top:10px;color:var(--ink-soft)}
-.ba-body li::marker{color:var(--green-mid)}
+<div class="mobile-nav-overlay" id="mobile-nav" onclick="handleOverlayClick(event)">
+  <a href="#work" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Projekte" data-en="Projects">Projekte</a>
+  <a href="#antreibt" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Antrieb" data-en="Values">Antrieb</a>
+  <a href="#expertise" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Expertise" data-en="Expertise">Expertise</a>
+  <a href="#about" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Über mich" data-en="About">Über mich</a>
+  <a href="#now" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Aktuell" data-en="Now">Aktuell</a>
+  <a href="#blog" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Blog" data-en="Blog">Blog</a>
+  <a href="#weitere" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Mehr" data-en="More">Mehr</a>
+  <a href="#kontakt" class="mobile-nav-contact" onclick="closeMobileNav()" data-de="Kontakt" data-en="Contact">Kontakt</a>
+</div>
 
-/* Bild im Text */
-.ba-inline-image{margin:40px 0}
-.ba-inline-image img{
-  width:100%;border-radius:14px;display:block;
-  background:var(--green-light);
-}
+<div class="container">
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-available">
+          <span class="hero-available-dot"></span>
+          <span data-de="Verfügbar für neue Projekte" data-en="Available for new projects">Verfügbar für neue Projekte</span>
+          <div class="hero-available-tooltip" data-de="Verfügbar ab August 2026" data-en="Available from August 2026">Verfügbar ab August 2026</div>
+        </div>
 
-/* --- Autor-Signatur --- */
-.ba-author{
-  display:flex;align-items:center;gap:16px;
-  margin-top:64px;padding-top:32px;
-  border-top:1px solid var(--border);
-}
-.ba-author-img{
-  width:52px;height:52px;border-radius:50%;object-fit:cover;
-  border:2px solid var(--green-light);
-}
-.ba-author div{display:flex;flex-direction:column;gap:2px}
-.ba-author-name{font-family:var(--font-mono);font-size:14px;color:var(--ink)}
-.ba-author-role{font-size:13px;color:var(--ink-muted)}
+        <h1 class="hero-name"><em>Lina</em> Melissa</h1>
+        <p class="hero-role" data-de="UX/UI Design · Hamburg" data-en="UX/UI Design · Hamburg">UX/UI Design · Hamburg</p>
 
-/* ===== WEITERE ARTIKEL ===== */
-.ba-more{max-width:880px;margin:80px auto 0;padding:0 24px}
-.ba-more-heading{
-  font-size:24px;font-weight:500;color:var(--ink);
-  letter-spacing:-.01em;margin-bottom:24px;
-}
-.ba-more-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.ba-more-card{
-  display:block;text-decoration:none;
-  background:white;border:1px solid var(--border);
-  border-radius:18px;padding:24px;
-  transition:border-color .2s,transform .2s,box-shadow .2s;
-}
-.ba-more-card:hover{
-  border-color:var(--green-mid);transform:translateY(-3px);
-  box-shadow:0 8px 24px rgba(22,31,23,0.08);
-}
-.ba-more-cat{
-  font-family:var(--font-mono);font-size:11px;color:var(--green);
-  letter-spacing:.04em;
-}
-.ba-more-card h3{
-  font-size:17px;font-weight:500;color:var(--ink);
-  line-height:1.35;margin:10px 0 16px;
-}
-.ba-more-link{font-family:var(--font-mono);font-size:13px;color:var(--ink-soft);transition:color .2s}
-.ba-more-card:hover .ba-more-link{color:var(--green)}
+        <p class="hero-sub" data-de="Ich denke viel darüber nach, wie Menschen sich mit anderen verbinden — und wie Design dabei helfen oder im Weg stehen kann." data-en="I think a lot about how people connect with each other — and how design can help or get in the way.">Ich denke viel darüber nach, wie Menschen sich mit anderen verbinden — und wie Design dabei helfen oder im Weg stehen kann.</p>
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:600px){
-  .blog-article{padding:40px 24px 0}
-  .ba-header{margin-bottom:36px}
-  .ba-lead{font-size:18px}
-  .ba-body{font-size:16px}
-  .ba-body h2{font-size:24px;margin-top:36px}
-  .ba-body h3{font-size:19px}
-  .ba-body blockquote{font-size:18px;padding:20px 22px}
-  .ba-more-grid{grid-template-columns:1fr}
-}
+        <div class="hero-actions">
+          <a href="CV_Lina-Melissa-Arndt.pdf" download class="btn-primary"><span class="icon" data-icon="download"></span><span data-de="CV herunterladen" data-en="Download CV">CV herunterladen</span></a>
+          <a href="#about" class="btn-outline"><span data-de="Über mich" data-en="About me">Über mich</span> <span class="icon" data-icon="arrow-right"></span></a>
+        </div>
+
+        <div class="hero-stats">
+          <div><div class="hero-stat-num">8</div><div class="hero-stat-label" data-de="Jahre Designerfahrung" data-en="Years of design">Jahre Designerfahrung</div></div>
+          <div><div class="hero-stat-num">3</div><div class="hero-stat-label" data-de="Case Studies" data-en="Case Studies">Case Studies</div></div>
+          <div><div class="hero-stat-num">7</div><div class="hero-stat-label" data-de="Umzüge" data-en="Times moved">Umzüge</div></div>
+        </div>
+      </div>
+
+      <div class="hero-photo-stage">
+        <div class="hero-photo-inner">
+          <span class="hero-photo-ring"></span>
+          <div class="hero-photo-circle">
+            <img id="hero-img" src="bild1.jpg" alt="Lina Melissa">
+          </div>
+          <div class="hero-badge">
+            <span class="icon" data-icon="star"></span>
+            <span data-de="UX/UI Designerin" data-en="UX/UI Designer">UX/UI Designerin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#work" class="scroll-indicator" aria-label="Scroll">
+      <span class="scroll-text">SCROLL</span>
+      <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+    </a>
+  </section>
+</div>
+
+<div class="skills-banner">
+  <div class="skills-marquee" id="skills-marquee"></div>
+</div>
+
+<div class="container">
+  <section id="work" class="reveal">
+    <p class="section-label"><span class="label-icon" data-icon="layout-grid"></span><span data-de="Ausgewählte Projekte" data-en="Selected Projects">Ausgewählte Projekte</span></p>
+    <div class="case-grid">
+      <a class="case-card reveal" href="case-study-01.html">
+        <div class="case-thumb case-thumb-1"><span class="case-tag-pill">UX Research · App Design</span><div class="case-thumb-inner">🌿</div></div>
+        <div class="case-body">
+          <h3 data-de="Passives Connecten mit dem lokalen Umfeld" data-en="Passive Connection with the Local Community">Passives Connecten mit dem lokalen Umfeld</h3>
+          <p data-de="Eine App, bei der lokale Verbindung als Nebenprodukt entsteht — nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?" data-en="An app where local connection emerges as a by-product — not as a goal. For people who long for closeness but are put off by classic social apps. Would my persona use it, even knowing she'd never meet anyone?">Eine App, bei der lokale Verbindung als Nebenprodukt entsteht — nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?</p>
+          <div class="case-card-footer"><span class="case-card-cta-label" data-de="Case Study lesen" data-en="Read Case Study">Case Study lesen</span><span class="case-arrow-btn">↗</span></div>
+        </div>
+      </a>
+      <a class="case-card reveal reveal-delay-1" href="case-study-01.html">
+        <div class="case-thumb case-thumb-2"><span class="case-tag-pill">Portfolio Design · Framer</span><div class="case-thumb-inner">🖥</div></div>
+        <div class="case-body">
+          <h3 data-de="Diese Website bauen — und dokumentieren" data-en="Building this website — and documenting it">Diese Website bauen — und dokumentieren</h3>
+          <p data-de="Designentscheidungen, Iterationen, und was ich dabei über mich als Designerin gelernt habe. Von leer bis online." data-en="Design decisions, iterations, and what I learned about myself as a designer. From blank to online.">Designentscheidungen, Iterationen, und was ich dabei über mich als Designerin gelernt habe. Von leer bis online.</p>
+          <div class="case-card-footer"><span class="case-card-cta-label" data-de="Case Study lesen" data-en="Read Case Study">Case Study lesen</span><span class="case-arrow-btn">↗</span></div>
+        </div>
+      </a>
+      <div class="case-card wip" style="grid-column:span 2;">
+        <div class="case-thumb case-thumb-3" style="height:180px;"><span class="case-tag-pill">Collaboration · <span class="wip-badge">in Arbeit</span></span><div class="case-thumb-inner">🤝</div></div>
+        <div class="case-body">
+          <h3 data-de="Kollaboratives Projekt" data-en="Collaborative Project">Kollaboratives Projekt</h3>
+          <p data-de="Zusammen mit einem Bootcamp-Teilnehmer — kommt bald." data-en="Together with a bootcamp participant — coming soon.">Zusammen mit einem Bootcamp-Teilnehmer — kommt bald.</p>
+          <div class="case-card-footer"><span class="case-card-cta-label" data-de="Bald verfügbar" data-en="Coming soon">Bald verfügbar</span><span class="case-arrow-btn" style="background:var(--ink-muted);">↗</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="antreibt" class="reveal">
+    <p class="section-label"><span class="label-icon" data-icon="zap"></span><span data-de="Was mich antreibt" data-en="What drives me">Was mich antreibt</span></p>
+    <div class="drives-grid">
+      <div class="drives-card reveal">
+        <div class="drives-num">01</div>
+        <h3 class="drives-title" data-de="Design, das sich selbst erklärt" data-en="Design that explains itself">Design, das sich selbst erklärt</h3>
+        <p class="drives-text" data-de="Ich denke in Systemen, in Layouts, in Hierarchie — das kommt aus der Mediengestaltung und sitzt einfach. Gutes Design braucht keine Bedienungsanleitung. Wenn etwas erklärt werden muss, ist es noch nicht fertig." data-en="I think in systems, layouts, hierarchy — that comes from media design and is simply ingrained. Good design needs no manual. If something has to be explained, it isn't finished yet.">Ich denke in Systemen, in Layouts, in Hierarchie — das kommt aus der Mediengestaltung und sitzt einfach. Gutes Design braucht keine Bedienungsanleitung. Wenn etwas erklärt werden muss, ist es noch nicht fertig.</p>
+      </div>
+      <div class="drives-card reveal reveal-delay-1">
+        <div class="drives-num">02</div>
+        <h3 class="drives-title" data-de="Menschen vor Pixel" data-en="People before pixels">Menschen vor Pixel</h3>
+        <p class="drives-text" data-de="Research, Befragungen, echte Mitsprache — für mich kein optionaler Schritt, sondern die Grundlage. Der Mensch steht im Fokus, und das System wird um ihn herum gebaut. Nie andersrum." data-en="Research, surveys, real participation — for me not an optional step, but the foundation. People are the focus, and the system is built around them. Never the other way round.">Research, Befragungen, echte Mitsprache — für mich kein optionaler Schritt, sondern die Grundlage. Der Mensch steht im Fokus, und das System wird um ihn herum gebaut. Nie andersrum.</p>
+      </div>
+      <div class="drives-card reveal reveal-delay-2">
+        <div class="drives-num">03</div>
+        <h3 class="drives-title" data-de="Echte Neugierde" data-en="Genuine curiosity">Echte Neugierde</h3>
+        <p class="drives-text" data-de="3 Monate Au-pair in London, die Ostküste Australiens bereist, übers Wochenende spontan nach Kopenhagen und Malmö, einfach so in die Niederlande, nach Italien, Spanien. Ich bin durch und durch neugierig — und genau das bringe ich in jedes Projekt mit." data-en="3 months as an au pair in London, travelled Australia's east coast, spontaneous weekends in Copenhagen and Malmö, just like that to the Netherlands, Italy, Spain. I'm curious through and through — and that's exactly what I bring to every project.">3 Monate Au-pair in London, die Ostküste Australiens bereist, übers Wochenende spontan nach Kopenhagen und Malmö, einfach so in die Niederlande, nach Italien, Spanien. Ich bin durch und durch neugierig — und genau das bringe ich in jedes Projekt mit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertise" class="reveal">
+    <p class="section-label"><span class="label-icon" data-icon="sparkles"></span><span data-de="Expertise" data-en="Expertise">Expertise</span></p>
+    <h2 class="expertise-heading" data-de="Was ich kann" data-en="What I can do">Was ich kann</h2>
+    <div class="expertise-grid">
+      <div class="expertise-card reveal">
+        <div class="expertise-icon" data-icon="search"></div>
+        <h3 data-de="UX Research" data-en="UX Research">UX Research</h3>
+        <div class="expertise-tags">
+          <span data-de="Nutzerinterviews" data-en="User Interviews">Nutzerinterviews</span>
+          <span data-de="Umfragen" data-en="Surveys">Umfragen</span>
+          <span data-de="Persona Mapping" data-en="Persona Mapping">Persona Mapping</span>
+          <span data-de="Usability Testing" data-en="Usability Testing">Usability Testing</span>
+          <span data-de="User Flows" data-en="User Flows">User Flows</span>
+          <span data-de="Wettbewerbsanalyse" data-en="Competitive Analysis">Wettbewerbsanalyse</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal reveal-delay-1">
+        <div class="expertise-icon" data-icon="git-branch"></div>
+        <h3 data-de="UX-Methodik" data-en="UX Methodology">UX-Methodik</h3>
+        <div class="expertise-tags">
+          <span data-de="Card Sorting" data-en="Card Sorting">Card Sorting</span>
+          <span data-de="A/B-Testing" data-en="A/B Testing">A/B-Testing</span>
+          <span data-de="User Journeys" data-en="User Journeys">User Journeys</span>
+          <span data-de="Storyboarding" data-en="Storyboarding">Storyboarding</span>
+          <span data-de="Infoarchitektur" data-en="Info Architecture">Infoarchitektur</span>
+          <span data-de="Interaction Design" data-en="Interaction Design">Interaction Design</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal reveal-delay-2">
+        <div class="expertise-icon" data-icon="layers"></div>
+        <h3 data-de="UX/UI Design" data-en="UX/UI Design">UX/UI Design</h3>
+        <div class="expertise-tags">
+          <span data-de="Wireframing" data-en="Wireframing">Wireframing</span>
+          <span data-de="Prototyping" data-en="Prototyping">Prototyping</span>
+          <span data-de="Design Systems" data-en="Design Systems">Design Systems</span>
+          <span data-de="Components" data-en="Components">Components</span>
+          <span data-de="Responsive Design" data-en="Responsive Design">Responsive Design</span>
+          <span data-de="Visuelle Hierarchie" data-en="Visual Hierarchy">Visuelle Hierarchie</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal">
+        <div class="expertise-icon" data-icon="pen-tool"></div>
+        <h3 data-de="Visual Design" data-en="Visual Design">Visual Design</h3>
+        <div class="expertise-tags">
+          <span class="tool">Figma</span>
+          <span class="tool">FigJam</span>
+          <span class="tool">Figma Slides</span>
+          <span data-de="Component Libraries" data-en="Component Libraries">Component Libraries</span>
+          <span data-de="Style Guides" data-en="Style Guides">Style Guides</span>
+          <span data-de="Design Tokens" data-en="Design Tokens">Design Tokens</span>
+          <span data-de="Branding" data-en="Branding">Branding</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal reveal-delay-1">
+        <div class="expertise-icon" data-icon="printer"></div>
+        <h3 data-de="Print & Mediengestaltung" data-en="Print & Media Design">Print & Mediengestaltung</h3>
+        <div class="expertise-tags">
+          <span class="tool">InDesign</span>
+          <span class="tool">Illustrator</span>
+          <span class="tool">Photoshop</span>
+          <span data-de="Druckproduktion" data-en="Print Production">Druckproduktion</span>
+          <span data-de="Reinzeichnung" data-en="Artwork Finalisation">Reinzeichnung</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal reveal-delay-2">
+        <div class="expertise-icon" data-icon="sparkles"></div>
+        <h3 data-de="Tools & KI" data-en="Tools & AI">Tools & KI</h3>
+        <div class="expertise-tags">
+          <span class="tool">Framer</span>
+          <span class="tool">Notion</span>
+          <span class="tool">Miro</span>
+          <span class="tool">Blender</span>
+          <span data-de="Vibe Coding" data-en="Vibe Coding">Vibe Coding</span>
+          <span class="tool">Claude</span>
+          <span class="tool">ChatGPT</span>
+          <span class="tool">Gemini</span>
+          <span class="tool">Perplexity</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="reveal">
+    <p class="section-label">
+      <span class="label-icon" data-icon="user"></span>
+      <span data-de="Über mich" data-en="About me">Über mich</span>
+    </p>
+    <div class="about-intro-row">
+      <div>
+        <h2 class="about-heading" data-de="Hi, ich bin Lina." data-en="Hi, I'm Lina.">Hi, ich bin Lina.</h2>
+        <p class="about-text" data-de="Ich bin UX/UI Designerin — und komme eigentlich aus der Mediengestaltung Digital & Print. Irgendwo zwischen all den Erfahrungen der letzten Jahre habe ich gemerkt: Mich interessiert nicht nur, wie etwas aussieht, sondern wie es sich anfühlt, wenn man es benutzt. Welches Gefühl löst es aus? Was geht dabei im Kopf vor? Genau das treibt mich an." data-en="I'm a UX/UI Designer — and originally come from media design, digital & print. Somewhere between all the experiences of the past years I realised: I'm not just interested in how something looks, but how it feels to use. What emotion does it trigger? What goes on in your head? That's exactly what drives me.">Ich bin UX/UI Designerin — und komme eigentlich aus der Mediengestaltung Digital & Print. Irgendwo zwischen all den Erfahrungen der letzten Jahre habe ich gemerkt: Mich interessiert nicht nur, wie etwas aussieht, sondern wie es sich anfühlt, wenn man es benutzt. Welches Gefühl löst es aus? Was geht dabei im Kopf vor? Genau das treibt mich an.</p>
+        <div class="about-socials">
+          <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" class="about-social-link"><span class="icon" data-icon="linkedin"></span>LinkedIn</a>
+          <a href="https://www.behance.net/linwelss" target="_blank" class="about-social-link"><span class="icon" data-icon="behance"></span>Behance</a>
+          <a href="https://dribbble.com/linwelss" target="_blank" class="about-social-link"><span class="icon" data-icon="dribbble"></span>Dribbble</a>
+          <a href="https://www.instagram.com/linwelss/" target="_blank" class="about-social-link"><span class="icon" data-icon="instagram"></span>Instagram</a>
+        </div>
+      </div>
+      <div class="about-intro-photo-col">
+        <div class="about-photo-stage">
+          <div class="about-photo-wrap">
+            <img id="about-img" src="bild2.jpg" alt="Lina Melissa">
+          </div>
+          <div class="about-badge">
+            <span class="icon" data-icon="footprints"></span>
+            <span data-de="läuft. buchstäblich." data-en="always walking. literally.">läuft. buchstäblich.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <span class="cv-section-label"><span class="label-icon" data-icon="briefcase"></span><span data-de="Erfahrung" data-en="Experience">Erfahrung</span></span>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-date"><span data-de="Apr 2026 —" data-en="Apr 2026 —">Apr 2026 —</span><br><span data-de="heute" data-en="present">heute</span></div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot tl-dot-active"></div></div>
+        <div class="tl-card tl-card-cert tl-card-haspdf">
+          <div class="tl-card-main">
+            <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="graduation-cap"></span><span data-de="Weiterbildung" data-en="Further Education">Weiterbildung</span></span><span class="tl-badge" data-de="aktuell" data-en="current">aktuell</span></div>
+            <div class="tl-role" data-de="Product Design Bootcamp" data-en="Product Design Bootcamp">Product Design Bootcamp</div>
+            <div class="tl-where">Digitale Leute School · Remote</div>
+            <ul class="tl-bullets">
+              <li data-de="UX Research, Wireframing, Prototyping & Interaction Design" data-en="UX Research, Wireframing, Prototyping & Interaction Design">UX Research, Wireframing, Prototyping & Interaction Design</li>
+              <li data-de="User Flows, Personas & User Journeys entwickelt" data-en="Developed User Flows, Personas & User Journeys">User Flows, Personas & User Journeys entwickelt</li>
+              <li data-de="Design Systems aufgebaut und eigenständig angewendet" data-en="Built and independently applied Design Systems">Design Systems aufgebaut und eigenständig angewendet</li>
+              <li data-de="Praxisprojekt bis Hi-Fi Prototyp in Figma & Framer" data-en="Practical project up to Hi-Fi Prototype in Figma & Framer">Praxisprojekt bis Hi-Fi Prototyp in Figma & Framer</li>
+            </ul>
+            <div class="tl-pills"><span>UX Research</span><span>Wireframing</span><span>Prototyping</span><span>Design Systems</span></div>
+          </div>
+          <a class="tl-cert-preview tl-cert-portrait" href="zertifikat-bootcamp.pdf" target="_blank" rel="noopener" title="Zertifikat in neuem Tab öffnen">
+            <embed class="tl-cert-embed" src="zertifikat-bootcamp.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit" type="application/pdf">
+            <span class="tl-cert-overlay"><span class="icon" data-icon="external-link"></span><span data-de="Öffnen" data-en="Open">Öffnen</span></span>
+          </a>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-date">Feb 2025 —<br>Feb 2026</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="briefcase"></span><span data-de="Job" data-en="Job">Job</span></span></div>
+          <div class="tl-role" data-de="Mediengestalterin / Social Media & Produktion" data-en="Media Designer / Social Media & Production">Mediengestalterin / Social Media & Produktion</div>
+          <div class="tl-where">PR Druck · Lüneburg</div>
+          <ul class="tl-bullets">
+            <li data-de="Gesamter Produktionszyklus von Auftragsannahme bis Druckfreigabe" data-en="Full production cycle from order intake to print approval">Gesamter Produktionszyklus von Auftragsannahme bis Druckfreigabe</li>
+            <li data-de="Visuelle Markenkommunikation & externes Branding aufgebaut" data-en="Built visual brand communication & external branding">Visuelle Markenkommunikation & externes Branding aufgebaut</li>
+            <li data-de="Video-Content Produktion & Schnitt für Social Media" data-en="Video content production & editing for social media">Video-Content Produktion & Schnitt für Social Media</li>
+            <li data-de="Notion-basiertes Aufgabensystem eingeführt → schnellere Workflows" data-en="Introduced Notion-based task system → faster workflows">Notion-basiertes Aufgabensystem eingeführt → schnellere Workflows</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-date"><span data-de="Nov 2025 —" data-en="Nov 2025 —">Nov 2025 —</span><br><span data-de="Dez 2025" data-en="Dec 2025">Dez 2025</span></div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot tl-dot-cert"></div></div>
+        <div class="tl-card tl-card-cert tl-card-haspdf">
+          <div class="tl-card-main">
+            <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="award"></span><span data-de="Zertifikat" data-en="Certificate">Zertifikat</span></span></div>
+            <div class="tl-role" data-de="Google UX Design Certificate" data-en="Google UX Design Certificate">Google UX Design Certificate</div>
+            <div class="tl-where">Coursera · Remote</div>
+            <ul class="tl-bullets">
+              <li data-de="UX Research, Wireframing, Prototyping & nutzerzentriertes Design" data-en="UX Research, Wireframing, Prototyping & user-centred design">UX Research, Wireframing, Prototyping & nutzerzentriertes Design</li>
+              <li data-de="Empathize-Define-Ideate-Prozess & agile Arbeitsmethoden" data-en="Empathize-Define-Ideate process & agile working methods">Empathize-Define-Ideate-Prozess & agile Arbeitsmethoden</li>
+            </ul>
+            <div class="tl-pills"><span data-de="Nutzerzentriertes Design" data-en="User-centred Design">Nutzerzentriertes Design</span><span data-de="Agile Methoden" data-en="Agile Methods">Agile Methoden</span></div>
+          </div>
+          <a class="tl-cert-preview tl-cert-landscape" href="zertifikat-google.pdf" target="_blank" rel="noopener" title="Zertifikat in neuem Tab öffnen">
+            <embed class="tl-cert-embed" src="zertifikat-google.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit" type="application/pdf">
+            <span class="tl-cert-overlay"><span class="icon" data-icon="external-link"></span><span data-de="Öffnen" data-en="Open">Öffnen</span></span>
+          </a>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-date">Aug 2020 —<br>Jul 2023</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="book-open"></span><span data-de="Ausbildung" data-en="Apprenticeship">Ausbildung</span></span></div>
+          <div class="tl-role" data-de="Mediengestalterin Digital & Print" data-en="Media Designer Digital & Print">Mediengestalterin Digital & Print</div>
+          <div class="tl-where">Machbar GmbH · Kassel</div>
+          <ul class="tl-bullets">
+            <li data-de="Web-Grafiken, Print-Materialien & Animationen für Kundenprojekte" data-en="Web graphics, print materials & animations for client projects">Web-Grafiken, Print-Materialien & Animationen für Kundenprojekte</li>
+            <li data-de="Praxiserfahrung mit WordPress & Typo3" data-en="Hands-on experience with WordPress & Typo3">Praxiserfahrung mit WordPress & Typo3</li>
+            <li data-de="Abschlussprojekt: Website mit HTML, CSS & JavaScript" data-en="Final project: website with HTML, CSS & JavaScript">Abschlussprojekt: Website mit HTML, CSS & JavaScript</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-date">Aug 2016 —<br>Jun 2018</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="graduation-cap"></span><span data-de="Schule & Praktikum" data-en="School & Internship">Schule & Praktikum</span></span></div>
+          <div class="tl-role" data-de="Fachhochschulreife Gestaltung & Jahrespraktikum Mediengestaltung" data-en="Vocational Diploma in Design & Internship Year in Media Design">Fachhochschulreife Gestaltung & Jahrespraktikum Mediengestaltung</div>
+          <div class="tl-where">Media Marketing GmbH & BBS · Winsen (Luhe)</div>
+          <ul class="tl-bullets">
+            <li data-de="Digitale Werbemittel & Print-Materialien mit Adobe Suite gestaltet" data-en="Designed digital advertising & print materials with Adobe Suite">Digitale Werbemittel & Print-Materialien mit Adobe Suite gestaltet</li>
+            <li data-de="Imagefilm-Produktion: Storyboard, Schnitt und Dreharbeiten" data-en="Image film production: storyboard, editing and filming">Imagefilm-Produktion: Storyboard, Schnitt und Dreharbeiten</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item tl-item-last">
+        <div class="tl-left"><div class="tl-date" style="font-style:italic;opacity:.6;" data-de="Und zwischendurch?" data-en="In between?">Und zwischendurch?</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot tl-dot-small"></div></div>
+        <div class="tl-card" style="background:transparent;border-style:dashed;">
+          <div class="tl-role" style="font-weight:400;font-size:13px;color:var(--ink-soft);" data-de="Web-Grafiken, Print-Materialien & Animationen für Kunden — freiberuflich zwischen den Stationen." data-en="Web graphics, print materials & animations for clients — freelance between roles.">Web-Grafiken, Print-Materialien & Animationen für Kunden — freiberuflich zwischen den Stationen.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="now" class="reveal">
+    <p class="section-label"><span class="label-icon" data-icon="map-pin"></span><span data-de="Now" data-en="Now">Now</span></p>
+    <p class="now-intro-text" id="now-intro"></p>
+    <div class="now-blocks">
+      <div class="now-block now-block-current reveal">
+        <div class="now-block-header"><span class="now-cv-tag" data-de="Aktuelles" data-en="Current">Aktuelles</span><h3 class="now-block-heading" data-de="Was gerade so geht" data-en="What's going on">Was gerade so geht</h3></div>
+        <div class="now-entry">
+          <div class="now-month"><span class="icon" data-icon="calendar"></span><span data-de="Mai 2026" data-en="May 2026">Mai 2026</span></div>
+          <ul class="now-bullets"><li data-de="Ich hatte endlich die finale Idee für mein Portfolio: erst eine Struktur, dann den Wireframe in Figma, den ich anschließend in Framer umgesetzt habe — funktionsfähig und nutzbar. Nach vier Tagen Arbeit habe ich mich dann spontan entschieden, Vibe Coding mit Claude auszuprobieren. Das Ergebnis siehst du hier. Gefällt es dir? :)" data-en="I finally had the final idea for my portfolio: first a structure, then the wireframe in Figma, which I then built in Framer — functional and usable. After four days of work I spontaneously decided to try vibe coding with Claude. You're looking at the result. Do you like it? :)">Ich hatte endlich die finale Idee für mein Portfolio: erst eine Struktur, dann den Wireframe in Figma, den ich anschließend in Framer umgesetzt habe — funktionsfähig und nutzbar. Nach vier Tagen Arbeit habe ich mich dann spontan entschieden, Vibe Coding mit Claude auszuprobieren. Das Ergebnis siehst du hier. Gefällt es dir? :)</li></ul>
+        </div>
+      </div>
+      <div class="now-block now-block-archive reveal reveal-delay-1">
+        <div class="now-block-header"><span class="now-cv-tag" data-de="Archiv" data-en="Archive">Archiv</span><h3 class="now-block-heading" data-de="Schnee von gestern" data-en="Water under the bridge">Schnee von gestern</h3></div>
+        <div class="now-entry">
+          <div class="now-month"><span class="icon" data-icon="calendar"></span><span data-de="April 2026" data-en="April 2026">April 2026</span></div>
+          <ul class="now-bullets">
+            <li data-de="Das Product-Design-Bootcamp von der <a href='https://school.digitale-leute.de' target='_blank' class='now-link'>Digitale Leute School</a> hat gestartet. Tatsächlich habe ich mich relativ schnell für eine Problemstellung entschieden, da ich das schon seit Jahren beobachte. Kleiner Spoiler: Es ist mein Case — <a href='case-study-01.html' class='now-link'>Passives Connecten mit dem lokalen Umfeld</a>." data-en="The Product Design bootcamp at <a href='https://school.digitale-leute.de' target='_blank' class='now-link'>Digitale Leute School</a> has started. I actually settled on a problem quite quickly, since I've been observing it for years. Small spoiler: it's my case — <a href='case-study-01.html' class='now-link'>passive connecting with the local environment</a>.">Das Product-Design-Bootcamp von der <a href="https://school.digitale-leute.de" target="_blank" class="now-link">Digitale Leute School</a> hat gestartet. Tatsächlich habe ich mich relativ schnell für eine Problemstellung entschieden, da ich das schon seit Jahren beobachte. Kleiner Spoiler: Es ist mein Case — <a href="case-study-01.html" class="now-link">Passives Connecten mit dem lokalen Umfeld</a>.</li>
+          </ul>
+        </div>
+        <div class="now-entry">
+          <div class="now-month"><span class="icon" data-icon="calendar"></span><span data-de="November 2025" data-en="November 2025">November 2025</span></div>
+          <ul class="now-bullets">
+            <li data-de="Neben meinem Angestellten-Job als Mediengestalterin das <a href='https://www.coursera.org/professional-certificates/google-ux-design' target='_blank' class='now-link'>Google UX Design Certificate</a> bei Coursera gemacht und festgestellt: Ja, genau das will ich machen. Das ist das, was mich stunden-, wenn nicht sogar tagelang beschäftigt — und mich dabei nicht auslaugt." data-en="Alongside my employed job as a media designer, I completed the <a href='https://www.coursera.org/professional-certificates/google-ux-design' target='_blank' class='now-link'>Google UX Design Certificate</a> on Coursera and realised: yes, this is exactly what I want to do. It's what keeps me busy for hours, if not days — without draining me.">Neben meinem Angestellten-Job als Mediengestalterin das <a href="https://www.coursera.org/professional-certificates/google-ux-design" target="_blank" class="now-link">Google UX Design Certificate</a> bei Coursera gemacht und festgestellt: Ja, genau das will ich machen. Das ist das, was mich stunden-, wenn nicht sogar tagelang beschäftigt — und mich dabei nicht auslaugt.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" class="reveal">
+    <p class="section-label"><span class="label-icon" data-icon="pen-line"></span><span data-de="Gedanken" data-en="Thoughts">Gedanken</span></p>
+    <div class="blog-grid">
+      <a class="blog-card reveal" href="blog-artikel-01.html"><div class="blog-thumb blog-thumb-1"><span class="blog-tag-pill" data-de="Prozess" data-en="Process">Prozess</span></div><div class="blog-body"><div class="blog-meta" data-de="Mai 2026" data-en="May 2026">Mai 2026</div><h3 class="blog-title" data-de="Wie ich dieses Portfolio mit Vibe Coding gebaut habe" data-en="How I built this portfolio with vibe coding">Wie ich dieses Portfolio mit Vibe Coding gebaut habe</h3><p class="blog-text" data-de="Vier Tage Figma-Design — und dann spontan über Bord geworfen. Wie diese Seite entstanden ist." data-en="Four days of Figma design — then spontaneously thrown overboard. How this site came to be.">Vier Tage Figma-Design — und dann spontan über Bord geworfen. Wie diese Seite entstanden ist.</p></div></a>
+      <a class="blog-card reveal reveal-delay-1" href="blog-artikel-02.html"><div class="blog-thumb blog-thumb-2"><span class="blog-tag-pill" data-de="UX Design" data-en="UX Design">UX Design</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping" data-en="First the plan, then the feeling: navigation architecture and prototyping">Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping</h3><p class="blog-text" data-de="Wie man eine Struktur baut, in der sich Menschen nicht verlaufen — und sie zum Leben erweckt, bevor eine Zeile Code geschrieben ist." data-en="How to build a structure people don't get lost in — and bring it to life before a line of code is written.">Wie man eine Struktur baut, in der sich Menschen nicht verlaufen — und sie zum Leben erweckt, bevor eine Zeile Code geschrieben ist.</p></div></a>
+      <a class="blog-card reveal reveal-delay-2" href="blog-artikel-03.html"><div class="blog-thumb blog-thumb-3"><span class="blog-tag-pill" data-de="Haltung" data-en="Stance">Haltung</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Dark Patterns — und warum ich sie ablehne" data-en="Dark patterns — and why I reject them">Dark Patterns — und warum ich sie ablehne</h3><p class="blog-text" data-de="Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut. Warum ich da nicht mitmache." data-en="Some designs aren't badly made — they're deliberately built against you. Why I won't play along.">Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut. Warum ich da nicht mitmache.</p></div></a>
+      <a class="blog-card reveal reveal-delay-3" href="blog-artikel-04.html"><div class="blog-thumb blog-thumb-4"><span class="blog-tag-pill" data-de="KI & Tools" data-en="AI & Tools">KI & Tools</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Prompten als neue Designfähigkeit" data-en="Prompting as a new design skill">Prompten als neue Designfähigkeit</h3><p class="blog-text" data-de="Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue." data-en="Why good prompting is surprisingly close to what I do as a designer anyway.">Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue.</p></div></a>
+    </div>
+  </section>
+
+  <section id="weitere" class="reveal">
+    <p class="section-label">
+      <span class="label-icon" data-icon="folder-open"></span>
+      <span data-de="Weitere Arbeiten" data-en="More Work">Weitere Arbeiten</span>
+    </p>
+    <div class="masonry-grid">
+      <div class="masonry-card card-scroll">
+        <div class="scroll-container">
+          <img src="tm.jpg" alt="Projekt tm" class="masonry-img scroll-img">
+        </div>
+        <div class="masonry-body">
+          <span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span>
+          <div class="masonry-title" data-de="E-Commerce & Branding für tm" data-en="E-Commerce & Branding for tm">E-Commerce & Branding für tm</div>
+        </div>
+      </div>
+
+      <div class="masonry-card card-scroll">
+        <div class="scroll-container">
+          <img src="elan.jpg" alt="Projekt elan" class="masonry-img scroll-img">
+        </div>
+        <div class="masonry-body">
+          <span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span>
+          <div class="masonry-title" data-de="Landingpage für elan" data-en="Landing page for elan">Landingpage für elan</div>
+        </div>
+      </div>
+
+      <div class="masonry-card card-scroll">
+        <div class="scroll-container">
+          <img src="prdruck.jpg" alt="Projekt prdruck" class="masonry-img scroll-img">
+        </div>
+        <div class="masonry-body">
+          <span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span>
+          <div class="masonry-title" data-de="Corporate Website für pr.druck" data-en="Corporate website for pr.druck">Corporate Website für pr.druck</div>
+        </div>
+      </div>
+
+      <div class="masonry-card">
+        <video src="greensip.mov" class="masonry-video" autoplay loop muted playsinline></video>
+        <div class="masonry-body">
+          <span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span>
+          <div class="masonry-title" data-de="Landingpage für GreenSip" data-en="Landing page for GreenSip">Landingpage für GreenSip</div>
+        </div>
+      </div>
+
+      <div class="masonry-card">
+        <img src="cover_yumi.jpg" alt="Projekt yumi" class="masonry-img">
+        <div class="masonry-body">
+          <span class="masonry-tag" data-de="App Design" data-en="App Design">App Design</span>
+          <div class="masonry-title" data-de="Mobile App UI für yumi" data-en="Mobile app UI for yumi">Mobile App UI für yumi</div>
+        </div>
+      </div>
+
+      <div class="masonry-card">
+        <img src="blender.jpg" alt="3D Room Illustration" class="masonry-img">
+        <div class="masonry-body">
+          <span class="masonry-tag" data-de="3D Illustration" data-en="3D Illustration">3D Illustration</span>
+          <div class="masonry-title" data-de="Isometrischer Raum in Blender" data-en="Isometric room in Blender">Isometrischer Raum in Blender</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="kontakt">
+  <div class="contact-inner">
+    <p class="contact-label" data-de="● Offen für neue Möglichkeiten" data-en="● Open for new opportunities">● Offen für neue Möglichkeiten</p>
+    <h2 class="contact-title"><span data-de="Ich freue mich" data-en="I look forward">Ich freue mich</span><br><span data-de="von dir zu hören." data-en="to hearing from you.">von dir zu hören.</span></h2>
+    <p class="contact-desc"><span data-de="Ob Jobmöglichkeit, Freelance-Anfrage oder einfach ein nettes Hallo —" data-en="Whether it's a job opportunity, freelance project or just a friendly hello —">Ob Jobmöglichkeit, Freelance-Anfrage oder einfach ein nettes Hallo —</span><br><span data-de="ich bin immer offen für neue Gespräche." data-en="I'm always open for a chat.">ich bin immer offen für neue Gespräche.</span></p>
+    <div class="contact-buttons">
+      <a href="CV_Lina-Melissa-Arndt.pdf" download class="contact-btn-outline"><span class="icon" data-icon="download"></span><span data-de="CV herunterladen" data-en="Download CV">CV herunterladen</span></a>
+      <a href="mailto:Lina-Melissa@web.de" class="contact-btn-primary"><span class="icon" data-icon="mail"></span><span data-de="Mail me" data-en="Mail me">Mail me</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <span class="site-footer-name-text">Lina Melissa</span>
+      <span class="site-footer-sub" data-de="UX/UI Design · Hamburg" data-en="UX/UI Design · Hamburg">UX/UI Design · Hamburg</span>
+      <span class="site-footer-status"><span class="site-footer-dot"></span><span data-de="Verfügbar ab August 2026" data-en="Available from August 2026">Verfügbar ab August 2026</span></span>
+    </div>
+    <div class="site-footer-socials">
+      <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" class="site-footer-link" aria-label="LinkedIn"><span class="icon" data-icon="linkedin"></span></a>
+      <a href="https://www.behance.net/linwelss" target="_blank" class="site-footer-link" aria-label="Behance"><span class="icon" data-icon="behance"></span></a>
+      <a href="https://dribbble.com/linwelss" target="_blank" class="site-footer-link" aria-label="Dribbble"><span class="icon" data-icon="dribbble"></span></a>
+      <a href="https://www.instagram.com/linwelss/" target="_blank" class="site-footer-link" aria-label="Instagram"><span class="icon" data-icon="instagram"></span></a>
+    </div>
+  </div>
+  <div class="site-footer-bottom">
+    <span class="site-footer-copy">© 2026 Lina Melissa Arndt</span>
+    <a href="impressum.html" class="site-footer-impressum">Impressum</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
