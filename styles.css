@@ -477,3 +477,5 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 .case-placeholder-line{height:14px;background:rgba(78,139,92,0.15);border-radius:4px;margin-bottom:0}
 .case-arrow-btn-wip{background:var(--green-light) !important;color:var(--green-mid) !important;display:flex;align-items:center;justify-content:center}
 .case-arrow-btn-wip svg{stroke:var(--green-mid)}
+
+.now-text{font-size:15px;color:var(--ink-soft);line-height:1.75;margin:0}
