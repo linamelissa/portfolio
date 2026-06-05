@@ -451,10 +451,11 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
   .about-intro-row{grid-template-columns:1fr;gap:28px;margin-bottom:44px}
   .about-intro-photo-col{order:-1}
   .about-socials{justify-content:center}
-  .tl-item{grid-template-columns:62px 14px 1fr;gap:0 8px}
+  .tl-item{grid-template-columns:68px 14px 1fr;gap:0 8px}
   .tl-left{padding-top:14px}
-  .tl-date{font-size:8.5px;line-height:1.4}
-  .tl-date-between{word-break:break-word;hyphens:auto;font-size:8px}
+  .tl-date{font-size:9px;line-height:1.4}
+  .tl-date-between{word-break:break-word;hyphens:auto}
+  .tl-item-last .tl-card{padding:20px 16px}
   .tl-card{padding:15px 16px}
   .tl-card-haspdf{grid-template-columns:1fr;gap:16px}
   .tl-cert-preview{max-width:240px}
