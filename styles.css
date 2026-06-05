@@ -440,6 +440,7 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
   .section-label{margin-bottom:28px}
   .case-grid{grid-template-columns:1fr;gap:14px}
   .case-card.wip{grid-column:span 1 !important}
+  .case-card-placeholder{grid-column:span 1 !important}
   .case-thumb{height:220px}
   .case-thumb-3{height:160px !important}
   .drives-grid{grid-template-columns:1fr;gap:14px}
@@ -453,6 +454,7 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
   .tl-item{grid-template-columns:84px 16px 1fr;gap:0 10px}
   .tl-left{padding-top:14px}
   .tl-date{font-size:9px}
+  .tl-date-between{word-break:break-word;hyphens:auto}
   .tl-card{padding:15px 16px}
   .tl-card-haspdf{grid-template-columns:1fr;gap:16px}
   .tl-cert-preview{max-width:240px}
