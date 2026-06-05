@@ -179,7 +179,10 @@
 }
 
 /* ===== WEITERE CASE STUDIES ===== */
-.cs-othercases{padding:96px 0;border-top:1px solid var(--border)}
+.cs-othercases{padding:96px 0;background:var(--green-dark)}
+.cs-othercases .cs-section-label{color:rgba(255,255,255,0.7)}
+.cs-othercases .cs-section-title{color:#fff}
+.cs-othercases .cs-section-title em{color:var(--amber)}
 .cs-othercases-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .cs-othercase-card{display:block;text-decoration:none;background:white;border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:border-color .2s,transform .2s,box-shadow .2s}
 .cs-othercase-card:hover{border-color:var(--green-mid);transform:translateY(-4px);box-shadow:0 12px 32px rgba(22,31,23,0.1)}
