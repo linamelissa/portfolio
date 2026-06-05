@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- TITEL ANPASSEN -->
+<title>Dark Patterns — und warum ich sie ablehne — Lina Melissa</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="blog-artikel.css">
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<div id="custom-cursor"></div>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+      <span data-de="Zum Blog" data-en="Back to Blog">Zum Blog</span>
+    </a>
+    <a href="index.html" class="nav-name nav-name-center">Lina Melissa</a>
+    <div class="nav-right">
+      <a href="index.html#kontakt" class="nav-contact-link" data-de="Kontakt" data-en="Contact">Kontakt</a>
+      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== ARTIKEL ===== -->
+<article class="blog-article">
+
+  <!-- HEADER: Meta + Titel + Lead -->
+  <header class="ba-header">
+    <div class="ba-meta">
+      <span class="ba-category" data-de="Haltung" data-en="Stance">Haltung</span>
+      <span class="ba-dot">·</span>
+      <time data-de="Juni 2026" data-en="June 2026">Juni 2026</time>
+      <span class="ba-dot">·</span>
+      <span data-de="6 Min. Lesezeit" data-en="6 min read">6 Min. Lesezeit</span>
+    </div>
+
+    <h1 class="ba-title" data-de="Dark Patterns — und warum ich sie ablehne" data-en="Dark patterns — and why I reject them">Dark Patterns — und warum ich sie ablehne</h1>
+
+    <p class="ba-lead" data-de="Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut. Versteckte Kündigungsbuttons, Häkchen, die schon gesetzt sind, Countdown-Timer, die Druck erzeugen. Das nennt man Dark Patterns, und ich habe eine klare Meinung dazu." data-en="Some designs aren't badly made — they're deliberately built against you. Hidden cancel buttons, pre-ticked boxes, countdown timers that create pressure. These are called dark patterns, and I have a clear opinion on them.">Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut. Versteckte Kündigungsbuttons, Häkchen, die schon gesetzt sind, Countdown-Timer, die Druck erzeugen. Das nennt man Dark Patterns, und ich habe eine klare Meinung dazu.</p>
+  </header>
+
+  <div class="ba-body">
+
+    <p data-de="Ein Dark Pattern ist ein Designtrick, der Menschen zu etwas bringt, das sie eigentlich nicht wollen — zu einem Abo, einem Kauf, der Preisgabe von Daten. Das Tückische daran: Es ist oft richtig gut gemacht. Handwerklich sauber, hübsch, durchdacht. Nur eben mit dem Ziel, gegen die Interessen der Nutzer zu arbeiten." data-en="A dark pattern is a design trick that nudges people into something they don't actually want — a subscription, a purchase, giving away data. The insidious part: it's often really well made. Clean craftsmanship, pretty, thought-through. Just with the goal of working against users' interests.">Ein Dark Pattern ist ein Designtrick, der Menschen zu etwas bringt, das sie eigentlich nicht wollen — zu einem Abo, einem Kauf, der Preisgabe von Daten. Das Tückische daran: Es ist oft richtig gut gemacht. Handwerklich sauber, hübsch, durchdacht. Nur eben mit dem Ziel, gegen die Interessen der Nutzer zu arbeiten.</p>
+
+    <h2 data-de="Die üblichen Verdächtigen" data-en="The usual suspects">Die üblichen Verdächtigen</h2>
+
+    <p data-de="Einmal erkannt, sieht man sie überall:" data-en="Once you spot them, you see them everywhere:">Einmal erkannt, sieht man sie überall:</p>
+
+    <ul>
+      <li data-de="<strong>Der versteckte Ausweg.</strong> Anmelden geht in zwei Sekunden, kündigen dauert fünf Klicks und ein verstecktes Menü." data-en="<strong>The hidden exit.</strong> Signing up takes two seconds, cancelling takes five clicks and a hidden menu."><strong>Der versteckte Ausweg.</strong> Anmelden geht in zwei Sekunden, kündigen dauert fünf Klicks und ein verstecktes Menü.</li>
+      <li data-de="<strong>Vorausgewählte Häkchen.</strong> Der Newsletter, die Zusatzversicherung, die Datenfreigabe — schon angekreuzt, bevor du überhaupt geschaut hast." data-en="<strong>Pre-ticked boxes.</strong> The newsletter, the add-on insurance, the data sharing — already checked before you even looked."><strong>Vorausgewählte Häkchen.</strong> Der Newsletter, die Zusatzversicherung, die Datenfreigabe — schon angekreuzt, bevor du überhaupt geschaut hast.</li>
+      <li data-de="<strong>Künstliche Dringlichkeit.</strong> „Nur noch 2 Zimmer frei!“, „Angebot endet in 4:59“ — Druck, der dich zum schnellen Klicken bringen soll." data-en="<strong>Artificial urgency.</strong> &quot;Only 2 rooms left!&quot;, &quot;Offer ends in 4:59&quot; — pressure designed to make you click fast."><strong>Künstliche Dringlichkeit.</strong> „Nur noch 2 Zimmer frei!“, „Angebot endet in 4:59“ — Druck, der dich zum schnellen Klicken bringen soll.</li>
+      <li data-de="<strong>Schuld als Mittel.</strong> „Nein danke, ich spare lieber kein Geld“ als Ablehn-Button. Wer will da schon Nein sagen?" data-en="<strong>Guilt as a tool.</strong> &quot;No thanks, I'd rather not save money&quot; as the decline button. Who wants to say no to that?"><strong>Schuld als Mittel.</strong> „Nein danke, ich spare lieber kein Geld“ als Ablehn-Button. Wer will da schon Nein sagen?</li>
+    </ul>
+
+    <blockquote data-de="Ein Design, das nur funktioniert, weil der Mensch nicht genau hinschaut, ist kein gutes Design. Es ist eine Falle mit schöner Oberfläche." data-en="A design that only works because the person isn't looking closely isn't good design. It's a trap with a pretty surface.">Ein Design, das nur funktioniert, weil der Mensch nicht genau hinschaut, ist kein gutes Design. Es ist eine Falle mit schöner Oberfläche.</blockquote>
+
+    <h2 data-de="Warum ich das ablehne" data-en="Why I reject this">Warum ich das ablehne</h2>
+
+    <p data-de="Für mich steht im Zentrum von gutem Design immer der Mensch — nicht die Conversion-Rate. Dark Patterns drehen genau das um: Der Mensch wird zum Mittel, um eine Kennzahl zu erfüllen. Das widerspricht allem, woran ich glaube." data-en="For me, the human is always at the centre of good design — not the conversion rate. Dark patterns flip exactly that around: the person becomes a means to hit a metric. That contradicts everything I believe in.">Für mich steht im Zentrum von gutem Design immer der Mensch — nicht die Conversion-Rate. Dark Patterns drehen genau das um: Der Mensch wird zum Mittel, um eine Kennzahl zu erfüllen. Das widerspricht allem, woran ich glaube.</p>
+
+    <p data-de="Und das Verrückte ist: Es lohnt sich nicht mal langfristig. In meiner Wettbewerbsanalyse für mein Bootcamp-Projekt habe ich immer wieder dasselbe Muster gesehen — sobald eine App das Vertrauen ihrer Nutzer für kurzfristige Zahlen verkauft, verliert sie genau die Menschen, die sie halten wollte. Vertrauen ist schwer aufzubauen und in einem Klick zerstört." data-en="And the crazy thing is: it doesn't even pay off long term. In the competitive analysis for my bootcamp project I kept seeing the same pattern — the moment an app sells its users' trust for short-term numbers, it loses exactly the people it wanted to keep. Trust is hard to build and destroyed in a single click.">Und das Verrückte ist: Es lohnt sich nicht mal langfristig. In meiner Wettbewerbsanalyse für mein Bootcamp-Projekt habe ich immer wieder dasselbe Muster gesehen — sobald eine App das Vertrauen ihrer Nutzer für kurzfristige Zahlen verkauft, verliert sie genau die Menschen, die sie halten wollte. Vertrauen ist schwer aufzubauen und in einem Klick zerstört.</p>
+
+    <h2 data-de="Der ehrliche Weg" data-en="The honest way">Der ehrliche Weg</h2>
+
+    <p data-de="Das Gegenteil von Dark Patterns ist nicht kompliziert: Mach den Ausweg so einfach wie den Eingang. Lass Häkchen leer. Sei ehrlich mit Knappheit und Zeit. Formuliere Buttons so, dass ein Nein genauso würdevoll ist wie ein Ja. Es ist kein Geheimwissen — es ist einfach Respekt." data-en="The opposite of dark patterns isn't complicated: make the exit as easy as the entrance. Leave boxes empty. Be honest about scarcity and time. Word buttons so that a no is as dignified as a yes. It's not secret knowledge — it's simply respect.">Das Gegenteil von Dark Patterns ist nicht kompliziert: Mach den Ausweg so einfach wie den Eingang. Lass Häkchen leer. Sei ehrlich mit Knappheit und Zeit. Formuliere Buttons so, dass ein Nein genauso würdevoll ist wie ein Ja. Es ist kein Geheimwissen — es ist einfach Respekt.</p>
+
+    <p data-de="Ich will Produkte gestalten, bei denen Menschen sich hinterher gut fühlen — nicht ausgetrickst. Das ist für mich keine nette Option, sondern die ganze Idee von UX. :)" data-en="I want to design products that leave people feeling good afterwards — not tricked. To me that's not a nice option, it's the whole idea of UX. :)">Ich will Produkte gestalten, bei denen Menschen sich hinterher gut fühlen — nicht ausgetrickst. Das ist für mich keine nette Option, sondern die ganze Idee von UX. :)</p>
+
+  </div>
+
+  <!-- ===== AUTOR / SIGNATUR ===== -->
+  <footer class="ba-author">
+    <img src="bild2.jpg" alt="Lina Melissa" class="ba-author-img">
+    <div>
+      <span class="ba-author-name">Lina Melissa</span>
+      <span class="ba-author-role" data-de="UX/UI Designerin" data-en="UX/UI Designer">UX/UI Designerin</span>
+    </div>
+  </footer>
+
+</article>
+
+<!-- ===== WEITERE ARTIKEL ===== -->
+<section class="ba-more">
+  <h2 class="ba-more-heading" data-de="Weitere Gedanken" data-en="More thoughts">Weitere Gedanken</h2>
+  <div class="ba-more-grid">
+    <a class="blog-card" href="blog-artikel-02.html"><div class="blog-thumb blog-thumb-2"><span class="blog-tag-pill" data-de="UX Design" data-en="UX Design">UX Design</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="Juni 2026">Juni 2026</div><h3 class="blog-title" data-de="Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping" data-en="First the plan, then the feeling: navigation architecture and prototyping">Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping</h3><p class="blog-text" data-de="Wie man eine Struktur baut, in der sich Menschen nicht verlaufen — und sie zum Leben erweckt." data-en="How to build a structure people don't get lost in — and bring it to life.">Wie man eine Struktur baut, in der sich Menschen nicht verlaufen — und sie zum Leben erweckt.</p></div></a>
+    <a class="blog-card" href="blog-artikel-04.html"><div class="blog-thumb blog-thumb-4"><span class="blog-tag-pill" data-de="KI & Tools" data-en="AI & Tools">KI & Tools</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="Juni 2026">Juni 2026</div><h3 class="blog-title" data-de="Prompten als neue Designfähigkeit" data-en="Prompting as a new design skill">Prompten als neue Designfähigkeit</h3><p class="blog-text" data-de="Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue." data-en="Why good prompting is surprisingly close to what I do as a designer anyway.">Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue.</p></div></a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <span class="site-footer-name-text">Lina Melissa</span>
+      <span class="site-footer-sub" data-de="UX/UI Design · Hamburg" data-en="UX/UI Design · Hamburg">UX/UI Design · Hamburg</span>
+      <span class="site-footer-status"><span class="site-footer-dot"></span><span data-de="Verfügbar ab August 2026" data-en="Available from August 2026">Verfügbar ab August 2026</span></span>
+    </div>
+    <div class="site-footer-socials">
+      <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" class="site-footer-link" aria-label="LinkedIn"><span class="icon" data-icon="linkedin"></span></a>
+      <a href="https://www.behance.net/linwelss" target="_blank" class="site-footer-link" aria-label="Behance"><span class="icon" data-icon="behance"></span></a>
+      <a href="https://dribbble.com/linwelss" target="_blank" class="site-footer-link" aria-label="Dribbble"><span class="icon" data-icon="dribbble"></span></a>
+      <a href="https://www.instagram.com/linwelss/" target="_blank" class="site-footer-link" aria-label="Instagram"><span class="icon" data-icon="instagram"></span></a>
+    </div>
+  </div>
+  <div class="site-footer-bottom">
+    <span class="site-footer-copy">© 2026 Lina Melissa Arndt</span>
+    <a href="impressum.html" class="site-footer-impressum">Impressum</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
