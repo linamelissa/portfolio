@@ -106,7 +106,7 @@
 .ba-author-role{font-size:13px;color:var(--ink-muted)}
 
 /* ===== WEITERE ARTIKEL ===== */
-.ba-more{max-width:880px;margin:80px auto 0;padding:0 24px}
+.ba-more{max-width:880px;margin:80px auto 0;padding:0 24px 96px}
 .ba-more-heading{
   font-size:24px;font-weight:500;color:var(--ink);
   letter-spacing:-.01em;margin-bottom:24px;
