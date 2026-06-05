@@ -106,12 +106,12 @@
 .ba-author-role{font-size:13px;color:var(--ink-muted)}
 
 /* ===== WEITERE ARTIKEL ===== */
-.ba-more{max-width:880px;margin:80px auto 0;padding:0 24px 96px}
+.ba-more{max-width:1240px;margin:80px auto 0;padding:0 56px 96px}
 .ba-more-heading{
   font-size:24px;font-weight:500;color:var(--ink);
   letter-spacing:-.01em;margin-bottom:24px;
 }
-.ba-more-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ba-more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .ba-more-card{
   display:block;text-decoration:none;
   background:white;border:1px solid var(--border);
@@ -134,6 +134,10 @@
 .ba-more-card:hover .ba-more-link{color:var(--green)}
 
 /* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .ba-more{padding:0 32px 80px}
+  .ba-more-grid{grid-template-columns:1fr 1fr}
+}
 @media(max-width:600px){
   .blog-article{padding:40px 24px 0}
   .ba-header{margin-bottom:36px}
@@ -142,5 +146,6 @@
   .ba-body h2{font-size:24px;margin-top:36px}
   .ba-body h3{font-size:19px}
   .ba-body blockquote{font-size:18px;padding:20px 22px}
+  .ba-more{padding:0 20px 64px}
   .ba-more-grid{grid-template-columns:1fr}
 }
