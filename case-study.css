@@ -387,3 +387,34 @@
     transform: none !important;
   }
 }
+
+/* ===== LOCKED OTHER-CASE CARDS ===== */
+.cs-othercase-locked {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+  position: relative;
+}
+.cs-othercase-locked:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: var(--border) !important;
+}
+.cs-othercase-lock {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  width: 32px;
+  height: 32px;
+  background: rgba(255,254,250,0.9);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+.cs-othercase-lock svg {
+  stroke: var(--ink-muted);
+}
