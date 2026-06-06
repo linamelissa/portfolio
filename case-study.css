@@ -298,3 +298,11 @@
     animation:none !important;transition:none !important;opacity:1 !important;transform:none !important;
   }
 }
+
+/* Hero title nowrap override auf Mobile */
+@media(max-width:700px){
+  .cs-hero-title{
+    white-space:normal !important;
+    font-size:clamp(36px,13vw,64px);
+  }
+}
