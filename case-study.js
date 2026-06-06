@@ -1,4 +1,6 @@
 // ===== SCROLL SPY für die fixe Sidebar =====
+(function(){
+
 const csSections = document.querySelectorAll('.cs-section[id]');
 const csNavItems = document.querySelectorAll('.cs-nav-item');
 
@@ -15,7 +17,6 @@ function updateActiveNav(){
 window.addEventListener('scroll', updateActiveNav, { passive:true });
 updateActiveNav();
 
-// Klick auf Sidebar -> sanft scrollen
 csNavItems.forEach(item => {
   item.addEventListener('click', e => {
     e.preventDefault();
@@ -38,7 +39,7 @@ const revealObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-function observeStagger(selector, step = 90){
+function observeStagger(selector, step){
   document.querySelectorAll(selector).forEach((el, i) => {
     el.classList.add('cs-reveal');
     el.dataset.delay = i * step;
@@ -66,22 +67,21 @@ observeSimple('.cs-callout');
 observeSimple('.cs-image-block');
 observeSimple('.cs-subsection-title');
 
-// ===== HERO TITLE — Buchstabe für Buchstabe =====
-(function splitHeroTitle(){
-  const title = document.querySelector('.cs-hero-title');
-  if(!title || title.dataset.split) return;
-  title.dataset.split = '1';
-  const text = title.textContent;
-  title.innerHTML = text.split('').map((ch, i) =>
+// ===== HERO TITLE =====
+const csHeroTitle = document.querySelector('.cs-hero-title');
+if(csHeroTitle && !csHeroTitle.dataset.split){
+  csHeroTitle.dataset.split = '1';
+  const text = csHeroTitle.textContent;
+  csHeroTitle.innerHTML = text.split('').map((ch, i) =>
     `<span class="cs-title-char" style="animation-delay:${i * 28}ms">${ch === ' ' ? '&nbsp;' : ch}</span>`
   ).join('');
-})();
+}
 
-// ===== HERO META + INTRO slide up =====
-const heroMeta = document.querySelector('.cs-meta');
-const heroIntro = document.querySelector('.cs-intro-box');
-if(heroMeta){ heroMeta.style.animationDelay = '500ms'; heroMeta.classList.add('cs-slide-up'); }
-if(heroIntro){ heroIntro.style.animationDelay = '600ms'; heroIntro.classList.add('cs-slide-up'); }
+// ===== HERO META + INTRO =====
+const csHeroMeta = document.querySelector('.cs-meta');
+const csHeroIntro = document.querySelector('.cs-intro-box');
+if(csHeroMeta){ csHeroMeta.style.animationDelay = '500ms'; csHeroMeta.classList.add('cs-slide-up'); }
+if(csHeroIntro){ csHeroIntro.style.animationDelay = '600ms'; csHeroIntro.classList.add('cs-slide-up'); }
 
 // ===== STAT COUNTER =====
 function animateCounter(el, target, suffix){
@@ -95,49 +95,20 @@ function animateCounter(el, target, suffix){
   }
   requestAnimationFrame(step);
 }
-const counterObs = new IntersectionObserver(entries => {
+const csCounterObs = new IntersectionObserver(entries => {
   entries.forEach(en => {
     if(en.isIntersecting){
       const raw = en.target.textContent.trim();
       const num = parseInt(raw);
       const suffix = raw.replace(/[0-9]/g, '');
       if(!isNaN(num)) animateCounter(en.target, num, suffix);
-      counterObs.unobserve(en.target);
+      csCounterObs.unobserve(en.target);
     }
   });
 }, { threshold: 0.5 });
-document.querySelectorAll('.cs-stat-num').forEach(el => counterObs.observe(el));
+document.querySelectorAll('.cs-stat-num').forEach(el => csCounterObs.observe(el));
 
-// ===== PROGRESS BAR =====
-const progressBar = document.getElementById('progress-bar');
-function updateProgress(){
-  const dh = document.documentElement.scrollHeight - window.innerHeight;
-  if(progressBar) progressBar.style.width = (dh > 0 ? (window.scrollY / dh) * 100 : 0) + '%';
-}
-window.addEventListener('scroll', updateProgress, { passive:true });
-window.addEventListener('scroll', () => {
-  document.querySelector('nav')?.classList.toggle('scrolled', window.scrollY > 20);
-}, { passive: true });
-
-// ===== CUSTOM CURSOR =====
-const cursor = document.getElementById('custom-cursor');
-if(cursor){
-  let mx=0, my=0, cx=0, cy=0;
-  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
-  (function animCursor(){
-    cx += (mx-cx)*0.15; cy += (my-cy)*0.15;
-    cursor.style.left = cx+'px'; cursor.style.top = cy+'px';
-    requestAnimationFrame(animCursor);
-  })();
-  document.querySelectorAll('a,button,.cs-content-card,.cs-card,.cs-stat-block,.cs-othercase-card').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
-  });
-  document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
-  document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
-}
-
-// ===== HOVER TILT auf Karten =====
+// ===== HOVER TILT =====
 document.querySelectorAll('.cs-content-card, .cs-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
@@ -150,16 +121,4 @@ document.querySelectorAll('.cs-content-card, .cs-card').forEach(card => {
   });
 });
 
-// ===== LANG TOGGLE (falls script.js nicht geladen) =====
-if(typeof toggleLang === 'undefined'){
-  window.toggleLang = function(){
-    const btn = document.getElementById('lang-btn');
-    const isDE = btn && btn.textContent.trim() === 'EN';
-    const lang = isDE ? 'en' : 'de';
-    if(btn) btn.textContent = isDE ? 'DE' : 'EN';
-    document.querySelectorAll('[data-de]').forEach(el => {
-      const text = lang === 'de' ? el.dataset.de : el.dataset.en;
-      if(text){ if(text.indexOf('<') !== -1){ el.innerHTML = text; } else { el.textContent = text; } }
-    });
-  };
-}
+})(); // Ende IIFE — verhindert Konflikte mit script.js
