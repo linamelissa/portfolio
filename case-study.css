@@ -247,3 +247,143 @@
   .cs-othercases{padding:64px 0}
   .cs-othercases-grid{grid-template-columns:1fr;gap:16px}
 }
+
+/* ===== ANIMATIONEN ===== */
+
+/* Scroll Reveal — Basis */
+.cs-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cs-reveal.cs-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Title — Buchstaben fallen rein */
+.cs-title-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px) rotate(-2deg);
+  animation: charDrop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes charDrop {
+  to { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+/* Hero Tags — fade in */
+.cs-tag-appear {
+  opacity: 0;
+  transform: translateY(12px) scale(0.95);
+  animation: tagAppear 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes tagAppear {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Hero Meta + Intro — slide up */
+.cs-slide-up {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Karten — 3D Tilt braucht perspective am Parent */
+.cs-cards-3, .cs-cards {
+  perspective: 1000px;
+}
+.cs-content-card, .cs-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: background .3s, border-color .3s, transform .3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .3s;
+}
+
+/* Stat Blocks — kleine Pulse-Animation beim Einblenden */
+.cs-stat-block.cs-visible .cs-stat-num {
+  animation: numPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+@keyframes numPop {
+  from { transform: scale(0.7); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* Hypothesen — von links reinschieben */
+.cs-hypothesis.cs-reveal {
+  transform: translateX(-20px);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cs-hypothesis.cs-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Callout — sanftes Fade */
+.cs-callout.cs-reveal {
+  opacity: 0;
+  transform: translateY(20px) scale(0.99);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cs-callout.cs-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Section Label — erscheint zuerst */
+.cs-section-label {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+.cs-section.cs-visible .cs-section-label,
+.cs-section-label {
+  animation: none;
+  opacity: 1;
+}
+
+/* Before/After Cols — von innen nach außen */
+.cs-ba-col.cs-reveal:first-child {
+  transform: translateX(-24px);
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cs-ba-col.cs-reveal:last-child {
+  transform: translateX(24px);
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+.cs-ba-col.cs-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Image Block — leichter Zoom */
+.cs-image-block.cs-reveal {
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cs-image-block.cs-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .cs-reveal, .cs-title-char, .cs-tag-appear, .cs-slide-up,
+  .cs-content-card, .cs-card {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
