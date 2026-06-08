@@ -39,7 +39,7 @@ const ICONS = {
   'linkedin':'<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>',
   'instagram':'<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>',
   'dribbble':'<circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"/>',
-  'behance':'<path d="M7.5 7H3v10h4.5a3 3 0 0 0 0-6 2.5 2.5 0 0 0 0-4z"/><path d="M3 12h5"/><path d="M14 13a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/><path d="M15 7h4"/>' 
+  'behance':'<path d="M7.5 7H3v10h4.5a3 3 0 0 0 0-6 2.5 2.5 0 0 0 0-4z"/><path d="M3 12h5"/><path d="M14 13a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/><path d="M15 7h4"/>'
 };
 
 function svgIcon(name, cls){
@@ -55,7 +55,7 @@ function renderIcons(){
 }
 renderIcons();
 
-// ===== SKILLS BANNER (seamless loop with icons) =====
+// ===== SKILLS BANNER =====
 const skillsData = [
   {icon:'smartphone', de:'zu viele TikToks', en:'too many TikToks'},
   {icon:'route', de:'zu viele Kilometer', en:'too many kilometres'},
@@ -71,8 +71,6 @@ function buildBanner(lang){
   skillsData.forEach(s => {
     group += '<span class="skill-item">'+svgIcon(s.icon)+(lang==='de'?s.de:s.en)+'</span>';
   });
-  // Vier Kopien: zwei sichtbare Hälften, die per -50% nahtlos loopen.
-  // Mehr Kopien = keine Lücke auch auf breiten Bildschirmen.
   marquee.innerHTML = '<div class="skills-group">'+group+'</div><div class="skills-group">'+group+'</div>';
 }
 
@@ -206,7 +204,7 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 buildBanner('de');
 setNowIntro();
 
-// ===== SMOOTH SCROLL (mit Offset für fixe Nav) =====
+// ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', function(e){
     const id = this.getAttribute('href');
@@ -219,33 +217,36 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-// ===== INSTAGRAM SWIPE ON HOVER =====
+// ===== INSTAGRAM SWIPE =====
 document.querySelectorAll('.insta-swipe').forEach(card => {
   const track = card.querySelector('.insta-swipe-track');
   const slides = card.querySelectorAll('.insta-slide');
   const dots = card.querySelectorAll('.insta-dot');
   let current = 0;
   let interval = null;
+  let paused = false;
 
   function goTo(i) {
-    current = i;
+    current = (i + slides.length) % slides.length;
     track.style.transform = `translateX(-${current * 100}%)`;
     dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
   }
 
-  function next() {
-    goTo((current + 1) % slides.length);
-  }
-
   card.addEventListener('mouseenter', () => {
-    interval = setInterval(next, 900);
+    if (!paused) interval = setInterval(() => goTo(current + 1), 1200);
   });
-
   card.addEventListener('mouseleave', () => {
     clearInterval(interval);
-    goTo(0);
+    if (!paused) goTo(0);
+  });
+  card.addEventListener('click', (e) => {
+    e.stopPropagation();
+    paused = true;
+    clearInterval(interval);
+    goTo(current + 1);
   });
 });
+
 // ===== LIGHTBOX =====
 let lbCarouselCurrent = 0;
 let lbCarouselSlides = [];
@@ -255,12 +256,15 @@ function openLightbox(type, src, slides) {
   const img = document.getElementById('lightbox-img');
   const video = document.getElementById('lightbox-video');
   const carousel = document.getElementById('lightbox-carousel');
+  const scrollWrap = document.getElementById('lightbox-scroll');
+  const scrollImg = document.getElementById('lightbox-scroll-img');
   const track = document.getElementById('lightbox-carousel-track');
   const dots = document.getElementById('lightbox-carousel-dots');
 
   img.style.display = 'none';
   video.style.display = 'none';
   carousel.style.display = 'none';
+  scrollWrap.style.display = 'none';
 
   if (type === 'image') {
     img.src = src;
@@ -269,6 +273,10 @@ function openLightbox(type, src, slides) {
     video.src = src;
     video.style.display = 'block';
     video.play();
+  } else if (type === 'scroll') {
+    scrollImg.src = src;
+    scrollWrap.scrollTop = 0;
+    scrollWrap.style.display = 'block';
   } else if (type === 'carousel') {
     lbCarouselSlides = slides;
     lbCarouselCurrent = 0;
@@ -283,13 +291,15 @@ function openLightbox(type, src, slides) {
 }
 
 function closeLightbox(e) {
-  if (e && e.target !== e.currentTarget && !e.target.classList.contains('lightbox-close') && !e.target.closest('.lightbox-close')) return;
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.closest('.lightbox-close')) return;
   const overlay = document.getElementById('lightbox');
   const video = document.getElementById('lightbox-video');
   overlay.classList.remove('open');
   video.pause();
   video.src = '';
   document.body.style.overflow = '';
+  // Reset insta-swipe pause state
+  document.querySelectorAll('.insta-swipe').forEach(c => c._paused = false);
 }
 
 function lightboxCarouselGoTo(i) {
@@ -302,31 +312,44 @@ function lightboxCarouselGo(dir) {
   lightboxCarouselGoTo(lbCarouselCurrent + dir);
 }
 
-// Close on Escape
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeLightbox({target: document.getElementById('lightbox'), currentTarget: document.getElementById('lightbox')});
+  if (e.key === 'Escape') {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  if (e.key === 'ArrowRight') lightboxCarouselGo(1);
+  if (e.key === 'ArrowLeft') lightboxCarouselGo(-1);
 });
 
 // Wire up masonry cards
 document.querySelectorAll('.masonry-card').forEach(card => {
+  card.style.cursor = 'pointer';
   card.addEventListener('click', () => {
-    // Video card
-    const video = card.querySelector('.masonry-video');
-    if (video) { openLightbox('video', video.src); return; }
-
-    // Scroll card (img)
-    const scrollImg = card.querySelector('.scroll-img');
-    if (scrollImg) { openLightbox('image', scrollImg.src); return; }
-
-    // Instagram carousel
+    // Scroll card (tm, prdruck)
+    if (card.classList.contains('card-scroll')) {
+      const si = card.querySelector('.scroll-img');
+      if (si) { openLightbox('scroll', si.src); return; }
+    }
+    // Instagram carousel — open lightbox
     if (card.classList.contains('insta-swipe')) {
       const slides = [...card.querySelectorAll('.insta-slide')].map(s => s.src);
       openLightbox('carousel', null, slides);
       return;
     }
-
+    // Video card
+    const vid = card.querySelector('.masonry-video');
+    if (vid) { openLightbox('video', vid.src); return; }
     // Regular image
-    const img = card.querySelector('.masonry-img');
-    if (img) { openLightbox('image', img.src); return; }
+    const mi = card.querySelector('.masonry-img');
+    if (mi) { openLightbox('image', mi.src); return; }
   });
 });
+
+// ===== MOBILE: autoplay videos via IntersectionObserver =====
+if (window.innerWidth <= 900) {
+  const videos = document.querySelectorAll('.masonry-video');
+  const videoObs = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) en.target.play(); else en.target.pause(); });
+  }, { threshold: 0.3 });
+  videos.forEach(v => { v.muted = true; v.loop = true; v.playsInline = true; videoObs.observe(v); });
+}
