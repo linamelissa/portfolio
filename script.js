@@ -218,3 +218,31 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     window.scrollTo({ top:y, behavior:'smooth' });
   });
 });
+
+// ===== INSTAGRAM SWIPE ON HOVER =====
+document.querySelectorAll('.insta-swipe').forEach(card => {
+  const track = card.querySelector('.insta-swipe-track');
+  const slides = card.querySelectorAll('.insta-slide');
+  const dots = card.querySelectorAll('.insta-dot');
+  let current = 0;
+  let interval = null;
+
+  function goTo(i) {
+    current = i;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+  }
+
+  function next() {
+    goTo((current + 1) % slides.length);
+  }
+
+  card.addEventListener('mouseenter', () => {
+    interval = setInterval(next, 900);
+  });
+
+  card.addEventListener('mouseleave', () => {
+    clearInterval(interval);
+    goTo(0);
+  });
+});
