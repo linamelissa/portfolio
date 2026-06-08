@@ -570,6 +570,28 @@
   </div>
 </footer>
 
+
+<!-- ===== LIGHTBOX ===== -->
+<div id="lightbox" class="lightbox-overlay" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
+  <div class="lightbox-inner">
+    <img id="lightbox-img" class="lightbox-media" src="" alt="" style="display:none">
+    <video id="lightbox-video" class="lightbox-media" autoplay loop muted playsinline style="display:none"></video>
+    <div id="lightbox-carousel" class="lightbox-carousel" style="display:none">
+      <div class="lightbox-carousel-track" id="lightbox-carousel-track"></div>
+      <div class="lightbox-carousel-dots" id="lightbox-carousel-dots"></div>
+      <button class="lightbox-arrow lightbox-arrow-left" onclick="lightboxCarouselGo(-1)">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button class="lightbox-arrow lightbox-arrow-right" onclick="lightboxCarouselGo(1)">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
