@@ -324,7 +324,15 @@ document.addEventListener('keydown', e => {
 // Wire up masonry cards
 document.querySelectorAll('.masonry-card').forEach(card => {
   card.style.cursor = 'pointer';
-  card.addEventListener('click', () => {
+  card.addEventListener('click', (e) => {
+    // External card — let the link handle it, no lightbox
+    if (card.classList.contains('masonry-card-external')) {
+      const href = card.dataset.href;
+      if (href && !e.target.closest('.masonry-ext-link')) {
+        window.open(href, '_blank', 'noopener');
+      }
+      return;
+    }
     // Scroll card (tm, prdruck)
     if (card.classList.contains('card-scroll')) {
       const si = card.querySelector('.scroll-img');
