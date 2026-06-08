@@ -482,3 +482,11 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 .case-arrow-btn-wip svg{stroke:var(--green-mid)}
 
 .now-text{font-size:15px;color:var(--ink-soft);line-height:1.75;margin:0}
+
+/* ===== INSTAGRAM SWIPE CARD ===== */
+.masonry-card-insta{position:relative;overflow:hidden}
+.insta-swipe-track{display:flex;transition:transform .4s ease;height:100%}
+.insta-slide{width:100%;height:100%;object-fit:cover;flex-shrink:0}
+.insta-dots{position:absolute;bottom:48px;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:3}
+.insta-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5);transition:background .3s}
+.insta-dot.active{background:#fff}
