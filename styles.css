@@ -101,7 +101,8 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 .case-thumb-1{background:linear-gradient(135deg,#161F17 0%,#2d3a1a 100%)}
 .case-thumb-2{background:linear-gradient(135deg,#1a2a3a 0%,#2a3a4a 100%)}
 .case-thumb-3{background:linear-gradient(135deg,#2a2a28 0%,#3a3a38 100%)}
-.case-tag-pill{position:absolute;top:18px;left:18px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:5px 12px;font-size:11px;font-family:var(--font-mono);color:rgba(255,255,255,.9);letter-spacing:.04em;z-index:2}
+.case-tag-pill{position:absolute;top:18px;left:18px;background:rgba(22,31,23,0.65);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:5px 12px;font-size:11px;font-family:var(--font-mono);color:rgba(255,255,255,.95);letter-spacing:.04em;z-index:2;transition:background .2s}
+.case-card:hover .case-tag-pill{background:rgba(78,139,92,0.85);border-color:rgba(255,255,255,.3)}
 .case-body{padding:28px 28px 24px;flex:1;display:flex;flex-direction:column}
 .case-card h3{font-size:22px;font-weight:500;line-height:1.2;margin-bottom:12px;color:var(--ink);letter-spacing:-.02em}
 .case-card p{font-size:14px;color:var(--ink-soft);line-height:1.65;flex:1}
