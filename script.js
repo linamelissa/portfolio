@@ -71,7 +71,7 @@ function buildBanner(lang){
   skillsData.forEach(s => {
     group += '<span class="skill-item">'+svgIcon(s.icon)+(lang==='de'?s.de:s.en)+'</span>';
   });
-  marquee.innerHTML = '<div class="skills-group">'+group+'</div><div class="skills-group">'+group+'</div>';
+  marquee.innerHTML = '<div class="skills-group">'+group+'</div><div class="skills-group">'+group+'</div><div class="skills-group">'+group+'</div><div class="skills-group">'+group+'</div>';
 }
 
 // ===== LANGUAGE =====
