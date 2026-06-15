@@ -79,7 +79,7 @@ function setNowIntro(){
   const el = document.getElementById('now-intro');
   if(!el) return;
   if(currentLang === 'de'){
-    el.innerHTML = 'Was mich gerade beschäftigt, woran ich arbeite und worüber ich nachdenke. Kein Social Media, keine Highlights — nur der ehrliche Stand der Dinge. Eine Idee von Derek Sivers — <a href="https://nownownow.com/about" target="_blank" style="color:var(--green-mid);text-decoration:none;">mehr erfahren ↗</a>';
+    el.innerHTML = 'Was mich gerade beschäftigt, woran ich arbeite und worüber ich nachdenke. Kein Social Media,<br>keine Highlights — nur der ehrliche Stand der Dinge. Eine Idee von Derek Sivers — <a href="https://nownownow.com/about" target="_blank" style="color:var(--green-mid);text-decoration:none;">mehr erfahren ↗</a>';
   } else {
     el.innerHTML = "What's on my mind right now, what I'm working on and thinking about. No social media, no highlights — just the honest state of things. An idea by Derek Sivers — <a href='https://nownownow.com/about' target='_blank' style='color:var(--green-mid);text-decoration:none;'>learn more ↗</a>";
   }
