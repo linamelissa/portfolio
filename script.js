@@ -190,7 +190,6 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 // ===== INIT =====
 buildBanner('de');
-setNowIntro();
 
 // ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(link => {
