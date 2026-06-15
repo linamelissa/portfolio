@@ -533,3 +533,8 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 /* ===== SECTION HEADINGS & SUBTEXTS ===== */
 .section-heading{font-size:clamp(26px,3.5vw,38px);font-weight:500;letter-spacing:-.02em;color:var(--ink);margin-bottom:12px;line-height:1.2}
 .section-sub{font-size:16px;color:var(--ink-soft);line-height:1.8;margin-bottom:48px}
+
+/* Case thumb: image below tag, hide emoji when image loads */
+.case-thumb img{z-index:0}
+.case-thumb .case-tag-pill{z-index:3}
+.case-thumb img ~ .case-thumb-inner{display:none}
