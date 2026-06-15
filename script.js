@@ -74,17 +74,6 @@ function buildBanner(lang){
   marquee.innerHTML = '<div class="skills-group">'+group+'</div><div class="skills-group">'+group+'</div>';
 }
 
-// ===== NOW INTRO =====
-function setNowIntro(){
-  const el = document.getElementById('now-intro');
-  if(!el) return;
-  if(currentLang === 'de'){
-    el.innerHTML = 'Was mich gerade beschäftigt, woran ich arbeite und worüber ich nachdenke. Kein Social Media, keine Highlights. Nur der ehrliche Stand der Dinge. Eine Idee von Derek Sivers: <a href="https://nownownow.com/about" target="_blank" style="color:var(--green-mid);text-decoration:none;">mehr erfahren ↗</a>';
-  } else {
-    el.innerHTML = "What's on my mind right now, what I'm working on and thinking about. No social media, no highlights. Just the honest state of things. An idea by Derek Sivers: <a href='https://nownownow.com/about' target='_blank' style='color:var(--green-mid);text-decoration:none;'>learn more ↗</a>";
-  }
-}
-
 // ===== LANGUAGE =====
 let currentLang = 'de';
 function toggleLang(){
@@ -97,7 +86,6 @@ function toggleLang(){
     if(text){ if(text.indexOf('<') !== -1){ el.innerHTML = text; } else { el.textContent = text; } }
   });
   buildBanner(currentLang);
-  setNowIntro();
   document.body.style.transition = 'opacity .2s';
   document.body.style.opacity = '.85';
   setTimeout(() => { document.body.style.opacity = '1'; }, 200);
