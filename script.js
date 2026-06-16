@@ -202,11 +202,9 @@ function copyEmail(e) {
     setTimeout(() => {
       btn.innerHTML = original;
       btn.style.borderRadius = '';
+      hint.classList.remove('visible');
       renderIcons();
     }, 2000);
-    setTimeout(() => {
-      hint.classList.remove('visible');
-    }, 3500);
   });
 }
 
