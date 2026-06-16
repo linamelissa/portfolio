@@ -188,6 +188,23 @@ const revealObs = new IntersectionObserver(entries => {
 }, { threshold:0.08, rootMargin:'0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
+// ===== COPY EMAIL =====
+function copyEmail(e) {
+  e.preventDefault();
+  const email = 'lina-melissa@web.de';
+  navigator.clipboard.writeText(email).then(() => {
+    const btn = document.getElementById('mail-btn');
+    const hint = document.getElementById('contact-email-hint');
+    const original = btn.innerHTML;
+    btn.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Kopiert!</span>';
+    hint.classList.add('visible');
+    setTimeout(() => {
+      btn.innerHTML = original;
+      renderIcons();
+    }, 2000);
+  });
+}
+
 // ===== INIT =====
 buildBanner('de');
 
