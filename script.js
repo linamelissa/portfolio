@@ -196,12 +196,17 @@ function copyEmail(e) {
     const btn = document.getElementById('mail-btn');
     const hint = document.getElementById('contact-email-hint');
     const original = btn.innerHTML;
-    btn.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Kopiert!</span>';
+    btn.innerHTML = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px"><polyline points="20 6 9 17 4 12"/></svg>Kopiert!';
+    btn.style.borderRadius = '100px';
     hint.classList.add('visible');
     setTimeout(() => {
       btn.innerHTML = original;
+      btn.style.borderRadius = '';
       renderIcons();
     }, 2000);
+    setTimeout(() => {
+      hint.classList.remove('visible');
+    }, 3500);
   });
 }
 
