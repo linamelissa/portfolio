@@ -58,10 +58,13 @@ renderIcons();
 // ===== SKILLS BANNER =====
 const skillsData = [
   {icon:'smartphone', de:'zu viele TikToks', en:'too many TikToks'},
-  {icon:'route', de:'zu viele Kilometer', en:'too many kilometres'},
   {icon:'package', de:'zu viele Umzüge', en:'too many moves'},
-  {icon:'moon', de:'zu wenig Schlaf', en:'too little sleep'},
-  {icon:'sparkles', de:'UX Designerin', en:'UX Designer'}
+  {icon:'layout-grid', de:'zu viele Tabs offen', en:'too many tabs open'},
+  {icon:'folder-open', de:'zu viele Screenshots', en:'too many screenshots'},
+  {icon:'sparkles', de:'zu viele Ideen', en:'too many ideas'},
+  {icon:'star', de:'zu viele Favoriten gespeichert', en:'too many favourites saved'},
+  {icon:'map-pin', de:'zu viele Städte auf der Liste', en:'too many cities on the list'},
+  {icon:'footprints', de:'zu viele Routen zu Fuß gegangen', en:'too many routes walked'}
 ];
 
 function buildBanner(lang){
