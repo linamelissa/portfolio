@@ -7,6 +7,161 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="case-study.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style id="ss-visuals">
+/* ===== sameSpot In-App Demos — eigenständig, ersetzbar (CSS-only) ===== */
+.ss{--bg:#FFF9F3;--ink:#1C1714;--ink-2:#6B5645;--terra:#C17E4A;--terra-d:#A9663A;--tint:#F6E7D6;--tint-2:#ECD6BF;--line:#EADCCB;font-family:'DM Sans',system-ui,sans-serif}
+.ss *{box-sizing:border-box}
+
+/* Hero: Spalten unten bündig + schwebende App-Karten */
+.cs-hero-body{align-items:stretch}
+.cs-hero-image{flex:1 1 auto;min-height:300px;position:relative;padding:0}
+.ss-hero{position:relative;width:100%;height:100%;min-height:300px;overflow:hidden}
+.ss-hc{position:absolute;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 46px -18px rgba(28,23,20,.3);padding:11px 13px;animation:ssidle 7s ease-in-out infinite}
+.ss-hc-spot{top:34%;left:50%;transform:translateX(-50%);width:208px;z-index:3}
+.ss-hc-feed{top:9%;left:5%;z-index:4;animation-delay:1.2s}
+.ss-hc-type{bottom:11%;right:5%;z-index:4;animation-delay:2.2s}
+.ss-hc-week{top:11%;right:7%;z-index:2;animation-delay:.6s}
+.ss-mono{font-family:var(--font-mono,monospace);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-d)}
+.ss-fr{font-family:'Fraunces',Georgia,serif;font-weight:600;color:var(--ink)}
+
+/* Bühne */
+.ss-stage{position:relative;max-width:1000px;margin:0 auto;border-radius:24px;border:1px solid var(--border);overflow:hidden;background:linear-gradient(135deg,var(--green-light) 0%,#d4e8d8 100%);background-image:radial-gradient(rgba(31,77,40,.06) 1px,transparent 1px);background-size:20px 20px;padding:54px 28px 64px;display:flex;align-items:center;justify-content:center;gap:44px;flex-wrap:wrap;min-height:540px}
+.ss-tagline{position:absolute;top:16px;left:18px;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono,monospace);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--green-dark);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.7);border-radius:100px;padding:5px 11px}
+.ss-tagline::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--terra);animation:sspulse 2s ease-in-out infinite}
+.ss-cap{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);width:calc(100% - 36px);max-width:580px;text-align:center;font-size:12.5px;line-height:1.5;color:var(--green-dark);background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.6);border-radius:12px;padding:9px 14px}
+
+/* Phone */
+.ss-phone{--w:228px;position:relative;width:var(--w);aspect-ratio:1000/2050;background:#1C1714;border-radius:40px;padding:8px;box-shadow:0 38px 72px -24px rgba(28,23,20,.5),0 10px 24px rgba(28,23,20,.16);flex-shrink:0}
+.ss-phone.ss-idle{animation:ssidle 6.5s ease-in-out infinite}
+.ss-phone.ss-idle-2{animation:ssidle 6.5s ease-in-out infinite;animation-delay:1s}
+.ss-screen{position:relative;width:100%;height:100%;background:var(--bg);border-radius:32px;overflow:hidden;display:flex;flex-direction:column}
+.ss-island{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:56px;height:15px;background:#1C1714;border-radius:10px;z-index:8}
+.ss-status{display:flex;justify-content:space-between;align-items:center;padding:9px 15px 2px;font-size:10px;font-weight:700;color:var(--ink)}
+.ss-sig{display:flex;gap:2.5px;align-items:flex-end}
+.ss-sig i{width:3px;border-radius:1px;background:var(--ink);display:block}
+.ss-head{padding:7px 14px 5px}
+.ss-h-sub{font-family:var(--font-mono,monospace);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-d);margin-bottom:3px}
+.ss-h-title{font-family:'Fraunces',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.05}
+.ss-scroll{flex:1;overflow:hidden;position:relative}
+
+/* Spot-Karte */
+.ss-spot{display:flex;gap:9px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:15px;padding:9px 10px;margin:0 12px 7px}
+.ss-spot-ic{width:32px;height:32px;border-radius:10px;background:var(--tint);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--terra-d)}
+.ss-spot-ic svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ss-spot-txt{flex:1;min-width:0}
+.ss-spot-name{font-size:11.5px;font-weight:600;color:var(--ink);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ss-spot-loc{font-size:9.5px;color:var(--ink-2);margin-top:1px}
+.ss-spot-state{width:17px;height:17px;border-radius:50%;border:2px solid var(--line);flex-shrink:0;position:relative}
+.ss-spot.done .ss-spot-state{background:var(--terra);border-color:var(--terra)}
+.ss-spot.done .ss-spot-state::after{content:'';position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(40deg)}
+.ss-spot.ss-doneanim .ss-spot-state{animation:ssdone 5s ease-in-out infinite}
+
+/* Tabs */
+.ss-tabs{display:flex;justify-content:space-around;align-items:center;padding:7px 4px 10px;border-top:1px solid var(--line);background:rgba(255,249,243,.96)}
+.ss-tab{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:7.5px;font-weight:600;color:#B7A593}
+.ss-tab svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ss-tab.active{color:var(--terra-d)}
+
+/* Feed */
+.ss-feed-card{display:flex;gap:9px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin:0 12px 7px}
+.ss-av{width:30px;height:30px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;position:relative}
+.ss-av.ss-mara::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--terra);animation:ssring 2.4s ease-in-out infinite}
+.ss-feed-txt{flex:1;min-width:0}
+.ss-feed-name{font-size:11.5px;font-weight:600;color:var(--ink)}
+.ss-feed-act{font-size:9.5px;color:var(--ink-2);line-height:1.3;margin-top:1px}
+.ss-seen{display:inline-flex;align-items:center;gap:4px;margin-top:4px;font-size:8.5px;font-weight:700;color:var(--terra-d);background:var(--tint);border-radius:100px;padding:2px 7px}
+.ss-feed-track{will-change:transform;animation:ssfeed 18s linear infinite}
+
+/* Schwebende Labels */
+.ss-float{position:absolute;z-index:6;background:#fff;border:1px solid var(--line);border-radius:13px;padding:7px 11px;box-shadow:0 16px 36px -14px rgba(28,23,20,.36);font-size:11px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:7px;white-space:nowrap;opacity:0;animation:ssfloatin 13s ease-in-out infinite}
+.ss-float .ss-d{width:8px;height:8px;border-radius:50%;background:var(--terra);flex-shrink:0}
+.ss-f1{top:13%;left:1%;animation-delay:.6s}
+.ss-f2{top:46%;left:-3%;animation-delay:4.6s}
+.ss-f3{bottom:24%;right:0%;animation-delay:8.6s}
+
+/* QR + Chat */
+.ss-pad{padding:6px 14px 0;display:flex;flex-direction:column;flex:1}
+.ss-meet{font-size:10px;color:var(--ink-2);text-align:center;margin:4px 0 8px}
+.ss-qr-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:6px}
+.ss-qr{width:78px;height:78px;border-radius:13px;background:#fff;border:1px solid var(--line);padding:8px;position:relative;overflow:hidden}
+.ss-qr svg{width:100%;height:100%;display:block}
+.ss-scanline{position:absolute;left:8px;right:8px;height:2px;background:var(--terra);box-shadow:0 0 8px var(--terra);border-radius:2px;animation:ssscan 2.8s ease-in-out infinite}
+.ss-unlock{align-self:center;font-size:8.5px;font-weight:700;color:#fff;background:var(--terra);border-radius:100px;padding:3px 10px;margin:2px 0 8px;opacity:0;animation:ssunlock 7s ease-in-out infinite}
+.ss-chat{display:flex;flex-direction:column;gap:6px;padding:0 2px}
+.ss-bubble{max-width:82%;font-size:10px;line-height:1.35;padding:7px 10px;border-radius:13px;opacity:0;animation:ssbubble 7s ease-in-out infinite}
+.ss-bubble.ss-them{background:#fff;border:1px solid var(--line);color:var(--ink);align-self:flex-start;border-bottom-left-radius:4px;animation-delay:.3s}
+.ss-bubble.ss-me{background:var(--terra);color:#fff;align-self:flex-end;border-bottom-right-radius:4px;animation-delay:1.2s}
+
+/* Onboarding */
+.ss-onb{position:relative;flex:1;overflow:hidden}
+.ss-onb-step{position:absolute;inset:0;padding:16px 16px;display:flex;flex-direction:column;opacity:0;animation:ssonb 17s ease-in-out infinite}
+.ss-onb-step:nth-child(2){animation-delay:4.25s}
+.ss-onb-step:nth-child(3){animation-delay:8.5s}
+.ss-onb-step:nth-child(4){animation-delay:12.75s}
+.ss-q{font-family:'Fraunces',Georgia,serif;font-size:17px;font-weight:600;color:var(--ink);line-height:1.15;margin-bottom:14px}
+.ss-input{border:1px solid var(--line);border-radius:12px;padding:11px 12px;font-size:13px;font-weight:600;color:var(--ink);background:#fff;display:flex;align-items:center}
+.ss-input .ss-caret{width:1.5px;height:15px;background:var(--terra);margin-left:1px;animation:sscaret 1s step-end infinite}
+.ss-chips{display:flex;flex-wrap:wrap;gap:7px}
+.ss-chip{font-size:11px;font-weight:600;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-radius:100px;padding:7px 13px}
+.ss-chip.on{background:var(--terra);border-color:var(--terra);color:#fff}
+.ss-cta{margin-top:auto;text-align:center;font-size:12px;font-weight:700;color:#fff;background:var(--ink);border-radius:13px;padding:11px}
+
+/* Spot-Typ Mini-Visual */
+.ss-typecard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:14px;max-width:420px;margin-top:18px}
+.ss-typeav{width:46px;height:46px;border-radius:14px;background:var(--tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--terra-d);position:relative}
+.ss-typeav svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ss-typeav::after{content:'';position:absolute;inset:-3px;border-radius:16px;border:2px solid var(--terra);animation:ssring 2.6s ease-in-out infinite}
+.ss-type-name{position:relative;height:20px;margin-bottom:3px}
+.ss-type-name span{position:absolute;left:0;top:0;font-family:'Fraunces',Georgia,serif;font-size:16px;font-weight:600;color:var(--terra-d);opacity:0;animation:sscycle 9.2s ease-in-out infinite}
+.ss-type-name span:nth-child(2){animation-delay:2.3s}
+.ss-type-name span:nth-child(3){animation-delay:4.6s}
+.ss-type-name span:nth-child(4){animation-delay:6.9s}
+.ss-typebar{height:6px;border-radius:100px;background:var(--tint);overflow:hidden;width:150px;margin-top:7px}
+.ss-typebar i{display:block;height:100%;background:var(--terra);width:18%;animation:ssfill 9.2s ease-in-out infinite}
+
+/* Keyframes */
+@keyframes sspulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+@keyframes ssidle{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.ss-hc-spot.ss-hc{animation-name:ssidlec}
+@keyframes ssidlec{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-9px)}}
+@keyframes ssring{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:.9;transform:scale(1.06)}}
+@keyframes ssfeed{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+@keyframes ssfloatin{0%{opacity:0;transform:translateY(10px) scale(.96)}5%{opacity:1;transform:translateY(0) scale(1)}24%{opacity:1;transform:translateY(0) scale(1)}30%{opacity:0;transform:translateY(-8px) scale(.98)}100%{opacity:0}}
+@keyframes ssscan{0%,100%{top:9px}50%{top:67px}}
+@keyframes ssunlock{0%,18%{opacity:0;transform:translateY(6px)}28%,82%{opacity:1;transform:translateY(0)}92%,100%{opacity:0}}
+@keyframes ssbubble{0%,20%{opacity:0;transform:translateY(8px)}30%,84%{opacity:1;transform:translateY(0)}94%,100%{opacity:0}}
+@keyframes ssonb{0%{opacity:0;transform:translateX(18px)}3.5%{opacity:1;transform:translateX(0)}22%{opacity:1;transform:translateX(0)}25%{opacity:0;transform:translateX(-18px)}100%{opacity:0;transform:translateX(-18px)}}
+@keyframes sscaret{50%{opacity:0}}
+@keyframes ssdone{0%,40%{background:#fff;border-color:var(--line)}55%,100%{background:var(--terra);border-color:var(--terra)}}
+@keyframes sscycle{0%{opacity:0}3%{opacity:1}22%{opacity:1}26%{opacity:0}100%{opacity:0}}
+@keyframes ssfill{0%{width:18%}45%{width:82%}100%{width:18%}}
+
+/* Responsive */
+@media(max-width:760px){
+  .ss-stage{flex-direction:column;gap:26px;padding:36px 16px 26px;min-height:0}
+  .ss-phone{--w:206px}
+  .ss-float{display:none}
+  .ss-cap{position:static;transform:none;width:100%;margin-top:8px}
+}
+@media(max-width:560px){
+  .ss-hc-week,.ss-hc-feed{display:none}
+  .ss-hc-spot{width:180px}
+}
+
+/* Reduced motion: ruhige Standbilder */
+@media(prefers-reduced-motion:reduce){
+  .ss *{animation:none !important}
+  .ss-feed-track{transform:none !important}
+  .ss-float{opacity:1 !important}
+  .ss-unlock,.ss-bubble{opacity:1 !important;transform:none !important}
+  .ss-onb-step{opacity:0 !important}
+  .ss-onb-step:first-child{opacity:1 !important}
+  .ss-type-name span{opacity:0 !important}
+  .ss-type-name span:first-child{opacity:1 !important}
+  .ss-typebar i{width:60% !important}
+}
+</style>
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
 <link rel="icon" type="image/png" sizes="512x512" href="favicon.png?v=2">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
@@ -73,9 +228,36 @@
         </div>
       </div>
       <div class="cs-hero-right" style="display:flex; flex-direction:column; height:100%;">
-        <div class="cs-hero-image" style="flex:1 1 auto;">
-          <img src="case-hero.jpg" alt="sameSpot" onerror="this.style.display='none';this.parentElement.querySelector('.cs-img-hint').style.display='block'">
-          <span class="cs-img-hint" style="display:none" data-de="[Hero-Bild: case-hero.jpg]" data-en="[Hero image: case-hero.jpg]">[Hero-Bild: case-hero.jpg]</span>
+        <div class="cs-hero-image ss">
+          <div class="ss-hero">
+            <div class="ss-hc ss-hc-feed">
+              <div style="display:flex;align-items:center;gap:8px">
+                <div class="ss-av ss-mara" style="background:var(--terra);width:26px;height:26px;font-size:10px">M</div>
+                <div>
+                  <div style="font-size:11px;font-weight:600;color:var(--ink);line-height:1">Mara</div>
+                  <div class="ss-seen" style="margin-top:3px">5× gesehen</div>
+                </div>
+              </div>
+            </div>
+            <div class="ss-hc ss-hc-week">
+              <div class="ss-mono">Woche 24</div>
+              <div style="font-size:13px;font-weight:600;color:var(--ink);margin-top:2px">10 Spots offen</div>
+            </div>
+            <div class="ss-hc ss-hc-spot">
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="ss-spot-ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+                <div style="flex:1">
+                  <div class="ss-mono" style="margin-bottom:2px">Spot der Woche</div>
+                  <div style="font-size:13px;font-weight:600;color:var(--ink);line-height:1.15">Versteckter Innenhof</div>
+                  <div style="font-size:10px;color:var(--ink-2);margin-top:1px">Altstadt · 8 Min zu Fuß</div>
+                </div>
+              </div>
+            </div>
+            <div class="ss-hc ss-hc-type">
+              <div class="ss-mono">Spot-Typ</div>
+              <div class="ss-fr" style="font-size:15px;margin-top:2px">Stadthistoriker</div>
+            </div>
+          </div>
         </div>
         <div class="cs-intro-box" style="margin-top:24px;">
           <p data-de="Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Der Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?" data-en="An app where local connection emerges as a by-product, not as a goal. For people who long for closeness but are put off by classic social apps. The guiding thought: would my persona use it, even knowing she'd never meet anyone?">Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Der Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?</p>
@@ -419,7 +601,75 @@
       </div>
     </div>
 
-    <div class="cs-image-block" style="margin-top: 48px;"><span class="cs-image-hint" data-de="[Hauptscreens der Lösung, Figma-Export]" data-en="[Main solution screens, Figma export]">[Hauptscreens der Lösung, Figma-Export]</span></div>
+    <div class="ss ss-stage" style="margin-top: 48px;">
+      <span class="ss-tagline" data-de="Live-Demo" data-en="Live demo">Live-Demo</span>
+
+      <div class="ss-float ss-f1"><span class="ss-d"></span><span data-de="Dieselben Gesichter" data-en="The same faces">Dieselben Gesichter</span></div>
+      <div class="ss-float ss-f2"><span class="ss-d"></span><span data-de="Mere-Exposure-Effekt" data-en="Mere exposure effect">Mere-Exposure-Effekt</span></div>
+      <div class="ss-float ss-f3"><span class="ss-d"></span><span data-de="Chat erst nach echtem Treffen" data-en="Chat only after meeting in person">Chat erst nach echtem Treffen</span></div>
+
+      <!-- Phone 1: Feed / Entdecken -->
+      <div class="ss-phone ss-idle"><div class="ss-island"></div><div class="ss-screen">
+        <div class="ss-status"><span>9:41</span><span class="ss-sig"><i style="height:5px"></i><i style="height:7px"></i><i style="height:9px"></i><i style="height:11px"></i></span></div>
+        <div class="ss-head"><div class="ss-h-sub">Entdecken</div><div class="ss-h-title">Wer war wo</div></div>
+        <div class="ss-scroll">
+          <div class="ss-feed-track">
+            <div class="ss-feed-card"><div class="ss-av ss-mara" style="background:var(--terra)">M</div><div class="ss-feed-txt"><div class="ss-feed-name">Mara</div><div class="ss-feed-act">war am Versteckten Innenhof</div><span class="ss-seen">3× gesehen</span></div></div>
+            <div class="ss-feed-card"><div class="ss-av" style="background:#8A9A6B">J</div><div class="ss-feed-txt"><div class="ss-feed-name">Jonas</div><div class="ss-feed-act">war am Hafenkran</div></div></div>
+            <div class="ss-feed-card"><div class="ss-av ss-mara" style="background:var(--terra)">M</div><div class="ss-feed-txt"><div class="ss-feed-name">Mara</div><div class="ss-feed-act">war im Café am Fluss</div><span class="ss-seen">4× gesehen</span></div></div>
+            <div class="ss-feed-card"><div class="ss-av" style="background:#6E7E8A">L</div><div class="ss-feed-txt"><div class="ss-feed-name">Lea</div><div class="ss-feed-act">war im Stadtgarten</div></div></div>
+            <div class="ss-feed-card"><div class="ss-av ss-mara" style="background:var(--terra)">M</div><div class="ss-feed-txt"><div class="ss-feed-name">Mara</div><div class="ss-feed-act">war am Aussichtspunkt</div><span class="ss-seen">5× gesehen</span></div></div>
+            <div class="ss-feed-card"><div class="ss-av" style="background:#9C6B5A">T</div><div class="ss-feed-txt"><div class="ss-feed-name">Theo</div><div class="ss-feed-act">war an der alten Brücke</div></div></div>
+            <div class="ss-feed-card"><div class="ss-av ss-mara" style="background:var(--terra)">M</div><div class="ss-feed-txt"><div class="ss-feed-name">Mara</div><div class="ss-feed-act">war am Versteckten Innenhof</div><span class="ss-seen">3× gesehen</span></div></div>
+            <div class="ss-feed-card"><div class="ss-av" style="background:#8A9A6B">J</div><div class="ss-feed-txt"><div class="ss-feed-name">Jonas</div><div class="ss-feed-act">war am Hafenkran</div></div></div>
+            <div class="ss-feed-card"><div class="ss-av ss-mara" style="background:var(--terra)">M</div><div class="ss-feed-txt"><div class="ss-feed-name">Mara</div><div class="ss-feed-act">war im Café am Fluss</div><span class="ss-seen">4× gesehen</span></div></div>
+            <div class="ss-feed-card"><div class="ss-av" style="background:#6E7E8A">L</div><div class="ss-feed-txt"><div class="ss-feed-name">Lea</div><div class="ss-feed-act">war im Stadtgarten</div></div></div>
+            <div class="ss-feed-card"><div class="ss-av ss-mara" style="background:var(--terra)">M</div><div class="ss-feed-txt"><div class="ss-feed-name">Mara</div><div class="ss-feed-act">war am Aussichtspunkt</div><span class="ss-seen">5× gesehen</span></div></div>
+            <div class="ss-feed-card"><div class="ss-av" style="background:#9C6B5A">T</div><div class="ss-feed-txt"><div class="ss-feed-name">Theo</div><div class="ss-feed-act">war an der alten Brücke</div></div></div>
+          </div>
+        </div>
+        <div class="ss-tabs">
+          <div class="ss-tab"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L20 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Aufgaben</div>
+          <div class="ss-tab active"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>Entdecken</div>
+          <div class="ss-tab"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Austausch</div>
+          <div class="ss-tab"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Profil</div>
+        </div>
+      </div></div>
+
+      <!-- Phone 2: QR-Tausch / Austausch -->
+      <div class="ss-phone ss-idle-2"><div class="ss-island"></div><div class="ss-screen">
+        <div class="ss-status"><span>9:41</span><span class="ss-sig"><i style="height:5px"></i><i style="height:7px"></i><i style="height:9px"></i><i style="height:11px"></i></span></div>
+        <div class="ss-head"><div class="ss-h-sub">Austausch</div><div class="ss-h-title">Code tauschen</div></div>
+        <div class="ss-pad">
+          <div class="ss-meet">Ihr seid euch am Hafen begegnet.</div>
+          <div class="ss-qr-row">
+            <div class="ss-av" style="background:#8A9A6B;width:34px;height:34px">J</div>
+            <div class="ss-qr">
+              <svg viewBox="0 0 100 100">
+                <g fill="#1C1714"><rect x="6" y="6" width="24" height="24" rx="4"/><rect x="70" y="6" width="24" height="24" rx="4"/><rect x="6" y="70" width="24" height="24" rx="4"/></g>
+                <g fill="#FFF9F3"><rect x="12" y="12" width="12" height="12" rx="2"/><rect x="76" y="12" width="12" height="12" rx="2"/><rect x="12" y="76" width="12" height="12" rx="2"/></g>
+                <g fill="#1C1714"><rect x="15" y="15" width="6" height="6"/><rect x="79" y="15" width="6" height="6"/><rect x="15" y="79" width="6" height="6"/><rect x="44" y="10" width="7" height="7"/><rect x="56" y="22" width="7" height="7"/><rect x="40" y="40" width="7" height="7"/><rect x="54" y="46" width="7" height="7"/><rect x="68" y="52" width="7" height="7"/><rect x="42" y="64" width="7" height="7"/><rect x="58" y="70" width="7" height="7"/><rect x="72" y="80" width="7" height="7"/><rect x="84" y="62" width="7" height="7"/><rect x="30" y="52" width="7" height="7"/></g>
+              </svg>
+              <div class="ss-scanline"></div>
+            </div>
+            <div class="ss-av ss-mara" style="background:var(--terra);width:34px;height:34px">M</div>
+          </div>
+          <div class="ss-unlock">Chat freigeschaltet</div>
+          <div class="ss-chat">
+            <div class="ss-bubble ss-them">Dich seh ich ständig am Hafen.</div>
+            <div class="ss-bubble ss-me">Stimmt, beim Sonnenuntergang-Spot.</div>
+          </div>
+        </div>
+        <div class="ss-tabs">
+          <div class="ss-tab"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L20 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Aufgaben</div>
+          <div class="ss-tab"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>Entdecken</div>
+          <div class="ss-tab active"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Austausch</div>
+          <div class="ss-tab"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Profil</div>
+        </div>
+      </div></div>
+
+      <div class="ss-cap" data-de="Dieselben Gesichter tauchen Woche für Woche im Feed auf und werden vertraut. Ein Chat öffnet sich erst, wenn man sich im echten Leben trifft und die Codes scannt." data-en="The same faces show up in the feed week after week and become familiar. A chat only opens once two people meet in real life and scan each other's codes.">Dieselben Gesichter tauchen Woche für Woche im Feed auf und werden vertraut. Ein Chat öffnet sich erst, wenn man sich im echten Leben trifft und die Codes scannt.</div>
+    </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════ PROTOTYP -->
