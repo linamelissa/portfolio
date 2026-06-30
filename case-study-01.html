@@ -1,883 +1,1369 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>sameSpot, Case Study · Lina Melissa</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="case-study.css">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
-<style id="ss-visuals">
-/* ===== sameSpot In-App Demos — eigenständig, ersetzbar (CSS-only) ===== */
-.ss{--bg:#FFF9F3;--ink:#1C1714;--ink-2:#6B5645;--terra:#C17E4A;--terra-d:#A9663A;--tint:#F6E7D6;--tint-2:#ECD6BF;--line:#EADCCB;font-family:'DM Sans',system-ui,sans-serif}
-.ss *{box-sizing:border-box}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sameSpot UX Case Study</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        /* Custom Font Settings & Animation Utilities */
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fcfdfa;
+            color: #1c241b;
+        }
+        
+        .mono-font {
+            font-family: 'Space Grotesk', monospace;
+        }
 
-/* Hero: Spalten unten bündig + schwebende App-Karten */
-.cs-hero-body{align-items:stretch}
-.cs-hero-image{flex:1 1 auto;min-height:300px;position:relative;padding:0}
-.ss-hero{position:relative;width:100%;height:100%;min-height:300px;overflow:hidden}
-.ss-hc{position:absolute;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 46px -18px rgba(28,23,20,.3);padding:11px 13px;animation:ssidle 7s ease-in-out infinite}
-.ss-hc-spot{top:34%;left:50%;transform:translateX(-50%);width:208px;z-index:3}
-.ss-hc-feed{top:9%;left:5%;z-index:4;animation-delay:1.2s}
-.ss-hc-type{bottom:11%;right:5%;z-index:4;animation-delay:2.2s}
-.ss-hc-week{top:11%;right:7%;z-index:2;animation-delay:.6s}
-.ss-mono{font-family:var(--font-mono,monospace);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-d)}
-.ss-fr{font-family:'Fraunces',Georgia,serif;font-weight:600;color:var(--ink)}
+        /* Glitch Animation Keyframes for Bumble Cards */
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+        .animate-glitch {
+            animation: glitch 1s linear infinite;
+        }
 
-/* Bühne */
-.ss-stage{position:relative;max-width:1000px;margin:0 auto;border-radius:24px;border:1px solid var(--border);overflow:hidden;background:linear-gradient(135deg,var(--green-light) 0%,#d4e8d8 100%);background-image:radial-gradient(rgba(31,77,40,.06) 1px,transparent 1px);background-size:20px 20px;padding:54px 28px 64px;display:flex;align-items:center;justify-content:center;gap:44px;flex-wrap:wrap;min-height:540px}
-.ss-tagline{position:absolute;top:16px;left:18px;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono,monospace);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--green-dark);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.7);border-radius:100px;padding:5px 11px}
-.ss-tagline::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--terra);animation:sspulse 2s ease-in-out infinite}
-.ss-cap{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);width:calc(100% - 36px);max-width:580px;text-align:center;font-size:12.5px;line-height:1.5;color:var(--green-dark);background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.6);border-radius:12px;padding:9px 14px}
-
-/* Phone */
-.ss-phone{--w:228px;position:relative;width:var(--w);aspect-ratio:1000/2050;background:#1C1714;border-radius:40px;padding:8px;box-shadow:0 38px 72px -24px rgba(28,23,20,.5),0 10px 24px rgba(28,23,20,.16);flex-shrink:0}
-.ss-phone.ss-idle{animation:ssidle 6.5s ease-in-out infinite}
-.ss-phone.ss-idle-2{animation:ssidle 6.5s ease-in-out infinite;animation-delay:1s}
-.ss-screen{position:relative;width:100%;height:100%;background:var(--bg);border-radius:32px;overflow:hidden;display:flex;flex-direction:column}
-.ss-island{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:56px;height:15px;background:#1C1714;border-radius:10px;z-index:8}
-.ss-status{display:flex;justify-content:space-between;align-items:center;padding:9px 15px 2px;font-size:10px;font-weight:700;color:var(--ink)}
-.ss-sig{display:flex;gap:2.5px;align-items:flex-end}
-.ss-sig i{width:3px;border-radius:1px;background:var(--ink);display:block}
-.ss-head{padding:7px 14px 5px}
-.ss-h-sub{font-family:var(--font-mono,monospace);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-d);margin-bottom:3px}
-.ss-h-title{font-family:'Fraunces',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.05}
-.ss-scroll{flex:1;overflow:hidden;position:relative}
-
-/* Spot-Karte */
-.ss-spot{display:flex;gap:9px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:15px;padding:9px 10px;margin:0 12px 7px}
-.ss-spot-ic{width:32px;height:32px;border-radius:10px;background:var(--tint);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--terra-d)}
-.ss-spot-ic svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.ss-spot-txt{flex:1;min-width:0}
-.ss-spot-name{font-size:11.5px;font-weight:600;color:var(--ink);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ss-spot-loc{font-size:9.5px;color:var(--ink-2);margin-top:1px}
-.ss-spot-state{width:17px;height:17px;border-radius:50%;border:2px solid var(--line);flex-shrink:0;position:relative}
-.ss-spot.done .ss-spot-state{background:var(--terra);border-color:var(--terra)}
-.ss-spot.done .ss-spot-state::after{content:'';position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(40deg)}
-.ss-spot.ss-doneanim .ss-spot-state{animation:ssdone 5s ease-in-out infinite}
-
-/* Tabs */
-.ss-tabs{display:flex;justify-content:space-around;align-items:center;padding:7px 4px 10px;border-top:1px solid var(--line);background:rgba(255,249,243,.96)}
-.ss-tab{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:7.5px;font-weight:600;color:#B7A593}
-.ss-tab svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.ss-tab.active{color:var(--terra-d)}
-
-/* Feed */
-.ss-feed-card{display:flex;gap:9px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin:0 12px 7px}
-.ss-av{width:30px;height:30px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;position:relative}
-.ss-av.ss-mara::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--terra);animation:ssring 2.4s ease-in-out infinite}
-.ss-feed-txt{flex:1;min-width:0}
-.ss-feed-name{font-size:11.5px;font-weight:600;color:var(--ink)}
-.ss-feed-act{font-size:9.5px;color:var(--ink-2);line-height:1.3;margin-top:1px}
-.ss-seen{display:inline-flex;align-items:center;gap:4px;margin-top:4px;font-size:8.5px;font-weight:700;color:var(--terra-d);background:var(--tint);border-radius:100px;padding:2px 7px}
-.ss-feed-track{will-change:transform;animation:ssfeed 18s linear infinite}
-
-/* Schwebende Labels */
-.ss-float{position:absolute;z-index:6;background:#fff;border:1px solid var(--line);border-radius:13px;padding:7px 11px;box-shadow:0 16px 36px -14px rgba(28,23,20,.36);font-size:11px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:7px;white-space:nowrap;opacity:0;animation:ssfloatin 13s ease-in-out infinite}
-.ss-float .ss-d{width:8px;height:8px;border-radius:50%;background:var(--terra);flex-shrink:0}
-.ss-f1{top:13%;left:1%;animation-delay:.6s}
-.ss-f2{top:46%;left:-3%;animation-delay:4.6s}
-.ss-f3{bottom:24%;right:0%;animation-delay:8.6s}
-
-/* QR + Chat */
-.ss-pad{padding:6px 14px 0;display:flex;flex-direction:column;flex:1}
-.ss-meet{font-size:10px;color:var(--ink-2);text-align:center;margin:4px 0 8px}
-.ss-qr-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:6px}
-.ss-qr{width:78px;height:78px;border-radius:13px;background:#fff;border:1px solid var(--line);padding:8px;position:relative;overflow:hidden}
-.ss-qr svg{width:100%;height:100%;display:block}
-.ss-scanline{position:absolute;left:8px;right:8px;height:2px;background:var(--terra);box-shadow:0 0 8px var(--terra);border-radius:2px;animation:ssscan 2.8s ease-in-out infinite}
-.ss-unlock{align-self:center;font-size:8.5px;font-weight:700;color:#fff;background:var(--terra);border-radius:100px;padding:3px 10px;margin:2px 0 8px;opacity:0;animation:ssunlock 7s ease-in-out infinite}
-.ss-chat{display:flex;flex-direction:column;gap:6px;padding:0 2px}
-.ss-bubble{max-width:82%;font-size:10px;line-height:1.35;padding:7px 10px;border-radius:13px;opacity:0;animation:ssbubble 7s ease-in-out infinite}
-.ss-bubble.ss-them{background:#fff;border:1px solid var(--line);color:var(--ink);align-self:flex-start;border-bottom-left-radius:4px;animation-delay:.3s}
-.ss-bubble.ss-me{background:var(--terra);color:#fff;align-self:flex-end;border-bottom-right-radius:4px;animation-delay:1.2s}
-
-/* Onboarding */
-.ss-onb{position:relative;flex:1;overflow:hidden}
-.ss-onb-step{position:absolute;inset:0;padding:16px 16px;display:flex;flex-direction:column;opacity:0;animation:ssonb 17s ease-in-out infinite}
-.ss-onb-step:nth-child(2){animation-delay:4.25s}
-.ss-onb-step:nth-child(3){animation-delay:8.5s}
-.ss-onb-step:nth-child(4){animation-delay:12.75s}
-.ss-q{font-family:'Fraunces',Georgia,serif;font-size:17px;font-weight:600;color:var(--ink);line-height:1.15;margin-bottom:14px}
-.ss-input{border:1px solid var(--line);border-radius:12px;padding:11px 12px;font-size:13px;font-weight:600;color:var(--ink);background:#fff;display:flex;align-items:center}
-.ss-input .ss-caret{width:1.5px;height:15px;background:var(--terra);margin-left:1px;animation:sscaret 1s step-end infinite}
-.ss-chips{display:flex;flex-wrap:wrap;gap:7px}
-.ss-chip{font-size:11px;font-weight:600;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-radius:100px;padding:7px 13px}
-.ss-chip.on{background:var(--terra);border-color:var(--terra);color:#fff}
-.ss-cta{margin-top:auto;text-align:center;font-size:12px;font-weight:700;color:#fff;background:var(--ink);border-radius:13px;padding:11px}
-
-/* Spot-Typ Mini-Visual */
-.ss-typecard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:14px;max-width:420px;margin-top:18px}
-.ss-typeav{width:46px;height:46px;border-radius:14px;background:var(--tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--terra-d);position:relative}
-.ss-typeav svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.ss-typeav::after{content:'';position:absolute;inset:-3px;border-radius:16px;border:2px solid var(--terra);animation:ssring 2.6s ease-in-out infinite}
-.ss-type-name{position:relative;height:20px;margin-bottom:3px}
-.ss-type-name span{position:absolute;left:0;top:0;font-family:'Fraunces',Georgia,serif;font-size:16px;font-weight:600;color:var(--terra-d);opacity:0;animation:sscycle 9.2s ease-in-out infinite}
-.ss-type-name span:nth-child(2){animation-delay:2.3s}
-.ss-type-name span:nth-child(3){animation-delay:4.6s}
-.ss-type-name span:nth-child(4){animation-delay:6.9s}
-.ss-typebar{height:6px;border-radius:100px;background:var(--tint);overflow:hidden;width:150px;margin-top:7px}
-.ss-typebar i{display:block;height:100%;background:var(--terra);width:18%;animation:ssfill 9.2s ease-in-out infinite}
-
-/* Keyframes */
-@keyframes sspulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
-@keyframes ssidle{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-.ss-hc-spot.ss-hc{animation-name:ssidlec}
-@keyframes ssidlec{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-9px)}}
-@keyframes ssring{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:.9;transform:scale(1.06)}}
-@keyframes ssfeed{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
-@keyframes ssfloatin{0%{opacity:0;transform:translateY(10px) scale(.96)}5%{opacity:1;transform:translateY(0) scale(1)}24%{opacity:1;transform:translateY(0) scale(1)}30%{opacity:0;transform:translateY(-8px) scale(.98)}100%{opacity:0}}
-@keyframes ssscan{0%,100%{top:9px}50%{top:67px}}
-@keyframes ssunlock{0%,18%{opacity:0;transform:translateY(6px)}28%,82%{opacity:1;transform:translateY(0)}92%,100%{opacity:0}}
-@keyframes ssbubble{0%,20%{opacity:0;transform:translateY(8px)}30%,84%{opacity:1;transform:translateY(0)}94%,100%{opacity:0}}
-@keyframes ssonb{0%{opacity:0;transform:translateX(18px)}3.5%{opacity:1;transform:translateX(0)}22%{opacity:1;transform:translateX(0)}25%{opacity:0;transform:translateX(-18px)}100%{opacity:0;transform:translateX(-18px)}}
-@keyframes sscaret{50%{opacity:0}}
-@keyframes ssdone{0%,40%{background:#fff;border-color:var(--line)}55%,100%{background:var(--terra);border-color:var(--terra)}}
-@keyframes sscycle{0%{opacity:0}3%{opacity:1}22%{opacity:1}26%{opacity:0}100%{opacity:0}}
-@keyframes ssfill{0%{width:18%}45%{width:82%}100%{width:18%}}
-
-/* Responsive */
-@media(max-width:760px){
-  .ss-stage{flex-direction:column;gap:26px;padding:36px 16px 26px;min-height:0}
-  .ss-phone{--w:206px}
-  .ss-float{display:none}
-  .ss-cap{position:static;transform:none;width:100%;margin-top:8px}
-}
-@media(max-width:560px){
-  .ss-hc-week,.ss-hc-feed{display:none}
-  .ss-hc-spot{width:180px}
-}
-
-/* Reduced motion: ruhige Standbilder */
-@media(prefers-reduced-motion:reduce){
-  .ss *{animation:none !important}
-  .ss-feed-track{transform:none !important}
-  .ss-float{opacity:1 !important}
-  .ss-unlock,.ss-bubble{opacity:1 !important;transform:none !important}
-  .ss-onb-step{opacity:0 !important}
-  .ss-onb-step:first-child{opacity:1 !important}
-  .ss-type-name span{opacity:0 !important}
-  .ss-type-name span:first-child{opacity:1 !important}
-  .ss-typebar i{width:60% !important}
-}
-</style>
-<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
-<link rel="icon" type="image/png" sizes="512x512" href="favicon.png?v=2">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+        /* Floating Animation Keyframes */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float-1 { animation: float-slow 6s ease-in-out infinite; }
+        .animate-float-2 { animation: float-slow 7s ease-in-out infinite 1s; }
+        .animate-float-3 { animation: float-slow 5s ease-in-out infinite 2s; }
+    </style>
 </head>
-<body>
+<body class="selection:bg-emerald-100 selection:text-emerald-900 antialiased overflow-x-hidden">
 
-<div id="progress-bar"></div>
-<div id="custom-cursor"></div>
-
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-back">
-      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-      <span data-de="Alle Projekte" data-en="All projects">Alle Projekte</span>
-    </a>
-    <a href="index.html" class="nav-name nav-name-center">Lina Melissa</a>
-    <div class="nav-right">
-      <a href="index.html#kontakt" class="nav-contact-link" data-de="Kontakt" data-en="Contact">Kontakt</a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button>
-    </div>
-  </div>
-</nav>
-
-<!-- FIXE SIDEBAR LINKS -->
-<aside class="cs-sidebar">
-  <ul class="cs-nav-list">
-    <li><a class="cs-nav-item active" data-target="problem"><span class="cs-nav-dot"></span><span data-de="Problem" data-en="Problem">Problem</span></a></li>
-    <li><a class="cs-nav-item" data-target="research"><span class="cs-nav-dot"></span><span data-de="Research" data-en="Research">Research</span></a></li>
-    <li><a class="cs-nav-item" data-target="hmw"><span class="cs-nav-dot"></span><span data-de="How Might We" data-en="How Might We">How Might We</span></a></li>
-    <li><a class="cs-nav-item" data-target="process"><span class="cs-nav-dot"></span><span data-de="Prozess" data-en="Process">Prozess</span></a></li>
-    <li><a class="cs-nav-item" data-target="testing"><span class="cs-nav-dot"></span><span data-de="Testing" data-en="Testing">Testing</span></a></li>
-    <li><a class="cs-nav-item" data-target="beforeafter"><span class="cs-nav-dot"></span><span data-de="Vorher &amp; Nachher" data-en="Before &amp; After">Vorher &amp; Nachher</span></a></li>
-    <li><a class="cs-nav-item" data-target="solution"><span class="cs-nav-dot"></span><span data-de="Lösung" data-en="Solution">Lösung</span></a></li>
-    <li><a class="cs-nav-item" data-target="prototype"><span class="cs-nav-dot"></span><span data-de="Prototyp" data-en="Prototype">Prototyp</span></a></li>
-    <li><a class="cs-nav-item" data-target="ki"><span class="cs-nav-dot"></span><span data-de="KI in Design" data-en="AI in Design">KI in Design</span></a></li>
-    <li><a class="cs-nav-item" data-target="kpis"><span class="cs-nav-dot"></span><span data-de="KPIs" data-en="KPIs">KPIs</span></a></li>
-    <li><a class="cs-nav-item" data-target="outlook"><span class="cs-nav-dot"></span><span data-de="Ausblick" data-en="Outlook">Ausblick</span></a></li>
-    <li><a class="cs-nav-item" data-target="lessons"><span class="cs-nav-dot"></span><span data-de="Learnings" data-en="Lessons">Learnings</span></a></li>
-  </ul>
-</aside>
-
-<!-- HERO -->
-<div class="cs-hero">
-  <div class="cs-wrap">
-    <div class="cs-hero-tags">
-      <span class="cs-hero-tag">UX Research</span>
-      <span class="cs-hero-tag">Product Design</span>
-      <span class="cs-hero-tag">Mobile App</span>
-      <span class="cs-hero-tag">Soziale Verbindung</span>
-      <span class="cs-hero-tag">Konzept</span>
-    </div>
-    <h1 class="cs-hero-title" style="white-space:nowrap;">sameSpot</h1>
-    <div class="cs-hero-body">
-      <div class="cs-meta">
-        <div class="cs-meta-item"><span class="cs-meta-label" data-de="Typ" data-en="Type">Typ</span><span class="cs-meta-value">Solo Product Design Case</span></div>
-        <div class="cs-meta-item"><span class="cs-meta-label" data-de="Rolle" data-en="Role">Rolle</span><span class="cs-meta-value" data-de="UX/UI &amp; Product Design" data-en="UX/UI &amp; Product Design">UX/UI &amp; Product Design</span></div>
-        <div class="cs-meta-item"><span class="cs-meta-label" data-de="Umfang" data-en="Scope">Umfang</span><span class="cs-meta-value" data-de="Research · Strategie · Ideation · Prototyping · UI" data-en="Research · Strategy · Ideation · Prototyping · UI">Research · Strategie · Ideation · Prototyping · UI</span></div>
-        <div class="cs-meta-item"><span class="cs-meta-label" data-de="Dauer" data-en="Duration">Dauer</span><span class="cs-meta-value">April – August 2026</span></div>
-        <div class="cs-meta-item"><span class="cs-meta-label" data-de="Tools" data-en="Tools">Tools</span><span class="cs-meta-value">Figma · Miro</span></div>
-        <div class="cs-meta-item"><span class="cs-meta-label" data-de="Status" data-en="Status">Status</span><span class="cs-meta-value" data-de="Veröffentlicht" data-en="Published">Veröffentlicht</span></div>
-        <div class="cs-meta-buttons">
-          <a href="#prototype" class="cs-btn-dark"><span data-de="Zum Prototyp" data-en="View prototype">Zum Prototyp</span> <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-          <a href="#" class="cs-btn-outline">Figma <svg viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+    <!-- 1. HEADER-ABSCHNITT -->
+    <header class="w-full max-w-7xl mx-auto px-6 pt-16 pb-24">
+        <!-- Pill-Tags zur Orientierung -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <span class="px-4 py-1.5 rounded-full text-xs font-medium bg-neutral-100 border border-neutral-200/60 hover:border-emerald-500 hover:text-emerald-700 transition-colors duration-300 cursor-default">UX Research</span>
+            <span class="px-4 py-1.5 rounded-full text-xs font-medium bg-neutral-100 border border-neutral-200/60 hover:border-emerald-500 hover:text-emerald-700 transition-colors duration-300 cursor-default">Product Design</span>
+            <span class="px-4 py-1.5 rounded-full text-xs font-medium bg-neutral-100 border border-neutral-200/60 hover:border-emerald-500 hover:text-emerald-700 transition-colors duration-300 cursor-default">Mobile App</span>
+            <span class="px-4 py-1.5 rounded-full text-xs font-medium bg-neutral-100 border border-neutral-200/60 hover:border-emerald-500 hover:text-emerald-700 transition-colors duration-300 cursor-default">Soziale Verbindung</span>
+            <span class="px-4 py-1.5 rounded-full text-xs font-medium bg-neutral-100 border border-neutral-200/60 hover:border-emerald-500 hover:text-emerald-700 transition-colors duration-300 cursor-default">Konzept</span>
         </div>
-      </div>
-      <div class="cs-hero-right" style="display:flex; flex-direction:column; height:100%;">
-        <div class="cs-hero-image ss">
-          <div class="ss-hero">
-            <div class="ss-hc ss-hc-feed">
-              <div style="display:flex;align-items:center;gap:8px">
-                <div class="ss-av ss-mara" style="background:var(--terra);width:26px;height:26px;font-size:10px">M</div>
+
+        <!-- Logo -->
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-emerald-900 font-sans">sameSpot</h1>
+        </div>
+
+        <!-- Haupt-Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <!-- Linke Spalte (Meta-Daten & CTA) -->
+            <div class="lg:col-span-4 flex flex-col justify-between h-full">
+                <div class="divide-y divide-neutral-200/80 border-t border-b border-neutral-200/80 mb-8">
+                    <div class="py-3 flex justify-between text-xs tracking-wide"><span class="font-semibold text-neutral-500">TYP</span><span class="font-medium">Solo Product Design Case</span></div>
+                    <div class="py-3 flex justify-between text-xs tracking-wide"><span class="font-semibold text-neutral-500">ROLLE</span><span class="font-medium">UX/UI & Product Design</span></div>
+                    <div class="py-3 flex justify-between text-xs tracking-wide"><span class="font-semibold text-neutral-500">UMFANG</span><span class="font-medium text-right">Research · Strategie · Ideation · Prototyping · UI</span></div>
+                    <div class="py-3 flex justify-between text-xs tracking-wide"><span class="font-semibold text-neutral-500">DAUER</span><span class="font-medium">April – August 2026</span></div>
+                    <div class="py-3 flex justify-between text-xs tracking-wide"><span class="font-semibold text-neutral-500">TOOLS</span><span class="font-medium">Figma · Miro</span></div>
+                    <div class="py-3 flex justify-between text-xs tracking-wide"><span class="font-semibold text-neutral-500">STATUS</span><span class="font-medium text-emerald-600 font-semibold">Veröffentlicht</span></div>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <a href="#prototype" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center font-medium py-3.5 px-6 rounded-xl transition-all duration-300 shadow-sm shadow-emerald-700/10">Zum Prototyp &rarr;</a>
+                    <!-- TODO: ECHTEN FIGMA LINK HINTERLEGEN -->
+                    <a href="#" class="w-full border border-neutral-300 bg-white hover:bg-neutral-50 text-neutral-800 text-center font-medium py-3.5 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 border-4 border-red-500" title="TODO: Link anpassen">
+                        <span>Figma</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Rechte Spalte (Interaktive Hero-Box) -->
+            <div class="lg:col-span-8 bg-emerald-50/60 border border-emerald-100/80 rounded-3xl p-8 relative min-h-[420px] overflow-hidden flex items-center justify-center">
+                <!-- Hintergrund-Map Platzhalter -->
+                <div class="absolute inset-0 opacity-25 flex items-center justify-center border-4 border-red-500">
+                    <!-- TODO: ECHTE LANDKARTEN-GRAFIK HINTERLEGEN -->
+                    <span class="text-xs font-mono text-red-600 bg-white/90 p-2 rounded border border-red-200">TODO: Abstrakte Landkarten-Vektorgrafik (Straßen/Flüsse)</span>
+                    <div class="absolute inset-0 bg-radial from-transparent to-emerald-50/90"></div>
+                </div>
+
+                <!-- Floating UI-Elements Showcase -->
+                <div class="relative w-full h-full flex flex-col md:flex-row gap-4 items-center justify-center z-10 p-4">
+                    <div class="bg-white/95 p-4 rounded-2xl shadow-xl shadow-emerald-950/5 border border-emerald-100/50 w-64 animate-float-1">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center font-semibold text-emerald-800 text-sm">M</div>
+                            <div>
+                                <h4 class="font-bold text-sm">Mara</h4>
+                                <p class="text-xs text-emerald-600 font-medium">5&times; am selben Spot gesehen</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/95 p-4 rounded-2xl shadow-xl shadow-emerald-950/5 border border-emerald-100/50 w-64 animate-float-2 md:translate-y-6">
+                        <p class="text-[10px] tracking-wider text-neutral-400 font-bold uppercase mb-1">Spot der Woche</p>
+                        <h4 class="font-bold text-sm text-neutral-800">Versteckter Innenhof</h4>
+                        <p class="text-xs text-neutral-500 mt-1">Altsstadt-Passage</p>
+                    </div>
+
+                    <div class="bg-white/95 p-4 rounded-2xl shadow-xl shadow-emerald-950/5 border border-emerald-100/50 w-64 animate-float-3 md:-translate-y-4">
+                        <div class="flex items-center gap-2">
+                            <span class="p-1.5 rounded-lg bg-emerald-50 text-emerald-700">📜</span>
+                            <div>
+                                <p class="text-[10px] text-neutral-400 font-bold uppercase">Spot-Typus</p>
+                                <h4 class="font-bold text-sm">Stadthistoriker</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leitgedanke (Rechtsbündig unter Box) -->
+        <div class="mt-12 flex justify-end">
+            <div class="w-full lg:w-2/3 bg-white border border-neutral-200/70 p-8 rounded-2xl shadow-sm shadow-neutral-100">
+                <p class="text-neutral-700 text-lg leading-relaxed font-normal">
+                    Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Der Leitgedanke: <span class="font-semibold text-emerald-900">Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?</span>
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <hr class="border-neutral-200/60 max-w-7xl mx-auto px-6">
+
+    <!-- 2. SEKTION: DAS PROBLEM & TIMELINE -->
+    <section class="w-full max-w-7xl mx-auto px-6 py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-16">
+            <!-- Linke Spalte (Headline) -->
+            <div class="lg:col-span-7">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-800 leading-[1.15]">
+                    Viele Menschen wünschen sich Nähe, und werden von genau den Apps abgeschreckt, <span class="text-emerald-700 italic">die ihnen helfen sollen.</span>
+                </h2>
+            </div>
+            
+            <!-- Rechte Spalte (Zähler & Text) -->
+            <div class="lg:col-span-5 flex flex-col md:flex-row lg:flex-col gap-6 items-start">
+                <div class="flex items-baseline gap-4">
+                    <span id="counter-51" class="text-7xl md:text-8xl font-bold tracking-tighter text-emerald-800 mono-font" data-target="51">0%</span>
+                    <p class="text-neutral-600 text-sm max-w-xs leading-relaxed">
+                        der 18–35-Jährigen erleben moderate Einsamkeit, kein klinisches Problem, sondern ein alltägliches Gefühl. <span class="font-medium text-neutral-800">Hanna ist eine davon.</span>
+                    </p>
+                </div>
+                <div class="border-l-2 border-neutral-200 pl-6 mt-4">
+                    <p class="text-neutral-600 leading-relaxed">
+                        Alle Apps probiert, alle wieder gelöscht. Der Anspruch „Freunde finden“ erzeugt genau den Druck, der sie blockiert.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Integrierte Design Timeline & Persona-Karte -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-20 items-start">
+            <!-- Visuelle Design Timeline (Links) -->
+            <div class="lg:col-span-6 relative pl-8 pb-4">
+                <!-- Dynamischer Scroll-Zeitstrahl -->
+                <div class="absolute left-[11px] top-0 bottom-0 w-0.5 bg-neutral-200">
+                    <div id="timeline-progress" class="w-full bg-emerald-600 h-0 transition-all duration-300"></div>
+                </div>
+
+                <!-- TODO: MEILENSTEINE ANPASSEN -->
+                <div class="space-y-12 border-4 border-red-500 p-4 rounded-2xl" title="TODO: Timeline-Wochen feintunen">
+                    <div class="relative timeline-node" data-percentage="25">
+                        <div class="absolute -left-[32px] top-1.5 w-4 h-4 rounded-full bg-white border-2 border-neutral-300 timeline-dot transition-all duration-500"></div>
+                        <h4 class="font-bold text-neutral-800 text-base">Woche 1-3: Research</h4>
+                        <p class="text-sm text-neutral-500 mt-1">Tiefeninterviews & quantitative Befragung zur stillen Resignation.</p>
+                    </div>
+                    <div class="relative timeline-node" data-percentage="60">
+                        <div class="absolute -left-[32px] top-1.5 w-4 h-4 rounded-full bg-white border-2 border-neutral-300 timeline-dot transition-all duration-500"></div>
+                        <h4 class="font-bold text-neutral-800 text-base">Woche 4-6: Konzeption & Ethik</h4>
+                        <p class="text-sm text-neutral-500 mt-1">Gegenüberstellung von Bumble-Dark-Patterns und Lösungsprinzipien.</p>
+                    </div>
+                    <div class="relative timeline-node" data-percentage="100">
+                        <div class="absolute -left-[32px] top-1.5 w-4 h-4 rounded-full bg-white border-2 border-neutral-300 timeline-dot transition-all duration-500"></div>
+                        <h4 class="font-bold text-neutral-800 text-base">Woche 7-9: Iteratives Prototyping</h4>
+                        <p class="text-sm text-neutral-500 mt-1">Vibe Coding des Dashboards und Ausarbeitung des interaktiven Hi-Fi Frameworks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Persona-Karte (Rechts) -->
+            <div class="lg:col-span-6 bg-white border border-neutral-200/80 rounded-3xl p-8 shadow-sm">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <span class="text-[10px] tracking-widest font-bold text-emerald-700 block uppercase mb-1">Persona</span>
+                        <h3 class="text-2xl font-bold text-neutral-800">Hanna Polm</h3>
+                    </div>
+                    <!-- TODO: PERSONA AVATAR PLATZIEREN -->
+                    <div class="w-14 h-14 rounded-2xl bg-neutral-100 border-4 border-red-500 flex items-center justify-center text-red-500 font-bold text-[10px] text-center" title="TODO: Avatar-Bild rein">
+                        TODO: Bild
+                    </div>
+                </div>
+                <p class="text-neutral-600 leading-relaxed mb-6">
+                    Lebt alleine. Hat Freundschafts-Apps ausprobiert und wieder gelöscht. Angst vor Ablehnung blockiert jeden ersten Schritt. Wunsch: ein Leben, das sich echter anfühlt.
+                </p>
+                <div class="border-l-4 border-emerald-600 bg-emerald-50/40 p-4 rounded-r-xl">
+                    <p class="text-neutral-800 italic font-medium text-sm leading-relaxed">
+                        „Ich hab mich einfach damit abgefunden, dass mir irgendwas fehlt, ich aber nicht weiß, was und wie ich das ändern soll.“
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-neutral-200/60 max-w-7xl mx-auto px-6">
+
+    <!-- 3. RESEARCH-TEIL -->
+    <section class="w-full max-w-7xl mx-auto px-6 py-24">
+        <!-- TEIL 1: Zuhören -->
+        <div class="mb-24">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h3 class="text-3xl font-bold tracking-tight mb-4">Zuhören, bevor <span class="text-emerald-600 italic">ich gestalte</span></h3>
+                <p class="text-neutral-500 text-sm">Ich wollte verstehen, wie sich soziale Zurückgezogenheit wirklich anfühlt...</p>
+            </div>
+
+            <!-- 3 interaktive Core-Karten -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <div class="bg-white border border-neutral-200/70 p-6 rounded-2xl">
+                    <span class="text-2xl mb-4 block">🗣️</span>
+                    <h4 class="font-bold text-base mb-2">4 Tiefeninterviews</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">Qualitative, einstündige Gespräche über soziale Ängste und den psychologischen Druck digitaler Architekturen.</p>
+                </div>
+                <div class="bg-white border border-neutral-200/70 p-6 rounded-2xl">
+                    <span class="text-2xl mb-4 block">📊</span>
+                    <h4 class="font-bold text-base mb-2">52 Befragte</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">Quantitative Umfrage zur Validierung der Nutzungsgewohnheiten und Abbruchgründe gängiger Kennenlern-Apps.</p>
+                </div>
+                
+                <!-- Interaktive Klick-Karte: Wettbewerbsanalyse -->
+                <div onclick="this.querySelector('.matrix-modal').classList.toggle('hidden')" class="bg-white border-2 border-emerald-600/30 hover:border-emerald-600 p-6 rounded-2xl cursor-pointer relative transition-all duration-300 shadow-sm shadow-emerald-50/50 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-2xl">🧩</span>
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">Klicken</span>
+                    </div>
+                    <h4 class="font-bold text-base mb-2 group-hover:text-emerald-700 transition-colors">Wettbewerbsanalyse</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">Systematisches Screening bestehender Marktführer auf manipulative Barrieren.</p>
+                    
+                    <!-- TODO: COMPÈTITIVE MATRIX FINALISIEREN -->
+                    <div class="matrix-modal hidden absolute inset-x-4 top-2 bg-neutral-900 text-white rounded-xl p-4 z-30 shadow-2xl border-4 border-red-500 text-left">
+                        <p class="text-[10px] font-bold text-red-400 mb-2 font-mono">TODO: Competitive Matrix Mockup</p>
+                        <div class="space-y-2 text-[11px]">
+                            <div class="flex justify-between border-b border-neutral-800 pb-1"><span>Bumble BFF:</span> <span class="text-red-400 font-medium cursor-help" title="Zitat: 'Fühlt sich an wie Bewerbungsgespräche'">[🚨 Match-Druck]</span></div>
+                            <div class="flex justify-between"><span>Platton:</span> <span class="text-red-400 font-medium cursor-help" title="Screenshot Paywall fehlt">[🔒 Paywall blockiert]</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Umfrageergebnisse (4 Statistik-Karten) -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white border border-neutral-200/60 rounded-2xl p-6 text-center stat-card">
+                    <span class="text-3xl font-bold text-emerald-800 mono-font block mb-1" data-target="71">0%</span>
+                    <p class="text-[11px] text-neutral-500">wünschen sich neue Kontakte lokal</p>
+                </div>
+                
+                <!-- Hanna-Verbindung Hover Karte -->
+                <div class="bg-white border-2 border-neutral-200 rounded-2xl p-6 text-center relative group cursor-help stat-card">
+                    <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs border-2 border-white shadow shadow-emerald-800/20">H</div>
+                    <span class="text-3xl font-bold text-emerald-800 mono-font block mb-1" data-target="92">0%</span>
+                    <p class="text-[11px] text-neutral-500">ziehen sich bei zu viel Druck zurück</p>
+                    
+                    <!-- Hanna Sprechblase -->
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-emerald-900 text-white text-[11px] p-3 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl z-20">
+                        „Genau das blockiert mich jeden Tag...“
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 w-2 h-2 bg-emerald-900 rotate-45"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-neutral-200/60 rounded-2xl p-6 text-center stat-card">
+                    <span class="text-3xl font-bold text-emerald-800 mono-font block mb-1" data-target="63">0%</span>
+                    <p class="text-[11px] text-neutral-500">löschen Apps wegen Oberflächlichkeit</p>
+                </div>
+                <div class="bg-white border border-neutral-200/60 rounded-2xl p-6 text-center stat-card">
+                    <span class="text-3xl font-bold text-emerald-800 mono-font block mb-1" data-target="51">0%</span>
+                    <p class="text-[11px] text-neutral-500">fühlen Einsamkeit im urbanen Raum</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEIL 2: Hypothesen-Board -->
+        <div class="mt-24">
+            <div class="max-w-2xl mb-12">
+                <h3 class="text-2xl font-bold tracking-tight mb-2">Was sich bestätigt hat, und was nicht</h3>
+                <p class="text-xs text-neutral-500">5 Hypothesen, 1 radikal widerlegt...</p>
+            </div>
+
+            <!-- Akkordeon-Board -->
+            <div class="space-y-3">
+                <!-- Bestätigt Node -->
+                <div class="border border-neutral-200/80 rounded-xl bg-white overflow-hidden transition-all duration-300 hover:-translate-y-0.5 group">
+                    <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="w-full py-4 px-6 flex justify-between items-center text-left relative overflow-hidden">
+                        <!-- Mini-Sparkline Simulation im Background -->
+                        <div class="absolute inset-y-0 right-24 w-32 opacity-0 group-hover:opacity-20 pointer-events-none transition-opacity duration-500">
+                            <svg class="w-full h-full text-emerald-600" viewBox="0 0 100 40" fill="none"><path d="M0 30 Q25 10 50 25 T100 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="text-xs font-bold tracking-wider bg-emerald-100 text-emerald-900 px-2.5 py-0.5 rounded">BESTÄTIGT</span>
+                            <span class="font-medium text-sm text-neutral-800">1. Hanna braucht feste Strukturen statt freier Textchats</span>
+                        </div>
+                        <span class="text-neutral-400 text-xs">&darr; Expandieren</span>
+                    </button>
+                    <!-- TODO: TEXT MIT INSIGHTS AUSFORMIEREN -->
+                    <div class="hidden px-6 pb-4 pt-1 border-t border-neutral-100 text-xs text-neutral-600 leading-relaxed border-4 border-red-500">
+                        <span class="font-bold text-red-600 block mb-1">TODO: Detaillierte Interview-Belege einfügen</span>
+                        Aus den Gesprächen ging hervor, dass textbasierte Einstiege massive Barrieren erzeugen. Feste Rahmenbedingungen senken die Hemmschwelle.
+                    </div>
+                </div>
+
+                <!-- Widerlegt Node -->
+                <div class="border border-neutral-200/80 rounded-xl bg-white overflow-hidden transition-all duration-300 hover:-translate-y-0.5 group">
+                    <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="w-full py-4 px-6 flex justify-between items-center text-left relative overflow-hidden">
+                        <!-- Mini-Sparkline Simulation (Sinkende Kurve) -->
+                        <div class="absolute inset-y-0 right-24 w-32 opacity-0 group-hover:opacity-20 pointer-events-none transition-opacity duration-500">
+                            <svg class="w-full h-full text-red-600" viewBox="0 0 100 40" fill="none"><path d="M0 10 Q25 15 50 20 T100 35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="text-xs font-bold tracking-wider bg-red-100 text-red-900 px-2.5 py-0.5 rounded-sm text-red-700">X WIDERLEGT</span>
+                            <span class="font-medium text-sm text-neutral-800">2. Verbundenheit entsteht rein durch gemeinsame Orte</span>
+                        </div>
+                        <span class="text-neutral-400 text-xs">&darr; Expandieren</span>
+                    </button>
+                    <div class="hidden px-6 pb-4 pt-1 border-t border-neutral-100 text-xs text-neutral-600 leading-relaxed border-4 border-red-500">
+                        <span class="font-bold text-red-600 block mb-1">TODO: Widerlegungs-Kontext beschreiben</span>
+                        Die größte Überraschung: Ein cooler Ort verbindet nicht automatisch. Wahre Verbundenheit entsteht erst über die wiederkehrenden Menschen an diesen Orten.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zusätzliche Insights Sektion -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-12 items-stretch">
+                <div class="lg:col-span-5 bg-white border border-neutral-200/70 p-6 rounded-2xl">
+                    <h4 class="font-bold text-sm text-neutral-800 uppercase tracking-wider mb-4">Neue Hypothesen aus dem Research</h4>
+                    <ul class="space-y-3 text-xs text-neutral-600 leading-relaxed list-disc pl-4">
+                        <li>Der Mere-Exposure-Effekt lässt sich passiv im UI-Feed spiegeln.</li>
+                        <li>Ein analoger Interaktions-Trigger (QR-Code) verhindert Bot-Verhalten.</li>
+                        <li>Profilkategorien sollten Handlungen statt Selbstdarstellung spiegeln.</li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-7 bg-emerald-50/50 border border-emerald-100 p-8 rounded-2xl flex flex-col justify-center">
+                    <span class="text-xs font-bold tracking-widest text-emerald-800 uppercase block mb-2">Wichtigste Erkenntnis</span>
+                    <p class="text-xl font-medium text-emerald-950 leading-relaxed">
+                        Das Problem ist nicht fehlende Motivation, sondern stille Resignation. Nutzer wollen Verbindung, kapitulieren aber vor den Algorithmen.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-neutral-200/60 max-w-7xl mx-auto px-6">
+
+    <!-- 4. HOW MIGHT WE & DOMINO EFFECT -->
+    <section class="w-full max-w-7xl mx-auto px-6 py-24">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs tracking-widest font-bold text-emerald-700 block uppercase mb-1">• FRAMEWORK</span>
+            <h3 class="text-3xl font-bold tracking-tight">Die Hebelwirkung der Gestaltung</h3>
+        </div>
+
+        <!-- Domino / Trigger Flow Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            <!-- Pain Point Box -->
+            <div class="bg-white border border-neutral-200 p-6 rounded-2xl relative flex flex-col justify-between">
                 <div>
-                  <div style="font-size:11px;font-weight:600;color:var(--ink);line-height:1">Mara</div>
-                  <div class="ss-seen" style="margin-top:3px">5× gesehen</div>
+                    <span class="text-xs font-bold text-red-600 tracking-wider block mb-2 uppercase">01. Der Pain Point</span>
+                    <h4 class="text-lg font-bold text-neutral-800 mb-3">Hanna filtert sich selbst aus Angst vor direkter Ablehnung heraus.</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">Die klassische Matching-Mechanik zwingt sie zu einer sofortigen, binären Ja/Nein-Entscheidung über eine Person. Das erzeugt lähmenden Performance-Druck.</p>
                 </div>
-              </div>
-            </div>
-            <div class="ss-hc ss-hc-week">
-              <div class="ss-mono">Woche 24</div>
-              <div style="font-size:13px;font-weight:600;color:var(--ink);margin-top:2px">10 Spots offen</div>
-            </div>
-            <div class="ss-hc ss-hc-spot">
-              <div style="display:flex;align-items:center;gap:10px">
-                <div class="ss-spot-ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
-                <div style="flex:1">
-                  <div class="ss-mono" style="margin-bottom:2px">Spot der Woche</div>
-                  <div style="font-size:13px;font-weight:600;color:var(--ink);line-height:1.15">Versteckter Innenhof</div>
-                  <div style="font-size:10px;color:var(--ink-2);margin-top:1px">Altstadt · 8 Min zu Fuß</div>
+                <!-- TODO: MIKRO GRAPH ANPASSEN -->
+                <div class="mt-6 border-4 border-red-500 p-3 bg-red-50/40 rounded-xl text-[11px] text-red-600 font-mono text-center" title="TODO: Graphen-Feinschliff">
+                    TODO: Mikro-Graph (Ablehnungs-Kurve)
                 </div>
-              </div>
             </div>
-            <div class="ss-hc ss-hc-type">
-              <div class="ss-mono">Spot-Typ</div>
-              <div class="ss-fr" style="font-size:15px;margin-top:2px">Stadthistoriker</div>
+
+            <!-- HMW Box -->
+            <div class="bg-emerald-900 text-white p-8 rounded-2xl shadow-xl flex flex-col justify-between transform lg:-translate-y-4">
+                <div>
+                    <span class="text-xs font-bold text-emerald-300 tracking-wider block mb-3 uppercase">02. Die Designfrage</span>
+                    <p class="text-xl font-medium tracking-tight leading-relaxed">
+                        „Wie können wir eine digitale Umgebung schaffen, in der lokale Verbundenheit organisch als Nebenprodukt entsteht, ohne dass Hanna sich aktiv bewerben muss?“
+                    </p>
+                </div>
+                <div class="mt-8 border border-emerald-700/60 bg-emerald-950/60 p-3 rounded-xl text-[10px] tracking-widest font-mono text-center text-emerald-400">
+                    CORE STRATEGY
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="cs-intro-box" style="margin-top:24px;">
-          <p data-de="Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Der Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?" data-en="An app where local connection emerges as a by-product, not as a goal. For people who long for closeness but are put off by classic social apps. The guiding thought: would my persona use it, even knowing she'd never meet anyone?">Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Der Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- INHALT -->
-<div class="cs-wrap">
-
-  <!-- ═══════════════════════════════════════════════════════ PROBLEM -->
-  <section class="cs-section" id="problem">
-    <span class="cs-section-label" data-de="Das Problem" data-en="The Problem">Das Problem</span>
-    <div class="cs-statement">
-      <div class="cs-statement-main">
-        <span data-de="Viele Menschen wünschen sich Nähe, und werden von genau den Apps abgeschreckt, " data-en="Many people long for closeness, and are put off by the very apps ">Viele Menschen wünschen sich Nähe, und werden von genau den Apps abgeschreckt, </span><em data-de="die ihnen helfen sollen." data-en="meant to help them.">die ihnen helfen sollen.</em>
-      </div>
-      <div class="cs-statement-side">
-        <p data-de="51 % der 18–35-Jährigen erleben moderate Einsamkeit, kein klinisches Problem, sondern ein alltägliches Gefühl. Hanna ist eine davon." data-en="51% of 18–35-year-olds experience moderate loneliness, not a clinical problem, just an everyday feeling. Hanna is one of them.">51 % der 18–35-Jährigen erleben moderate Einsamkeit, kein klinisches Problem, sondern ein alltägliches Gefühl. Hanna ist eine davon.</p>
-        <p data-de="Bumble BFF, Meetup, Nebenan.de, sie hat alles probiert und alles wieder gelöscht. Nicht weil sie es nicht wollte, sondern weil der explizite Anspruch &bdquo;Freunde finden&ldquo; genau den Druck erzeugt, der sie blockiert. Der bewusste erste Schritt ist ihre größte Hürde, und bestehende Apps bauen darauf auf." data-en="Tried every app, deleted every app. The promise of 'finding friends' creates exactly the pressure that blocks her.">Alle Apps probiert, alle wieder gelöscht. Der Anspruch „Freunde finden" erzeugt genau den Druck, der sie blockiert.</p>
-      </div>
-    </div>
-
-    <!-- Persona-Kurzbox -->
-    <div class="cs-callout" style="margin-top: 48px;">
-      <div class="cs-callout-inner">
-        <div class="cs-callout-label" data-de="Persona" data-en="Persona">Persona</div>
-        <div class="cs-callout-title" data-de="Hanna Polm" data-en="Hanna Polm">Hanna Polm</div>
-        <p data-de="Lebt alleine. Hat Freundschafts-Apps ausprobiert und wieder gelöscht. Angst vor Ablehnung blockiert jeden ersten Schritt. Wunsch: ein Leben, das sich echter anfühlt." data-en="Lives alone. Tried friendship apps, deleted them. Fear of rejection blocks every first step. Her wish: a life that feels more real.">Lebt alleine. Hat Freundschafts-Apps ausprobiert und wieder gelöscht. Angst vor Ablehnung blockiert jeden ersten Schritt. Wunsch: ein Leben, das sich echter anfühlt.</p>
-        <blockquote class="cs-quote" data-de="&ldquo;Ich hab mich einfach damit abgefunden, dass mir irgendwas fehlt, ich aber nicht weiß, was und wie ich das ändern soll.&rdquo;" data-en="&ldquo;I've simply come to terms with the fact that something's missing, I just don't know what it is or how to change it.&rdquo;">&ldquo;Ich hab mich einfach damit abgefunden, dass mir irgendwas fehlt, ich aber nicht weiß, was und wie ich das ändern soll.&rdquo;</blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════ RESEARCH -->
-  <section class="cs-section" id="research">
-    <span class="cs-section-label" data-de="Research" data-en="Research">Research</span>
-    <h2 class="cs-section-title"><span data-de="Zuhören, bevor" data-en="Listening before">Zuhören, bevor</span> <em data-de="ich gestalte" data-en="I design">ich gestalte</em></h2>
-    <p class="cs-section-sub" data-de="Ich wollte verstehen, wie sich soziale Zurückgezogenheit wirklich anfühlt, bevor ich auch nur an Lösungen dachte. Dafür habe ich qualitativ und quantitativ gearbeitet, Hypothesen formuliert und den Markt analysiert." data-en="I wanted to understand what social withdrawal really feels like, before even thinking about solutions. For that I worked qualitatively and quantitatively, formed hypotheses and analysed the market.">Ich wollte verstehen, wie sich soziale Zurückgezogenheit wirklich anfühlt, bevor ich auch nur an Lösungen dachte. Dafür habe ich qualitativ und quantitativ gearbeitet, Hypothesen formuliert und den Markt analysiert.</p>
-
-    <div class="cs-cards-3">
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="user"></div>
-        <h3 data-de="4 Tiefeninterviews" data-en="4 In-depth Interviews">4 Tiefeninterviews</h3>
-        <p data-de="Qualitative Interviews mit Menschen, die das Problem aus eigener Erfahrung kennen. Das zentrale Muster: Alle wollen Verbindung, aber niemand macht den ersten Schritt. Die tiefsten Freundschaften aller vier entstanden nie durch aktive Suche, sondern durch Wiederholung und Zufall." data-en="Qualitative interviews with people who know the problem from personal experience. The central pattern: everyone wants connection, but nobody makes the first move. All four had their deepest friendships form not through active searching but through repetition and chance.">Qualitative Interviews mit Menschen, die das Problem aus eigener Erfahrung kennen. Das zentrale Muster: Alle wollen Verbindung, aber niemand macht den ersten Schritt. Die tiefsten Freundschaften aller vier entstanden nie durch aktive Suche, sondern durch Wiederholung und Zufall.</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="search"></div>
-        <h3 data-de="52 Befragte" data-en="52 Respondents">52 Befragte</h3>
-        <p data-de="Eine quantitative Umfrage zur Validierung der Interview-Muster. Das stärkste Ergebnis: 71 % warten darauf, angesprochen zu werden, und 92 % ziehen sich zurück, wenn niemand aus dem Umfeld Zeit hat. Nur 1 von 52 spricht dann jemanden Neues an." data-en="A quantitative survey to validate the interview patterns. The strongest result: 71% wait to be approached, and 92% withdraw when no one in their circle has time. Only 1 in 52 then approaches someone new.">Eine quantitative Umfrage zur Validierung der Interview-Muster. Das stärkste Ergebnis: 71 % warten darauf, angesprochen zu werden, und 92 % ziehen sich zurück, wenn niemand aus dem Umfeld Zeit hat. Nur 1 von 52 spricht dann jemanden Neues an.</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="layers"></div>
-        <h3 data-de="Wettbewerbsanalyse" data-en="Competitive Analysis">Wettbewerbsanalyse</h3>
-        <p data-de="Alle vier scheitern aus demselben Grund: Matching-Druck, Paywalls, beschädigtes Vertrauen." data-en="All four fail for the same reason: matching pressure, paywalls, broken trust.">Alle vier scheitern aus demselben Grund: Matching-Druck, Paywalls, beschädigtes Vertrauen.</p>
-      </div>
-    </div>
-
-    <!-- Key Numbers -->
-    <div class="cs-stats-row" style="margin-top: 48px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
-      <div class="cs-stat-block">
-        <div class="cs-stat-num">71 %</div>
-        <div class="cs-stat-label" data-de="warten darauf, angesprochen zu werden" data-en="wait to be approached">warten darauf, angesprochen zu werden</div>
-      </div>
-      <div class="cs-stat-block">
-        <div class="cs-stat-num">92 %</div>
-        <div class="cs-stat-label" data-de="ziehen sich zurück, wenn niemand Zeit hat" data-en="withdraw when no one has time">ziehen sich zurück, wenn niemand Zeit hat</div>
-      </div>
-      <div class="cs-stat-block">
-        <div class="cs-stat-num">63 %</div>
-        <div class="cs-stat-label" data-de="wünschen sich, passiv Menschen kennenzulernen" data-en="want to meet people passively">wünschen sich, passiv Menschen kennenzulernen</div>
-      </div>
-      <div class="cs-stat-block">
-        <div class="cs-stat-num">51 %</div>
-        <div class="cs-stat-label" data-de="der 18–35-Jährigen erleben moderate Einsamkeit" data-en="of 18–35-year-olds experience moderate loneliness">der 18–35-Jährigen erleben moderate Einsamkeit</div>
-      </div>
-    </div>
-
-    <!-- Hypothesen-Check -->
-    <h3 class="cs-subsection-title" style="margin-top: 64px;" data-de="Was sich bestätigt hat, und was nicht" data-en="What held up, and what didn't">Was sich bestätigt hat, und was nicht</h3>
-    <p class="cs-section-sub" data-de="5 Hypothesen, 1 widerlegt. Die überraschendste Erkenntnis kam von Hypothese 2." data-en="5 hypotheses, 1 disproved. The most surprising insight came from hypothesis 2.">5 Hypothesen, 1 widerlegt. Die überraschendste Erkenntnis kam von Hypothese 2.</p>
-
-    <div class="cs-hypothesis-list" style="display: flex; flex-direction: column; gap: 16px; margin-top: 32px;">
-      <div class="cs-hypothesis cs-hyp-confirmed">
-        <span class="cs-hyp-tag" data-de="✓ Bestätigt" data-en="✓ Confirmed">✓ Bestätigt</span>
-        <p data-de="Beiläufige, unverabredete Begegnungen als Grundlage für echte Verbindungen werden unterschätzt." data-en="Casual, unplanned encounters as the basis for real connections are underestimated.">Beiläufige, unverabredete Begegnungen als Grundlage für echte Verbindungen werden unterschätzt.</p>
-      </div>
-      <div class="cs-hypothesis cs-hyp-refuted">
-        <span class="cs-hyp-tag" data-de="✗ Widerlegt" data-en="✗ Disproved">✗ Widerlegt</span>
-        <p data-de="Menschen fühlen sich stärker mit einer Stadt verbunden, wenn sie kleine, konkrete Erfahrungen in ihr gemacht haben. → Größtenteils widerlegt: Verbundenheit entsteht durch Menschen, nicht durch Orte. Orte spielen kaum eine Rolle." data-en="People feel more connected to a city when they've had small, concrete experiences in it. → Largely disproved: connection is built through people, not places. Locations barely factor in.">Menschen fühlen sich stärker mit einer Stadt verbunden, wenn sie kleine, konkrete Erfahrungen in ihr gemacht haben. → Größtenteils widerlegt: Verbundenheit entsteht durch Menschen, nicht durch Orte. Orte spielen kaum eine Rolle.</p>
-      </div>
-      <div class="cs-hypothesis cs-hyp-confirmed">
-        <span class="cs-hyp-tag" data-de="✓ Bestätigt" data-en="✓ Confirmed">✓ Bestätigt</span>
-        <p data-de="Der explizite Anspruch &bdquo;Freunde finden&ldquo; erzeugt so viel Druck, dass viele nach wenigen Enttäuschungen aufgeben." data-en="The explicit claim of 'finding friends' creates so much pressure that many give up after a few disappointments.">Der explizite Anspruch „Freunde finden" erzeugt so viel Druck, dass viele nach wenigen Enttäuschungen aufgeben.</p>
-      </div>
-      <div class="cs-hypothesis cs-hyp-confirmed">
-        <span class="cs-hyp-tag" data-de="✓ Bestätigt" data-en="✓ Confirmed">✓ Bestätigt</span>
-        <p data-de="Viele Menschen sind sozial bereits ausgelastet, aber nur, wenn sie der passive Part sind. Als passiver Part sind alle offen." data-en="Many people are already socially overloaded, but only when they're the active party. As the passive party, everyone is open.">Viele Menschen sind sozial bereits ausgelastet, aber nur, wenn sie der passive Part sind. Als passiver Part sind alle offen.</p>
-      </div>
-      <div class="cs-hypothesis cs-hyp-confirmed">
-        <span class="cs-hyp-tag cs-hyp-tag--strong" data-de="✓✓ Stark bestätigt" data-en="✓✓ Strongly confirmed">✓✓ Stark bestätigt</span>
-        <p data-de="Menschen sind eher bereit, ihre Komfortzone zu verlassen, wenn der Anlass klein, konkret und ohne sozialen Erwartungsdruck ist, der ideale Moment ist einer, in dem die Person gar nicht merkt, dass sie gerade einen sozialen Schritt macht." data-en="People are more willing to leave their comfort zone when the occasion is small, concrete and free of social expectation, the ideal moment is one where the person doesn't even notice they're making a social step.">Menschen sind eher bereit, ihre Komfortzone zu verlassen, wenn der Anlass klein, konkret und ohne sozialen Erwartungsdruck ist, der ideale Moment ist einer, in dem die Person gar nicht merkt, dass sie gerade einen sozialen Schritt macht.</p>
-      </div>
-    </div>
-
-    <!-- Neue Hypothesen -->
-    <div class="cs-callout" style="margin-top: 40px;">
-      <div class="cs-callout-inner">
-        <div class="cs-callout-label" data-de="Neue Hypothesen aus dem Research" data-en="New hypotheses from research">Neue Hypothesen aus dem Research</div>
-        <ul style="margin: 0; padding-left: 20px;">
-          <li data-de="Menschen sind offen für neue Kontakte, aber nur, wenn sie den passiven Part übernehmen können und keine Energie aufbringen müssen." data-en="People are open to new contacts, but only if they can take the passive role and don't have to expend energy.">Menschen sind offen für neue Kontakte, aber nur, wenn sie den passiven Part übernehmen können und keine Energie aufbringen müssen.</li>
-          <li data-de="Orte spielen keine Rolle, sie sind nur der Kontext, nicht der Kern." data-en="Places don't matter, they're just the context, not the core.">Orte spielen keine Rolle, sie sind nur der Kontext, nicht der Kern.</li>
-          <li data-de="Freundschaften müssen nicht gesucht werden, sie entstehen, wenn Menschen oft genug im gleichen Kontext sind." data-en="Friendships don't need to be sought, they emerge when people share the same context often enough.">Freundschaften müssen nicht gesucht werden, sie entstehen, wenn Menschen oft genug im gleichen Kontext sind.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Key Insight -->
-    <div class="cs-callout cs-callout--highlight" style="margin-top: 32px;">
-      <div class="cs-callout-inner">
-        <div class="cs-callout-label" data-de="Wichtigste Erkenntnis" data-en="Key insight">Wichtigste Erkenntnis</div>
-        <p style="font-size: 1.1em;" data-de="Das Problem ist nicht fehlende Motivation, sondern stille Resignation. Der Wunsch ist noch da (2,9/4), aber die Frustration ist niedrig (2,7/4). Rückzug ist die sicherste Option geworden." data-en="The problem isn't missing motivation, it's quiet resignation. The wish is still there (2.9/4) but frustration is low (2.7/4). Withdrawal has become the safest option.">Das Problem ist nicht fehlende Motivation, sondern stille Resignation. Der Wunsch ist noch da (2,9/4), aber die Frustration ist niedrig (2,7/4). Rückzug ist die sicherste Option geworden.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════ HMW -->
-  <section class="cs-section" id="hmw">
-    <span class="cs-section-label" data-de="How Might We" data-en="How Might We">How Might We</span>
-    <div class="cs-statement">
-      <div class="cs-statement-main">
-        <span data-de="Wie können wir Hanna so unterstützen, dass sie gar nicht aktiv merkt, " data-en="How might we support Hanna in a way where she doesn't even notice ">Wie können wir Hanna so unterstützen, dass sie gar nicht aktiv merkt, </span><em data-de="dass sie gerade einen sozialen Schritt macht?" data-en="that she's making a social step?">dass sie gerade einen sozialen Schritt macht?</em>
-      </div>
-      <div class="cs-statement-side">
-        <p data-de="Direkt aus dem Research: Der bewusste erste Schritt ist die größte Blockade." data-en="Straight from the research: the conscious first step is the biggest block.">Direkt aus dem Research: Der bewusste erste Schritt ist die größte Blockade.</p>
-        <p data-de="Hanna braucht keinen Mut, sie braucht einen Weg, der den ersten Schritt unsichtbar macht. Daraus entstand mein Leitfilter: Würde Hanna die App nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft? Was die Frage mit &ldquo;ja&rdquo; beantwortet, bleibt. Alles andere fliegt." data-en="Hanna doesn't need courage, she needs the first step made invisible. My guiding filter: would she use it even knowing she'd never meet anyone?">Hanna braucht keinen Mut, sie braucht einen Weg, der den ersten Schritt unsichtbar macht. Mein Leitfilter: Würde sie die App nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════ PROZESS -->
-  <section class="cs-section" id="process">
-    <span class="cs-section-label" data-de="Prozess" data-en="Process">Prozess</span>
-    <h2 class="cs-section-title"><span data-de="Von vier Ideen" data-en="From four ideas">Von vier Ideen</span> <em data-de="zu einer Entscheidung" data-en="to one decision">zu einer Entscheidung</em></h2>
-    <p class="cs-section-sub" data-de="Vier Konzepte, parallel entwickelt, eigene und KI-generierte. Bewertet nach Impact, gefiltert durch den Leitfilter." data-en="In ideation, four concepts emerged, self-generated and AI-generated in parallel. Scored by importance and impact, and always through my guiding filter.">Vier Konzepte, parallel entwickelt, eigene und KI-generierte. Bewertet nach Impact, gefiltert durch den Leitfilter.</p>
-
-    <div class="cs-cards-3" style="margin-top: 40px;">
-      <div class="cs-content-card cs-content-card--winner">
-        <div class="cs-content-icon" data-icon="zap"></div>
-        <h3 data-de="✓ Idee 1, Spots &amp; Feed" data-en="✓ Idea 1, Spots &amp; Feed">✓ Idee 1, Spots &amp; Feed</h3>
-        <p data-de="Eine App mit wöchentlichen Spots an festen Orten und einem Feed. Verbindung zu anderen entsteht nicht durch aktives Suchen, sondern durch geteilte Orte und sichtbare Aktivität. Gewählt, weil sie als einzige den Einstieg vollständig vom sozialen Druck trennt." data-en="An app with weekly Spots at fixed locations and a feed. Connection to others emerges not through active searching but through shared locations and visible activity. Chosen because it's the only one that fully separates the entry point from social pressure.">Eine App mit wöchentlichen Spots an festen Orten und einem Feed. Verbindung zu anderen entsteht nicht durch aktives Suchen, sondern durch geteilte Orte und sichtbare Aktivität. Gewählt, weil sie als einzige den Einstieg vollständig vom sozialen Druck trennt.</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="layers"></div>
-        <h3 data-de="Idee 2, Gemeinsamer Kontext" data-en="Idea 2, Shared Context">Idee 2, Gemeinsamer Kontext</h3>
-        <p data-de="Eine Lösung, die künstlich einen gemeinsamen Kontext schafft, nicht &bdquo;triff jemanden&ldquo;, sondern &bdquo;hier ist ein Grund, warum ihr beide gerade am selben Ort seid.&ldquo; Interessant, aber erfordert aktive Entscheidung." data-en="A solution that artificially creates shared context, not 'meet someone' but 'here's why you're both in the same place right now.' Interesting, but requires an active decision.">Eine Lösung, die künstlich einen gemeinsamen Kontext schafft, nicht „triff jemanden", sondern „hier ist ein Grund, warum ihr beide gerade am selben Ort seid." Interessant, aber erfordert aktive Entscheidung.</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="pen-tool"></div>
-        <h3 data-de="Idee 3, Digitale Spuren" data-en="Idea 3, Digital Traces">Idee 3, Digitale Spuren</h3>
-        <p data-de="Menschen hinterlassen digitale Spuren an realen Orten, kein Profil, kein Gesicht, nur &bdquo;hier war jemand der dasselbe mag&ldquo;. Verbindung über gemeinsame Dinge, nicht über Personen. Spannend als Ergänzung, nicht als Kern." data-en="People leave digital traces at real places, no profile, no face, just 'someone was here who likes the same thing'. Connection through shared things, not through people. Compelling as a supplement, not as a core.">Menschen hinterlassen digitale Spuren an realen Orten, kein Profil, kein Gesicht, nur „hier war jemand der dasselbe mag". Verbindung über gemeinsame Dinge, nicht über Personen. Spannend als Ergänzung, nicht als Kern.</p>
-      </div>
-    </div>
-
-    <!-- Riskanteste Annahme -->
-    <div class="cs-callout cs-callout--risk" style="margin-top: 48px;">
-      <div class="cs-callout-inner">
-        <div class="cs-callout-label" data-de="Riskanteste Annahme" data-en="Riskiest assumption">Riskanteste Annahme</div>
-        <p data-de="Hanna lädt die App herunter, obwohl sie bereits Social-Apps ausprobiert und abgehakt hat. Wenn der Einstieg sich für sie trotz Aufgaben-Framing wie eine weitere &ldquo;Freunde finden&rdquo;-App anfühlt, wird sie sie gar nicht erst öffnen. Alles andere setzt voraus, dass sie erstmal drin ist." data-en="Hanna downloads the app, even though she's already dismissed social apps. If the entry still feels like 'find friends', she won't open it.">Hanna lädt die App herunter, obwohl sie Social-Apps bereits abgehakt hat. Wenn der Einstieg trotz Aufgaben-Framing wie eine weitere „Freunde finden"-App wirkt, öffnet sie sie nie.</p>
-        <p style="margin-top: 8px; opacity: 0.7; font-size: 0.9em;" data-de="→ Modul 3 testet genau das." data-en="→ That's what gets tested in Module 3: not whether people like the app, but whether Hanna downloads it at all.">→ Modul 3 testet genau das.</p>
-      </div>
-    </div>
-
-    <!-- Markt & Wettbewerb -->
-    <h3 class="cs-subsection-title" style="margin-top: 64px;" data-de="Warum alle bestehenden Lösungen scheitern" data-en="Why all existing solutions fail">Warum alle bestehenden Lösungen scheitern</h3>
-    <p class="cs-section-sub" data-de="Das größte Problem ist nicht schlechtes UX, es ist verlorenes Vertrauen." data-en="The biggest problem isn't bad UX, it's lost trust.">Das größte Problem ist nicht schlechtes UX, es ist verlorenes Vertrauen.</p>
-
-    <div class="cs-cards-3" style="margin-top: 32px;">
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="search"></div>
-        <h3>Meetup</h3>
-        <p data-de="8.428 Bewertungen, 4,6 Sterne, aber alle positiven Bewertungen 5+ Jahre alt. Heute: &bdquo;Payment screen is everywhere&ldquo;, &bdquo;Je länger ich die App nutze, desto enttäuschter bin ich.&ldquo;" data-en="8,428 ratings, 4.6 stars, but all positive reviews 5+ years old. Today: 'Payment screen is everywhere', 'The longer I use the app the more disappointed I am.'">8.428 Bewertungen, 4,6 Sterne, aber alle positiven Bewertungen 5+ Jahre alt. Heute: „Payment screen is everywhere", „Je länger ich die App nutze, desto enttäuschter bin ich."</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="user"></div>
-        <h3>Bumble BFF</h3>
-        <p data-de="Tinder-Logik für Freundschaften, für Hanna sofort unglaubwürdig. Swipe-Mechanik, Loss-Aversion-Tricks (&bdquo;Du bist jemandem aufgefallen, bloß wem?&ldquo;) und &bdquo;Date&ldquo; als Vorauswahl. Dark Patterns, die bewusst Druck erzeugen." data-en="Tinder logic for friendships, immediately unbelievable to Hanna. Swipe mechanics, loss-aversion tricks ('Someone noticed you, but who?') and 'Date' as the default. Dark patterns that deliberately create pressure.">Tinder-Logik für Freundschaften, für Hanna sofort unglaubwürdig. Swipe-Mechanik, Loss-Aversion-Tricks („Du bist jemandem aufgefallen, bloß wem?") und „Date" als Vorauswahl. Dark Patterns, die bewusst Druck erzeugen.</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="layers"></div>
-        <h3>Pokémon Go</h3>
-        <p data-de="Hat tatsächlich funktioniert, aber nicht nachhaltig. &bdquo;Nach ein paar Tagen wird es langweilig, immer das gleiche Prinzip.&ldquo; Das Retention-Problem zeigt: Gamification allein reicht nicht. Verbindung muss der Kern sein, nicht der Trick." data-en="Actually worked, but not sustainably. 'After a few days it gets boring, always the same principle.' The retention problem shows: gamification alone isn't enough. Connection needs to be the core, not the trick.">Hat tatsächlich funktioniert, aber nicht nachhaltig. „Nach ein paar Tagen wird es langweilig, immer das gleiche Prinzip." Das Retention-Problem zeigt: Gamification allein reicht nicht. Verbindung muss der Kern sein, nicht der Trick.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════ TESTING -->
-  <section class="cs-section" id="testing">
-    <span class="cs-section-label" data-de="Testing" data-en="Testing">Testing</span>
-    <h2 class="cs-section-title"><span data-de="Was die Daten" data-en="What the data">Was die Daten</span> <em data-de="wirklich zeigen" data-en="really show">wirklich zeigen</em></h2>
-    <p class="cs-section-sub" data-de="Die Umfrage hat die Interview-Muster nicht nur bestätigt, sie hat zwei überraschende Erkenntnisse geliefert, die das Konzept grundlegend geprägt haben." data-en="The survey didn't just confirm the interview patterns, it delivered two surprising insights that fundamentally shaped the concept.">Die Umfrage hat die Interview-Muster nicht nur bestätigt, sie hat zwei überraschende Erkenntnisse geliefert, die das Konzept grundlegend geprägt haben.</p>
-    <div class="cs-cards-3">
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="zap"></div>
-        <h3 data-de="Stille Resignation" data-en="Quiet Resignation">Stille Resignation</h3>
-        <p data-de="Der Wunsch ist hoch (2,9/4), die Frustration aber niedrig (2,7/4). Das ist kein Widerspruch, es ist das Zeichen, dass Menschen aufgehört haben zu hoffen, ohne es bewusst entschieden zu haben. Rückzug ist nicht aufgeben. Es ist die sicherste Option." data-en="The wish is high (2.9/4) but frustration is low (2.7/4). That's not a contradiction, it's the sign that people have stopped hoping without consciously deciding to. Withdrawal isn't giving up. It's the safest option.">Der Wunsch ist hoch (2,9/4), die Frustration aber niedrig (2,7/4). Das ist kein Widerspruch, es ist das Zeichen, dass Menschen aufgehört haben zu hoffen, ohne es bewusst entschieden zu haben. Rückzug ist nicht aufgeben. Es ist die sicherste Option.</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="sparkles"></div>
-        <h3 data-de="Ort ≠ Verbundenheit" data-en="Place ≠ Connection">Ort ≠ Verbundenheit</h3>
-        <p data-de="Die meisten Befragten fühlen sich mit 3,1/4 relativ an ihrem Wohnort angekommen, wünschen sich aber trotzdem zu 63 % neue Kontakte. Verbundenheit mit dem Ort und Verbundenheit mit Menschen sind zwei verschiedene Dinge. Das war eine echte Überraschung." data-en="Most respondents feel relatively settled at their home (3.1/4), yet 63% still want new connections. Belonging to a place and belonging to people are two different things. That was a genuine surprise.">Die meisten Befragten fühlen sich mit 3,1/4 relativ an ihrem Wohnort angekommen, wünschen sich aber trotzdem zu 63 % neue Kontakte. Verbundenheit mit dem Ort und Verbundenheit mit Menschen sind zwei verschiedene Dinge. Das war eine echte Überraschung.</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="star"></div>
-        <h3 data-de="Niemand spricht Neue an" data-en="Nobody approaches strangers">Niemand spricht Neue an</h3>
-        <p data-de="Wenn niemand aus dem Umfeld Zeit hat: 46 % machen etwas anderes alleine, 35 % bleiben zuhause, 12 % machen es alleine. Nur 1 von 52 spricht jemanden Neues an. Das zeigt: Die Hemmschwelle ist nicht hoch, sie existiert für die meisten schlicht nicht als Option." data-en="When no one in their circle has time: 46% do something else alone, 35% stay home, 12% do it alone. Only 1 in 52 approaches someone new. This shows: the barrier isn't high, for most it simply doesn't exist as an option.">Wenn niemand aus dem Umfeld Zeit hat: 46 % machen etwas anderes alleine, 35 % bleiben zuhause, 12 % machen es alleine. Nur 1 von 52 spricht jemanden Neues an. Das zeigt: Die Hemmschwelle ist nicht hoch, sie existiert für die meisten schlicht nicht als Option.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════ BEFORE/AFTER -->
-  <section class="cs-section" id="beforeafter">
-    <span class="cs-section-label" data-de="Vorher & Nachher" data-en="Before & After">Vorher &amp; Nachher</span>
-    <h2 class="cs-section-title"><span data-de="Was sich" data-en="What">Was sich</span> <em data-de="verändert hat" data-en="changed">verändert hat</em></h2>
-    <p class="cs-section-sub" data-de="Was bestehende Apps bei Hannas Zielgruppe falsch machen, und wie das Konzept es anders löst. Basierend auf einer Analyse von 5 Dark Patterns in Bumble BFF und 8 daraus abgeleiteten Designprinzipien." data-en="What existing apps get wrong for Hanna's target group, and how the concept solves it differently. Based on an analysis of 5 dark patterns in Bumble BFF and 8 design principles derived from them.">Was bestehende Apps bei Hannas Zielgruppe falsch machen, und wie das Konzept es anders löst. Basierend auf einer Analyse von 5 Dark Patterns in Bumble BFF und 8 daraus abgeleiteten Designprinzipien.</p>
-    <div class="cs-beforeafter">
-      <div class="cs-ba-col cs-ba-before">
-        <span class="cs-ba-tag" data-de="Klassische Sozial-Apps" data-en="Classic social apps">Klassische Sozial-Apps</span>
-        <ul>
-          <li data-de="Paywall blockiert Kernfunktionen, künstliche Frustration als Verkaufsmechanismus" data-en="Paywall blocks core features, artificial frustration as a sales mechanism">Paywall blockiert Kernfunktionen, künstliche Frustration als Verkaufsmechanismus</li>
-          <li data-de="Swipe-Logik reduziert Menschen auf ein Foto" data-en="Swipe logic reduces people to a photo">Swipe-Logik reduziert Menschen auf ein Foto</li>
-          <li data-de="Sexualität, Beziehungsstatus, Profilfoto als Pflichtfelder" data-en="Sexuality, relationship status, profile photo as required fields">Sexualität, Beziehungsstatus, Profilfoto als Pflichtfelder</li>
-          <li data-de="&bdquo;Date&ldquo; als Vorauswahl, BFF ist grau und inaktiv" data-en="'Date' as default selection, BFF is greyed out and inactive">&bdquo;Date&ldquo; als Vorauswahl, BFF ist grau und inaktiv</li>
-          <li data-de="Vertrauen durch Marketing behauptet, nie verdient" data-en="Trust claimed through marketing, never earned">Vertrauen durch Marketing behauptet, nie verdient</li>
-          <li data-de="Feed leert sich → Nutzer in den Loop zurückzwingen" data-en="Feed empties → users forced back into the loop">Feed leert sich → Nutzer in den Loop zurückzwingen</li>
-        </ul>
-      </div>
-      <div class="cs-ba-col cs-ba-after">
-        <span class="cs-ba-tag" data-de="sameSpot" data-en="sameSpot">sameSpot</span>
-        <ul>
-          <li data-de="Alle Kernfunktionen kostenlos, Hanna erlebt den Wert, bevor sie ans Bezahlen denkt" data-en="All core features free, Hanna experiences the value before thinking about paying">Alle Kernfunktionen kostenlos, Hanna erlebt den Wert, bevor sie ans Bezahlen denkt</li>
-          <li data-de="Andere werden durch Aktivitäten und Orte sichtbar, kein Bewerten, kein schnelles Ja/Nein" data-en="Others become visible through activities and places, no rating, no quick yes/no">Andere werden durch Aktivitäten und Orte sichtbar, kein Bewerten, kein schnelles Ja/Nein</li>
-          <li data-de="Minimale Pflichtdaten: Vorname und Viertel reichen" data-en="Minimal required data: first name and neighbourhood suffice">Minimale Pflichtdaten: Vorname und Viertel reichen</li>
-          <li data-de="Kein Modus, kein sozialer Auftrag beim Start" data-en="No mode selection, no social mandate at the start">Kein Modus, kein sozialer Auftrag beim Start</li>
-          <li data-de="Vertrauen aktiv verdienen, an jedem Moment im Design" data-en="Actively earn trust, at every moment in the design">Vertrauen aktiv verdienen, an jedem Moment im Design</li>
-          <li data-de="Verbindung als Nebenprodukt, nie als Forderung" data-en="Connection as a by-product, never a demand">Verbindung als Nebenprodukt, nie als Forderung</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════ LÖSUNG -->
-  <section class="cs-section" id="solution">
-    <span class="cs-section-label" data-de="Lösung" data-en="Solution">Lösung</span>
-    <h2 class="cs-section-title"><span data-de="Eine App, die" data-en="An app that">Eine App, die</span> <em data-de="nichts verlangt" data-en="asks for nothing">nichts verlangt</em></h2>
-    <p class="cs-section-sub" data-de="Hanna öffnet keine Social-App, sie öffnet ihre Stadt. Spots und Feed haben für sich allein schon Wert. Verbindung entsteht nebenbei." data-en="Hanna isn't opening a social app, she's opening her city. At its core are weekly Spots and a feed that already hold value on their own. Social connection emerges on the side, as a by-product of the mere exposure effect, never as a demand.">Hanna öffnet keine Social-App, sie öffnet ihre Stadt. Spots und Feed haben für sich allein schon Wert. Verbindung entsteht nebenbei.</p>
-
-    <div class="cs-cards-3" style="margin-top: 40px;">
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="zap"></div>
-        <h3 data-de="Wöchentliche Spots" data-en="Weekly Spots">Wöchentliche Spots</h3>
-        <p data-de="Jede Woche 10 Spots aus 20 Vorschlägen wählen, jeder an einem festen Ort in der Stadt. Kein Algorithmus, kein Zwang. Struktur ohne Druck." data-en="Every week, choose 10 Spots from 20 suggestions, each tied to a fixed location in the city. No algorithm, no obligation. Structure without pressure.">Jede Woche 10 Spots aus 20 Vorschlägen wählen, jeder an einem festen Ort in der Stadt. Kein Algorithmus, kein Zwang. Struktur ohne Druck.</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="layers"></div>
-        <h3 data-de="Feed mit Stadtaktivität" data-en="Feed with city activity">Feed mit Stadtaktivität</h3>
-        <p data-de="Zeigt, wer in der Stadt dieselben Spots besucht, ganz still und ohne Interaktionszwang. Wer immer wieder auftaucht, wird vertraut. Genau dieser Mere-Exposure-Effekt macht aus Fremden bekannte Gesichter." data-en="Shows who in the city is visiting the same Spots, quietly and without any obligation to interact. Whoever keeps showing up becomes familiar. This mere exposure effect turns strangers into known faces.">Zeigt, wer in der Stadt dieselben Spots besucht, ganz still und ohne Interaktionszwang. Wer immer wieder auftaucht, wird vertraut. Genau dieser Mere-Exposure-Effekt macht aus Fremden bekannte Gesichter.</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="pen-tool"></div>
-        <h3 data-de="QR-Code &amp; Chat" data-en="QR code &amp; chat">QR-Code &amp; Chat</h3>
-        <p data-de="Kein Anschreiben aus dem Feed. Wer sich im echten Leben begegnet, scannt gegenseitig seinen QR-Code, und erst dann öffnet sich ein Chat. Kein Match, keine Paywall." data-en="No messaging from the feed. When two people meet in real life, they scan each other's QR code, and only then does a chat open. No match, no paywall.">Kein Anschreiben aus dem Feed. Wer sich im echten Leben begegnet, scannt gegenseitig seinen QR-Code, und erst dann öffnet sich ein Chat. Kein Match, keine Paywall.</p>
-      </div>
-    </div>
-
-    <!-- Navigation -->
-    <div class="cs-callout" style="margin-top: 40px;">
-      <div class="cs-callout-inner">
-        <div class="cs-callout-label" data-de="Aufbau" data-en="Structure">Aufbau</div>
-        <p data-de="Vier Tabs, kein Menü, kein verstecktes Feature. Alles, was sameSpot kann, liegt offen." data-en="Four tabs, no menu, no hidden features. Everything sameSpot does is right there.">Vier Tabs, kein Menü, kein verstecktes Feature. Alles, was sameSpot kann, liegt offen.</p>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px;">
-          <div>
-            <strong data-de="Aufgaben" data-en="Tasks">Aufgaben</strong>
-            <p style="margin-top: 4px;" data-de="Deine wöchentlichen Spots." data-en="Your weekly Spots.">Deine wöchentlichen Spots.</p>
-          </div>
-          <div>
-            <strong data-de="Entdecken" data-en="Discover">Entdecken</strong>
-            <p style="margin-top: 4px;" data-de="Der Feed mit Stadtaktivität." data-en="The feed with city activity.">Der Feed mit Stadtaktivität.</p>
-          </div>
-          <div>
-            <strong data-de="Austausch" data-en="Exchange">Austausch</strong>
-            <p style="margin-top: 4px;" data-de="Chats, die nach einer echten Begegnung entstehen." data-en="Chats that start after a real encounter.">Chats, die nach einer echten Begegnung entstehen.</p>
-          </div>
-          <div>
-            <strong data-de="Profil" data-en="Profile">Profil</strong>
-            <p style="margin-top: 4px;" data-de="Dein Spot-Typ und dein monatlicher Rückblick." data-en="Your Spot type and your monthly review.">Dein Spot-Typ und dein monatlicher Rückblick.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Spot-Typen -->
-    <div class="cs-callout cs-callout--highlight" style="margin-top: 32px;">
-      <div class="cs-callout-inner">
-        <div class="cs-callout-label" data-de="Spot-Typen" data-en="Spot types">Spot-Typen</div>
-        <p data-de="Dein Profil füllt sich nicht über ein Formular, sondern über das, was du tatsächlich machst. Aus deinen Spots entsteht nach und nach ein Spot-Typ, ganz ohne Selbsteinschätzung." data-en="Your profile doesn't fill up through a form but through what you actually do. A Spot type emerges from your Spots over time, with no self-assessment.">Dein Profil füllt sich nicht über ein Formular, sondern über das, was du tatsächlich machst. Aus deinen Spots entsteht nach und nach ein Spot-Typ, ganz ohne Selbsteinschätzung.</p>
-        <ul style="margin-top: 12px;">
-          <li data-de="Stadthistoriker: zieht es zu Orten mit Geschichte" data-en="City Historian: drawn to places with history">Stadthistoriker: zieht es zu Orten mit Geschichte</li>
-          <li data-de="Stadtkünstler: sucht das Schöne und Gestaltete" data-en="City Artist: looks for the beautiful and the designed">Stadtkünstler: sucht das Schöne und Gestaltete</li>
-          <li data-de="Stimmungsfänger: folgt Atmosphäre und Moment" data-en="Mood Catcher: follows atmosphere and moment">Stimmungsfänger: folgt Atmosphäre und Moment</li>
-          <li data-de="Alltagsforscherin: entdeckt das Besondere im Gewöhnlichen" data-en="Everyday Explorer: finds the special in the ordinary">Alltagsforscherin: entdeckt das Besondere im Gewöhnlichen</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Freemium -->
-    <div class="cs-callout" style="margin-top: 32px;">
-      <div class="cs-callout-inner">
-        <div class="cs-callout-label" data-de="Freemium-Modell" data-en="Freemium model">Freemium-Modell</div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px;">
-          <div>
-            <strong data-de="Kostenlos, immer" data-en="Free, always">Kostenlos, immer</strong>
-            <ul style="margin-top: 8px; padding-left: 18px;">
-              <li data-de="10 wöchentliche Spots" data-en="10 weekly Spots">10 wöchentliche Spots</li>
-              <li data-de="Feed mit Stadtaktivität (Mere Exposure)" data-en="Feed with city activity (mere exposure)">Feed mit Stadtaktivität (Mere Exposure)</li>
-              <li data-de="Eigenes Profil mit Spot-Typ" data-en="Own profile with Spot type">Eigenes Profil mit Spot-Typ</li>
-              <li data-de="QR-Code &amp; Chat nach echter Begegnung" data-en="QR code &amp; chat after a real encounter">QR-Code &amp; Chat nach echter Begegnung</li>
-            </ul>
-          </div>
-          <div>
-            <strong data-de="Premium 3–5 €/Monat" data-en="Premium 3–5 €/month">Premium 3–5 €/Monat</strong>
-            <ul style="margin-top: 8px; padding-left: 18px;">
-              <li data-de="Monatsaufgabe, tiefgründig, einmalig" data-en="Monthly task, deeper, unique">Monatsaufgabe, tiefgründig, einmalig</li>
-              <li data-de="Stadtgeschichten von anderen Nutzern" data-en="City stories from other users">Stadtgeschichten von anderen Nutzern</li>
-              <li data-de="Monatlicher Rückblick mit Stadtkarte" data-en="Monthly review with city map">Monatlicher Rückblick mit Stadtkarte</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="ss ss-stage" style="margin-top: 48px;">
-      <span class="ss-tagline" data-de="Live-Demo" data-en="Live demo">Live-Demo</span>
-
-      <div class="ss-float ss-f1"><span class="ss-d"></span><span data-de="Dieselben Gesichter" data-en="The same faces">Dieselben Gesichter</span></div>
-      <div class="ss-float ss-f2"><span class="ss-d"></span><span data-de="Mere-Exposure-Effekt" data-en="Mere exposure effect">Mere-Exposure-Effekt</span></div>
-      <div class="ss-float ss-f3"><span class="ss-d"></span><span data-de="Chat erst nach echtem Treffen" data-en="Chat only after meeting in person">Chat erst nach echtem Treffen</span></div>
-
-      <!-- Phone 1: Feed / Entdecken -->
-      <div class="ss-phone ss-idle"><div class="ss-island"></div><div class="ss-screen">
-        <div class="ss-status"><span>9:41</span><span class="ss-sig"><i style="height:5px"></i><i style="height:7px"></i><i style="height:9px"></i><i style="height:11px"></i></span></div>
-        <div class="ss-head"><div class="ss-h-sub">Entdecken</div><div class="ss-h-title">Wer war wo</div></div>
-        <div class="ss-scroll">
-          <div class="ss-feed-track">
-            <div class="ss-feed-card"><div class="ss-av ss-mara" style="background:var(--terra)">M</div><div class="ss-feed-txt"><div class="ss-feed-name">Mara</div><div class="ss-feed-act">war am Versteckten Innenhof</div><span class="ss-seen">3× gesehen</span></div></div>
-            <div class="ss-feed-card"><div class="ss-av" style="background:#8A9A6B">J</div><div class="ss-feed-txt"><div class="ss-feed-name">Jonas</div><div class="ss-feed-act">war am Hafenkran</div></div></div>
-            <div class="ss-feed-card"><div class="ss-av ss-mara" style="background:var(--terra)">M</div><div class="ss-feed-txt"><div class="ss-feed-name">Mara</div><div class="ss-feed-act">war im Café am Fluss</div><span class="ss-seen">4× gesehen</span></div></div>
-            <div class="ss-feed-card"><div class="ss-av" style="background:#6E7E8A">L</div><div class="ss-feed-txt"><div class="ss-feed-name">Lea</div><div class="ss-feed-act">war im Stadtgarten</div></div></div>
-            <div class="ss-feed-card"><div class="ss-av ss-mara" style="background:var(--terra)">M</div><div class="ss-feed-txt"><div class="ss-feed-name">Mara</div><div class="ss-feed-act">war am Aussichtspunkt</div><span class="ss-seen">5× gesehen</span></div></div>
-            <div class="ss-feed-card"><div class="ss-av" style="background:#9C6B5A">T</div><div class="ss-feed-txt"><div class="ss-feed-name">Theo</div><div class="ss-feed-act">war an der alten Brücke</div></div></div>
-            <div class="ss-feed-card"><div class="ss-av ss-mara" style="background:var(--terra)">M</div><div class="ss-feed-txt"><div class="ss-feed-name">Mara</div><div class="ss-feed-act">war am Versteckten Innenhof</div><span class="ss-seen">3× gesehen</span></div></div>
-            <div class="ss-feed-card"><div class="ss-av" style="background:#8A9A6B">J</div><div class="ss-feed-txt"><div class="ss-feed-name">Jonas</div><div class="ss-feed-act">war am Hafenkran</div></div></div>
-            <div class="ss-feed-card"><div class="ss-av ss-mara" style="background:var(--terra)">M</div><div class="ss-feed-txt"><div class="ss-feed-name">Mara</div><div class="ss-feed-act">war im Café am Fluss</div><span class="ss-seen">4× gesehen</span></div></div>
-            <div class="ss-feed-card"><div class="ss-av" style="background:#6E7E8A">L</div><div class="ss-feed-txt"><div class="ss-feed-name">Lea</div><div class="ss-feed-act">war im Stadtgarten</div></div></div>
-            <div class="ss-feed-card"><div class="ss-av ss-mara" style="background:var(--terra)">M</div><div class="ss-feed-txt"><div class="ss-feed-name">Mara</div><div class="ss-feed-act">war am Aussichtspunkt</div><span class="ss-seen">5× gesehen</span></div></div>
-            <div class="ss-feed-card"><div class="ss-av" style="background:#9C6B5A">T</div><div class="ss-feed-txt"><div class="ss-feed-name">Theo</div><div class="ss-feed-act">war an der alten Brücke</div></div></div>
-          </div>
-        </div>
-        <div class="ss-tabs">
-          <div class="ss-tab"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L20 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Aufgaben</div>
-          <div class="ss-tab active"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>Entdecken</div>
-          <div class="ss-tab"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Austausch</div>
-          <div class="ss-tab"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Profil</div>
-        </div>
-      </div></div>
-
-      <!-- Phone 2: QR-Tausch / Austausch -->
-      <div class="ss-phone ss-idle-2"><div class="ss-island"></div><div class="ss-screen">
-        <div class="ss-status"><span>9:41</span><span class="ss-sig"><i style="height:5px"></i><i style="height:7px"></i><i style="height:9px"></i><i style="height:11px"></i></span></div>
-        <div class="ss-head"><div class="ss-h-sub">Austausch</div><div class="ss-h-title">Code tauschen</div></div>
-        <div class="ss-pad">
-          <div class="ss-meet">Ihr seid euch am Hafen begegnet.</div>
-          <div class="ss-qr-row">
-            <div class="ss-av" style="background:#8A9A6B;width:34px;height:34px">J</div>
-            <div class="ss-qr">
-              <svg viewBox="0 0 100 100">
-                <g fill="#1C1714"><rect x="6" y="6" width="24" height="24" rx="4"/><rect x="70" y="6" width="24" height="24" rx="4"/><rect x="6" y="70" width="24" height="24" rx="4"/></g>
-                <g fill="#FFF9F3"><rect x="12" y="12" width="12" height="12" rx="2"/><rect x="76" y="12" width="12" height="12" rx="2"/><rect x="12" y="76" width="12" height="12" rx="2"/></g>
-                <g fill="#1C1714"><rect x="15" y="15" width="6" height="6"/><rect x="79" y="15" width="6" height="6"/><rect x="15" y="79" width="6" height="6"/><rect x="44" y="10" width="7" height="7"/><rect x="56" y="22" width="7" height="7"/><rect x="40" y="40" width="7" height="7"/><rect x="54" y="46" width="7" height="7"/><rect x="68" y="52" width="7" height="7"/><rect x="42" y="64" width="7" height="7"/><rect x="58" y="70" width="7" height="7"/><rect x="72" y="80" width="7" height="7"/><rect x="84" y="62" width="7" height="7"/><rect x="30" y="52" width="7" height="7"/></g>
-              </svg>
-              <div class="ss-scanline"></div>
+            <!-- Solution Blueprint Box -->
+            <div class="bg-white border border-neutral-200 p-6 rounded-2xl relative flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-bold text-emerald-700 tracking-wider block mb-2 uppercase">03. Der Lösungsansatz</span>
+                    <h4 class="text-lg font-bold text-neutral-800 mb-3">Die App verlangt keine Interaktion, sie verlangt nur Aktivität.</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">Der Entdecken-Feed zeigt Interaktionen völlig passiv und zeitverzögert über feste Standorte. Vertrautheit stabilisiert sich, bevor der erste Chat gestartet wird.</p>
+                </div>
+                <!-- TODO: PUNKT RASTER INTEGRATION -->
+                <div class="mt-6 border-4 border-red-500 p-3 bg-red-50/40 rounded-xl text-[11px] text-red-600 font-mono text-center" title="TODO: Raster-Feinschliff">
+                    TODO: Interaktives UI-Punkt-Raster
+                </div>
             </div>
-            <div class="ss-av ss-mara" style="background:var(--terra);width:34px;height:34px">M</div>
-          </div>
-          <div class="ss-unlock">Chat freigeschaltet</div>
-          <div class="ss-chat">
-            <div class="ss-bubble ss-them">Dich seh ich ständig am Hafen.</div>
-            <div class="ss-bubble ss-me">Stimmt, beim Sonnenuntergang-Spot.</div>
-          </div>
         </div>
-        <div class="ss-tabs">
-          <div class="ss-tab"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L20 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Aufgaben</div>
-          <div class="ss-tab"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>Entdecken</div>
-          <div class="ss-tab active"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Austausch</div>
-          <div class="ss-tab"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Profil</div>
+    </section>
+
+    <hr class="border-neutral-200/60 max-w-7xl mx-auto px-6">
+
+    <!-- 5. DESIGN-ETHIK / DUELLE -->
+    <section class="w-full max-w-7xl mx-auto px-6 py-24">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs tracking-widest font-bold text-emerald-700 block uppercase mb-1">• DESIGN-ETHIK</span>
+            <h3 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Die Psychologie des Marktes vs. <span class="text-emerald-600 italic">Unsere Prinzipien</span></h3>
+            <p class="text-neutral-500 text-sm">Was bestehende Apps bei Hannas Zielgruppe falsch machen, und wie das Konzept es anders löst. Basierend auf einer Analyse von 5 Dark Patterns in Bumble BFF und 8 daraus abgeleiteten Designprinzipien.</p>
         </div>
-      </div></div>
 
-      <div class="ss-cap" data-de="Dieselben Gesichter tauchen Woche für Woche im Feed auf und werden vertraut. Ein Chat öffnet sich erst, wenn man sich im echten Leben trifft und die Codes scannt." data-en="The same faces show up in the feed week after week and become familiar. A chat only opens once two people meet in real life and scan each other's codes.">Dieselben Gesichter tauchen Woche für Woche im Feed auf und werden vertraut. Ein Chat öffnet sich erst, wenn man sich im echten Leben trifft und die Codes scannt.</div>
-    </div>
-  </section>
+        <!-- Die Glitch-Matrix (8 Duelle) -->
+        <div class="space-y-4 max-w-4xl mx-auto">
+            <!-- Karte 1 -->
+            <div class="ethic-card bg-white border-2 border-red-200/60 rounded-2xl p-6 transition-all duration-500 cursor-pointer relative overflow-hidden" data-glitch="true">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center relative z-10">
+                    <div class="md:col-span-5 bumble-view transition-opacity duration-300">
+                        <span class="text-[10px] font-bold text-red-600 tracking-wider block uppercase mb-1">Bumble-Problem</span>
+                        <h4 class="font-bold text-neutral-800 text-sm mb-1">Datenhunger & Pflichtdaten</h4>
+                        <p class="text-xs text-neutral-500">Maximale Datenerhebung durch schrittweises Onboarding nach Hicks Gesetz.</p>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center text-xs font-mono text-neutral-300">VS</div>
+                    <div class="md:col-span-5 samespot-view opacity-30 transition-all duration-500">
+                        <span class="text-[10px] font-bold text-neutral-400 tracking-wider block uppercase mb-1 transition-colors">sameSpot Frage</span>
+                        <p class="font-medium text-neutral-800 text-sm italic">„Welche Daten brauche ich wirklich und welche sammle ich nur, weil ich sie haben könnte?“</p>
+                    </div>
+                </div>
+            </div>
 
-  <!-- ═══════════════════════════════════════════════════════ PROTOTYP -->
-  <section class="cs-section" id="prototype">
-    <span class="cs-section-label" data-de="Prototyp" data-en="Prototype">Prototyp</span>
-    <h2 class="cs-section-title"><span data-de="Der erste" data-en="The first">Der erste</span> <em data-de="testbare Moment" data-en="testable moment">testbare Moment</em></h2>
-    <p class="cs-section-sub" data-de="Fokus auf eine Frage: Fühlt sich der Einstieg wie eine Social-App an, oder nicht? Onboarding und erster Feed-Moment sind die entscheidenden Screens." data-en="The prototype focuses on the riskiest assumption: does Hanna download the app and complete the first Spot, or does the entry still feel like a social app? Onboarding and the first feed moment are the critical screens.">Fokus auf eine Frage: Fühlt sich der Einstieg wie eine Social-App an, oder nicht? Onboarding und erster Feed-Moment sind die entscheidenden Screens.</p>
-    <div class="cs-image-block"><span class="cs-image-hint" data-de="[Prototyp-Screens / Figma Embed / Video]" data-en="[Prototype screens / Figma embed / video]">[Prototyp-Screens / Figma Embed / Video]</span></div>
-  </section>
+            <!-- Karte 2 -->
+            <div class="ethic-card bg-white border-2 border-red-200/60 rounded-2xl p-6 transition-all duration-500 cursor-pointer relative overflow-hidden" data-glitch="true">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center relative z-10">
+                    <div class="md:col-span-5 bumble-view transition-opacity duration-300">
+                        <span class="text-[10px] font-bold text-red-600 tracking-wider block uppercase mb-1">Bumble-Problem</span>
+                        <h4 class="font-bold text-neutral-800 text-sm mb-1">Visuelle Manipulation</h4>
+                        <p class="text-xs text-neutral-500">Hierarchie lenkt Nutzer gegen eigene Interessen – „Akzeptieren“ dominant.</p>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center text-xs font-mono text-neutral-300">VS</div>
+                    <div class="md:col-span-5 samespot-view opacity-30 transition-all duration-500">
+                        <span class="text-[10px] font-bold text-neutral-400 tracking-wider block uppercase mb-1 transition-colors">sameSpot Frage</span>
+                        <p class="font-medium text-neutral-800 text-sm italic">„Nutze ich visuelle Hierarchie um Hanna zu helfen oder um sie zu drängen?“</p>
+                    </div>
+                </div>
+            </div>
 
-  <!-- ═══════════════════════════════════════════════════════ KI -->
-  <section class="cs-section" id="ki">
-    <span class="cs-section-label" data-de="KI in Design" data-en="AI in Design">KI in Design</span>
-    <h2 class="cs-section-title"><span data-de="Wie KI mir" data-en="How AI">Wie KI mir</span> <em data-de="geholfen hat" data-en="helped me">geholfen hat</em></h2>
-    <p class="cs-section-sub" data-de="KI als Werkzeug, nicht als Entscheiderin. Leitfaden üben, Erkenntnisse clustern, Ideen generieren." data-en="AI was a tool at specific points, always with me as the decision-maker. Synthetic interviews to rehearse the guide, clustering of insights, ideation in parallel with my own ideas.">KI als Werkzeug, nicht als Entscheiderin. Leitfaden üben, Erkenntnisse clustern, Ideen generieren.</p>
-    <div class="cs-cards-3">
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="search"></div>
-        <h3 data-de="Research-Synthese" data-en="Research synthesis">Research-Synthese</h3>
-        <p data-de="Häufigkeit erkannt, Bedeutung entschieden, ich. Affinity Mapping und Cluster entstanden im Dialog." data-en="For clustering and condensing interview and survey findings. AI recognised frequency, I decided significance. The affinity mapping and five clusters emerged in dialogue.">Häufigkeit erkannt, Bedeutung entschieden, ich. Affinity Mapping und Cluster entstanden im Dialog.</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="pen-tool"></div>
-        <h3 data-de="Ideation" data-en="Ideation">Ideation</h3>
-        <p data-de="Vier Ideen parallel generiert, ich habe bewertet. Zwei der stärksten Ideen kamen aus diesem Dialog." data-en="As a sparring partner when thinking through concept variants. AI generated four additional ideas in parallel with my own, I scored and decided. Two of the strongest ideas came from this dialogue.">Vier Ideen parallel generiert, ich habe bewertet. Zwei der stärksten Ideen kamen aus diesem Dialog.</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="layers"></div>
-        <h3 data-de="Vibe Coding" data-en="Vibe Coding">Vibe Coding</h3>
-        <p data-de="Portfolio per Vibe Coding mit Claude gebaut, beschrieben statt programmiert." data-en="The build of this portfolio was created via vibe coding with Claude, described rather than programmed. The case study template was also developed and iterated in dialogue.">Portfolio per Vibe Coding mit Claude gebaut, beschrieben statt programmiert.</p>
-      </div>
-    </div>
-  </section>
+            <!-- Karte 3 -->
+            <div class="ethic-card bg-white border-2 border-red-200/60 rounded-2xl p-6 transition-all duration-500 cursor-pointer relative overflow-hidden" data-glitch="true">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center relative z-10">
+                    <div class="md:col-span-5 bumble-view transition-opacity duration-300">
+                        <span class="text-[10px] font-bold text-red-600 tracking-wider block uppercase mb-1">Bumble-Problem</span>
+                        <h4 class="font-bold text-neutral-800 text-sm mb-1">Paywall & künstliche Frustration</h4>
+                        <p class="text-xs text-neutral-500">Kernfunktionen werden absichtlich gesperrt, um Upgrade-Druck via Loss Aversion zu erzeugen.</p>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center text-xs font-mono text-neutral-300">VS</div>
+                    <div class="md:col-span-5 samespot-view opacity-30 transition-all duration-500">
+                        <span class="text-[10px] font-bold text-neutral-400 tracking-wider block uppercase mb-1 transition-colors">sameSpot Frage</span>
+                        <p class="font-medium text-neutral-800 text-sm italic">„Welche Funktionen gehören zum Kern und dürfen niemals verschwinden?“</p>
+                    </div>
+                </div>
+            </div>
 
-  <!-- ═══════════════════════════════════════════════════════ KPIS -->
-  <section class="cs-section" id="kpis">
-    <span class="cs-section-label" data-de="KPIs" data-en="KPIs">KPIs</span>
-    <h2 class="cs-section-title"><span data-de="Was wirklich" data-en="Measuring what">Was wirklich</span> <em data-de="zählt" data-en="actually matters">zählt</em></h2>
-    <p class="cs-section-sub" data-de="Basierend auf dem Google HEART-Modell. Die wichtigste Dimension für dieses Produkt: Adoption, denn wenn Hanna die App nicht herunterlädt, ist alles andere irrelevant." data-en="Based on the Google HEART model. The most important dimension for this product: Adoption, because if Hanna doesn't download the app, everything else is irrelevant.">Basierend auf dem Google HEART-Modell. Die wichtigste Dimension für dieses Produkt: Adoption, denn wenn Hanna die App nicht herunterlädt, ist alles andere irrelevant.</p>
-    <div class="cs-cards">
-      <div class="cs-card">
-        <div class="cs-card-num">01</div>
-        <div class="cs-card-title" data-de="Adoption" data-en="Adoption">Adoption</div>
-        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Ziel" data-en="Goal">Ziel</span><span class="cs-card-row-value" data-de="Hanna lädt die App herunter, weil sie sich wie eine Stadtentdeckungs-App anfühlt, nicht wie eine Social-App" data-en="Hanna downloads the app because it feels like a city exploration app, not a social app">Hanna lädt die App herunter, weil sie sich wie eine Stadtentdeckungs-App anfühlt, nicht wie eine Social-App</span></div>
-        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Signal" data-en="Signal">Signal</span><span class="cs-card-row-value" data-de="Hanna schließt das Onboarding ab und macht ihren ersten Spot innerhalb der ersten Woche" data-en="Hanna completes onboarding and does her first Spot within the first week">Hanna schließt das Onboarding ab und macht ihren ersten Spot innerhalb der ersten Woche</span></div>
-        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Metrik" data-en="Metric">Metrik</span><span class="cs-card-row-value" data-de="Onboarding-Abschlussrate; % der Nutzer die innerhalb von 7 Tagen einen ersten Spot abschließen" data-en="Onboarding completion rate; % of users who complete a first Spot within 7 days">Onboarding-Abschlussrate; % der Nutzer die innerhalb von 7 Tagen einen ersten Spot abschließen</span></div>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-num">02</div>
-        <div class="cs-card-title" data-de="Retention" data-en="Retention">Retention</div>
-        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Ziel" data-en="Goal">Ziel</span><span class="cs-card-row-value" data-de="Hanna kehrt jede Woche zurück, wenn neue Spots erscheinen, die App wird Teil ihres Alltags" data-en="Hanna returns every week when new Spots appear, the app becomes part of her routine">Hanna kehrt jede Woche zurück, wenn neue Spots erscheinen, die App wird Teil ihres Alltags</span></div>
-        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Signal" data-en="Signal">Signal</span><span class="cs-card-row-value" data-de="Hanna ist nach 4 Wochen noch aktiv und öffnet die App zu Beginn jeder neuen Spot-Woche" data-en="Hanna is still active after 4 weeks and opens the app at the start of each new Spot week">Hanna ist nach 4 Wochen noch aktiv und öffnet die App zu Beginn jeder neuen Spot-Woche</span></div>
-        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Metrik" data-en="Metric">Metrik</span><span class="cs-card-row-value" data-de="% der Nutzer die nach 30 Tagen noch aktiv sind; wöchentliche Wiederkehrrate" data-en="% of users still active after 30 days; weekly return rate">% der Nutzer die nach 30 Tagen noch aktiv sind; wöchentliche Wiederkehrrate</span></div>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-num">03</div>
-        <div class="cs-card-title" data-de="Happiness" data-en="Happiness">Happiness</div>
-        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Ziel" data-en="Goal">Ziel</span><span class="cs-card-row-value" data-de="Hanna erlebt die App als druckfrei und sicher, und hat das Gefühl, ihre Stadt besser zu kennen" data-en="Hanna experiences the app as pressure-free and safe, and feels like she knows her city better">Hanna erlebt die App als druckfrei und sicher, und hat das Gefühl, ihre Stadt besser zu kennen</span></div>
-        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Signal" data-en="Signal">Signal</span><span class="cs-card-row-value" data-de="Hanna öffnet die App freiwillig ohne Push-Notification, gibt positive Bewertungen" data-en="Hanna opens the app voluntarily without push notifications, gives positive ratings">Hanna öffnet die App freiwillig ohne Push-Notification, gibt positive Bewertungen</span></div>
-        <div class="cs-card-row"><span class="cs-card-row-label" data-de="Metrik" data-en="Metric">Metrik</span><span class="cs-card-row-value" data-de="App-Store-Bewertung; Net Promoter Score nach erstem abgeschlossenen Spot" data-en="App Store rating; Net Promoter Score after first completed Spot">App-Store-Bewertung; Net Promoter Score nach erstem abgeschlossenen Spot</span></div>
-      </div>
-    </div>
-  </section>
+            <!-- [Weitere 5 Karten identisch aufgebaut für sauberes Handling im JS Loop] -->
+            <!-- Karte 4 -->
+            <div class="ethic-card bg-white border-2 border-red-200/60 rounded-2xl p-6 transition-all duration-500 cursor-pointer relative overflow-hidden" data-glitch="true">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center relative z-10">
+                    <div class="md:col-span-5 bumble-view transition-opacity duration-300">
+                        <span class="text-[10px] font-bold text-red-600 tracking-wider block uppercase mb-1">Bumble-Problem</span>
+                        <h4 class="font-bold text-neutral-800 text-sm mb-1">Zeigarnik-Effekt</h4>
+                        <p class="text-xs text-neutral-500">Unvollständige Badges erzeugen Druck zur Profilvervollständigung.</p>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center text-xs font-mono text-neutral-300">VS</div>
+                    <div class="md:col-span-5 samespot-view opacity-30 transition-all duration-500">
+                        <span class="text-[10px] font-bold text-neutral-400 tracking-wider block uppercase mb-1 transition-colors">sameSpot Frage</span>
+                        <p class="font-medium text-neutral-800 text-sm italic">„Nutze ich Unvollständigkeit für Hannas Ziel oder für meine Verweildauer?“</p>
+                    </div>
+                </div>
+            </div>
 
-  <!-- ═══════════════════════════════════════════════════════ AUSBLICK -->
-  <section class="cs-section" id="outlook">
-    <span class="cs-section-label" data-de="Ausblick" data-en="Outlook">Ausblick</span>
-    <div class="cs-statement">
-      <div class="cs-statement-main"><span data-de="Was als " data-en="What comes ">Was als </span><em data-de="Nächstes kommt" data-en="next">Nächstes kommt</em></div>
-      <div class="cs-statement-side">
-        <p data-de="Nicht ob die App gefällt, sondern ob Hanna sie überhaupt herunterlädt. Genau das testet Modul 3." data-en="The riskiest assumption in the whole concept isn't whether people like the app, but whether Hanna downloads it at all. That's exactly where I'm starting in Module 3: testing the very first step before anything else.">Nicht ob die App gefällt, sondern ob Hanna sie überhaupt herunterlädt. Genau das testet Modul 3.</p>
-        <p data-de="Offen: das Cold-Start-Problem. Erste Hypothese: geseedete Inhalte durch die Monatsaufgabe." data-en="Also open: the cold-start problem. When there are few users at first, how does the feed still feel like real city activity? First hypothesis: seeded content through the monthly task that everyone does.">Offen: das Cold-Start-Problem. Erste Hypothese: geseedete Inhalte durch die Monatsaufgabe.</p>
-        <p data-de="Und: die Freemium-Grenze schärfen, was gehört zum Kern, was ist echtes Premium?" data-en="And: sharpen the freemium boundary. Which features belong to the core and must never disappear behind a paywall, and where does premium begin as a genuine extension, not an artificial restriction?">Und: die Freemium-Grenze schärfen, was gehört zum Kern, was ist echtes Premium?</p>
-      </div>
-    </div>
-  </section>
+            <!-- Karte 5 -->
+            <div class="ethic-card bg-white border-2 border-red-200/60 rounded-2xl p-6 transition-all duration-500 cursor-pointer relative overflow-hidden" data-glitch="true">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center relative z-10">
+                    <div class="md:col-span-5 bumble-view transition-opacity duration-300">
+                        <span class="text-[10px] font-bold text-red-600 tracking-wider block uppercase mb-1">Bumble-Problem</span>
+                        <h4 class="font-bold text-neutral-800 text-sm mb-1">Irrelevante Pflichtinfos</h4>
+                        <p class="text-xs text-neutral-500">Sexualität und intime Beziehungsdaten sind platonischer Standard im Standard-Setup.</p>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center text-xs font-mono text-neutral-300">VS</div>
+                    <div class="md:col-span-5 samespot-view opacity-30 transition-all duration-500">
+                        <span class="text-[10px] font-bold text-neutral-400 tracking-wider block uppercase mb-1 transition-colors">sameSpot Frage</span>
+                        <p class="font-medium text-neutral-800 text-sm italic">„Welche Infos braucht Hanna für platonische Freundschaft wirklich?“</p>
+                    </div>
+                </div>
+            </div>
 
-  <!-- ═══════════════════════════════════════════════════════ LEARNINGS -->
-  <section class="cs-section" id="lessons">
-    <span class="cs-section-label" data-de="Learnings" data-en="Lessons">Learnings</span>
-    <h2 class="cs-section-title"><span data-de="Was ich" data-en="What I">Was ich</span> <em data-de="gelernt habe" data-en="learned">gelernt habe</em></h2>
-    <p class="cs-section-sub" data-de="Die ehrlichsten Erkenntnisse aus dem Prozess, nicht die schönsten, sondern die, die sich am stärksten auf meine Designentscheidungen ausgewirkt haben." data-en="The most honest takeaways from the process, not the prettiest ones, but those that most strongly influenced my design decisions.">Die ehrlichsten Erkenntnisse aus dem Prozess, nicht die schönsten, sondern die, die sich am stärksten auf meine Designentscheidungen ausgewirkt haben.</p>
-    <div class="cs-cards-3">
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="zap"></div>
-        <h3 data-de="Ein klarer Filter entscheidet" data-en="A clear filter decides">Ein klarer Filter entscheidet</h3>
-        <p data-de="Die Frage &ldquo;Würde Hanna es nutzen, ohne je jemanden zu treffen?&rdquo; hat mir bei jeder Entscheidung geholfen, sie hat Funktionen aussortiert, bevor sie überhaupt entstanden. Ein guter Leitfilter ist wertvoller als jede Feature-Liste." data-en="The question 'Would Hanna use it without ever meeting anyone?' helped me with every decision, it filtered out features before they even existed. A good guiding filter is more valuable than any feature list.">„Würde Hanna es nutzen, ohne je jemanden zu treffen?", hat Funktionen aussortiert, bevor sie entstanden.</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="book-open"></div>
-        <h3 data-de="Widerlegte Hypothesen sind Gold" data-en="Disproved hypotheses are gold">Widerlegte Hypothesen sind Gold</h3>
-        <p data-de="Verbundenheit entsteht nicht durch Orte, durch Menschen. Das hat das Konzept komplett verschoben." data-en="My strongest insight came from a hypothesis that didn't hold: connection doesn't emerge from places but from people. That shifted my whole concept, from city exploration towards the feeling of not being alone.">Verbundenheit entsteht nicht durch Orte, durch Menschen. Das hat das Konzept komplett verschoben.</p>
-      </div>
-      <div class="cs-content-card">
-        <div class="cs-content-icon" data-icon="pen-tool"></div>
-        <h3 data-de="Vertrauen verdient man, nicht behauptet man" data-en="Trust is earned, not claimed">Vertrauen verdient man, nicht behauptet man</h3>
-        <p data-de="Bumble BFF hat gezeigt: Das Problem ist nicht schlechtes UX, es ist verlorenes Vertrauen. Jede Designentscheidung ist auch eine Entscheidung über Vertrauen." data-en="The dark pattern analysis of Bumble BFF showed me: the biggest problem in the market isn't bad UX, it's lost trust. Every design decision is also a decision about whether you earn or assume Hanna's trust.">Bumble BFF hat gezeigt: Das Problem ist nicht schlechtes UX, es ist verlorenes Vertrauen. Jede Designentscheidung ist auch eine Entscheidung über Vertrauen.</p>
-      </div>
-    </div>
-  </section>
+            <!-- Karte 6 -->
+            <div class="ethic-card bg-white border-2 border-red-200/60 rounded-2xl p-6 transition-all duration-500 cursor-pointer relative overflow-hidden" data-glitch="true">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center relative z-10">
+                    <div class="md:col-span-5 bumble-view transition-opacity duration-300">
+                        <span class="text-[10px] font-bold text-red-600 tracking-wider block uppercase mb-1">Bumble-Problem</span>
+                        <h4 class="font-bold text-neutral-800 text-sm mb-1">Loop-Design durch Leere</h4>
+                        <p class="text-xs text-neutral-500">Leere States führen Nutzer sofort zurück in den unendlichen Swipe-Loop.</p>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center text-xs font-mono text-neutral-300">VS</div>
+                    <div class="md:col-span-5 samespot-view opacity-30 transition-all duration-500">
+                        <span class="text-[10px] font-bold text-neutral-400 tracking-wider block uppercase mb-1 transition-colors">sameSpot Frage</span>
+                        <p class="font-medium text-neutral-800 text-sm italic">„Hat meine App auch einen Wert, wenn sie gerade niemanden kennenlernt?“</p>
+                    </div>
+                </div>
+            </div>
 
-</div>
+            <!-- Karte 7 -->
+            <div class="ethic-card bg-white border-2 border-red-200/60 rounded-2xl p-6 transition-all duration-500 cursor-pointer relative overflow-hidden" data-glitch="true">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center relative z-10">
+                    <div class="md:col-span-5 bumble-view transition-opacity duration-300">
+                        <span class="text-[10px] font-bold text-red-600 tracking-wider block uppercase mb-1">Bumble-Problem</span>
+                        <h4 class="font-bold text-neutral-800 text-sm mb-1">Vertrauen behaupten</h4>
+                        <p class="text-xs text-neutral-500">Vertrauen wird durch Marketing behauptet, während UI-Patterns manipulieren.</p>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center text-xs font-mono text-neutral-300">VS</div>
+                    <div class="md:col-span-5 samespot-view opacity-30 transition-all duration-500">
+                        <span class="text-[10px] font-bold text-neutral-400 tracking-wider block uppercase mb-1 transition-colors">sameSpot Frage</span>
+                        <p class="font-medium text-neutral-800 text-sm italic">„An welchen Momenten verdiene ich Hannas Vertrauen aktiv?“</p>
+                    </div>
+                </div>
+            </div>
 
-<!-- WEITERE CASE STUDIES -->
-<div class="cs-othercases">
-  <div class="cs-wrap">
-    <span class="cs-section-label" data-de="Weitere Case Studies" data-en="More Case Studies">Weitere Case Studies</span>
-    <h2 class="cs-section-title" style="margin-bottom:48px;"><span data-de="Mehr von" data-en="More of">Mehr von</span> <em data-de="meiner Arbeit" data-en="my work">meiner Arbeit</em></h2>
-    <div class="cs-othercases-grid">
-      <div class="cs-othercase-card cs-othercase-locked">
-        <div class="cs-othercase-thumb-placeholder">
-          <div class="cs-othercase-placeholder-inner"></div>
+            <!-- Karte 8 -->
+            <div class="ethic-card bg-white border-2 border-red-200/60 rounded-2xl p-6 transition-all duration-500 cursor-pointer relative overflow-hidden" data-glitch="true">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center relative z-10">
+                    <div class="md:col-span-5 bumble-view transition-opacity duration-300">
+                        <span class="text-[10px] font-bold text-red-600 tracking-wider block uppercase mb-1">Bumble-Problem</span>
+                        <h4 class="font-bold text-neutral-800 text-sm mb-1">Entmenschlichende Bewertung</h4>
+                        <p class="text-xs text-neutral-500">Die Swipe-Mechanik reduziert komplexe Identitäten auf ein einziges Foto.</p>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center text-xs font-mono text-neutral-300">VS</div>
+                    <div class="md:col-span-5 samespot-view opacity-30 transition-all duration-500">
+                        <span class="text-[10px] font-bold text-neutral-400 tracking-wider block uppercase mb-1 transition-colors">sameSpot Frage</span>
+                        <p class="font-medium text-neutral-800 text-sm italic">„Wie zeige ich Menschen ohne eine aktive Bewertungslogik?“</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="cs-othercase-body">
-          <div class="cs-othercase-placeholder-line" style="width:55%"></div>
-          <div class="cs-othercase-placeholder-line" style="width:80%;height:10px;margin-top:8px"></div>
-          <div class="cs-othercase-placeholder-line" style="width:65%;height:10px;margin-top:6px"></div>
-          <div class="cs-othercase-footer">
-            <span class="cs-othercase-cta-label" data-de="Bald verfügbar" data-en="Coming soon">Bald verfügbar</span>
-            <span class="cs-othercase-lock-btn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-          </div>
+    </section>
+
+    <hr class="border-neutral-200/60 max-w-7xl mx-auto px-6">
+
+    <!-- 6. LOW-FI WIREFRAMES -->
+    <section class="w-full max-w-7xl mx-auto px-6 py-24">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-xs tracking-widest font-bold text-emerald-700 block uppercase mb-1">• UX-STRUKTUR</span>
+            <h3 class="text-3xl font-bold tracking-tight mb-4">Das <span class="italic text-emerald-600">nackte Skelett</span> vor dem Design</h3>
+            <p class="text-neutral-500 text-sm">Bevor Farben und Komponenten einziehen, wird die Informationsarchitektur radikal auf Hannas Bedürfnisse reduziert. Jedes Element hat hier nur ein Ziel: Struktur ohne visuellen Lärm.</p>
         </div>
-      </div>
-      <div class="cs-othercase-card cs-othercase-locked">
-        <div class="cs-othercase-thumb-placeholder cs-othercase-thumb-placeholder-2">
-          <div class="cs-othercase-placeholder-inner"></div>
+
+        <!-- Toggle Switch Control -->
+        <div class="flex justify-center mb-12">
+            <div class="bg-neutral-100 p-1 rounded-xl flex gap-1 border border-neutral-200">
+                <button onclick="toggleBlueprint(true)" id="btn-wireframe" class="px-4 py-2 rounded-lg text-xs font-semibold bg-white text-neutral-800 shadow-sm transition-all duration-300">📐 Wireframe-Struktur</button>
+                <button onclick="toggleBlueprint(false)" id="btn-layout" class="px-4 py-2 rounded-lg text-xs font-semibold text-neutral-500 hover:text-neutral-800 transition-all duration-300">✨ Finales Layout</button>
+            </div>
         </div>
-        <div class="cs-othercase-body">
-          <div class="cs-othercase-placeholder-line" style="width:40%"></div>
-          <div class="cs-othercase-placeholder-line" style="width:70%;height:10px;margin-top:8px"></div>
-          <div class="cs-othercase-placeholder-line" style="width:50%;height:10px;margin-top:6px"></div>
-          <div class="cs-othercase-footer">
-            <span class="cs-othercase-cta-label" data-de="In Arbeit" data-en="In progress">In Arbeit</span>
-            <span class="cs-othercase-lock-btn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-          </div>
+
+        <!-- Content Stage (Screens Container) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center bg-neutral-50 border border-neutral-200/60 p-8 rounded-3xl min-h-[460px] relative">
+            
+            <!-- Screen 1 Blueprint Card -->
+            <div class="bg-white border border-neutral-200 rounded-2xl p-6 h-80 flex flex-col justify-between transition-all duration-500 blueprint-card border-4 border-red-500" title="TODO: Screen-Grafiken einsetzen">
+                <div class="w-full h-2/3 bg-neutral-100 rounded-xl flex items-center justify-center font-mono text-[10px] text-neutral-400">
+                    [TODO: WIREFRAME SCREEN 1 IMAGE]
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm text-neutral-800 blueprint-title">Low-Fi Wireframe 1</h4>
+                    <p class="text-xs text-neutral-400 mt-1 blueprint-desc">Graustufen-Skelett ohne Branding-Elemente.</p>
+                </div>
+            </div>
+
+            <!-- Screen 2 Blueprint Card -->
+            <div class="bg-white border border-neutral-200 rounded-2xl p-6 h-80 flex flex-col justify-between transition-all duration-500 blueprint-card border-4 border-red-500" title="TODO: Screen-Grafiken einsetzen">
+                <div class="w-full h-2/3 bg-neutral-100 rounded-xl flex items-center justify-center font-mono text-[10px] text-neutral-400">
+                    [TODO: WIREFRAME SCREEN 2 IMAGE]
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm text-neutral-800 blueprint-title">Low-Fi Wireframe 2</h4>
+                    <p class="text-xs text-neutral-400 mt-1 blueprint-desc">Inhaltsstrukturen & Informationshierarchie fokussiert.</p>
+                </div>
+            </div>
+
+            <!-- Screen 3 Blueprint Card -->
+            <div class="bg-white border border-neutral-200 rounded-2xl p-6 h-80 flex flex-col justify-between transition-all duration-500 blueprint-card border-4 border-red-500" title="TODO: Screen-Grafiken einsetzen">
+                <div class="w-full h-2/3 bg-neutral-100 rounded-xl flex items-center justify-center font-mono text-[10px] text-neutral-400">
+                    [TODO: WIREFRAME SCREEN 3 IMAGE]
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm text-neutral-800 blueprint-title">Low-Fi Wireframe 3</h4>
+                    <p class="text-xs text-neutral-400 mt-1 blueprint-desc">Platzhalter-Elemente der UX-Flusslogik.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- MORE WORK -->
-<div class="cs-morework">
-  <span class="cs-section-label" data-de="Weitere Arbeiten" data-en="More Work">Weitere Arbeiten</span>
-  <h2 class="cs-section-title" style="margin-bottom:56px;"><span data-de="Das könnte dir" data-en="You might also">Das könnte dir</span> <em data-de="auch gefallen." data-en="like these.">auch gefallen.</em></h2>
-  <div class="masonry-grid">
-    <div class="masonry-card card-scroll">
-      <div class="scroll-container"><img src="tm.jpg" alt="Projekt tm" class="masonry-img scroll-img"></div>
-      <div class="masonry-body"><span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span><div class="masonry-title" data-de="E-Commerce & Branding für tm" data-en="E-Commerce & Branding for tm">E-Commerce &amp; Branding für tm</div></div>
-    </div>
-    <div class="masonry-card card-scroll">
-      <div class="scroll-container"><img src="elan.jpg" alt="Projekt elan" class="masonry-img scroll-img"></div>
-      <div class="masonry-body"><span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span><div class="masonry-title" data-de="Landingpage für elan" data-en="Landing page for elan">Landingpage für elan</div></div>
-    </div>
-    <div class="masonry-card card-scroll">
-      <div class="scroll-container"><img src="prdruck.jpg" alt="Projekt prdruck" class="masonry-img scroll-img"></div>
-      <div class="masonry-body"><span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span><div class="masonry-title" data-de="Corporate Website für pr.druck" data-en="Corporate website for pr.druck">Corporate Website für pr.druck</div></div>
-    </div>
-    <div class="masonry-card">
-      <video src="greensip.mov" class="masonry-video" autoplay loop muted playsinline></video>
-      <div class="masonry-body"><span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span><div class="masonry-title" data-de="Landingpage für GreenSip" data-en="Landing page for GreenSip">Landingpage für GreenSip</div></div>
-    </div>
-    <div class="masonry-card">
-      <img src="cover_yumi.jpg" alt="Projekt yumi" class="masonry-img">
-      <div class="masonry-body"><span class="masonry-tag" data-de="App Design" data-en="App Design">App Design</span><div class="masonry-title" data-de="Mobile App UI für yumi" data-en="Mobile app UI for yumi">Mobile App UI für yumi</div></div>
-    </div>
-    <div class="masonry-card">
-      <img src="blender.jpg" alt="3D Room Illustration" class="masonry-img">
-      <div class="masonry-body"><span class="masonry-tag" data-de="3D Illustration" data-en="3D Illustration">3D Illustration</span><div class="masonry-title" data-de="Isometrischer Raum in Blender" data-en="Isometric room in Blender">Isometrischer Raum in Blender</div></div>
-    </div>
-  </div>
-</div>
+        <!-- Die 3 Fokus-Punkte -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div class="p-4 rounded-xl bg-white border border-neutral-200/80 text-xs"><span class="font-bold text-emerald-800 mr-2">1. Reduzierte Navigation:</span> Fokus auf die 4 Kern-Tabs ohne ablenkende Untermenüs.</div>
+            <div class="p-4 rounded-xl bg-white border border-neutral-200/80 text-xs"><span class="font-bold text-emerald-800 mr-2">2. Klarer Lese-Fokus:</span> Große Abstände (Whitespace), damit Hanna stressfrei erfassen kann.</div>
+            <div class="p-4 rounded-xl bg-white border border-neutral-200/80 text-xs"><span class="font-bold text-emerald-800 mr-2">3. Physische Barriere:</span> Der QR-Code-Bereich wird als bewusster Interaktionspunkt verankert.</div>
+        </div>
+    </section>
 
-<!-- KONTAKT -->
-<div id="kontakt">
-  <div class="contact-inner">
-    <p class="contact-label" data-de="● Offen für neue Möglichkeiten" data-en="● Open for new opportunities">● Offen für neue Möglichkeiten</p>
-    <h2 class="contact-title"><span data-de="Ich freue mich" data-en="I look forward">Ich freue mich</span><br><span data-de="von dir zu hören." data-en="to hearing from you.">von dir zu hören.</span></h2>
-    <p class="contact-desc"><span data-de="Ob Jobmöglichkeit, Freelance-Anfrage oder einfach ein nettes Hallo," data-en="Whether it's a job opportunity, freelance project or just a friendly hello,">Ob Jobmöglichkeit, Freelance-Anfrage oder einfach ein nettes Hallo,</span><br><span data-de="ich bin immer offen für neue Gespräche." data-en="I'm always open for a chat.">ich bin immer offen für neue Gespräche.</span></p>
-    <div class="contact-buttons">
-      <a href="CV_Lina-Melissa-Arndt.pdf" download class="contact-btn-outline"><span class="icon" data-icon="download"></span>CV</a>
-      <a href="mailto:Lina-Melissa@web.de" class="contact-btn-primary"><span class="icon" data-icon="mail"></span><span data-de="Mail me" data-en="Mail me">Mail me</span></a>
-    </div>
-  </div>
-</div>
+    <hr class="border-neutral-200/60 max-w-7xl mx-auto px-6">
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="site-footer-inner">
-    <div class="site-footer-brand">
-      <span class="site-footer-name-text">Lina Melissa</span>
-      <span class="site-footer-sub" data-de="UX/UI Design · Lüneburg" data-en="UX/UI Design · Lüneburg">UX/UI Design · Lüneburg</span>
-      <span class="site-footer-status"><span class="site-footer-dot"></span><span data-de="Verfügbar ab August 2026" data-en="Available from August 2026">Verfügbar ab August 2026</span></span>
-    </div>
-    <div class="site-footer-socials">
-      <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" class="site-footer-link" aria-label="LinkedIn"><span class="icon" data-icon="linkedin"></span></a>
-      <a href="https://www.behance.net/linwelss" target="_blank" class="site-footer-link" aria-label="Behance"><span class="icon" data-icon="behance"></span></a>
-      <a href="https://dribbble.com/linwelss" target="_blank" class="site-footer-link" aria-label="Dribbble"><span class="icon" data-icon="dribbble"></span></a>
-      <a href="https://www.instagram.com/linwelss/" target="_blank" class="site-footer-link" aria-label="Instagram"><span class="icon" data-icon="instagram"></span></a>
-    </div>
-  </div>
-  <div class="site-footer-bottom">
-    <span class="site-footer-copy">© 2026 Lina Melissa Arndt</span>
-    <a href="impressum.html" class="site-footer-impressum">Impressum</a>
-  </div>
-</footer>
+    <!-- 7. DIE LÖSUNG (MERE-EXPOSURE-BLUR, SVG TRANSITIONS & LIVE SCAN) -->
+    <section class="w-full max-w-7xl mx-auto px-6 py-24">
+        <!-- PHASE 1: Der Core-Ansatz -->
+        <div class="mb-24">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs tracking-widest font-bold text-emerald-700 block uppercase mb-1">• LÖSUNG</span>
+                <h3 class="text-3xl font-bold tracking-tight mb-4">Eine App, die <span class="italic text-emerald-600">nichts verlangt</span></h3>
+                <p class="text-neutral-500 text-sm">Hanna öffnet keine Social-App, sie öffnet ihre Stadt. Spots und Feed haben für sich allein schon Wert. Verbindung entsteht nebenbei.</p>
+            </div>
 
-<script src="script.js"></script>
-<script src="case-study.js"></script>
+            <!-- Key-Feature Karten Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white border border-neutral-200/80 p-6 rounded-2xl shadow-sm">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center font-bold text-sm mb-4">⚡</span>
+                    <h4 class="font-bold text-base mb-2">Wöchentliche Spots</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">Jede Woche 10 Spots aus 20 Vorschlägen wählen, jeder an einem festen Ort in der Stadt. Kein Algorithmus, kein Zwang. Struktur ohne Druck.</p>
+                </div>
+                <div class="bg-white border border-neutral-200/80 p-6 rounded-2xl shadow-sm">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center font-bold text-sm mb-4">🥞</span>
+                    <h4 class="font-bold text-base mb-2">Feed mit Stadtaktivität</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">Zeigt, wer in der Stadt dieselben Spots besucht, ganz still und ohne Interaktionszwang. Wer immer wieder auftaucht, wird vertraut. Genau dieser Mere-Exposure-Effekt macht aus Fremden bekannte Gesichter.</p>
+                </div>
+                <div class="bg-white border border-neutral-200/80 p-6 rounded-2xl shadow-sm">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center font-bold text-sm mb-4">✒️</span>
+                    <h4 class="font-bold text-base mb-2">QR-Code & Chat</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">Kein Anschreiben aus dem Feed. Wer sich im echten Leben begegnet, scannt gegenseitig seinen QR-Code, und erst dann öffnet sich ein Chat. Kein Match, keine Paywall.</p>
+                </div>
+            </div>
+
+            <!-- Aufbau Box -->
+            <div class="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 max-w-4xl mx-auto">
+                <h5 class="text-[10px] tracking-wider font-bold text-neutral-400 uppercase mb-4 text-center">App-Architektur (4 Tabs)</h5>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="p-3 bg-white border border-neutral-200 rounded-xl text-xs font-medium text-neutral-800">1. Aufgaben</div>
+                    <div class="p-3 bg-white border border-neutral-200 rounded-xl text-xs font-medium text-neutral-800">2. Entdecken</div>
+                    <div class="p-3 bg-white border border-neutral-200 rounded-xl text-xs font-medium text-neutral-800">3. Austausch</div>
+                    <div class="p-3 bg-white border border-neutral-200 rounded-xl text-xs font-medium text-neutral-800">4. Profil</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 2: Identität & Freemium -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
+            <!-- Linker Bereich SVG Morphing Interaction -->
+            <div class="lg:col-span-7 bg-white border border-neutral-200 rounded-3xl p-8 flex flex-col md:flex-row gap-8 items-center justify-between">
+                <div class="max-w-xs">
+                    <h4 class="font-bold text-lg mb-2">Profilierung über Aktivität</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed mb-4">Dein Profil füllt sich nicht über ein Formular, sondern über das, was du tatsächlich machst...</p>
+                    <div class="space-y-2 text-xs">
+                        <div onmouseover="morphBlob('#065f46', 'M20,50 Q40,20 60,40 T80,50 T50,80 Z')" class="p-2 border border-neutral-200 rounded-xl cursor-help hover:border-emerald-700 font-medium">📜 Stadthistoriker</div>
+                        <div onmouseover="morphBlob('#0d9488', 'M25,45 Q50,15 70,35 T75,60 T40,75 Z')" class="p-2 border border-neutral-200 rounded-xl cursor-help hover:border-teal-600 font-medium">🎨 Stadtkünstler</div>
+                        <div onmouseover="morphBlob('#0369a1', 'M30,40 Q45,30 65,45 T85,55 T45,70 Z')" class="p-2 border border-neutral-200 rounded-xl cursor-help hover:border-sky-600 font-medium">🌌 Stimmungsfänger</div>
+                        <div onmouseover="morphBlob('#15803d', 'M15,55 Q35,25 55,50 T80,45 T55,85 Z')" class="p-2 border border-neutral-200 rounded-xl cursor-help hover:border-green-700 font-medium">🔍 Alltagsforscherin</div>
+                    </div>
+                </div>
+                
+                <!-- SVG Morphing Canvas Target -->
+                <div class="w-48 h-48 bg-neutral-50 rounded-2xl flex items-center justify-center relative">
+                    <svg class="w-40 h-40 transition-all duration-700" viewBox="0 0 100 100">
+                        <path id="morphing-path" d="M20,50 Q40,20 60,40 T80,50 T50,80 Z" fill="#065f46" class="transition-all duration-700" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Rechter Bereich Freemium-Modell -->
+            <div class="lg:col-span-5 bg-white border border-neutral-200 rounded-3xl p-8">
+                <h4 class="font-bold text-base text-neutral-800 uppercase tracking-wider mb-6">Transparentes Erlösmodell</h4>
+                <div class="divide-y divide-neutral-100 text-xs">
+                    <div class="py-3 flex justify-between font-medium"><span>Kostenlos, immer:</span> <span class="text-neutral-500">Kern-Features ohne Paywall</span></div>
+                    <div class="py-3 flex justify-between font-medium"><span>Premium (3-5 €/Monat):</span> <span class="text-emerald-700">Zusätzliche Spot-Archive</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 3: INTERAKTIVE LIVE-DEMO -->
+        <div id="live-demo-section" class="bg-emerald-950 text-white rounded-3xl p-8 lg:p-12">
+            <div class="text-center max-w-xl mx-auto mb-12">
+                <span class="text-[10px] tracking-widest font-bold text-emerald-400 block uppercase mb-1">• LIVE-DEMO</span>
+                <h3 class="text-2xl lg:text-3xl font-bold tracking-tight">Psychologische UI in Aktion</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center justify-center max-w-4xl mx-auto">
+                <!-- Phone 1 (Mere-Exposure-Blur-Feed) -->
+                <div class="flex flex-col items-center gap-4">
+                    <h4 class="text-xs font-bold font-mono tracking-wider text-emerald-400">PHONE 1: ENTDECKEN FEED</h4>
+                    <!-- Phone Frame -->
+                    <div class="w-64 h-96 bg-neutral-900 rounded-[36px] p-3 border-4 border-neutral-800 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                        <div class="w-16 h-4 bg-neutral-800 rounded-full mx-auto mb-2"></div>
+                        <!-- Feed Content Area -->
+                        <div class="flex-1 space-y-3 p-2 overflow-y-auto">
+                            <!-- Blur Card Item -->
+                            <div class="bg-white/10 border border-white/10 p-3 rounded-xl transition-all duration-1000 blur-md text-white text-[11px]" id="blur-feed-card">
+                                <div class="font-bold text-white">Unbekanntes Gesicht</div>
+                                <div class="text-white/60">Gesehen am Marktplatz</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-center text-neutral-400 max-w-xs leading-relaxed">Mere-Exposure-Effect: Beim ersten Reinscrollen unscharf, wird bei Viewport-Aktivität glasklar.</p>
+                </div>
+
+                <!-- Phone 2 (Live QR Tauscher & Chat transition) -->
+                <div class="flex flex-col items-center gap-4">
+                    <h4 class="text-xs font-bold font-mono tracking-wider text-emerald-400">PHONE 2: AUSTAUSCH SCREEN</h4>
+                    <!-- Interactive Demo Frame Trigger -->
+                    <div onclick="triggerScanDemo(this)" class="w-64 h-96 bg-neutral-900 rounded-[36px] p-3 border-4 border-neutral-800 shadow-2xl relative overflow-hidden flex flex-col justify-between cursor-pointer group" title="Klicken zum Simulieren des Scans">
+                        <div class="w-16 h-4 bg-neutral-800 rounded-full mx-auto mb-2"></div>
+                        
+                        <!-- Screen State 1: Active Scan Display Layout -->
+                        <div class="flex-1 flex flex-col items-center justify-center relative p-4 transition-all duration-500" id="scan-screen-state">
+                            <!-- Wandering Laser Beam Overlay line -->
+                            <div class="absolute left-0 right-0 h-0.5 bg-green-400 shadow shadow-green-500" style="animation: scan-line 3s linear infinite; top: 10%;"></div>
+                            <!-- TODO: PLATZHALTER FOR QR CODE ASSET -->
+                            <div class="w-32 h-32 bg-white/95 rounded-xl flex items-center justify-center text-neutral-900 text-xs font-bold border-4 border-red-500" title="TODO: QR-Code Vektor laden">
+                                TODO: QR-Code
+                            </div>
+                            <span class="text-[9px] text-emerald-400 font-mono mt-4 tracking-widest uppercase animate-pulse">Klicken zum Scannen</span>
+                        </div>
+
+                        <!-- Screen State 2: Simulated Chat Container (Hidden behind active scan) -->
+                        <div class="hidden flex-1 flex flex-col justify-between p-2 text-xs text-left" id="chat-screen-state">
+                            <div class="border-b border-white/10 pb-2 mb-2 font-bold text-emerald-400">✔ Chat freigeschaltet</div>
+                            <div class="space-y-2 flex-1">
+                                <div class="bg-white/10 p-2 rounded-xl text-[10px] max-w-[80%]">Hi Hanna, dachte mir schon, dass du auch den Kiosk-Spot hast! ☕</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-center text-neutral-400 max-w-xs leading-relaxed">Physischer Brückenschlag: Ein Klick/Hover simuliert den Laser-Scan und morpht nahtlos in das Chat-Interface.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom CSS Scan Animation Inject -->
+    <style>
+        @keyframes scan-line {
+            0% { top: 10%; opacity: 1; }
+            50% { top: 85%; opacity: 1; }
+            100% { top: 10%; opacity: 1; }
+        }
+    </style>
+
+    <hr class="border-neutral-200/60 max-w-7xl mx-auto px-6">
+
+    <!-- 8. DESIGN SYSTEM (WORKBENCH KIT) -->
+    <section class="w-full max-w-7xl mx-auto px-6 py-24">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs tracking-widest font-bold text-emerald-700 block uppercase mb-1">• UI-FUNDAMENT</span>
+            <h3 class="text-3xl font-bold tracking-tight mb-4"><span class="italic text-emerald-600">Systematisches Design</span> für Skalierbarkeit</h3>
+            <p class="text-neutral-500 text-sm">Ein konsistentes Produkt braucht klare Regeln. Ausgestaltet als modulares Design System, das die Brücke zwischen UI-Prototyping und sauberer Code-Architektur schlägt.</p>
+        </div>
+
+        <!-- Workbench Grid Components -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch mb-12">
+            <!-- Linker Bereich (Tokens) -->
+            <div class="lg:col-span-5 bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h4 class="font-bold text-xs uppercase tracking-wider text-neutral-400 mb-4">Design Tokens Framework</h4>
+                    
+                    <!-- Farbpalette Interactive Tokens -->
+                    <div class="space-y-3 mb-6">
+                        <p class="text-xs font-semibold text-neutral-700">Farbwelt Token</p>
+                        <div class="grid grid-cols-3 gap-2">
+                            <!-- TODO: HEX-CODES VERIFIZIEREN -->
+                            <div onclick="alert('Token: var(--color-emerald-900) -> HEX #064e3b')" class="h-12 bg-emerald-900 rounded-lg cursor-pointer relative group border border-emerald-950" title="Klicken für CSS Token">
+                                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 bg-black/40 text-[9px] text-white font-mono flex items-center justify-center transition-opacity rounded-lg">#064E3B</div>
+                            </div>
+                            <div onclick="alert('Token: var(--color-emerald-50) -> HEX #ecfdf5')" class="h-12 bg-emerald-50 rounded-lg cursor-pointer relative group border border-emerald-100" title="Klicken für CSS Token">
+                                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 bg-black/40 text-[9px] text-white font-mono flex items-center justify-center transition-opacity rounded-lg">#ECFDF5</div>
+                            </div>
+                            <div onclick="alert('Token: var(--color-neutral-800) -> HEX #1f2937')" class="h-12 bg-neutral-800 rounded-lg cursor-pointer relative group border border-neutral-900" title="Klicken für CSS Token">
+                                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 bg-black/40 text-[9px] text-white font-mono flex items-center justify-center transition-opacity rounded-lg">#1F2937</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Typography Scale Vorschau -->
+                    <div class="space-y-2">
+                        <p class="text-xs font-semibold text-neutral-700">Typografie System</p>
+                        <div class="space-y-1.5 border-l-2 border-neutral-100 pl-4 text-left">
+                            <div class="text-xl font-bold tracking-tight text-neutral-800">Headline <span class="text-[9px] font-mono text-neutral-400 font-normal">font-bold text-xl</span></div>
+                            <div class="text-xs font-medium text-neutral-500">Subline <span class="text-[9px] font-mono text-neutral-400 font-normal">font-medium text-xs</span></div>
+                            <div class="text-[11px] text-neutral-600">Body Paragraph System font <span class="text-[9px] font-mono text-neutral-400 font-normal">text-[11px]</span></div>
+                            <div class="text-[10px] font-mono text-emerald-700 uppercase tracking-widest">Monospace Utility System Data <span class="text-[9px] font-mono text-neutral-400 font-normal">mono-font</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rechter Bereich (Klickbarer UI Komponenten Spielplatz) -->
+            <div class="lg:col-span-7 bg-white border border-neutral-200 rounded-2xl p-6">
+                <h4 class="font-bold text-xs uppercase tracking-wider text-neutral-400 mb-6">Live UI Components Kit (Klickbar)</h4>
+                
+                <div class="space-y-8">
+                    <!-- Navigations Tabs Module Components -->
+                    <div class="space-y-2">
+                        <span class="text-[10px] text-neutral-400 font-mono font-bold block">1. INTERACTIVE NAV-TABS COMPONENT</span>
+                        <div class="bg-neutral-100 p-1 rounded-xl flex gap-1 max-w-xs relative items-center">
+                            <button onclick="switchTabComponent(this)" class="flex-1 text-center py-1.5 rounded-lg text-xs font-semibold bg-white text-neutral-800 shadow-sm transition-all z-10">Aufgaben</button>
+                            <button onclick="switchTabComponent(this)" class="flex-1 text-center py-1.5 rounded-lg text-xs font-semibold text-neutral-500 hover:text-neutral-800 transition-all z-10">Entdecken</button>
+                            <button onclick="switchTabComponent(this)" class="flex-1 text-center py-1.5 rounded-lg text-xs font-semibold text-neutral-500 hover:text-neutral-800 transition-all z-10">Austausch</button>
+                        </div>
+                    </div>
+
+                    <!-- Spot Karte Component Item -->
+                    <div class="space-y-2">
+                        <span class="text-[10px] text-neutral-400 font-mono font-bold block">2. CARD PATTERN COMPONENT</span>
+                        <div class="bg-white border border-neutral-200/80 p-4 rounded-xl max-w-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-600 hover:shadow-lg hover:shadow-emerald-950/5 group">
+                            <h5 class="font-bold text-xs text-neutral-800 group-hover:text-emerald-900 transition-colors">Café Versteckter Innenhof</h5>
+                            <p class="text-[11px] text-neutral-500 mt-1">Echtzeit-Belegung: Sehr ruhig</p>
+                        </div>
+                    </div>
+
+                    <!-- Interaktiver Switch Toggle Slider -->
+                    <div class="space-y-2">
+                        <span class="text-[10px] text-neutral-400 font-mono font-bold block">3. MICRO INTERACTION SWITCH</span>
+                        <div class="flex items-center gap-3">
+                            <button onclick="this.classList.toggle('bg-emerald-600'); this.querySelector('div').classList.toggle('translate-x-4')" class="w-9 h-5 bg-neutral-200 rounded-full p-0.5 transition-colors duration-300 flex items-center justify-start focus:outline-none shadow-inner">
+                                <div class="w-4 h-4 bg-white rounded-full shadow transition-transform duration-300"></div>
+                            </button>
+                            <span class="text-xs font-medium text-neutral-600">Echtzeit-Scan aktivieren</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code-Reflexion Config Auszug -->
+        <div class="bg-neutral-900 text-neutral-300 p-4 rounded-xl max-w-4xl mx-auto text-xs font-mono shadow-inner border border-neutral-800">
+            <div class="flex items-center justify-between border-b border-neutral-800 pb-2 mb-3 text-neutral-500 text-[11px]">
+                <span>tailwind.config.js</span>
+                <span>vibe-coding-verified</span>
+            </div>
+            <pre class="overflow-x-auto text-left"><span class="text-purple-400">module</span>.<span class="text-purple-400">exports</span> = {
+  <span class="text-blue-400">theme</span>: {
+    <span class="text-blue-400">extend</span>: {
+      <span class="text-blue-400">colors</span>: {
+        samespotGreen: <span class="text-emerald-400">'#064E3B'</span>,
+        samespotLight: <span class="text-emerald-400">'#ECFDF5'</span>,
+        samespotDark:  <span class="text-emerald-400">'#1F2937'</span>
+      }
+    }
+  }
+}</pre>
+        </div>
+    </section>
+
+    <hr class="border-neutral-200/60 max-w-7xl mx-auto px-6">
+
+    <!-- 9. HI-FI SCREENS SHOWCASE -->
+    <section class="w-full max-w-7xl mx-auto px-6 py-24 overflow-hidden">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs tracking-widest font-bold text-emerald-700 block uppercase mb-1">• HIGH-FIDELITY</span>
+            <h3 class="text-3xl font-bold tracking-tight mb-4">Die Stadt <span class="italic text-emerald-600">in deiner Hand</span></h3>
+            <p class="text-neutral-500 text-sm">Pixelperfekt ausgearbeitet, um digitale Nähe stressfrei zu gestalten. Vier Kern-Screens, die Interaktion neu definieren – fokussiert auf das Wesentliche, ganz ohne Social-Media-Lärm.</p>
+        </div>
+
+        <!-- Mobile Horizontal Caroussel or Desktop Showcase Grid -->
+        <!-- TODO: MOCKUPS MIT HOCHAUFLÖSENDEN IMAGES BEFÜLLEN -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto items-start border-4 border-red-500 p-4 rounded-3xl" title="TODO: High-Fidelity App-Screens exportieren">
+            
+            <!-- Screen 1 Mockup container box -->
+            <div class="bg-white border border-neutral-200 p-4 rounded-2xl relative h-96 flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                <div class="w-full h-4/5 bg-neutral-100 rounded-xl flex items-center justify-center font-mono text-[9px] text-neutral-400 text-center p-2">
+                    [TODO: HI-FI SCREEN 1 IMAGE - AUFGABEN ZENTRALE]
+                </div>
+                <div>
+                    <h5 class="font-bold text-xs text-neutral-800">1. Die Aufgaben-Zentrale</h5>
+                    <!-- Tooltip Hover badge pop element -->
+                    <div class="absolute inset-x-2 bottom-16 bg-emerald-900 text-white text-[9px] p-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity text-center font-medium shadow-md z-20 pointer-events-none">
+                        „Struktur ohne Algorithmus-Zwang“
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 2 Mockup container box -->
+            <div class="bg-white border border-neutral-200 p-4 rounded-2xl relative h-96 flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 hover:shadow-xl lg:translate-y-6">
+                <div class="w-full h-4/5 bg-neutral-100 rounded-xl flex items-center justify-center font-mono text-[9px] text-neutral-400 text-center p-2">
+                    [TODO: HI-FI SCREEN 2 IMAGE - ENTDECKEN FEED]
+                </div>
+                <div>
+                    <h5 class="font-bold text-xs text-neutral-800">2. Der Entdecken-Feed</h5>
+                    <div class="absolute inset-x-2 bottom-16 bg-emerald-900 text-white text-[9px] p-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity text-center font-medium shadow-md z-20 pointer-events-none">
+                        „Visuelle Vertrautheit statt eitler Selbstdarstellung“
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 3 Mockup container box -->
+            <div class="bg-white border border-neutral-200 p-4 rounded-2xl relative h-96 flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                <div class="w-full h-4/5 bg-neutral-100 rounded-xl flex items-center justify-center font-mono text-[9px] text-neutral-400 text-center p-2">
+                    [TODO: HI-FI SCREEN 3 IMAGE - AUSTAUSCH SCREEN]
+                </div>
+                <div>
+                    <h5 class="font-bold text-xs text-neutral-800">3. Der Austausch-Screen</h5>
+                    <div class="absolute inset-x-2 bottom-16 bg-emerald-900 text-white text-[9px] p-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity text-center font-medium shadow-md z-20 pointer-events-none">
+                        „Die Brücke ins echte Leben“
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 4 Mockup container box -->
+            <div class="bg-white border border-neutral-200 p-4 rounded-2xl relative h-96 flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 hover:shadow-xl lg:translate-y-6">
+                <div class="w-full h-4/5 bg-neutral-100 rounded-xl flex items-center justify-center font-mono text-[9px] text-neutral-400 text-center p-2">
+                    [TODO: HI-FI SCREEN 4 IMAGE - ORGANISCHES PROFIL]
+                </div>
+                <div>
+                    <h5 class="font-bold text-xs text-neutral-800">4. Das organische Profil</h5>
+                    <div class="absolute inset-x-2 bottom-16 bg-emerald-900 text-white text-[9px] p-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity text-center font-medium shadow-md z-20 pointer-events-none">
+                        „Identität durch Aktivität“
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-neutral-200/60 max-w-7xl mx-auto px-6">
+
+    <!-- 10. PROTOTYP FIGMA WORKBENCH EMBED STAGE -->
+    <section id="prototype" class="w-full max-w-7xl mx-auto px-6 py-24">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs tracking-widest font-bold text-emerald-700 block uppercase mb-1">• PROTOTYP</span>
+            <h3 class="text-3xl font-bold tracking-tight mb-4">Der erste <span class="italic text-emerald-600">testbare Moment</span></h3>
+            <p class="text-neutral-500 text-sm">Fokus auf eine Frage: Fühlt sich der Einstieg wie eine Social-App an, oder nicht? Onboarding und erster Feed-Moment sind die entscheidenden Screens.</p>
+        </div>
+
+        <!-- Kombinierte UX Werkbank Box Frame -->
+        <div class="bg-emerald-50/50 border border-emerald-100 p-6 lg:p-10 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Linker Bereich (60% Desktop - Das Live Mockup) -->
+            <div class="lg:col-span-7 flex justify-center">
+                <!-- Phone Wrapper for Snap Micro Interaction Signal -->
+                <div id="figma-phone-wrapper" class="w-72 h-[520px] bg-neutral-900 rounded-[44px] p-3.5 border-4 border-neutral-800 shadow-2xl relative transition-all duration-500">
+                    <!-- Dynamic iframe Embed Container Stage Element -->
+                    <!-- TODO: ECHTE FIGMA EMBED CODES INJECTEN -->
+                    <div class="w-full h-full bg-neutral-950 rounded-[32px] flex items-center justify-center border-4 border-red-500 relative" title="TODO: Figma Prototype Embed Code einsetzen">
+                        <div class="text-center p-4">
+                            <span class="w-6 h-6 border-2 border-red-500 border-t-transparent rounded-full animate-spin block mx-auto mb-3"></span>
+                            <span class="text-[10px] font-mono text-red-500 font-bold block">TODO: Figma Prototype iFrame Source link eintragen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rechter Bereich (40% Desktop - Die UX Beweisführung) -->
+            <div class="lg:col-span-5 space-y-6">
+                <!-- Moment 1 Card Node Trigger -->
+                <div onmouseover="snapPhoneHighlight(true)" onmouseout="snapPhoneHighlight(false)" class="bg-white p-5 rounded-2xl border border-neutral-200 shadow-sm cursor-help transition-all hover:shadow-md">
+                    <h4 class="font-bold text-sm text-neutral-800 mb-1">1. Das entschleunigte Onboarding</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">Fokus auf radikale Datensparsamkeit. Keine langen Abfragen, kein Druck – Hanna teilt nur das, was für den ersten Schritt absolut notwendig ist.</p>
+                </div>
+
+                <!-- Moment 2 Card Node Trigger -->
+                <div onmouseover="snapPhoneHighlight(true)" onmouseout="snapPhoneHighlight(false)" class="bg-white p-5 rounded-2xl border border-neutral-200 shadow-sm cursor-help transition-all hover:shadow-md">
+                    <h4 class="font-bold text-sm text-neutral-800 mb-1">2. Der erste Feed-Moment</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">Fokus auf den Mere-Exposure-Effekt. Keine Swipe-Logik, kein aktives Bewerten. Vertrautheit entsteht still und organisch über die Aktivitäten in der Stadt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-neutral-200/60 max-w-7xl mx-auto px-6">
+
+    <!-- 11. KI IN DESIGN (MENSCH-MASCHINE INTERFACE) -->
+    <section class="w-full max-w-7xl mx-auto px-6 py-24">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs tracking-widest font-bold text-emerald-700 block uppercase mb-1">• KI IN DESIGN</span>
+            <h3 class="text-3xl font-bold tracking-tight mb-4">Wie KI mir <span class="italic text-emerald-600">geholfen hat</span></h3>
+            <p class="text-neutral-500 text-sm">KI als Werkzeug, nicht als Entscheiderin. Leitfaden üben, Erkenntnisse clustern, Ideen generieren.</p>
+        </div>
+
+        <!-- 3-Spalten Dialog Terminal Grid System -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Card 1 Research Synthese -->
+            <div onmouseenter="runTerminalSequence(this, '> /synthesize_research_data')" class="bg-white border border-neutral-200 rounded-2xl p-6 relative transition-all duration-500 hover:shadow-lg flex flex-col justify-between group min-h-[220px]">
+                <div>
+                    <span class="text-lg mb-2 block">🔍</span>
+                    <h4 class="font-bold text-sm mb-1 text-neutral-800">Research-Synthese</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed text-left opacity-100 group-hover:opacity-0 transition-opacity duration-300 absolute inset-x-6 top-16 pointer-events-none">Häufigkeit erkannt, Bedeutung entschieden, ich. Affinity Mapping und Cluster entstanden im Dialog.</p>
+                </div>
+                
+                <!-- Terminal & Dual Track Overlay element layout -->
+                <div class="absolute inset-6 top-16 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none text-xs text-left">
+                    <div class="font-mono text-[10px] text-emerald-600 font-bold tracking-wider terminal-line">&gt; </div>
+                    <div class="space-y-1 mt-4 block dual-track-view hidden">
+                        <div class="text-[10px] text-neutral-500"><span class="font-bold text-neutral-700">[👤 MENSCH]</span> Bedeutung entschieden & validiert</div>
+                        <div class="text-[10px] text-emerald-700 font-medium"><span class="font-bold text-emerald-800">[🤖 KI]</span> Muster & Cluster im Dialog erstellt</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 Ideation Module -->
+            <div onmouseenter="runTerminalSequence(this, '> /generate_ideas --parallel')" class="bg-white border border-neutral-200 rounded-2xl p-6 relative transition-all duration-500 hover:shadow-lg flex flex-col justify-between group min-h-[220px]">
+                <div>
+                    <span class="text-lg mb-2 block">✒️</span>
+                    <h4 class="font-bold text-sm mb-1 text-neutral-800">Ideation</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed text-left opacity-100 group-hover:opacity-0 transition-opacity duration-300 absolute inset-x-6 top-16 pointer-events-none">Vier Ideen parallel generiert, ich habe bewertet. Zwei der stärksten Ideen kamen aus diesem Dialog.</p>
+                </div>
+                
+                <div class="absolute inset-6 top-16 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none text-xs text-left">
+                    <div class="font-mono text-[10px] text-emerald-600 font-bold tracking-wider terminal-line">&gt; </div>
+                    <div class="space-y-1 mt-4 block dual-track-view hidden">
+                        <div class="text-[10px] text-neutral-500"><span class="font-bold text-neutral-700">[👤 MENSCH]</span> Kriterien gesetzt & 2 Ansätze gewählt</div>
+                        <div class="text-[10px] text-emerald-700 font-medium"><span class="font-bold text-emerald-800">[🤖 KI]</span> 4 Konzepte parallel generiert</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 Vibe Coding Component -->
+            <div onmouseenter="runTerminalSequence(this, '> /vibe_code_portfolio_section')" class="bg-white border border-neutral-200 rounded-2xl p-6 relative transition-all duration-500 hover:shadow-lg flex flex-col justify-between group min-h-[220px]">
+                <div>
+                    <span class="text-lg mb-2 block">🧱</span>
+                    <h4 class="font-bold text-sm mb-1 text-neutral-800">Vibe Coding</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed text-left opacity-100 group-hover:opacity-0 transition-opacity duration-300 absolute inset-x-6 top-16 pointer-events-none">Portfolio per Vibe Coding mit Claude gebaut, beschrieben statt programmiert.</p>
+                </div>
+                
+                <div class="absolute inset-6 top-16 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none text-xs text-left">
+                    <div class="font-mono text-[10px] text-emerald-600 font-bold tracking-wider terminal-line">&gt; </div>
+                    <div class="space-y-1 mt-4 block dual-track-view hidden">
+                        <div class="text-[10px] text-neutral-500"><span class="font-bold text-neutral-700">[👤 MENSCH]</span> Layout, Logik & Animation beschrieben</div>
+                        <div class="text-[10px] text-emerald-700 font-medium"><span class="font-bold text-emerald-800">[🤖 KI]</span> Code injiziert & UI-Layout gerendert</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-neutral-200/60 max-w-7xl mx-auto px-6">
+
+    <!-- 12. METRIKEN / KPIS (DASHBOARD-STYLING WIT FORMULAS) -->
+    <section class="w-full max-w-7xl mx-auto px-6 py-24">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs tracking-widest font-bold text-emerald-700 block uppercase mb-1">• KPIS & METRIKEN</span>
+            <h3 class="text-3xl font-bold tracking-tight mb-4">Was wirklich <span class="italic text-emerald-600">zählt</span></h3>
+            <p class="text-neutral-500 text-sm">Basierend auf dem Google HEART-Modell. Für ein ethisches Produkt messen wir Erfolg nicht an maximaler Screen-Time, sondern an der Qualität von Hannas realen Erlebnissen. Adoption ist dabei das Fundament.</p>
+        </div>
+
+        <!-- The Dashboard widget grid layout structure -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch font-sans">
+            
+            <!-- Metric Widget 1: Adoption Highlight card -->
+            <div class="bg-white border-2 border-emerald-600 rounded-2xl p-6 flex flex-col justify-between relative shadow-sm group hover:shadow-md transition-shadow">
+                <div>
+                    <div class="flex justify-between items-center text-[10px] font-mono text-neutral-400 mb-4 border-b border-neutral-100 pb-2">
+                        <span>DIMENSION: ADOPTION</span>
+                        <span class="text-emerald-700 font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 bg-emerald-600 rounded-full animate-ping"></span> [LIVE_TARGET]</span>
+                    </div>
+                    <div class="mb-4">
+                        <span class="text-4xl font-bold tracking-tight text-neutral-800 mono-font block live-dashboard-counter" data-target="78.4" data-suffix="%">0.0%</span>
+                        <span class="text-[10px] text-neutral-400 font-medium">Target Onboarding Completion Rate</span>
+                    </div>
+                    
+                    <!-- Dynamic CSS Fractional UI-Formula Area Layout -->
+                    <div class="my-4 p-3 bg-neutral-50 rounded-xl border border-neutral-100 opacity-80 group-hover:opacity-100 transition-opacity">
+                        <div class="flex items-center gap-3 text-[10px] font-mono text-neutral-500">
+                            <span class="font-bold">FORMEL:</span>
+                            <div class="flex flex-col items-center">
+                                <span class="pb-0.5 border-b border-neutral-300">Erfolgreiche Onboardings</span>
+                                <span class="pt-0.5">App Downloads</span>
+                            </div>
+                            <span>&times; 100</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 text-xs text-left mt-4">
+                        <p><span class="font-bold text-neutral-700 block text-[10px] tracking-wide uppercase">Ziel:</span> "Hanna lädt die App herunter, weil sie sich wie eine Stadtentdeckungs-App anfühlt, nicht wie eine Social-App."</p>
+                        <p><span class="font-bold text-neutral-700 block text-[10px] tracking-wide uppercase">Signal:</span> "Hanna schließt das Onboarding ab und aktiviert ihren ersten Spot innerhalb von 7 Tagen."</p>
+                        <p><span class="font-bold text-neutral-700 block text-[10px] tracking-wide uppercase">Metrik:</span> "Onboarding-Abschlussrate; % der aktiven First-Week-Spots."</p>
+                    </div>
+                </div>
+                <div class="mt-6 pt-3 border-t border-dashed border-neutral-100 text-[10px] font-medium text-red-600 bg-red-50/40 p-2 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
+                    🚫 Wir tracken nicht: Kontakte, sexuelle Orientierung oder private Profildaten.
+                </div>
+            </div>
+
+            <!-- Metric Widget 2: Retention -->
+            <div class="bg-white border border-neutral-200/80 rounded-2xl p-6 flex flex-col justify-between relative shadow-sm group hover:shadow-md transition-shadow">
+                <div>
+                    <div class="flex justify-between items-center text-[10px] font-mono text-neutral-400 mb-4 border-b border-neutral-100 pb-2">
+                        <span>DIMENSION: RETENTION</span>
+                    </div>
+                    <div class="mb-4">
+                        <span class="text-4xl font-bold tracking-tight text-neutral-800 mono-font block live-dashboard-counter" data-target="42.0" data-suffix="%">0.0%</span>
+                        <span class="text-[10px] text-neutral-400 font-medium">Target 30-Day Retention Rate</span>
+                    </div>
+                    
+                    <div class="my-4 p-3 bg-neutral-50 rounded-xl border border-neutral-100 opacity-80 group-hover:opacity-100 transition-opacity">
+                        <div class="flex items-center gap-3 text-[10px] font-mono text-neutral-500">
+                            <span class="font-bold">FORMEL:</span>
+                            <div class="flex flex-col items-center">
+                                <span class="pb-0.5 border-b border-neutral-300">Aktive Nutzer in Woche 4</span>
+                                <span class="pt-0.5">Nutzer in Woche 1</span>
+                            </div>
+                            <span>&times; 100</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 text-xs text-left mt-4">
+                        <p><span class="font-bold text-neutral-700 block text-[10px] tracking-wide uppercase">Ziel:</span> "Hanna kehrt jede Woche zurück, wenn neue Spots erscheinen; die App wird Teil ihres Alltags."</p>
+                        <p><span class="font-bold text-neutral-700 block text-[10px] tracking-wide uppercase">Signal:</span> "Hanna ist nach 4 Wochen noch aktiv und öffnet die App zu Beginn jeder neuen Spot-Woche."</p>
+                        <p><span class="font-bold text-neutral-700 block text-[10px] tracking-wide uppercase">Metrik:</span> "% der Nutzer, die nach 30 Tagen aktiv sind; wöchentliche Wiederkehrrate."</p>
+                    </div>
+                </div>
+                <div class="mt-6 pt-3 border-t border-dashed border-neutral-100 text-[10px] font-medium text-red-600 bg-red-50/40 p-2 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
+                    🚫 Wir tracken nicht: Tägliche Nutzungsdauer (Screen Time) – wir belohnen das Verlassen der App.
+                </div>
+            </div>
+
+            <!-- Metric Widget 3: Happiness -->
+            <div class="bg-white border border-neutral-200/80 rounded-2xl p-6 flex flex-col justify-between relative shadow-sm group hover:shadow-md transition-shadow">
+                <div>
+                    <div class="flex justify-between items-center text-[10px] font-mono text-neutral-400 mb-4 border-b border-neutral-100 pb-2">
+                        <span>DIMENSION: HAPPINESS</span>
+                    </div>
+                    <div class="mb-4">
+                        <span class="text-4xl font-bold tracking-tight text-neutral-800 mono-font block live-dashboard-counter" data-target="65" data-prefix="+">0</span>
+                        <span class="text-[10px] text-neutral-400 font-medium">Target Net Promoter Score</span>
+                    </div>
+                    
+                    <div class="my-4 p-3 bg-neutral-50 rounded-xl border border-neutral-100 opacity-80 group-hover:opacity-100 transition-opacity">
+                        <div class="flex items-center gap-2 text-[10px] font-mono text-neutral-500">
+                            <span class="font-bold">FORMEL:</span>
+                            <span>% Promotoren (9-10) &minus; % Detraktoren (0-6)</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 text-xs text-left mt-4">
+                        <p><span class="font-bold text-neutral-700 block text-[10px] tracking-wide uppercase">Ziel:</span> "Hanna erlebt die App als druckfrei und sicher, und hat das Gefühl, ihre Stadt besser zu kennen."</p>
+                        <p><span class="font-bold text-neutral-700 block text-[10px] tracking-wide uppercase">Signal:</span> "Hanna öffnet die App freiwillig ohne Push-Notifications und hinterlässt positive Bewertungen."</p>
+                        <p><span class="font-bold text-neutral-700 block text-[10px] tracking-wide uppercase">Metrik:</span> "App-Store-Bewertung; NPS nach dem ersten erfolgreich gescannten analogen Spot."</p>
+                    </div>
+                </div>
+                <div class="mt-6 pt-3 border-t border-dashed border-neutral-100 text-[10px] font-medium text-red-600 bg-red-50/40 p-2 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
+                    🚫 Wir nutzen keine: Manipulativen Push-Notifications, um Nutzer künstlich zu locken.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vanilla Javascript Interaktions-Logiken Engine Framework -->
+    <script>
+        // Core Animation Global Controller Hook
+        document.addEventListener("DOMContentLoaded", () => {
+            initScrollObservers();
+            initGlitchMatrixEffects();
+        });
+
+        // Setup Intersection Observers for Scroll Driven Counters & Timelines
+        function initScrollObservers() {
+            // Percent / Numbers Counter Observer Engine
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        const targetElement = entry.target;
+                        const targetValue = parseFloat(targetElement.getAttribute("data-target"));
+                        const suffix = targetElement.getAttribute("data-suffix") || "";
+                        const prefix = targetElement.getAttribute("data-prefix") || "";
+                        animateNumberCounter(targetElement, targetValue, prefix, suffix);
+                        counterObserver.unobserve(targetElement);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            // Attach dynamic counter monitors
+            document.querySelectorAll("#counter-51, .stat-card span, .live-dashboard-counter").forEach(el => {
+                counterObserver.observe(el);
+            });
+
+            // Timeline Scroll Progress Filler Synchronization Element Engine
+            const timelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        const nodePercentage = entry.target.getAttribute("data-percentage");
+                        document.getElementById("timeline-progress").style.height = `${nodePercentage}%`;
+                        entry.target.querySelector(".timeline-dot").classList.add("bg-emerald-600", "border-emerald-600", "scale-125");
+                    }
+                });
+            }, { threshold: 0.8, rootMargin: "0px 0px -20% 0px" });
+
+            document.querySelectorAll(".timeline-node").forEach(node => {
+                timelineObserver.observe(node);
+            });
+
+            // Mere Exposure Blur Feed Handler Scene Trigger Monitor
+            const blurFeedObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        document.getElementById("blur-feed-card").classList.remove("blur-md");
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const liveDemoBox = document.getElementById("live-demo-section");
+            if(liveDemoBox) blurFeedObserver.observe(liveDemoBox);
+        }
+
+        // Mathematical Linear Smooth Counter Runner Animation Logic
+        function animateNumberCounter(element, targetValue, prefix, suffix) {
+            let startTimestamp = null;
+            const duration = 1200; // Fast and fluid dynamic speed execution time frame
+            const startValue = 0;
+
+            function step(timestamp) {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                // Ease out cubic path transition formula execution
+                const easeProgress = 1 - Math.pow(1 - progress, 3);
+                const currentValue = startValue + easeProgress * (targetValue - startValue);
+                
+                // Formatter conditional split tracking decimal values structures
+                if(targetValue % 1 !== 0) {
+                    element.innerText = `${prefix}${currentValue.toFixed(1)}${suffix}`;
+                } else {
+                    element.innerText = `${prefix}${Math.floor(currentValue)}${suffix}`;
+                }
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            }
+            window.requestAnimationFrame(step);
+        }
+
+        // Bumble Ethics Matrix Duell Transition Controller Logic
+        function initGlitchMatrixEffects() {
+            document.querySelectorAll(".ethic-card").forEach(card => {
+                // Apply glitch element state setup dynamically loop
+                if(card.getAttribute("data-glitch") === "true") {
+                    card.classList.add("animate-glitch");
+                }
+
+                // Interactive Clean Heal transition triggers
+                card.addEventListener("mouseenter", () => {
+                    card.classList.remove("animate-glitch", "border-red-200/60");
+                    card.classList.add("border-emerald-600", "bg-emerald-50/20");
+                    card.querySelector(".samespot-view").classList.remove("opacity-30");
+                    card.querySelector(".samespot-view span").classList.remove("text-neutral-400");
+                    card.querySelector(".samespot-view span").classList.add("text-emerald-700");
+                });
+
+                card.addEventListener("mouseleave", () => {
+                    card.classList.add("animate-glitch", "border-red-200/60");
+                    card.classList.remove("border-emerald-600", "bg-emerald-50/20");
+                    card.querySelector(".samespot-view").classList.add("opacity-30");
+                    card.querySelector(".samespot-view span").classList.add("text-neutral-400");
+                    card.querySelector(".samespot-view span").classList.remove("text-emerald-700");
+                });
+            });
+        }
+
+        // Blueprint To UI Interface Toggle System Router Sektion
+        function toggleBlueprint(showWireframes) {
+            const cards = document.querySelectorAll(".blueprint-card");
+            const btnWireframe = document.getElementById("btn-wireframe");
+            const btnLayout = document.getElementById("btn-layout");
+
+            if(showWireframes) {
+                btnWireframe.className = "px-4 py-2 rounded-lg text-xs font-semibold bg-white text-neutral-800 shadow-sm transition-all duration-300";
+                btnLayout.className = "px-4 py-2 rounded-lg text-xs font-semibold text-neutral-500 hover:text-neutral-800 transition-all duration-300";
+                
+                cards.forEach((card, index) => {
+                    card.querySelector(".w-full").innerHTML = `[TODO: WIREFRAME SCREEN ${index + 1} IMAGE]`;
+                    card.querySelector(".blueprint-title").innerText = `Low-Fi Wireframe ${index + 1}`;
+                    card.querySelector(".blueprint-desc").innerText = `Graustufen-Skelett ohne Branding-Elemente.`;
+                });
+            } else {
+                btnLayout.className = "px-4 py-2 rounded-lg text-xs font-semibold bg-white text-neutral-800 shadow-sm transition-all duration-300";
+                btnWireframe.className = "px-4 py-2 rounded-lg text-xs font-semibold text-neutral-500 hover:text-neutral-800 transition-all duration-300";
+                
+                cards.forEach((card, index) => {
+                    card.querySelector(".w-full").innerHTML = `<div class='text-emerald-700 font-bold text-center text-[10px] uppercase'>✨ sameSpot Active Component Render Screen ${index + 1}</div>`;
+                    card.querySelector(".blueprint-title").innerText = `Final High Fidelity Layer`;
+                    card.querySelector(".blueprint-desc").innerText = `Branding-Farben, Radien und Abstände aktiv implementiert.`;
+                });
+            }
+        }
+
+        // Liquid Profiling Morphing Handler Wrapper Function
+        function morphBlob(targetColor, pathD) {
+            const targetPath = document.getElementById("morphing-path");
+            if(targetPath) {
+                targetPath.setAttribute("fill", targetColor);
+                targetPath.setAttribute("d", pathD);
+            }
+        }
+
+        // Live Code Scanner Simulation Morph Controller Switch
+        function triggerScanDemo(container) {
+            const scanState = document.getElementById("scan-screen-state");
+            const chatState = document.getElementById("chat-screen-state");
+            
+            // Trigger flash beam animation overlay color change sequence
+            container.classList.add("ring-4", "ring-green-400", "duration-100");
+            
+            setTimeout(() => {
+                container.classList.remove("ring-4", "ring-green-400");
+                scanState.classList.add("hidden");
+                chatState.classList.remove("hidden");
+            }, 400);
+        }
+
+        // Design System Component Tab Modifier Selector Handler
+        function switchTabComponent(button) {
+            const parent = button.parentElement;
+            parent.querySelectorAll("button").forEach(b => {
+                b.className = "flex-1 text-center py-1.5 rounded-lg text-xs font-semibold text-neutral-500 hover:text-neutral-800 transition-all z-10";
+            });
+            button.className = "flex-1 text-center py-1.5 rounded-lg text-xs font-semibold bg-white text-neutral-800 shadow-sm transition-all z-10";
+        }
+
+        // Figma Workbench Embed Snapshot Highlight Controller
+        function snapPhoneHighlight(isActive) {
+            const wrapper = document.getElementById("figma-phone-wrapper");
+            if(isActive) {
+                wrapper.classList.add("scale-105", "ring-4", "ring-emerald-600/30", "border-emerald-600");
+            } else {
+                wrapper.classList.remove("scale-105", "ring-4", "ring-emerald-600/30", "border-emerald-600");
+            }
+        }
+
+        // Typewriter Sequence Engine Implementation for AI Cards Section
+        function runTerminalSequence(cardElement, promptText) {
+            const lineElement = cardElement.querySelector(".terminal-line");
+            const trackView = cardElement.querySelector(".dual-track-view");
+            
+            if(cardElement.getAttribute("data-typed") === "true") return;
+            cardElement.setAttribute("data-typed", "true");
+
+            let index = 0;
+            lineElement.innerText = "> ";
+
+            function typeChar() {
+                if (index < promptText.length) {
+                    lineElement.innerText += promptText.charAt(index);
+                    index++;
+                    setTimeout(typeChar, 40); // Fast realistic typing speed simulation metric
+                } else {
+                    // Sequence ended -> open dynamic dual track dialog structure view
+                    setTimeout(() => {
+                        trackView.classList.remove("hidden");
+                    }, 200);
+                }
+            }
+            typeChar();
+        }
+    </script>
 </body>
 </html>
