@@ -121,4 +121,23 @@ document.querySelectorAll('.cs-content-card, .cs-card').forEach(card => {
   });
 });
 
-})(); // Ende IIFE — verhindert Konflikte mit script.js
+})(); // Ende IIFE, verhindert Konflikte mit script.js
+
+
+/* sameSpot Case Study: Timeline & Domino (gekapselt) */
+(function(){
+  if(!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.js-timeline').forEach(function(el){el.classList.add('lit');});
+    document.querySelectorAll('.js-domino').forEach(function(el){el.classList.add('fall');});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add(e.target.classList.contains('js-domino') ? 'fall' : 'lit');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.25, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.js-timeline, .js-domino').forEach(function(el){ io.observe(el); });
+})();
