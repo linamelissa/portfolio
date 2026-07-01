@@ -141,3 +141,61 @@ document.querySelectorAll('.cs-content-card, .cs-card').forEach(card => {
   }, { threshold: 0.25, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.js-timeline, .js-domino').forEach(function(el){ io.observe(el); });
 })();
+
+
+/* sameSpot Case Study: Count-up, Balken, Toggles (gekapselt) */
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function countUp(el){
+    var target = parseFloat(el.dataset.count);
+    var dec = parseInt(el.dataset.decimals || '0', 10);
+    var suf = el.dataset.suffix || '';
+    var pre = el.dataset.prefix || '';
+    if(reduce){ el.textContent = pre + target.toFixed(dec) + suf; return; }
+    var dur = 1100, t0 = performance.now();
+    (function step(now){
+      var p = Math.min((now - t0) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = pre + (e * target).toFixed(dec) + suf;
+      if(p < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }
+
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          if(en.target.hasAttribute('data-count')) countUp(en.target);
+          else en.target.classList.add('lit');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-count], .js-lit').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('[data-count]').forEach(countUp);
+    document.querySelectorAll('.js-lit').forEach(function(el){ el.classList.add('lit'); });
+  }
+
+  // Low-Fi Segmented Toggle
+  document.querySelectorAll('[data-lowfi-toggle]').forEach(function(wrap){
+    wrap.querySelectorAll('.cs-seg-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        wrap.querySelectorAll('.cs-seg-btn').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        wrap.setAttribute('data-mode', btn.dataset.mode);
+      });
+    });
+  });
+
+  // Design System Tabs
+  document.querySelectorAll('[data-tabs]').forEach(function(tabs){
+    tabs.querySelectorAll('.cs-ds-tab').forEach(function(tab){
+      tab.addEventListener('click', function(){
+        tabs.querySelectorAll('.cs-ds-tab').forEach(function(t){ t.classList.remove('active'); });
+        tab.classList.add('active');
+      });
+    });
+  });
+})();
