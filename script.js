@@ -39,7 +39,7 @@ const ICONS = {
   'linkedin':'<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>',
   'instagram':'<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>',
   'dribbble':'<circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"/>',
-  'behance':'<path d="M7.5 7H3v10h4.5a3 3 0 0 0 0-6 2.5 2.5 0 0 0 0-4z"/><path d="M3 12h5"/><path d="M14 13a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/><path d="M15 7h4"/>'
+  'behance':'<path d="M7.5 7H3v10h4.5a3 3 0 0 0 0-6 2.5 2.5 0 0 0 0-4z"/><path d="M3 12h5"/><path d="M14 13a3 3 1 0 0 6 0 3 3 0 0 0-6 0z"/><path d="M15 7h4"/>'
 };
 
 function svgIcon(name, cls){
@@ -256,6 +256,24 @@ document.querySelectorAll('.insta-swipe').forEach(card => {
     goTo(current + 1);
   });
 });
+
+// ===== SAMESPOT CARD TILT =====
+const samespotCard = document.querySelector('.case-card-samespot');
+if (samespotCard) {
+  samespotCard.addEventListener('mousemove', (e) => {
+    const rect = samespotCard.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const rotateY = ((x - cx) / cx) * 6;
+    const rotateX = -((y - cy) / cy) * 6;
+    samespotCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+  });
+  samespotCard.addEventListener('mouseleave', () => {
+    samespotCard.style.transform = '';
+  });
+}
 
 // ===== LIGHTBOX =====
 let lbCarouselCurrent = 0;
