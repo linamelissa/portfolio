@@ -10,31 +10,30 @@
 <body>
 
 <nav class="topbar">
-  <a href="index.html" class="topbar-back"><span class="icon-arrow">←</span> Alle Projekte</a>
+  <a href="index.html" class="topbar-back">← Alle Projekte</a>
   <span class="topbar-name">Lina Melissa</span>
   <div class="topbar-right">
     <a href="#kontakt" class="topbar-link">Kontakt</a>
-    <button class="lang-toggle" id="lang-btn" onclick="toggleLang()">EN</button>
+    <a href="#s5" class="topbar-cta">Prototyp ansehen</a>
   </div>
 </nav>
 
 <div class="layout">
 
   <aside class="sidebar">
-    <ul class="sidebar-nav">
-      <li><a href="#s1"><span class="sidebar-num">01</span> Einstieg</a></li>
-      <li><a href="#s2"><span class="sidebar-num">02</span> Problem</a></li>
-      <li><a href="#s3"><span class="sidebar-num">03</span> Prozess &amp; Entscheidungen</a></li>
-      <li><a href="#s4"><span class="sidebar-num">04</span> Lösung</a></li>
-      <li><a href="#s5"><span class="sidebar-num">05</span> Testing &amp; Iteration</a></li>
-      <li><a href="#s6"><span class="sidebar-num">06</span> AI im Designprozess</a></li>
-      <li><a href="#s7"><span class="sidebar-num">07</span> Learnings &amp; Ausblick</a></li>
-      <li><a href="#s8"><span class="sidebar-num">08</span> About</a></li>
+    <ul class="phase-tracker" id="phase-tracker">
+      <li class="phase-item" data-target="s1"><div class="phase-dot-wrap"><div class="phase-dot"></div></div><span>Einstieg</span></li>
+      <li class="phase-item" data-target="s2"><div class="phase-dot-wrap"><div class="phase-dot"></div></div><span>01 Problem</span></li>
+      <li class="phase-item" data-target="s3"><div class="phase-dot-wrap"><div class="phase-dot"></div></div><span>02 Research</span></li>
+      <li class="phase-item" data-target="s4"><div class="phase-dot-wrap"><div class="phase-dot"></div></div><span>03 Define</span></li>
+      <li class="phase-item" data-target="s5"><div class="phase-dot-wrap"><div class="phase-dot"></div></div><span>04 Ideate</span></li>
+      <li class="phase-item" data-target="s6"><div class="phase-dot-wrap"><div class="phase-dot"></div></div><span>05 Design</span></li>
+      <li class="phase-item" data-target="s7"><div class="phase-dot-wrap"><div class="phase-dot"></div></div><span>06 Test &amp; Validate</span></li>
+      <li class="phase-item phase-item-last" data-target="s8"><div class="phase-dot-wrap"><div class="phase-dot"></div></div><span>07 Ergebnisse</span></li>
     </ul>
     <div class="sidebar-meta">
       <div class="meta-item"><span class="meta-label">Typ</span><span class="meta-value">Solo Product Design Case</span></div>
       <div class="meta-item"><span class="meta-label">Rolle</span><span class="meta-value">UX/UI &amp; Product Design</span></div>
-      <div class="meta-item"><span class="meta-label">Umfang</span><span class="meta-value">Research · Ideation · Prototyping · UI</span></div>
       <div class="meta-item"><span class="meta-label">Dauer</span><span class="meta-value">April – August 2026</span></div>
       <div class="meta-item"><span class="meta-label">Tools</span><span class="meta-value">Figma · Miro</span></div>
       <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">In Arbeit</span></div>
@@ -44,7 +43,7 @@
 
   <main class="content">
 
-    <!-- 01 EINSTIEG / HERO -->
+    <!-- HERO -->
     <section id="s1" class="section hero-section reveal">
       <div class="tag-row">
         <span class="tag">UX Research</span>
@@ -59,7 +58,6 @@
       <div class="hero-visual">
         <svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg">
           <rect x="0" y="0" width="720" height="340" rx="28" fill="#EAF1EC"/>
-          <!-- phone frame -->
           <rect x="280" y="18" width="160" height="304" rx="26" fill="#161311"/>
           <rect x="288" y="26" width="144" height="288" rx="20" fill="#F5F2EC"/>
           <rect x="330" y="32" width="60" height="10" rx="5" fill="#161311"/>
@@ -77,7 +75,6 @@
           <rect x="304" y="270" width="112" height="30" rx="15" fill="#FF5B3A"/>
           <text x="360" y="289" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">Spot ansehen</text>
 
-          <!-- floating card left: Wiederbegegnung -->
           <g>
             <rect x="60" y="70" width="180" height="76" rx="16" fill="#FFFFFF" stroke="#16131114"/>
             <circle cx="90" cy="100" r="16" fill="#C9BFA8"/>
@@ -88,7 +85,6 @@
             <text x="212" y="97" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#B23A1F">2x</text>
           </g>
 
-          <!-- floating card right: Spot der Woche -->
           <g>
             <rect x="470" y="150" width="196" height="80" rx="16" fill="#FFFFFF" stroke="#16131114"/>
             <circle cx="500" cy="180" r="14" fill="#FFE3DB"/>
@@ -98,7 +94,6 @@
             <text x="524" y="207" font-family="DM Sans, sans-serif" font-size="10" fill="#6b6a63">Altstadt · 8 Min zu Fuß</text>
           </g>
 
-          <!-- small deco -->
           <circle cx="90" cy="270" r="4" fill="#FF5B3A" opacity="0.6"/>
           <circle cx="130" cy="290" r="3" fill="#161311" opacity="0.2"/>
           <path d="M90 270 L130 290" stroke="#161311" stroke-width="1" stroke-dasharray="2 4" opacity="0.25"/>
@@ -106,210 +101,288 @@
       </div>
     </section>
 
-    <!-- 02 PROBLEM -->
-    <section id="s2" class="section reveal">
-      <p class="section-label">02 · Problem</p>
-      <h2 class="section-title">Nähe wird gewünscht, aber Apps erzeugen genau den Druck, der davor abschreckt.</h2>
-      <div class="stat-row">
-        <div class="stat-box"><div class="stat-num">51%</div><div class="stat-label">der 18-35-Jährigen erleben moderate Einsamkeit</div></div>
-        <div class="stat-box"><div class="stat-num">71%</div><div class="stat-label">warten darauf, angesprochen zu werden</div></div>
-        <div class="stat-box"><div class="stat-num">1 / 52</div><div class="stat-label">würde selbst eine fremde Person ansprechen</div></div>
+    <!-- AUF EINEN BLICK -->
+    <section class="section glance-section reveal">
+      <div class="glance-grid">
+        <div class="glance-card">
+          <span class="glance-icon">▲</span>
+          <h3>Herausforderung</h3>
+          <p>51% der 18-35-Jährigen erleben moderate Einsamkeit. Klassische Social-Apps verstärken den Druck, statt ihn zu lösen.</p>
+        </div>
+        <div class="glance-card">
+          <span class="glance-icon">◆</span>
+          <h3>Ziel</h3>
+          <p>Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nie als Zwang oder erklärtes Ziel.</p>
+        </div>
+        <div class="glance-card">
+          <span class="glance-icon">●</span>
+          <h3>Ergebnis</h3>
+          <p>Ein getesteter Hi-Fi-Prototyp mit vier klaren Kernbereichen, validiert mit echten Usability-Tests.</p>
+        </div>
       </div>
-      <p class="body-text">Meine Persona Hanna hat alle gängigen Social-Apps ausprobiert und wieder gelöscht, der Anspruch "Freunde finden" erzeugt genau den Druck, der sie blockiert. In 4 Tiefeninterviews und einer Umfrage mit 52 Personen zeigte sich: 92% ziehen sich zurück, wenn niemand aus dem eigenen Umfeld verfügbar ist. Das Problem ist nicht fehlende Motivation, sondern die Angst vor dem ersten aktiven Schritt.</p>
+    </section>
+
+    <!-- 01 PROBLEM -->
+    <section id="s2" class="section reveal">
+      <p class="phase-label">01 — Problem</p>
+      <h2 class="section-title">Nähe wird gewünscht, aber Apps erzeugen genau den Druck, der davor abschreckt.</h2>
+
       <blockquote class="quote-card">
         "Ich hab mich einfach damit abgefunden, dass mir irgendwas fehlt, ich aber nicht weiß, wo und wie ich das ändern soll."
         <cite>Hanna Polm, Persona aus dem Research</cite>
       </blockquote>
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-num" data-target="51" data-suffix="%">0%</div><div class="stat-label">der 18-35-Jährigen erleben moderate Einsamkeit</div></div>
+        <div class="stat-box"><div class="stat-num" data-target="71" data-suffix="%">0%</div><div class="stat-label">warten darauf, angesprochen zu werden</div></div>
+        <div class="stat-box"><div class="stat-num" data-target="92" data-suffix="%">0%</div><div class="stat-label">ziehen sich zurück, wenn niemand aus dem Umfeld da ist</div></div>
+      </div>
+
+      <div class="subproblem-grid">
+        <div class="subproblem-card">
+          <h4>Meetup</h4>
+          <p>8.425 Bewertungen, 4,6 Sterne, aber alle positiven Bewertungen 5+ Jahre alt. "Je länger ich die App nutze, desto enttäuschter bin ich."</p>
+        </div>
+        <div class="subproblem-card">
+          <h4>Bumble BFF</h4>
+          <p>Tinder-Logik für Freundschaften. Für Hanna sofort unglaubwürdig, Swipe-Mechanik und Loss-Aversion-Tricks, bloß kein "Dane" als Vorauswahl.</p>
+        </div>
+        <div class="subproblem-card">
+          <h4>Pokémon Go</h4>
+          <p>Funktioniert technisch, aber nicht mehr nachhaltig. Verbindung muss der Kern sein, nicht der Trick.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- 03 PROZESS & ENTSCHEIDUNGEN -->
+    <!-- 02 RESEARCH -->
     <section id="s3" class="section reveal">
-      <p class="section-label">03 · Prozess &amp; Schlüsselentscheidungen</p>
-      <h2 class="section-title">Vier Wendepunkte, nicht jeder Schritt.</h2>
-      <p class="section-sub">Von allen Research- und Ideation-Schritten waren diese vier die Momente, die die Richtung tatsächlich verändert haben.</p>
+      <p class="phase-label">02 — Research</p>
+      <h2 class="section-title">Zuhören, bevor ich gestalte.</h2>
+      <p class="section-sub">4 Tiefeninterviews, eine Umfrage mit 52 Personen, eine Wettbewerbsanalyse von vier Apps.</p>
 
-      <div class="decision-card">
-        <span class="decision-num">Entscheidung 1</span>
-        <h3>Verbundenheit entsteht nicht über den Ort</h3>
-        <p><strong>Annahme:</strong> Ein gemeinsamer Ort wie ein Café oder Park würde automatisch Vertrautheit schaffen.</p>
-        <p><strong>Ergebnis:</strong> Die Umfrage zeigte etwas anderes. Verbundenheit korrelierte kaum mit dem Ort (3,3 von 4), aber stark mit Wiederholung, derselben Person mehrmals zu begegnen (63%).</p>
-        <p><strong>Entscheidung:</strong> Die App auf Wiederbegegnung auslegen statt auf besondere Orte. Spots sind der Rahmen, nicht der Grund.</p>
+      <div class="method-row">
+        <div class="method-card"><span class="method-num">04</span><h4>Tiefeninterviews</h4><p>Qualitative Gespräche über echte Erfahrungen mit sozialer Zurückgezogenheit.</p></div>
+        <div class="method-card"><span class="method-num">52</span><h4>Befragte</h4><p>Quantitative Umfrage zur Validierung der Interview-Muster.</p></div>
+        <div class="method-card"><span class="method-num">04</span><h4>Wettbewerbsanalyse</h4><p>Vier Apps aus demselben Markt, gleiches Muster: Matching-Druck erzeugt Rückzug.</p></div>
       </div>
 
-      <div class="decision-card">
-        <span class="decision-num">Entscheidung 2</span>
-        <h3>Warum "Spots &amp; Feed" gewinnt</h3>
-        <p><strong>Ausgangslage:</strong> Vier parallel entwickelte Konzepte, Spots &amp; Feed, Gemeinsamer Kontext, Digitale Spuren und eine KI-generierte vierte Idee.</p>
-        <p><strong>Bewertung:</strong> "Gemeinsamer Kontext" hätte ein aktives Treffen vorausgesetzt, genau den Druck, den Hanna vermeiden will. "Digitale Spuren" blieb zu abstrakt, ohne echtes Gefühl von Nähe.</p>
-        <p><strong>Entscheidung:</strong> Spots &amp; Feed, die einzige Idee, bei der Verbindung entsteht, ohne dass Hanna aktiv etwas dafür tun muss.</p>
-      </div>
-
-      <div class="decision-card">
-        <span class="decision-num">Entscheidung 3</span>
-        <h3>Keine Matches, keine Bewertungen</h3>
-        <p><strong>Beobachtung:</strong> Bumble BFF und ähnliche Apps nutzen Swipe-Mechaniken, Verlust-Trigger und Bewertungslogik, um Engagement zu erzwingen.</p>
-        <p><strong>Entscheidung:</strong> Bewusst dagegen, kein Match, kein Score, kein Ranking. Verbindung soll nebenbei entstehen, nicht verdient werden müssen.</p>
-      </div>
-
-      <div class="decision-card">
-        <span class="decision-num">Entscheidung 4</span>
-        <h3>Struktur ohne Overhead</h3>
-        <p><strong>Beobachtung:</strong> Aus Wettbewerbsanalyse und Interviews wurde klar, jede zusätzliche Menüebene ist eine Hürde für jemanden, der ohnehin zögert.</p>
-        <p><strong>Entscheidung:</strong> Flache Struktur, vier Tabs, kein Menü, keine versteckten Funktionen.</p>
+      <h3 class="sub-heading">Was sich bestätigt hat, und was nicht</h3>
+      <div class="hypothesis-list">
+        <div class="hyp-item hyp-confirmed"><span class="hyp-tag">bestätigt</span><p>Beiläufige, unvorbereitete Begegnungen sind die unterschätzte Grundlage für echte Verbindungen.</p></div>
+        <div class="hyp-item hyp-refuted"><span class="hyp-tag">widerlegt</span><p>Verbundenheit entsteht über gemeinsame Orte in der Stadt.</p></div>
+        <div class="hyp-item hyp-confirmed"><span class="hyp-tag">bestätigt</span><p>Der Anspruch "Freunde finden" erzeugt so viel Druck, dass viele früh aufgeben.</p></div>
+        <div class="hyp-item hyp-confirmed"><span class="hyp-tag">bestätigt</span><p>Menschen sind sozial ausgelastet, aber nie als aktiver Part. Als passiver Part sind sie offen.</p></div>
+        <div class="hyp-item hyp-confirmed hyp-strong"><span class="hyp-tag">stark bestätigt</span><p>Der beste Moment ist einer, in dem gar nicht merkt, dass man gerade einen sozialen Schritt macht.</p></div>
       </div>
     </section>
 
-    <!-- 04 LÖSUNG -->
+    <!-- 03 DEFINE -->
     <section id="s4" class="section reveal">
-      <p class="section-label">04 · Die Lösung</p>
-      <h2 class="section-title">Vier Screens, jeder mit einer klaren Aufgabe.</h2>
+      <p class="phase-label">03 — Define</p>
+      <h2 class="section-title">Schlüsselentscheidungen</h2>
+      <p class="section-sub">Basierend auf den Research-Erkenntnissen habe ich die wichtigsten Designprinzipien definiert.</p>
 
-      <div class="screen-grid">
-        <div class="screen-item">
-          <svg class="screen-mock" viewBox="0 0 220 400" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="4" width="212" height="392" rx="30" fill="#161311"/>
-            <rect x="12" y="12" width="196" height="376" rx="24" fill="#F5F2EC"/>
-            <rect x="86" y="18" width="48" height="9" rx="4.5" fill="#161311"/>
-            <text x="110" y="66" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="15" fill="#161311">Diese Woche</text>
-            <rect x="26" y="86" width="168" height="52" rx="12" fill="#FFFFFF"/>
-            <rect x="38" y="100" width="90" height="7" rx="3.5" fill="#D8D2C4"/>
-            <rect x="38" y="116" width="60" height="7" rx="3.5" fill="#D8D2C4"/>
-            <circle cx="180" cy="112" r="9" fill="#FF5B3A"/>
-            <rect x="26" y="148" width="168" height="52" rx="12" fill="#FFFFFF"/>
-            <rect x="38" y="162" width="90" height="7" rx="3.5" fill="#D8D2C4"/>
-            <rect x="38" y="178" width="60" height="7" rx="3.5" fill="#D8D2C4"/>
-            <rect x="26" y="210" width="168" height="52" rx="12" fill="#FFFFFF"/>
-            <rect x="38" y="224" width="90" height="7" rx="3.5" fill="#D8D2C4"/>
-            <rect x="38" y="240" width="60" height="7" rx="3.5" fill="#D8D2C4"/>
-            <rect x="26" y="352" width="168" height="6" rx="3" fill="#16131110"/>
-          </svg>
-          <h3>Aufgaben-Zentrale</h3>
-          <p>Der Homescreen zeigt nur, was diese Woche ansteht, nicht mehr. Bewusst kein Feed als Startpunkt, damit Hanna sich nicht sofort mit fremder Aktivität vergleicht.</p>
+      <div class="ba-decision reveal-child">
+        <h4>Verbundenheit entsteht nicht über den Ort</h4>
+        <div class="ba-row">
+          <div class="ba-side ba-left"><span class="ba-tag">Annahme</span><p>Ein gemeinsamer Ort wie ein Café oder Park würde automatisch Vertrautheit schaffen.</p></div>
+          <div class="ba-side ba-right"><span class="ba-tag">Erkenntnis</span><p>Verbundenheit korrelierte kaum mit dem Ort (3,3 von 4), aber stark mit Wiederholung (63%).</p></div>
         </div>
+        <p class="ba-note">→ Die App auf Wiederbegegnung auslegen statt auf besondere Orte. Spots sind der Rahmen, nicht der Grund.</p>
+      </div>
 
-        <div class="screen-item">
-          <svg class="screen-mock" viewBox="0 0 220 400" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="4" width="212" height="392" rx="30" fill="#161311"/>
-            <rect x="12" y="12" width="196" height="376" rx="24" fill="#F5F2EC"/>
-            <rect x="86" y="18" width="48" height="9" rx="4.5" fill="#161311"/>
-            <text x="110" y="64" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="15" fill="#161311">Entdecken</text>
-            <rect x="26" y="82" width="168" height="90" rx="14" fill="#FFFFFF"/>
-            <circle cx="48" cy="106" r="12" fill="#C9BFA8"/>
-            <rect x="66" y="100" width="80" height="7" rx="3.5" fill="#D8D2C4"/>
-            <rect x="66" y="114" width="60" height="7" rx="3.5" fill="#D8D2C4"/>
-            <rect x="38" y="132" width="144" height="28" rx="8" fill="#FFE3DB"/>
-            <text x="110" y="150" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#B23A1F">wart beide hier</text>
-            <rect x="26" y="182" width="168" height="90" rx="14" fill="#FFFFFF"/>
-            <circle cx="48" cy="206" r="12" fill="#C9BFA8"/>
-            <rect x="66" y="200" width="80" height="7" rx="3.5" fill="#D8D2C4"/>
-            <rect x="66" y="214" width="60" height="7" rx="3.5" fill="#D8D2C4"/>
-          </svg>
-          <h3>Entdecken-Feed</h3>
-          <p>Zeigt, wer denselben Spot besucht hat, ohne Profile, ohne Bewertung. Keine Likes, sondern eine stille Bestätigung: da war jemand wie du.</p>
-        </div>
-
-        <div class="screen-item">
-          <svg class="screen-mock" viewBox="0 0 220 400" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="4" width="212" height="392" rx="30" fill="#161311"/>
-            <rect x="12" y="12" width="196" height="376" rx="24" fill="#0F0D0C"/>
-            <rect x="86" y="18" width="48" height="9" rx="4.5" fill="#161311"/>
-            <text x="110" y="70" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#FFFFFF">Ihr seid jetzt</text>
-            <text x="110" y="90" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#FFFFFF">beide hier</text>
-            <circle cx="80" cy="150" r="20" fill="#8A8078"/>
-            <text x="80" y="156" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#FFFEFA">D</text>
-            <circle cx="110" cy="150" r="13" fill="#FF5B3A"/>
-            <circle cx="140" cy="150" r="20" fill="#8A8078"/>
-            <text x="140" y="156" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#FFFEFA">P</text>
-            <rect x="34" y="210" width="152" height="32" rx="16" fill="#FF5B3A"/>
-            <text x="110" y="230" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">Handys aneinander halten</text>
-          </svg>
-          <h3>Austausch-Screen</h3>
-          <p>Aus einer Begegnung wird erst ein Gespräch, wenn beide den Code offline ausgetauscht haben. Kein Chat ohne physische Begegnung, das war uns wichtig gegen Fake-Kontakte.</p>
-        </div>
-
-        <div class="screen-item">
-          <svg class="screen-mock" viewBox="0 0 220 400" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="4" width="212" height="392" rx="30" fill="#161311"/>
-            <rect x="12" y="12" width="196" height="376" rx="24" fill="#F5F2EC"/>
-            <rect x="86" y="18" width="48" height="9" rx="4.5" fill="#161311"/>
-            <circle cx="110" cy="70" r="26" fill="#FFE3DB"/>
-            <text x="110" y="78" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="16" fill="#B23A1F">H</text>
-            <text x="110" y="118" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#161311">Stadthistorikerin</text>
-            <rect x="26" y="140" width="168" height="8" rx="4" fill="#EFE9DF"/>
-            <rect x="26" y="156" width="120" height="8" rx="4" fill="#EFE9DF"/>
-            <rect x="26" y="184" width="80" height="80" rx="12" fill="#FFFFFF"/>
-            <rect x="114" y="184" width="80" height="80" rx="12" fill="#FFFFFF"/>
-          </svg>
-          <h3>Organisches Profil</h3>
-          <p>Das Profil füllt sich nicht über ein Formular, sondern über das, was man tatsächlich macht. Aus abgeschlossenen Spots entsteht nach und nach ein Spot-Typ, ganz ohne Selbsteinschätzung.</p>
+      <div class="ba-decision reveal-child">
+        <h4>Keine Matches, keine Bewertungen</h4>
+        <div class="ba-row">
+          <div class="ba-side ba-left"><span class="ba-tag">Marktstandard</span><p>Bumble BFF und ähnliche Apps nutzen Swipe-Mechaniken, Verlust-Trigger und Bewertungslogik, um Engagement zu erzwingen.</p></div>
+          <div class="ba-side ba-right"><span class="ba-tag">Unser Prinzip</span><p>Kein Match, kein Score, kein Ranking. Verbindung soll nebenbei entstehen, nicht verdient werden müssen.</p></div>
         </div>
       </div>
 
-      <div class="prototype-cta">
-        <p>Klickbarer HTML-Prototyp mit allen vier Kernscreens verknüpft.</p>
-        <a href="#" class="btn-primary-cs">Prototyp ansehen</a>
+      <div class="ba-decision reveal-child">
+        <h4>Struktur ohne Overhead</h4>
+        <div class="ba-row">
+          <div class="ba-side ba-left"><span class="ba-tag">Beobachtung</span><p>Jede zusätzliche Menüebene ist eine Hürde für jemanden, der ohnehin zögert.</p></div>
+          <div class="ba-side ba-right"><span class="ba-tag">Entscheidung</span><p>Flache Struktur, vier Tabs, kein Menü, keine versteckten Funktionen.</p></div>
+        </div>
       </div>
     </section>
 
-    <!-- 05 TESTING & ITERATION -->
+    <!-- 04 IDEATE -->
     <section id="s5" class="section reveal">
-      <p class="section-label">05 · Testing &amp; Iteration</p>
+      <p class="phase-label">04 — Ideate</p>
+      <h2 class="section-title">Von vier Ideen zu einer Entscheidung.</h2>
+      <p class="section-sub">Vier Konzepte parallel entwickelt, bewertet anhand der Research-Erkenntnisse.</p>
+
+      <div class="idea-row">
+        <div class="idea-card idea-winner">
+          <span class="idea-check" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-path"/></svg>
+          </span>
+          <h4>Spots &amp; Feed</h4>
+          <p><strong>Problem:</strong> Verbindung entsteht nicht durch aktive Suche, sondern durch Zufall und Wiederholung.</p>
+          <p><strong>Lösung:</strong> Wöchentliche Spots, geteilte Aktivität im Feed, kein Algorithmus.</p>
+          <p><strong>Mehrwert:</strong> Verbindung entsteht, ohne dass Hanna aktiv etwas dafür tun muss.</p>
+        </div>
+        <div class="idea-card idea-faded">
+          <h4>Gemeinsamer Kontext</h4>
+          <p><strong>Problem:</strong> Fremde brauchen einen Anlass, um sich anzusprechen.</p>
+          <p><strong>Lösung:</strong> Ein gemeinsamer Kontext-Raum pro Ort, "trifft jemanden, der Grund war zufällig da".</p>
+          <p><strong>Mehrwert:</strong> Interessant, aber erfordert aktive Einstiegshürde, genau der Druck, den Hanna vermeidet.</p>
+        </div>
+        <div class="idea-card idea-faded">
+          <h4>Digitale Spuren</h4>
+          <p><strong>Problem:</strong> Menschen hinterlassen digitale Spuren an realen Orten.</p>
+          <p><strong>Lösung:</strong> Kein festes Profil, nur "hier war jemand", verbunden über gemeinsame Dinge.</p>
+          <p><strong>Mehrwert:</strong> Interessant, aber zu abstrakt, kein echtes Gefühl von Nähe.</p>
+        </div>
+      </div>
+
+      <h3 class="sub-heading">Informationsarchitektur</h3>
+      <div class="sitemap">
+        <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" class="sitemap-svg">
+          <rect x="270" y="10" width="100" height="36" rx="10" fill="#4E8B5C" class="site-box" />
+          <text x="320" y="33" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="13" fill="white">sameSpot</text>
+
+          <line x1="320" y1="46" x2="320" y2="80" stroke="#B7CBBC" stroke-width="2" class="site-line"/>
+          <line x1="80" y1="80" x2="560" y2="80" stroke="#B7CBBC" stroke-width="2" class="site-line"/>
+          <line x1="80" y1="80" x2="80" y2="100" stroke="#B7CBBC" stroke-width="2" class="site-line"/>
+          <line x1="240" y1="80" x2="240" y2="100" stroke="#B7CBBC" stroke-width="2" class="site-line"/>
+          <line x1="400" y1="80" x2="400" y2="100" stroke="#B7CBBC" stroke-width="2" class="site-line"/>
+          <line x1="560" y1="80" x2="560" y2="100" stroke="#B7CBBC" stroke-width="2" class="site-line"/>
+
+          <rect x="30" y="100" width="100" height="40" rx="10" fill="white" stroke="#161F1720" class="site-box"/>
+          <text x="80" y="124" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#161F17">Aufgaben</text>
+          <rect x="190" y="100" width="100" height="40" rx="10" fill="white" stroke="#161F1720" class="site-box"/>
+          <text x="240" y="124" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#161F17">Entdecken</text>
+          <rect x="350" y="100" width="100" height="40" rx="10" fill="white" stroke="#161F1720" class="site-box"/>
+          <text x="400" y="124" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#161F17">Austausch</text>
+          <rect x="510" y="100" width="100" height="40" rx="10" fill="white" stroke="#161F1720" class="site-box"/>
+          <text x="560" y="124" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#161F17">Profil</text>
+
+          <text x="80" y="160" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#6b7d6d">Wöchentliche Spots</text>
+          <text x="240" y="160" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#6b7d6d">Feed</text>
+          <text x="400" y="160" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#6b7d6d">Code + Chat</text>
+          <text x="560" y="160" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#6b7d6d">Spot-Typ</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 05 DESIGN -->
+    <section id="s6" class="section reveal">
+      <p class="phase-label">05 — Design</p>
+      <h2 class="section-title">Vom Skelett zum fertigen Screen.</h2>
+
+      <div class="fidelity-row">
+        <div class="fidelity-col">
+          <span class="fidelity-tag">Wireframe-Struktur</span>
+          <div class="wireframe-box">
+            <div class="wf-block"><div class="wf-line-title"></div><div class="wf-line"></div><div class="wf-line short"></div></div>
+            <div class="wf-block"><div class="wf-line-title"></div><div class="wf-line"></div><div class="wf-line short"></div></div>
+            <div class="wf-block"><div class="wf-line-title"></div><div class="wf-line"></div><div class="wf-line short"></div></div>
+          </div>
+          <p class="fidelity-caption">Reduzierte Navigation, klarer Lesefokus, physische Barriere als bewusster Interaktionspunkt.</p>
+        </div>
+        <div class="fidelity-col">
+          <span class="fidelity-tag">Hi-Fi Screens</span>
+          <div class="screen-grid">
+            <div class="screen-item">
+              <svg class="screen-mock" viewBox="0 0 220 400" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="4" width="212" height="392" rx="30" fill="#161311"/>
+                <rect x="12" y="12" width="196" height="376" rx="24" fill="#F5F2EC"/>
+                <rect x="86" y="18" width="48" height="9" rx="4.5" fill="#161311"/>
+                <text x="110" y="66" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="15" fill="#161311">Diese Woche</text>
+                <rect x="26" y="86" width="168" height="52" rx="12" fill="#FFFFFF"/>
+                <rect x="38" y="100" width="90" height="7" rx="3.5" fill="#D8D2C4"/>
+                <rect x="38" y="116" width="60" height="7" rx="3.5" fill="#D8D2C4"/>
+                <circle cx="180" cy="112" r="9" fill="#FF5B3A"/>
+                <rect x="26" y="148" width="168" height="52" rx="12" fill="#FFFFFF"/>
+                <rect x="38" y="162" width="90" height="7" rx="3.5" fill="#D8D2C4"/>
+                <rect x="38" y="178" width="60" height="7" rx="3.5" fill="#D8D2C4"/>
+                <rect x="26" y="352" width="168" height="6" rx="3" fill="#16131110"/>
+              </svg>
+              <p>Aufgaben-Zentrale</p>
+            </div>
+            <div class="screen-item">
+              <svg class="screen-mock" viewBox="0 0 220 400" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="4" width="212" height="392" rx="30" fill="#161311"/>
+                <rect x="12" y="12" width="196" height="376" rx="24" fill="#0F0D0C"/>
+                <rect x="86" y="18" width="48" height="9" rx="4.5" fill="#161311"/>
+                <text x="110" y="70" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#FFFFFF">Ihr seid jetzt</text>
+                <text x="110" y="90" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#FFFFFF">beide hier</text>
+                <circle cx="80" cy="150" r="20" fill="#8A8078"/>
+                <text x="80" y="156" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#FFFEFA">D</text>
+                <circle cx="110" cy="150" r="13" fill="#FF5B3A"/>
+                <circle cx="140" cy="150" r="20" fill="#8A8078"/>
+                <text x="140" y="156" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#FFFEFA">P</text>
+                <rect x="34" y="210" width="152" height="32" rx="16" fill="#FF5B3A"/>
+                <text x="110" y="230" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">Handys aneinander halten</text>
+              </svg>
+              <p>Austausch-Screen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prototype-embed">
+        <div class="prototype-frame">
+          <svg viewBox="0 0 220 400" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="4" width="212" height="392" rx="30" fill="#161311"/>
+            <rect x="12" y="12" width="196" height="376" rx="24" fill="#F5F2EC"/>
+            <rect x="86" y="18" width="48" height="9" rx="4.5" fill="#161311"/>
+            <text x="110" y="200" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="16" fill="#161311">sameSpot</text>
+          </svg>
+          <div class="prototype-play">▶</div>
+        </div>
+        <div class="prototype-info">
+          <h3>Erlebe sameSpot selbst</h3>
+          <p>Teste den klickbaren Hi-Fi-Prototyp direkt hier oder öffne ihn in Figma für die vollständige Ansicht.</p>
+          <a href="#" class="btn-primary-cs">In Figma öffnen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 TEST & VALIDATE -->
+    <section id="s7" class="section reveal">
+      <p class="phase-label">06 — Test &amp; Validate</p>
       <h2 class="section-title">Was der Test zeigte, und was sich dadurch geändert hat.</h2>
       <p class="body-text">Ich habe den Hi-Fi-Prototyp mit zwei Testpersonen im Think-Aloud-Verfahren getestet, Lisa und Jari, beide passend zur Zielgruppe.</p>
 
       <div class="finding-list">
-        <div class="finding-item">
-          <span class="finding-num">Befund 1</span>
-          <p>Der Feed war der schwächste Screen. Beide Testpersonen wussten nicht genau, wonach sie dort eigentlich suchen sollten.</p>
-        </div>
-        <div class="finding-item">
-          <span class="finding-num">Befund 2</span>
-          <p>Die Verbindung war versteckt. Der Code-Austausch lag zwei Ebenen tief, Jari fand die Chat-Funktion gar nicht.</p>
-        </div>
-        <div class="finding-item">
-          <span class="finding-num">Befund 3</span>
-          <p>Die Re-Encounter-Idee wirkte auf Jari zunächst gruselig. "Woher weiß die App, dass ich da schon mal war" löste Unbehagen aus statt Vertrauen.</p>
-        </div>
+        <div class="finding-item"><span class="finding-num">Befund 1</span><p>Der Feed war der schwächste Screen. Beide Testpersonen wussten nicht genau, wonach sie dort eigentlich suchen sollten.</p></div>
+        <div class="finding-item"><span class="finding-num">Befund 2</span><p>Die Verbindung war versteckt. Der Code-Austausch lag zwei Ebenen tief, Jari fand die Chat-Funktion gar nicht.</p></div>
+        <div class="finding-item"><span class="finding-num">Befund 3</span><p>Die Re-Encounter-Idee wirkte auf Jari zunächst gruselig. "Woher weiß die App, dass ich da schon mal war" löste Unbehagen aus statt Vertrauen.</p></div>
       </div>
 
-      <div class="before-after">
-        <div class="ba-col ba-before">
-          <span class="ba-label">Vorher</span>
-          <p>Code und Chat lagen in getrennten Tabs, der Chat war praktisch unauffindbar.</p>
-        </div>
+      <div class="before-after reveal-child">
+        <div class="ba-col ba-before"><span class="ba-label">Vorher</span><p>Code und Chat lagen in getrennten Tabs, der Chat war praktisch unauffindbar.</p></div>
         <div class="ba-arrow">→</div>
-        <div class="ba-col ba-after">
-          <span class="ba-label">Nachher</span>
-          <p>Der Austausch-Tab vereint beides. Chats erscheinen als Liste mit dem gemeinsamen Spot als Vorschau, der Code ist über einen Button im selben Screen erreichbar.</p>
-        </div>
+        <div class="ba-col ba-after"><span class="ba-label">Nachher</span><p>Der Austausch-Tab vereint beides. Chats erscheinen als Liste mit dem gemeinsamen Spot als Vorschau, der Code ist über einen Button erreichbar.</p></div>
       </div>
 
-      <p class="body-text">Für Befund 3 haben wir die Formulierung geändert. Statt technischer Ortungssprache erklärt die App jetzt in einem Satz, warum sie euch beiden gerade zeigt, dass ihr da wart, nämlich weil ihr beide denselben Spot abgeschlossen habt. Nichts wird im Hintergrund getrackt.</p>
-    </section>
-
-    <!-- 06 AI IM DESIGNPROZESS -->
-    <section id="s6" class="section reveal">
-      <p class="section-label">06 · AI im Designprozess</p>
-      <h2 class="section-title">Wo KI konkret geholfen hat, und wo nicht.</h2>
-      <div class="ai-grid">
-        <div class="ai-card">
-          <h3>Research-Synthese</h3>
-          <p>Claude genutzt, um aus den Interview-Transkripten erste Themen-Cluster zu identifizieren. Hat ungefähr zwei Stunden Vorarbeit gespart. Die inhaltliche Bewertung und Hypothesenbildung kamen von mir.</p>
+      <h3 class="sub-heading">Was wirklich zählt</h3>
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <span class="kpi-dim">Adoption · Ziel</span>
+          <div class="kpi-num" data-target="78.4" data-suffix="%">0%</div>
+          <p>Ziel-Onboarding-Abschlussquote</p>
         </div>
-        <div class="ai-card">
-          <h3>Ideation</h3>
-          <p>Für die Konzeptphase vier parallele Lösungsideen von Claude generieren lassen, als zusätzlichen Ausgangspunkt neben meinen eigenen drei Ideen. Bewertet und verworfen habe ich sie selbst, anhand meiner Kriterien aus dem Research.</p>
+        <div class="kpi-card">
+          <span class="kpi-dim">Retention · Ziel</span>
+          <div class="kpi-num" data-target="42.0" data-suffix="%">0%</div>
+          <p>der 30-Tage-Retention</p>
         </div>
-        <div class="ai-card">
-          <h3>Vibe Coding</h3>
-          <p>Mein Portfolio ist über Claude entstanden, nachdem ich vier Tage in Figma und Framer gebaut hatte. Struktur und Design kamen von mir, umgesetzt wurde es im Dialog direkt in Code.</p>
+        <div class="kpi-card">
+          <span class="kpi-dim">Referral · Ziel</span>
+          <div class="kpi-num" data-target="65" data-suffix="" data-prefix="+">0</div>
+          <p>Zähl-Promoter-Score</p>
         </div>
       </div>
     </section>
 
-    <!-- 07 LEARNINGS & AUSBLICK -->
-    <section id="s7" class="section reveal">
-      <p class="section-label">07 · Learnings &amp; Ausblick</p>
+    <!-- 07 ERGEBNISSE -->
+    <section id="s8" class="section reveal">
+      <p class="phase-label">07 — Ergebnisse</p>
       <h2 class="section-title">Was ich gelernt habe.</h2>
       <div class="learning-list">
         <div class="learning-item">
@@ -318,19 +391,24 @@
         </div>
         <div class="learning-item">
           <h3>Widerlegte Hypothesen sind Gold</h3>
-          <p>Ich dachte, Verbundenheit entsteht über gemeinsame Orte. Die Umfrage zeigte, sie entsteht durch Menschen, durch Wiederholung. Das hat das ganze Konzept verändert, im Nachhinein einer der wichtigsten Momente im Prozess.</p>
+          <p>Ich dachte, Verbundenheit entsteht über gemeinsame Orte. Die Umfrage zeigte, sie entsteht durch Menschen, durch Wiederholung. Das hat das ganze Konzept verändert.</p>
         </div>
         <div class="learning-item">
           <h3>Vertrauen verdient man, nicht behauptet man</h3>
-          <p>Bumble BFF zeigt, wie Vertrauen durch manipulative Sprache behauptet wird. sameSpot versucht, jede Designentscheidung so zu treffen, dass Vertrauen tatsächlich entsteht, statt nur behauptet zu werden.</p>
+          <p>Bumble BFF zeigt, wie Vertrauen durch manipulative Sprache behauptet wird. sameSpot versucht, jede Designentscheidung so zu treffen, dass Vertrauen tatsächlich entsteht.</p>
         </div>
       </div>
-      <p class="body-text">Nicht ob die App gefällt, ist die eigentliche Frage, sondern ob Hanna sie überhaupt herunterlädt. Genau das testet Modul 5, das Cold-Start-Problem. Erste Hypothese: eine geodete Inhalte-Vorschau vor der Registrierung. Und die Freemium-Grenze muss noch geschärft werden, was gehört zum kostenlosen Kern, was ist echtes Premium?</p>
+      <p class="body-text">Nicht ob die App gefällt, ist die eigentliche Frage, sondern ob Hanna sie überhaupt herunterlädt. Genau das testet Modul 5, das Cold-Start-Problem. Und die Freemium-Grenze muss noch geschärft werden, was gehört zum kostenlosen Kern, was ist echtes Premium?</p>
+
+      <div class="result-actions">
+        <a href="#" class="btn-primary-cs">Prototyp ansehen</a>
+        <a href="index.html" class="btn-outline-cs">Zurück zur Übersicht</a>
+      </div>
     </section>
 
-    <!-- 08 ABOUT -->
-    <section id="s8" class="section reveal" id="kontakt">
-      <p class="section-label">08 · About</p>
+    <!-- ABOUT -->
+    <section id="kontakt" class="section reveal">
+      <p class="phase-label">About</p>
       <h2 class="section-title">Kurz zu mir.</h2>
       <p class="body-text">Ich bin Lina, UX/UI Designerin aus Lüneburg, komme ursprünglich aus der Mediengestaltung Digital &amp; Print. Aktuell im Product Design Bootcamp bei der Digitale Leute School, davor ein Jahr als Mediengestalterin bei PR Druck. Mich interessiert weniger, wie etwas aussieht, sondern wie es sich anfühlt, wenn man es benutzt.</p>
       <div class="about-actions">
