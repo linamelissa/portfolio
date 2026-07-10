@@ -541,3 +541,42 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
 /* Contact email hint */
 .contact-email-hint{font-family:var(--font-mono);font-size:13px;color:var(--ink-soft);margin-top:16px;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s;letter-spacing:.04em}
 .contact-email-hint.visible{opacity:1;transform:translateY(0)}
+
+/* ===== SAMESPOT CARD (Tilt + Sweep) ===== */
+.case-card-samespot{
+  transition: box-shadow .25s, transform .15s ease-out;
+}
+.case-card-samespot:hover{
+  box-shadow:0 20px 48px rgba(78,139,92,0.18),0 4px 12px rgba(22,31,23,0.08);
+}
+.case-card-samespot .case-thumb-shine{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,0.35) 45%,transparent 60%);
+  transform:translateX(-140%);
+  transition:transform .9s cubic-bezier(.4,0,.2,1);
+}
+.case-card-samespot:hover .case-thumb-shine{
+  transform:translateX(140%);
+}
+.case-card-tagline{
+  font-family:var(--font-mono);
+  font-size:12px;
+  color:var(--green-mid);
+  margin-bottom:10px !important;
+  flex:none !important;
+}
+.case-card-cta-wip{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+.case-wip-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--green-mid);
+  animation:pulse 2s ease-in-out infinite;
+}
