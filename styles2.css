@@ -328,6 +328,90 @@ a:focus-visible, button:focus-visible{
   .btn-primary, .btn-secondary, .scroll-indicator{ transition:none; }
 }
 
+/* ==========================================================================
+   Entrance choreography — plays once on load, like watching the page get
+   built in Figma: cursor glides in, "clicks" the name pill, pill lights up,
+   then the rest of the hero settles in with a staggered fade-up.
+   ========================================================================== */
+
+.cursor-doodle{
+  animation:cursor-enter 1.9s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes cursor-enter{
+  0%{ opacity:0; transform:translate(3.5cqw,-2.8cqw) scale(1); }
+  38%{ opacity:1; transform:translate(0,0) scale(1); }
+  58%{ transform:translate(0,0) scale(1); }
+  66%{ transform:translate(0,0) scale(0.72); }
+  76%{ transform:translate(0,0) scale(1.08); }
+  86%{ transform:translate(0,0) scale(0.96); }
+  100%{ transform:translate(0,0) scale(1); }
+}
+
+.name-pill{
+  animation:pill-click 1.9s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes pill-click{
+  0%, 62%{
+    transform:scale(1);
+    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+  }
+  70%{ transform:scale(0.96); }
+  78%{
+    transform:scale(1.035);
+    box-shadow:0 0 0 7px rgba(78,139,92,0.28), 0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+  }
+  100%{
+    transform:scale(1);
+    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+  }
+}
+
+/* Staggered fade-up reveal for the rest of the hero content */
+.eyebrow, .headline .line, .photo-cluster, .cta-row, .stat{
+  animation:fade-up 0.7s ease-out both;
+}
+@keyframes fade-up{
+  from{ opacity:0; transform:translateY(14px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+.scroll-indicator{
+  animation:fade-in-dim 0.7s ease-out both;
+  animation-delay:2.3s;
+}
+@keyframes fade-in-dim{
+  from{ opacity:0; }
+  to{ opacity:0.6; }
+}
+
+.eyebrow{ animation-delay:1.5s; }
+.headline .line-dark{ animation-delay:1.6s; }
+.headline .line-light{ animation-delay:1.72s; }
+.photo-cluster{ animation-delay:1.85s; }
+.cta-row{ animation-delay:1.95s; }
+.stat:nth-child(1){ animation-delay:2.05s; }
+.stat:nth-child(3){ animation-delay:2.12s; }
+.stat:nth-child(5){ animation-delay:2.19s; }
+
+/* The badge sits inside .photo-cluster and should settle in slightly after
+   its parent so it reads as a distinct little "pop", not a rigid unit. */
+.badge{
+  animation:badge-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+  animation-delay:2.05s;
+}
+@keyframes badge-pop{
+  from{ opacity:0; transform:scale(0.7); }
+  to{ opacity:1; transform:scale(1); }
+}
+
+/* Entrance choreography also respects reduced-motion preferences */
+@media (prefers-reduced-motion: reduce){
+  .cursor-doodle, .name-pill, .eyebrow, .headline .line,
+  .photo-cluster, .cta-row, .stat, .scroll-indicator, .badge{
+    animation:none;
+  }
+}
+
 /* Mobile fallback: below this the cqw math gets illegible, switch to a stacked layout */
 @media (max-width:680px){
   .hero-scale-wrap{ container-type:normal; }
