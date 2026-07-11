@@ -112,13 +112,15 @@
 }
 
 .nav-contact{
+  position:relative;
+  overflow:hidden;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   height:34px;
   padding:0 18px;
   border-radius:100px;
-  background:linear-gradient(146deg, var(--nav-gradient-start) 7.7%, var(--nav-gradient-end) 92.3%);
+  background:#25302A;
   box-shadow:0px 2px 4px rgba(31,77,40,0.2);
   color:white;
   font-family:'DM Sans', sans-serif;
@@ -129,7 +131,7 @@
   white-space:nowrap;
   transition:filter 0.2s ease, transform 0.15s ease;
 }
-.nav-contact:hover{ filter:brightness(1.08); }
+.nav-contact:hover{ filter:brightness(1.15); }
 .nav-contact:active{ transform:scale(0.97); }
 .nav-contact:focus-visible{
   outline:none;
@@ -357,6 +359,8 @@ a:focus-visible, button:focus-visible{
   white-space:nowrap;
 }
 .btn-primary, .btn-secondary{
+  position:relative;
+  overflow:hidden;
   display:inline-flex;
   align-items:center;
   gap:0.3cqw;
@@ -376,10 +380,37 @@ a:focus-visible, button:focus-visible{
 .btn-primary:active{ transform:scale(0.97); }
 
 .btn-secondary{ background:white; color:var(--ink); border:1.5px solid var(--ink); }
-.btn-secondary:hover{ background:var(--ink); color:white; }
+.btn-secondary:hover{ border-color:var(--green-dark); }
 .btn-secondary:active{ transform:scale(0.97); }
 
 .btn-primary svg, .btn-secondary svg{ width:1.05cqw; height:1.05cqw; min-width:14px; min-height:14px; }
+
+/* Shine sweep — a soft diagonal highlight that glides across on hover.
+   Shared by both CTA buttons and the nav Kontakt button. */
+.btn-primary::after, .btn-secondary::after, .nav-contact::after{
+  content:'';
+  position:absolute;
+  top:0; left:-60%;
+  width:40%; height:100%;
+  background:linear-gradient(115deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform:skewX(-18deg);
+  pointer-events:none;
+}
+.btn-secondary::after{
+  background:linear-gradient(115deg, transparent, rgba(64,84,68,0.25), transparent);
+}
+.btn-primary:hover::after, .btn-secondary:hover::after, .nav-contact:hover::after{
+  animation:shine-sweep 0.7s ease forwards;
+}
+@keyframes shine-sweep{
+  from{ left:-60%; }
+  to{ left:130%; }
+}
+@media (prefers-reduced-motion: reduce){
+  .btn-primary:hover::after, .btn-secondary:hover::after, .nav-contact:hover::after{
+    animation:none;
+  }
+}
 
 /* Stats row — plain numbers with thin dividers, NO card backgrounds */
 .stats-row{
@@ -718,4 +749,41 @@ a:focus-visible, button:focus-visible{
   .divider{ height:40px; min-height:0; }
 
   .scroll-indicator{ display:none; }
+}
+
+/* ==========================================================================
+   Custom cursor — a dark green dot that grows into a hollow ring with a
+   translucent green fill whenever it's over something clickable.
+   Only on devices with a real mouse (pointer: fine); touchscreens keep
+   their native behaviour untouched.
+   ========================================================================== */
+@media (pointer: fine){
+  body{ cursor:none; }
+  a, button{ cursor:none; }
+
+  .live-cursor{
+    position:fixed;
+    top:0; left:0;
+    width:14px;
+    height:14px;
+    margin:-7px 0 0 -7px;
+    border-radius:50%;
+    background:var(--green-dark);
+    border:2px solid var(--green-dark);
+    pointer-events:none;
+    z-index:9999;
+    transition:width 0.18s ease, height 0.18s ease, margin 0.18s ease,
+               background 0.18s ease, border-color 0.18s ease;
+    will-change:transform;
+  }
+  .live-cursor.is-hovering{
+    width:40px;
+    height:40px;
+    margin:-20px 0 0 -20px;
+    background:rgba(64,84,68,0.15);
+    border:2px solid var(--green-dark);
+  }
+}
+@media (pointer: fine) and (prefers-reduced-motion: reduce){
+  .live-cursor{ transition:none; }
 }
