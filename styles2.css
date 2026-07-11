@@ -4,10 +4,8 @@
    ========================================================================== */
 
 /* ==========================================================================
-   Site navigation — two states, toggled by nav.js based on scroll position:
-   - default (top of page): flat, full-width, no background/border/shadow
-   - .is-scrolled: floating glass pill, centered, max-width 1240px
-   Reference: Figma nodes 38:2462 ("1136") and 38:2549 ("1137")
+   Site navigation — always the floating glass pill, top:0 with a small
+   inset, per Figma node "1141" (used identically in both reference frames).
    ========================================================================== */
 
 :root{
@@ -25,8 +23,7 @@
   left:0;
   width:100%;
   z-index:100;
-  padding-top:2px;
-  transition:padding-top 0.3s ease;
+  padding-top:1px;
 }
 
 .nav-inner{
@@ -37,19 +34,6 @@
   align-items:center;
   justify-content:space-between;
   padding:0 28px;
-  background:transparent;
-  border:1px solid transparent;
-  border-radius:0;
-  box-shadow:none;
-  transition:background-color 0.3s ease, border-color 0.3s ease,
-             box-shadow 0.3s ease, border-radius 0.3s ease, max-width 0.3s ease;
-}
-
-.site-nav.is-scrolled{
-  padding-top:17px;
-}
-.site-nav.is-scrolled .nav-inner{
-  max-width:1240px;
   background:rgba(255,255,255,0.82);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
@@ -62,8 +46,9 @@
 }
 
 .nav-logo{
-  font-family:'Space Mono', monospace;
-  font-size:13px;
+  font-family:'Inter', sans-serif;
+  font-weight:500;
+  font-size:19px;
   letter-spacing:0.26px;
   color:var(--nav-ink);
   text-decoration:none;
@@ -225,22 +210,24 @@ a:focus-visible, button:focus-visible{
 /* Reference Figma frame: 1905 x 857px. Everything scales fluidly via
    container-query-width units (cqw = % of .hero-scale-wrap's width),
    so proportions stay pixel-accurate at any screen size. */
+/* Reference Figma frame: 1905 x 855px. Everything scales fluidly via
+   container-query-width units (cqw = % of .hero-scale-wrap's width),
+   so proportions stay pixel-accurate at any screen size. */
 .hero-scale-wrap{
   container-type:inline-size;
   width:100%;
   max-width:1905px;
   margin:0 auto;
   overflow:hidden;
+  background:var(--cream);
 }
 
 .hero{
   position:relative;
   width:100%;
-  height:44.99cqw;   /* 857 / 1905 * 100 */
+  height:44.88cqw;   /* 855 / 1905 * 100 */
   min-height:400px;
-  background-image:radial-gradient(circle, rgba(235,242,237,0.28) 0.21cqw, transparent 0.21cqw);
-  background-size:1.1cqw 0.94cqw;
-  background-position:-0.32cqw -1.84cqw;
+  background:var(--cream);
 }
 
 /* Name pill + mouse-pointer icon — these float freely over the whole page
@@ -265,8 +252,8 @@ a:focus-visible, button:focus-visible{
   line-height:1;
 }
 .name-pill-photo{
-  width:28px;
-  height:28px;
+  width:32px;
+  height:32px;
   border-radius:50%;
   border:1px solid var(--green-light);
   object-fit:cover;
@@ -275,7 +262,7 @@ a:focus-visible, button:focus-visible{
 .name-pill span{
   font-family:'Inter', sans-serif;
   font-weight:500;
-  font-size:18px;
+  font-size:24px;
   color:var(--ink);
 }
 
@@ -284,7 +271,7 @@ a:focus-visible, button:focus-visible{
   position:absolute;
   z-index:2;
   left:50%;
-  top:7.3cqw;
+  top:4.15cqw;
   transform:translateX(-50%);
   font-family:'Inter', sans-serif;
   font-weight:500;
@@ -298,7 +285,7 @@ a:focus-visible, button:focus-visible{
   position:absolute;
   z-index:2;
   left:calc(50% - 32.05cqw);
-  top:9.92cqw;
+  top:6.77cqw;
   width:64.15cqw;
 }
 .line{
@@ -315,35 +302,24 @@ a:focus-visible, button:focus-visible{
   margin-top:0.13cqw;
 }
 
-/* Photo cluster: rotated glass card + circular photo.
-   The card is sized just a little larger than the circle so it reads as a
-   deliberate peeking frame, not big enough to swing into the headline. */
+/* Photo cluster: just the rotated circular photo with a thick white
+   border — no separate glass card behind it in this version. */
 .photo-cluster{
   position:absolute;
   z-index:4;
-  left:73.75cqw;
-  top:16.6cqw;
-  width:13.52cqw;
-  height:13.52cqw;
-}
-.photo-card{
-  position:absolute;
-  inset:0.9cqw;
-  background:rgba(255,255,255,0.5);
-  border:1px solid var(--green-light);
-  border-radius:0.79cqw;
-  transform:rotate(6deg);
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
+  left:72.7cqw;
+  top:12.6cqw;
+  width:10.64cqw;
+  height:10.64cqw;
 }
 .photo-circle{
   position:absolute;
-  left:1.46cqw; top:1.37cqw;
-  width:10.64cqw; height:10.64cqw;
+  inset:0;
   border-radius:50%;
-  border:1px solid var(--green-light);
+  border:8px solid white;
   overflow:hidden;
-  transform:rotate(6deg);
+  transform:rotate(7.38deg);
+  box-shadow:0px 10px 32px -4px rgba(19,25,39,0.1), 0px 6px 14px -6px rgba(19,25,39,0.12);
 }
 .photo-circle img{
   width:100%; height:100%;
@@ -359,7 +335,7 @@ a:focus-visible, button:focus-visible{
   position:absolute;
   z-index:3;
   left:50%;
-  top:26.72cqw;
+  top:23.1cqw;
   transform:translateX(-50%);
   display:flex;
   gap:1.31cqw;
@@ -395,7 +371,7 @@ a:focus-visible, button:focus-visible{
   position:absolute;
   z-index:3;
   left:50%;
-  top:33.54cqw;
+  top:30.08cqw;
   transform:translateX(-50%);
   display:flex;
   align-items:center;
@@ -436,7 +412,7 @@ a:focus-visible, button:focus-visible{
   position:absolute;
   z-index:2;
   left:50%;
-  top:40.84cqw;
+  top:37.69cqw;
   transform:translateX(-50%);
   display:flex;
   flex-direction:column;
@@ -629,7 +605,6 @@ a:focus-visible, button:focus-visible{
     width:auto; height:auto;
     margin:0 0 24px;
   }
-  .photo-card{ display:none; }
   .photo-circle{ position:static; width:120px; height:120px; transform:rotate(4deg); }
 
   .cta-row{ position:static; transform:none; flex-wrap:wrap; margin-bottom:32px; }
