@@ -63,19 +63,13 @@ a:focus-visible, button:focus-visible{
   background-position:-0.32cqw -1.84cqw;
 }
 
-/* Decorative squiggles */
-.squiggle{ position:absolute; z-index:1; }
-.squiggle-1{ left:70.66cqw; top:6.51cqw; width:7.93cqw; }
-.squiggle-2{ left:18.53cqw; top:22.52cqw; width:9.33cqw; }
-
-/* Name pill + arrow doodle (positioned independently in this design) */
+/* Name pill + mouse-pointer icon (positioned independently in this design) */
 .cursor-doodle{
   position:absolute;
   z-index:5;
   left:30.29cqw; top:8.29cqw;
   width:1.3cqw;
-  min-width:16px;
-  transform:rotate(180deg);
+  min-width:18px;
 }
 .name-pill{
   position:absolute;
@@ -338,7 +332,6 @@ a:focus-visible, button:focus-visible{
 @media (max-width:680px){
   .hero-scale-wrap{ container-type:normal; }
   .hero{ height:auto; min-height:0; padding:32px 20px 40px; }
-  .squiggle{ display:none; }
   .name-pill{ position:static; margin-bottom:16px; padding:8px 16px; }
   .cursor-doodle{ display:none; }
   .name-pill-photo{ width:32px; height:32px; }
