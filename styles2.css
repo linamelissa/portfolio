@@ -330,12 +330,6 @@ a:focus-visible, button:focus-visible{
 
 /* ==========================================================================
    Entrance choreography — plays once on load, like watching the page get
-   built in Figma: cursor glides in, "clicks" the name pill, pill lights up,
-   then the rest of the hero settles in with a staggered fade-up.
-   ========================================================================== */
-
-/* ==========================================================================
-   Entrance choreography — plays once on load, like watching the page get
    built in Figma: the name pill starts centered, a cursor clicks it, it
    flashes green, then travels to its final top-left spot — only then does
    the rest of the hero content reveal.
