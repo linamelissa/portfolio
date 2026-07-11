@@ -1,99 +1,111 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lina Melissa Arndt — UX/UI Designerin in Lüneburg</title>
-<meta name="description" content="Lina Melissa Arndt ist UX/UI Designerin in Lüneburg. Portfolio mit Case Studies, Blogartikeln und Projekten rund um nutzerzentriertes Design.">
+// script2.js — everything for this page: nav scroll-state toggle + hero.
+// Kept as a single file on purpose.
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lina Melissa Arndt — UX/UI Designerin">
-<meta property="og:description" content="Soft edges in a sharp world. UX/UI Design aus Lüneburg.">
-<meta property="og:image" content="assets/og-image.jpg">
+// --- Navigation: toggles between its two Figma states -----------------
+// - default ("1136"): flat bar at the very top of the page
+// - .is-scrolled ("1137"): floating glass pill once the page has scrolled
+(function () {
+  var nav = document.querySelector('.site-nav');
+  if (!nav) return;
 
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Space+Mono&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles2.css">
-</head>
-<body>
+  var THRESHOLD = 24; // px scrolled before switching states
 
-<a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+  function updateNavState() {
+    var scrolled = window.scrollY > THRESHOLD;
+    nav.classList.toggle('is-scrolled', scrolled);
+  }
 
-<svg class="cursor-doodle" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-  <path d="M4.04 4.69a.5.5 0 0 1 .65-.65l16 6.5a.5.5 0 0 1-.06.95l-6.12 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.12a.5.5 0 0 1-.95.06z" fill="#25302A"/>
-</svg>
-<p class="name-pill" id="name-pill">
-  <img src="bild1.jpg" alt="" width="40" height="40" class="name-pill-photo">
-  <span>Lina Melissa Arndt</span>
-</p>
+  updateNavState();
+  window.addEventListener('scroll', updateNavState, { passive: true });
+})();
 
-<nav class="site-nav" aria-label="Hauptnavigation">
-  <div class="nav-inner">
-    <a href="index2.html" class="nav-logo" id="nav-logo">Lina Melissa Arndt</a>
-    <ul class="nav-list">
-      <li><a href="#projekte" class="nav-link">Projekte</a></li>
-      <li><a href="#antrieb" class="nav-link">Antrieb</a></li>
-      <li><a href="#expertise" class="nav-link">Expertise</a></li>
-      <li><a href="#ueber-mich" class="nav-link">Über mich</a></li>
-      <li><a href="#aktuell" class="nav-link">Aktuell</a></li>
-      <li><a href="#blog" class="nav-link">Blog</a></li>
-      <li><a href="#mehr" class="nav-link">Mehr</a></li>
-      <li><a href="#kontakt" class="nav-contact">Kontakt</a></li>
-      <li><button type="button" class="nav-lang" aria-label="Sprache wechseln zu Englisch">EN</button></li>
-    </ul>
-  </div>
-</nav>
-<div class="nav-spacer" aria-hidden="true"></div>
+// --- Hero -----------------------------------------------------------------
+// The hero itself is intentionally free of JS dependencies:
+// - "CV herunterladen" is a real download link (a[download])
+// - "Über mich" and the scroll indicator are real anchor links
+// - scroll-behavior: smooth in styles2.css handles smooth scrolling with no JS
+//
+// This space is ready for future interactions (e.g. highlighting the active
+// nav item while scrolling) once more page sections are added.
 
-<header class="hero-scale-wrap">
-  <div class="hero">
+// --- Entrance animation: measure exactly where the nav logo sits, so the
+// traveling name-pill can dock pixel-perfectly into that spot regardless
+// of viewport width. Sets --pill-dock-x / --pill-dock-y, read by the
+// pill-journey keyframes in styles2.css.
+(function () {
+  var navLogo = document.getElementById('nav-logo');
+  if (!navLogo) return;
 
-    <p class="eyebrow">UX/UI Designerin</p>
+  function setDockPosition() {
+    var rect = navLogo.getBoundingClientRect();
+    document.documentElement.style.setProperty('--pill-dock-x', rect.left + 'px');
+    document.documentElement.style.setProperty('--pill-dock-y', (rect.top + rect.height / 2) + 'px');
+  }
 
-    <h1 class="headline">
-      <span class="line line-dark">soft edges in a</span>
-      <span class="line line-light">sharp world.</span>
-    </h1>
+  setDockPosition();
+  window.addEventListener('resize', setDockPosition);
 
-    <div class="photo-cluster">
-      <div class="photo-circle">
-        <img src="bild1.jpg" alt="Portrait von Lina Melissa Arndt" width="181" height="184" fetchpriority="high">
-      </div>
-    </div>
+  // Web fonts (Inter) often finish loading a beat after this script runs.
+  // If the nav logo's font swaps in afterward, its measured position can
+  // shift slightly — re-measure once fonts are actually ready so the pill
+  // docks against the FINAL rendered position, not a fallback-font guess.
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(setDockPosition);
+  }
+  window.addEventListener('load', setDockPosition);
+})();
 
-    <div class="cta-row">
-      <a class="btn-primary" href="CV_Lina-Melissa-Arndt.pdf" download>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M12 3v12M6.5 10.5L12 16l5.5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        CV herunterladen
-      </a>
-      <a class="btn-secondary" href="#ueber-mich">
-        Über mich
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
+// --- Entrance animation: click ripple + comet trail ------------------------
+// Timed to match the pill-journey keyframes in styles2.css (2s total):
+// click happens at 44% (~0.88s), travel runs from 54% to 88% (~1.08s-1.76s).
+(function () {
+  var pill = document.getElementById('name-pill');
+  if (!pill) return;
 
-    <dl class="stats-row">
-      <div class="stat"><dt class="stat-num">3</dt><dd class="stat-label">Case Studies</dd></div>
-      <div class="divider" aria-hidden="true"></div>
-      <div class="stat"><dt class="stat-num">4</dt><dd class="stat-label">Blogartikel</dd></div>
-      <div class="divider" aria-hidden="true"></div>
-      <div class="stat"><dt class="stat-num">9</dt><dd class="stat-label">Projekte</dd></div>
-    </dl>
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
 
-    <a class="scroll-indicator" href="#main-content" aria-label="Zum Inhalt scrollen">
-      <span>SCROLL</span>
-      <span class="scroll-pill"><span class="scroll-dot" aria-hidden="true"></span></span>
-    </a>
+  var DURATION = 2100;
+  var CLICK_AT = DURATION * 0.44;
+  var TRAVEL_START = DURATION * 0.54;
+  var TRAVEL_END = DURATION * 0.80;
 
-  </div>
-</header>
+  function spawnRipple(x, y) {
+    var ripple = document.createElement('div');
+    ripple.className = 'click-ripple';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+    ripple.style.width = '90px';
+    ripple.style.height = '90px';
+    document.body.appendChild(ripple);
+    setTimeout(function () { ripple.remove(); }, 750);
+  }
 
-<main id="main-content">
-  <!-- Nächste Sektion der Seite folgt hier -->
-</main>
+  function spawnTrailDot(x, y) {
+    var dot = document.createElement('div');
+    dot.className = 'trail-dot';
+    dot.style.left = x + 'px';
+    dot.style.top = y + 'px';
+    document.body.appendChild(dot);
+    setTimeout(function () { dot.remove(); }, 650);
+  }
 
-<script src="script2.js"></script>
-</body>
-</html>
+  // Ripple, once, right at the click moment
+  setTimeout(function () {
+    var rect = pill.getBoundingClientRect();
+    spawnRipple(rect.left + rect.width / 2, rect.top + rect.height / 2);
+  }, CLICK_AT);
+
+  // Trail dots sampled at intervals while the pill travels (not before)
+  var travelInterval;
+  setTimeout(function () {
+    travelInterval = setInterval(function () {
+      var rect = pill.getBoundingClientRect();
+      spawnTrailDot(rect.left + rect.width / 2, rect.top + rect.height / 2);
+    }, 70);
+  }, TRAVEL_START);
+
+  setTimeout(function () {
+    if (travelInterval) clearInterval(travelInterval);
+  }, TRAVEL_END);
+})();
