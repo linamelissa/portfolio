@@ -1,111 +1,713 @@
-// script2.js — everything for this page: nav scroll-state toggle + hero.
-// Kept as a single file on purpose.
+/* ==========================================================================
+   styles2.css — everything for this page: site navigation + hero section.
+   Kept as a single file on purpose.
+   ========================================================================== */
 
-// --- Navigation: toggles between its two Figma states -----------------
-// - default ("1136"): flat bar at the very top of the page
-// - .is-scrolled ("1137"): floating glass pill once the page has scrolled
-(function () {
-  var nav = document.querySelector('.site-nav');
-  if (!nav) return;
+/* ==========================================================================
+   Site navigation — two states:
+   - default (at the top of the hero): flat, full-width, no background/
+     border/shadow — just the logo and links sitting plainly on the page
+   - .is-scrolled: floating glass pill, added by script2.js once the page
+     has scrolled past the hero
+   ========================================================================== */
 
-  var THRESHOLD = 24; // px scrolled before switching states
+:root{
+  --nav-ink:#161F17;
+  --nav-text:#3A4A3C;
+  --nav-underline:#4E8B5C;
+  --nav-gradient-start:#4E8B5C;
+  --nav-gradient-end:#1F4D28;
+  --nav-en-text:#6B7D6D;
+}
 
-  function updateNavState() {
-    var scrolled = window.scrollY > THRESHOLD;
-    nav.classList.toggle('is-scrolled', scrolled);
+.site-nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:100;
+  padding-top:2px;
+  transition:padding-top 0.3s ease;
+}
+
+.nav-inner{
+  max-width:1240px;
+  margin:0 auto;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 28px;
+  background:transparent;
+  border:1px solid transparent;
+  border-radius:0;
+  box-shadow:none;
+  transition:background-color 0.3s ease, border-color 0.3s ease,
+             box-shadow 0.3s ease, border-radius 0.3s ease;
+}
+
+.site-nav.is-scrolled{
+  padding-top:17px;
+}
+.site-nav.is-scrolled .nav-inner{
+  background:var(--cream);
+  border:1px solid var(--hairline, #E3E8E4);
+  border-radius:16px;
+  box-shadow:
+    0px 4px 24px rgba(22,31,23,0.1),
+    0px 1px 4px rgba(22,31,23,0.06);
+}
+
+.nav-logo{
+  font-family:'Inter', sans-serif;
+  font-weight:500;
+  font-size:19px;
+  letter-spacing:0.26px;
+  color:var(--nav-ink);
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+.nav-list{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  list-style:none;
+}
+
+.nav-list li{
+  display:flex;
+}
+
+.nav-link{
+  position:relative;
+  display:inline-block;
+  padding:2.2px 0;
+  font-family:'DM Sans', sans-serif;
+  font-variation-settings:'opsz' 9;
+  font-size:14px;
+  color:var(--nav-text);
+  text-decoration:none;
+  white-space:nowrap;
+}
+.nav-link::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-2px;
+  height:2px;
+  width:0;
+  background:var(--nav-underline);
+  border-radius:2px;
+  transition:width 0.25s ease;
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after{
+  width:100%;
+}
+.nav-link:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(78,139,92,0.35);
+  border-radius:4px;
+}
+
+.nav-contact{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:34px;
+  padding:0 18px;
+  border-radius:100px;
+  background:linear-gradient(146deg, var(--nav-gradient-start) 7.7%, var(--nav-gradient-end) 92.3%);
+  box-shadow:0px 2px 4px rgba(31,77,40,0.2);
+  color:white;
+  font-family:'DM Sans', sans-serif;
+  font-variation-settings:'opsz' 14;
+  font-weight:500;
+  font-size:14px;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:filter 0.2s ease, transform 0.15s ease;
+}
+.nav-contact:hover{ filter:brightness(1.08); }
+.nav-contact:active{ transform:scale(0.97); }
+.nav-contact:focus-visible{
+  outline:none;
+  box-shadow:0px 2px 4px rgba(31,77,40,0.2), 0 0 0 3px rgba(78,139,92,0.35);
+}
+
+.nav-lang{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:41px;
+  height:28px;
+  background:white;
+  border:1px solid rgba(22,31,23,0.08);
+  border-radius:100px;
+  font-family:'Space Mono', monospace;
+  font-size:11px;
+  letter-spacing:0.66px;
+  color:var(--nav-en-text);
+  cursor:pointer;
+  transition:border-color 0.2s ease, color 0.2s ease;
+}
+.nav-lang:hover{ border-color:rgba(22,31,23,0.2); color:var(--nav-ink); }
+.nav-lang:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(78,139,92,0.35);
+}
+
+/* Spacer so page content doesn't sit under the fixed nav */
+.nav-spacer{ height:60px; }
+
+/* Mobile: collapse the link list, keep logo + a simple menu button.
+   (The Figma frames only cover desktop; this is a sensible fallback
+   so the site doesn't break on small screens.) */
+@media (max-width:900px){
+  .nav-inner{ padding:0 20px; }
+  .nav-list{ gap:14px; }
+  .nav-link{ display:none; }
+  .nav-list li:has(.nav-contact),
+  .nav-list li:has(.nav-lang){ display:flex; }
+}
+@media (max-width:480px){
+  .nav-lang{ display:none; }
+}
+
+
+:root{
+  --cream:#FFFFFF;
+  --ink:#25302A;
+  --green-dark:#405444;
+  --green-light:#9DC0A3;
+  --hairline:#E3E8E4;
+  --focus-ring:0 0 0 3px rgba(64,84,68,0.35);
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--cream);
+  font-family:'Inter', sans-serif;
+  color:var(--ink);
+}
+
+/* Skip link — hidden until keyboard focus, standard accessibility pattern */
+.skip-link{
+  position:absolute;
+  left:-9999px;
+  top:0;
+  z-index:100;
+  background:var(--ink);
+  color:white;
+  padding:12px 20px;
+  border-radius:0 0 8px 0;
+  font-weight:500;
+  text-decoration:none;
+}
+.skip-link:focus{
+  left:0;
+}
+
+/* Universal focus-visible ring for keyboard navigation */
+a:focus-visible, button:focus-visible{
+  outline:none;
+  box-shadow:var(--focus-ring);
+}
+
+/* Reference Figma frame: 1905 x 857px. Everything scales fluidly via
+   container-query-width units (cqw = % of .hero-scale-wrap's width),
+   so proportions stay pixel-accurate at any screen size. */
+/* Reference Figma frame: 1905 x 855px. Everything scales fluidly via
+   container-query-width units (cqw = % of .hero-scale-wrap's width),
+   so proportions stay pixel-accurate at any screen size. */
+.hero-scale-wrap{
+  container-type:inline-size;
+  width:100%;
+  max-width:1905px;
+  margin:0 auto;
+  overflow:hidden;
+  background:var(--cream);
+}
+
+.hero{
+  position:relative;
+  width:100%;
+  height:44.88cqw;   /* 855 / 1905 * 100 */
+  min-height:400px;
+  background:var(--cream);
+}
+
+/* Name pill + mouse-pointer icon — these float freely over the whole page
+   (not scoped to the hero's cqw scaling) because the entrance animation
+   carries the pill all the way up into the fixed nav bar. */
+.cursor-doodle{
+  position:fixed;
+  z-index:210;
+  width:20px;
+}
+.name-pill{
+  position:fixed;
+  z-index:200;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:var(--cream);
+  border-radius:999px;
+  padding:12px 28px;
+  box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+  white-space:nowrap;
+  line-height:1;
+  transform-origin:left center;
+}
+.name-pill-photo{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:1px solid var(--green-light);
+  object-fit:cover;
+  display:block;
+}
+.name-pill span{
+  font-family:'Inter', sans-serif;
+  font-weight:500;
+  font-size:32px;
+  letter-spacing:0.433px; /* 0.26px ÷ 0.6 final scale, so it matches the nav logo exactly once shrunk */
+  color:var(--nav-ink);
+}
+
+/* Eyebrow — true centering regardless of text width */
+.eyebrow{
+  position:absolute;
+  z-index:2;
+  left:50%;
+  top:4.15cqw;
+  transform:translateX(-50%);
+  font-family:'Inter', sans-serif;
+  font-weight:500;
+  font-size:1.05cqw;
+  color:var(--ink);
+  white-space:nowrap;
+}
+
+/* Headline */
+.headline{
+  position:absolute;
+  z-index:2;
+  left:calc(50% - 32.05cqw);
+  top:6.77cqw;
+  width:64.15cqw;
+}
+.line{
+  display:block;
+  font-family:'Gasoek One', sans-serif;
+  font-weight:400;
+  text-transform:uppercase;
+  line-height:7.03cqw;
+}
+.line-dark{ color:var(--green-dark); font-size:6.92cqw; }
+.line-light{
+  color:var(--green-light);
+  font-size:6.88cqw;
+  margin-top:0.13cqw;
+}
+
+/* Photo cluster: just the rotated circular photo with a thick white
+   border — no separate glass card behind it in this version. */
+.photo-cluster{
+  position:absolute;
+  z-index:4;
+  left:72.7cqw;
+  top:12.6cqw;
+  width:10.64cqw;
+  height:10.64cqw;
+}
+.photo-circle{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:8px solid white;
+  overflow:hidden;
+  transform:rotate(7.38deg);
+  box-shadow:0px 10px 32px -4px rgba(19,25,39,0.1), 0px 6px 14px -6px rgba(19,25,39,0.12);
+}
+.photo-circle img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Figure reset (used for photo cluster) */
+.photo-cluster{ display:block; }
+
+/* CTA row */
+.cta-row{
+  position:absolute;
+  z-index:3;
+  left:50%;
+  top:23.1cqw;
+  transform:translateX(-50%);
+  display:flex;
+  gap:1.31cqw;
+  white-space:nowrap;
+}
+.btn-primary, .btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:0.3cqw;
+  border-radius:999px;
+  padding:0.65cqw 1.57cqw;
+  font-family:'Inter', sans-serif;
+  font-weight:500;
+  font-size:0.79cqw;
+  min-font-size:13px;
+  cursor:pointer;
+  border:none;
+  text-decoration:none;
+  transition:background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-primary{ background:var(--ink); color:white; }
+.btn-primary:hover{ background:#374039; box-shadow:0 4px 12px rgba(37,48,42,0.25); }
+.btn-primary:active{ transform:scale(0.97); }
+
+.btn-secondary{ background:white; color:var(--ink); border:1.5px solid var(--ink); }
+.btn-secondary:hover{ background:var(--ink); color:white; }
+.btn-secondary:active{ transform:scale(0.97); }
+
+.btn-primary svg, .btn-secondary svg{ width:1.05cqw; height:1.05cqw; min-width:14px; min-height:14px; }
+
+/* Stats row — plain numbers with thin dividers, NO card backgrounds */
+.stats-row{
+  position:absolute;
+  z-index:3;
+  left:50%;
+  top:30.08cqw;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:1.68cqw;
+}
+.stat{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:4.7cqw;
+  min-width:70px;
+}
+.stat-num{
+  font-family:'Inter', sans-serif;
+  font-weight:700;
+  font-size:2.37cqw;
+  color:var(--green-light);
+  letter-spacing:-0.5px;
+  line-height:1.2;
+}
+.stat-label{
+  font-family:'Inter', sans-serif;
+  font-weight:400;
+  font-size:0.77cqw;
+  color:var(--ink);
+  margin-top:0.24cqw;
+  white-space:nowrap;
+}
+.divider{
+  width:1px;
+  height:5.41cqw;
+  min-height:60px;
+  background:var(--hairline, #E3E8E4);
+}
+
+/* Scroll indicator */
+.scroll-indicator{
+  position:absolute;
+  z-index:2;
+  left:50%;
+  top:37.69cqw;
+  transform:translateX(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0.42cqw;
+  opacity:0.6;
+  text-decoration:none;
+  transition:opacity 0.2s ease, transform 0.2s ease;
+}
+.scroll-indicator:hover{
+  opacity:1;
+  transform:translateX(-50%) translateY(3px);
+}
+.scroll-indicator span{
+  font-family:'Space Mono', monospace;
+  font-size:0.55cqw;
+  min-font-size:10px;
+  letter-spacing:2px;
+  color:var(--green-dark);
+}
+.scroll-pill{
+  width:1.15cqw;
+  height:1.78cqw;
+  min-width:18px;
+  min-height:28px;
+  border:2px solid var(--green-dark);
+  border-radius:12px;
+  display:flex;
+  justify-content:center;
+  padding-top:0.42cqw;
+}
+.scroll-dot{
+  width:4px;
+  height:7px;
+  border-radius:2px;
+  background:var(--ink);
+  animation:scroll-bounce 1.6s ease-in-out infinite;
+}
+@keyframes scroll-bounce{
+  0%, 100%{ transform:translateY(0); opacity:1; }
+  50%{ transform:translateY(8px); opacity:0.4; }
+}
+
+/* Respect motion preferences: real websites don't force animation on people who've asked for less */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .scroll-dot{ animation:none; }
+  .btn-primary, .btn-secondary, .scroll-indicator{ transition:none; }
+}
+
+/* ==========================================================================
+   Entrance choreography — plays once on load: the name pill starts
+   centered on screen, a cursor clicks it, it flashes green, then travels
+   all the way up into the fixed nav bar — docking exactly where the nav
+   logo lives and handing off to it. Only then does the rest of the hero
+   content reveal. See script2.js for the --pill-dock-x/-y measurement
+   that makes the docking pixel-accurate at any viewport width.
+   ========================================================================== */
+
+.cursor-doodle{
+  left:calc(50% + 130px);
+  top:calc(50% + 30px);
+  animation:cursor-click-fade 1.8s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes cursor-click-fade{
+  0%{ opacity:0; transform:scale(1); }
+  22%{ opacity:1; transform:scale(1); }
+  32%{ transform:scale(1); }
+  38%{ transform:scale(0.7); }
+  46%{ transform:scale(1.08); }
+  54%{ opacity:1; transform:scale(1); }
+  62%{ opacity:0; }
+  100%{ opacity:0; }
+}
+
+.name-pill{
+  left:50%; top:50%;
+  animation:pill-journey 2s cubic-bezier(0.65,0,0.35,1) both;
+}
+@keyframes pill-journey{
+  0%{
+    left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
+    background:var(--cream);
+    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+    gap:12px;
   }
-
-  updateNavState();
-  window.addEventListener('scroll', updateNavState, { passive: true });
-})();
-
-// --- Hero -----------------------------------------------------------------
-// The hero itself is intentionally free of JS dependencies:
-// - "CV herunterladen" is a real download link (a[download])
-// - "Über mich" and the scroll indicator are real anchor links
-// - scroll-behavior: smooth in styles2.css handles smooth scrolling with no JS
-//
-// This space is ready for future interactions (e.g. highlighting the active
-// nav item while scrolling) once more page sections are added.
-
-// --- Entrance animation: measure exactly where the nav logo sits, so the
-// traveling name-pill can dock pixel-perfectly into that spot regardless
-// of viewport width. Sets --pill-dock-x / --pill-dock-y, read by the
-// pill-journey keyframes in styles2.css.
-(function () {
-  var navLogo = document.getElementById('nav-logo');
-  if (!navLogo) return;
-
-  function setDockPosition() {
-    var rect = navLogo.getBoundingClientRect();
-    document.documentElement.style.setProperty('--pill-dock-x', rect.left + 'px');
-    document.documentElement.style.setProperty('--pill-dock-y', (rect.top + rect.height / 2) + 'px');
+  30%{
+    left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
+    background:var(--cream);
+    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+    gap:12px;
   }
-
-  setDockPosition();
-  window.addEventListener('resize', setDockPosition);
-
-  // Web fonts (Inter) often finish loading a beat after this script runs.
-  // If the nav logo's font swaps in afterward, its measured position can
-  // shift slightly — re-measure once fonts are actually ready so the pill
-  // docks against the FINAL rendered position, not a fallback-font guess.
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(setDockPosition);
+  36%{
+    left:50%; top:50%; transform:translate(-50%,-50%) scale(0.94);
+    background:var(--cream);
+    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
   }
-  window.addEventListener('load', setDockPosition);
-})();
-
-// --- Entrance animation: click ripple + comet trail ------------------------
-// Timed to match the pill-journey keyframes in styles2.css (2s total):
-// click happens at 44% (~0.88s), travel runs from 54% to 88% (~1.08s-1.76s).
-(function () {
-  var pill = document.getElementById('name-pill');
-  if (!pill) return;
-
-  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-
-  var DURATION = 2000;
-  var CLICK_AT = DURATION * 0.44;
-  var TRAVEL_START = DURATION * 0.54;
-  var TRAVEL_END = DURATION * 0.88;
-
-  function spawnRipple(x, y) {
-    var ripple = document.createElement('div');
-    ripple.className = 'click-ripple';
-    ripple.style.left = x + 'px';
-    ripple.style.top = y + 'px';
-    ripple.style.width = '90px';
-    ripple.style.height = '90px';
-    document.body.appendChild(ripple);
-    setTimeout(function () { ripple.remove(); }, 750);
+  /* Click moment: pill stays white, a green ring flashes around it */
+  44%{
+    left:50%; top:50%; transform:translate(-50%,-50%) scale(1.06);
+    background:var(--cream);
+    box-shadow:0 0 0 5px var(--green-light), 0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
   }
-
-  function spawnTrailDot(x, y) {
-    var dot = document.createElement('div');
-    dot.className = 'trail-dot';
-    dot.style.left = x + 'px';
-    dot.style.top = y + 'px';
-    document.body.appendChild(dot);
-    setTimeout(function () { dot.remove(); }, 650);
+  54%{
+    left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
+    background:var(--cream);
+    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+    gap:12px;
   }
+  /* Travel: still plain white the whole way up */
+  76%{
+    background:var(--cream);
+    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+    gap:0px;
+  }
+  88%{
+    left:var(--pill-dock-x, 28px); top:var(--pill-dock-y, 29px);
+    transform:translate(0,-50%) scale(0.6);
+    background:var(--cream);
+    box-shadow:none;
+    gap:0px;
+    opacity:1;
+  }
+  100%{
+    left:var(--pill-dock-x, 28px); top:var(--pill-dock-y, 29px);
+    transform:translate(0,-50%) scale(0.6);
+    background:var(--cream);
+    box-shadow:none;
+    gap:0px;
+    opacity:0;
+  }
+}
 
-  // Ripple, once, right at the click moment
-  setTimeout(function () {
-    var rect = pill.getBoundingClientRect();
-    spawnRipple(rect.left + rect.width / 2, rect.top + rect.height / 2);
-  }, CLICK_AT);
+/* The photo drops off partway through the travel, so only the name itself
+   arrives and crossfades with the nav logo — a cleaner, text-to-text handoff. */
+.name-pill-photo{
+  animation:pill-photo-drop 2s cubic-bezier(0.65,0,0.35,1) both;
+}
+@keyframes pill-photo-drop{
+  0%, 60%{ opacity:1; width:40px; }
+  78%, 100%{ opacity:0; width:0; }
+}
 
-  // Trail dots sampled at intervals while the pill travels (not before)
-  var travelInterval;
-  setTimeout(function () {
-    travelInterval = setInterval(function () {
-      var rect = pill.getBoundingClientRect();
-      spawnTrailDot(rect.left + rect.width / 2, rect.top + rect.height / 2);
-    }, 70);
-  }, TRAVEL_START);
+/* Click ripple — a soft ring that expands from the pill and fades,
+   spawned by script2.js at the exact moment of the click (44%/0.88s). */
+.click-ripple{
+  position:fixed;
+  z-index:199;
+  border-radius:999px;
+  border:2px solid var(--green-light);
+  pointer-events:none;
+  transform:translate(-50%,-50%) scale(1);
+  opacity:0.9;
+  animation:ripple-expand 0.7s ease-out forwards;
+}
+@keyframes ripple-expand{
+  from{ transform:translate(-50%,-50%) scale(1); opacity:0.9; }
+  to{ transform:translate(-50%,-50%) scale(2.1); opacity:0; }
+}
 
-  setTimeout(function () {
-    if (travelInterval) clearInterval(travelInterval);
-  }, TRAVEL_END);
-})();
+/* Comet trail — small fading dots spawned by script2.js while the pill
+   travels up to the nav, giving the journey itself a sense of motion. */
+.trail-dot{
+  position:fixed;
+  z-index:198;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--green-light);
+  pointer-events:none;
+  transform:translate(-50%,-50%) scale(1);
+  opacity:0.55;
+  animation:trail-fade 0.6s ease-out forwards;
+}
+@keyframes trail-fade{
+  from{ transform:translate(-50%,-50%) scale(1); opacity:0.55; }
+  to{ transform:translate(-50%,-50%) scale(0.2); opacity:0; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .click-ripple, .trail-dot{ display:none; }
+}
+
+/* The whole nav stays invisible until the traveling pill docks — it
+   materializes together, exactly as the pill fades out, at 88%-100%
+   of the pill's 2s journey (i.e. 1.76s-2s). */
+.site-nav{
+  opacity:0;
+  animation:nav-reveal 0.24s ease-out both;
+  animation-delay:1.76s;
+}
+@keyframes nav-reveal{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+
+/* Staggered fade-up reveal for the rest of the hero content —
+   starts only once the pill has docked into the nav.
+   NOTE: .eyebrow and .cta-row are centered via transform:translateX(-50%)
+   in their base rules, so they get their own opacity-only fade below —
+   an animation that touches `transform` would overwrite that centering
+   and leave them stuck off-center once the animation finishes. */
+.headline .line, .photo-cluster, .stat, .divider{
+  animation:fade-up 0.7s ease-out both;
+}
+@keyframes fade-up{
+  from{ opacity:0; transform:translateY(14px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+.headline .line-dark{ transform:none; }
+.headline .line-light{ transform:none; }
+
+.eyebrow, .cta-row{
+  animation:fade-in-centered 0.7s ease-out both;
+}
+@keyframes fade-in-centered{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+
+.scroll-indicator{
+  animation:fade-in-dim 0.7s ease-out both;
+  animation-delay:2.9s;
+}
+@keyframes fade-in-dim{
+  from{ opacity:0; }
+  to{ opacity:0.6; }
+}
+
+.eyebrow{ animation-delay:2.1s; }
+.headline .line-dark{ animation-delay:2.2s; }
+.headline .line-light{ animation-delay:2.32s; }
+.photo-cluster{ animation-delay:2.45s; }
+.cta-row{ animation-delay:2.55s; }
+.stat:nth-child(1){ animation-delay:2.65s; }
+.stat:nth-child(3){ animation-delay:2.72s; }
+.stat:nth-child(5){ animation-delay:2.79s; }
+.divider:nth-child(2){ animation-delay:2.68s; }
+.divider:nth-child(4){ animation-delay:2.75s; }
+
+/* Entrance choreography also respects reduced-motion preferences —
+   the nav logo is simply there, no pill journey, no cursor at all */
+@media (prefers-reduced-motion: reduce){
+  .cursor-doodle, .name-pill{ display:none; }
+  .site-nav, .nav-logo, .eyebrow, .headline .line,
+  .photo-cluster, .cta-row, .stat, .divider, .scroll-indicator{
+    animation:none;
+    opacity:1;
+  }
+}
+
+/* Mobile fallback: below this the cqw math gets illegible, switch to a stacked layout */
+@media (max-width:680px){
+  .hero-scale-wrap{ container-type:normal; }
+  .hero{ height:auto; min-height:0; padding:32px 20px 40px; }
+  .eyebrow{ position:static; transform:none; display:block; font-size:14px; margin-bottom:8px; }
+  .headline{ position:static; width:auto; left:auto; margin-bottom:20px; }
+  .line{ line-height:1; }
+  .line-dark{ font-size:15vw; }
+  .line-light{ font-size:15vw; margin-top:8px; }
+
+  .photo-cluster{
+    position:static;
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    width:auto; height:auto;
+    margin:0 0 24px;
+  }
+  .photo-circle{ position:static; width:120px; height:120px; transform:rotate(4deg); }
+
+  .cta-row{ position:static; transform:none; flex-wrap:wrap; margin-bottom:32px; }
+  .btn-primary, .btn-secondary{ font-size:14px; padding:12px 20px; }
+  .btn-primary svg, .btn-secondary svg{ width:16px; height:16px; }
+
+  .stats-row{ position:static; transform:none; justify-content:space-between; margin-bottom:32px; }
+  .stat{ width:auto; min-width:0; }
+  .stat-num{ font-size:28px; }
+  .stat-label{ font-size:12px; }
+  .divider{ height:40px; min-height:0; }
+
+  .scroll-indicator{ display:none; }
+}
