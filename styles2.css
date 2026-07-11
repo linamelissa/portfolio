@@ -334,39 +334,73 @@ a:focus-visible, button:focus-visible{
    then the rest of the hero settles in with a staggered fade-up.
    ========================================================================== */
 
+/* ==========================================================================
+   Entrance choreography — plays once on load, like watching the page get
+   built in Figma: the name pill starts centered, a cursor clicks it, it
+   flashes green, then travels to its final top-left spot — only then does
+   the rest of the hero content reveal.
+   ========================================================================== */
+
 .cursor-doodle{
-  animation:cursor-enter 1.9s cubic-bezier(0.22,1,0.36,1) both;
+  left:calc(50% + 8cqw);
+  top:calc(50% + 2cqw);
+  animation:cursor-click-fade 1.8s cubic-bezier(0.22,1,0.36,1) both;
 }
-@keyframes cursor-enter{
-  0%{ opacity:0; transform:translate(3.5cqw,-2.8cqw) scale(1); }
-  38%{ opacity:1; transform:translate(0,0) scale(1); }
-  58%{ transform:translate(0,0) scale(1); }
-  66%{ transform:translate(0,0) scale(0.72); }
-  76%{ transform:translate(0,0) scale(1.08); }
-  86%{ transform:translate(0,0) scale(0.96); }
-  100%{ transform:translate(0,0) scale(1); }
+@keyframes cursor-click-fade{
+  0%{ opacity:0; transform:scale(1); }
+  22%{ opacity:1; transform:scale(1); }
+  32%{ transform:scale(1); }
+  38%{ transform:scale(0.7); }
+  46%{ transform:scale(1.08); }
+  54%{ opacity:1; transform:scale(1); }
+  62%{ opacity:0; }
+  100%{ opacity:0; }
 }
 
 .name-pill{
-  animation:pill-click 1.9s cubic-bezier(0.22,1,0.36,1) both;
+  animation:pill-journey 1.8s cubic-bezier(0.65,0,0.35,1) both;
 }
-@keyframes pill-click{
-  0%, 62%{
-    transform:scale(1);
-    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+@keyframes pill-journey{
+  0%{
+    left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
+    background:var(--cream);
   }
-  70%{ transform:scale(0.96); }
-  78%{
-    transform:scale(1.035);
-    box-shadow:0 0 0 7px rgba(78,139,92,0.28), 0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+  32%{
+    left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
+    background:var(--cream);
+  }
+  38%{
+    left:50%; top:50%; transform:translate(-50%,-50%) scale(0.94);
+    background:var(--cream);
+  }
+  46%{
+    left:50%; top:50%; transform:translate(-50%,-50%) scale(1.05);
+    background:var(--green-light);
+  }
+  56%{
+    left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
+    background:var(--green-light);
+  }
+  88%{
+    left:14.8cqw; top:4.99cqw; transform:translate(0,0) scale(1);
+    background:var(--green-light);
   }
   100%{
-    transform:scale(1);
-    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+    left:14.8cqw; top:4.99cqw; transform:translate(0,0) scale(1);
+    background:var(--cream);
   }
 }
+.name-pill span{
+  animation:pill-text-contrast 1.8s cubic-bezier(0.65,0,0.35,1) both;
+}
+@keyframes pill-text-contrast{
+  0%, 45%{ color:var(--ink); }
+  50%, 85%{ color:white; }
+  95%, 100%{ color:var(--ink); }
+}
 
-/* Staggered fade-up reveal for the rest of the hero content */
+/* Staggered fade-up reveal for the rest of the hero content —
+   starts only once the pill has arrived at its final position */
 .eyebrow, .headline .line, .photo-cluster, .cta-row, .stat{
   animation:fade-up 0.7s ease-out both;
 }
@@ -377,36 +411,38 @@ a:focus-visible, button:focus-visible{
 
 .scroll-indicator{
   animation:fade-in-dim 0.7s ease-out both;
-  animation-delay:2.3s;
+  animation-delay:2.9s;
 }
 @keyframes fade-in-dim{
   from{ opacity:0; }
   to{ opacity:0.6; }
 }
 
-.eyebrow{ animation-delay:1.5s; }
-.headline .line-dark{ animation-delay:1.6s; }
-.headline .line-light{ animation-delay:1.72s; }
-.photo-cluster{ animation-delay:1.85s; }
-.cta-row{ animation-delay:1.95s; }
-.stat:nth-child(1){ animation-delay:2.05s; }
-.stat:nth-child(3){ animation-delay:2.12s; }
-.stat:nth-child(5){ animation-delay:2.19s; }
+.eyebrow{ animation-delay:1.9s; }
+.headline .line-dark{ animation-delay:2s; }
+.headline .line-light{ animation-delay:2.12s; }
+.photo-cluster{ animation-delay:2.25s; }
+.cta-row{ animation-delay:2.35s; }
+.stat:nth-child(1){ animation-delay:2.45s; }
+.stat:nth-child(3){ animation-delay:2.52s; }
+.stat:nth-child(5){ animation-delay:2.59s; }
 
 /* The badge sits inside .photo-cluster and should settle in slightly after
    its parent so it reads as a distinct little "pop", not a rigid unit. */
 .badge{
   animation:badge-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
-  animation-delay:2.05s;
+  animation-delay:2.45s;
 }
 @keyframes badge-pop{
   from{ opacity:0; transform:scale(0.7); }
   to{ opacity:1; transform:scale(1); }
 }
 
-/* Entrance choreography also respects reduced-motion preferences */
+/* Entrance choreography also respects reduced-motion preferences —
+   the pill appears directly in its final spot, no journey, no cursor */
 @media (prefers-reduced-motion: reduce){
-  .cursor-doodle, .name-pill, .eyebrow, .headline .line,
+  .cursor-doodle{ display:none; }
+  .name-pill, .name-pill span, .eyebrow, .headline .line,
   .photo-cluster, .cta-row, .stat, .scroll-indicator, .badge{
     animation:none;
   }
