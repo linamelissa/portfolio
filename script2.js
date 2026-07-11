@@ -45,3 +45,58 @@
   setDockPosition();
   window.addEventListener('resize', setDockPosition);
 })();
+
+// --- Entrance animation: click ripple + comet trail ------------------------
+// Timed to match the pill-journey keyframes in styles2.css (2s total):
+// click happens at 44% (~0.88s), travel runs from 54% to 88% (~1.08s-1.76s).
+(function () {
+  var pill = document.getElementById('name-pill');
+  if (!pill) return;
+
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  var DURATION = 2000;
+  var CLICK_AT = DURATION * 0.44;
+  var TRAVEL_START = DURATION * 0.54;
+  var TRAVEL_END = DURATION * 0.88;
+
+  function spawnRipple(x, y) {
+    var ripple = document.createElement('div');
+    ripple.className = 'click-ripple';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+    ripple.style.width = '90px';
+    ripple.style.height = '90px';
+    document.body.appendChild(ripple);
+    setTimeout(function () { ripple.remove(); }, 750);
+  }
+
+  function spawnTrailDot(x, y) {
+    var dot = document.createElement('div');
+    dot.className = 'trail-dot';
+    dot.style.left = x + 'px';
+    dot.style.top = y + 'px';
+    document.body.appendChild(dot);
+    setTimeout(function () { dot.remove(); }, 650);
+  }
+
+  // Ripple, once, right at the click moment
+  setTimeout(function () {
+    var rect = pill.getBoundingClientRect();
+    spawnRipple(rect.left + rect.width / 2, rect.top + rect.height / 2);
+  }, CLICK_AT);
+
+  // Trail dots sampled at intervals while the pill travels (not before)
+  var travelInterval;
+  setTimeout(function () {
+    travelInterval = setInterval(function () {
+      var rect = pill.getBoundingClientRect();
+      spawnTrailDot(rect.left + rect.width / 2, rect.top + rect.height / 2);
+    }, 70);
+  }, TRAVEL_START);
+
+  setTimeout(function () {
+    if (travelInterval) clearInterval(travelInterval);
+  }, TRAVEL_END);
+})();
