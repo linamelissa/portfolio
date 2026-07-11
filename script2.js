@@ -44,6 +44,15 @@
 
   setDockPosition();
   window.addEventListener('resize', setDockPosition);
+
+  // Web fonts (Inter) often finish loading a beat after this script runs.
+  // If the nav logo's font swaps in afterward, its measured position can
+  // shift slightly — re-measure once fonts are actually ready so the pill
+  // docks against the FINAL rendered position, not a fallback-font guess.
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(setDockPosition);
+  }
+  window.addEventListener('load', setDockPosition);
 })();
 
 // --- Entrance animation: click ripple + comet trail ------------------------
