@@ -243,33 +243,30 @@ a:focus-visible, button:focus-visible{
   background-position:-0.32cqw -1.84cqw;
 }
 
-/* Name pill + mouse-pointer icon (positioned independently in this design) */
+/* Name pill + mouse-pointer icon — these float freely over the whole page
+   (not scoped to the hero's cqw scaling) because the entrance animation
+   carries the pill all the way up into the fixed nav bar. */
 .cursor-doodle{
-  position:absolute;
-  z-index:5;
-  left:30.29cqw; top:8.29cqw;
-  width:1.3cqw;
-  min-width:18px;
+  position:fixed;
+  z-index:210;
+  width:20px;
 }
 .name-pill{
-  position:absolute;
-  z-index:5;
-  left:14.8cqw; top:4.99cqw;
+  position:fixed;
+  z-index:200;
   display:inline-flex;
   align-items:center;
-  gap:0.55cqw;
+  gap:8px;
   background:var(--cream);
   border-radius:999px;
-  padding:0.52cqw 1.42cqw;
+  padding:8px 20px;
   box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
   white-space:nowrap;
   line-height:1;
 }
 .name-pill-photo{
-  width:1.66cqw;
-  height:1.66cqw;
-  min-width:20px;
-  min-height:20px;
+  width:28px;
+  height:28px;
   border-radius:50%;
   border:1px solid var(--green-light);
   object-fit:cover;
@@ -278,17 +275,17 @@ a:focus-visible, button:focus-visible{
 .name-pill span{
   font-family:'Inter', sans-serif;
   font-weight:500;
-  font-size:1.26cqw;
+  font-size:18px;
   color:var(--ink);
 }
 
-/* Eyebrow */
+/* Eyebrow — true centering regardless of text width */
 .eyebrow{
   position:absolute;
   z-index:2;
   left:50%;
   top:7.3cqw;
-  transform:translateX(-4.07cqw);
+  transform:translateX(-50%);
   font-family:'Inter', sans-serif;
   font-weight:500;
   font-size:1.05cqw;
@@ -318,22 +315,24 @@ a:focus-visible, button:focus-visible{
   margin-top:0.13cqw;
 }
 
-/* Photo cluster: rotated glass card + circular photo + badge */
+/* Photo cluster: rotated glass card + circular photo.
+   The card is sized just a little larger than the circle so it reads as a
+   deliberate peeking frame, not big enough to swing into the headline. */
 .photo-cluster{
   position:absolute;
   z-index:4;
   left:73.75cqw;
-  top:15.54cqw;
+  top:16.6cqw;
   width:13.52cqw;
   height:13.52cqw;
 }
 .photo-card{
   position:absolute;
-  inset:0;
-  background:rgba(255,255,255,0.42);
+  inset:0.9cqw;
+  background:rgba(255,255,255,0.5);
   border:1px solid var(--green-light);
   border-radius:0.79cqw;
-  transform:rotate(7.38deg);
+  transform:rotate(6deg);
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
 }
@@ -344,35 +343,15 @@ a:focus-visible, button:focus-visible{
   border-radius:50%;
   border:1px solid var(--green-light);
   overflow:hidden;
-  transform:rotate(7.38deg);
+  transform:rotate(6deg);
 }
 .photo-circle img{
   width:100%; height:100%;
   object-fit:cover;
   display:block;
 }
-.badge{
-  position:absolute;
-  left:-1.79cqw;
-  top:10.81cqw;
-  display:inline-flex;
-  align-items:center;
-  gap:0.5cqw;
-  background:var(--green-light);
-  color:white;
-  padding:0.3cqw 0.89cqw;
-  border-radius:999px;
-  box-shadow:0px 6px 8px rgba(19,25,39,0.12), 0px 8px 16px rgba(19,25,39,0.08);
-  white-space:nowrap;
-}
-.badge svg{ width:1.26cqw; height:1.26cqw; min-width:15px; min-height:15px; }
-.badge span{
-  font-family:'Inter', sans-serif;
-  font-weight:600;
-  font-size:1.05cqw;
-}
 
-/* Figure/figcaption resets (used for photo cluster) */
+/* Figure reset (used for photo cluster) */
 .photo-cluster{ display:block; }
 
 /* CTA row */
@@ -509,15 +488,17 @@ a:focus-visible, button:focus-visible{
 }
 
 /* ==========================================================================
-   Entrance choreography — plays once on load, like watching the page get
-   built in Figma: the name pill starts centered, a cursor clicks it, it
-   flashes green, then travels to its final top-left spot — only then does
-   the rest of the hero content reveal.
+   Entrance choreography — plays once on load: the name pill starts
+   centered on screen, a cursor clicks it, it flashes green, then travels
+   all the way up into the fixed nav bar — docking exactly where the nav
+   logo lives and handing off to it. Only then does the rest of the hero
+   content reveal. See script2.js for the --pill-dock-x/-y measurement
+   that makes the docking pixel-accurate at any viewport width.
    ========================================================================== */
 
 .cursor-doodle{
-  left:calc(50% + 8cqw);
-  top:calc(50% + 2cqw);
+  left:calc(50% + 130px);
+  top:calc(50% + 30px);
   animation:cursor-click-fade 1.8s cubic-bezier(0.22,1,0.36,1) both;
 }
 @keyframes cursor-click-fade{
@@ -532,49 +513,65 @@ a:focus-visible, button:focus-visible{
 }
 
 .name-pill{
-  animation:pill-journey 1.8s cubic-bezier(0.65,0,0.35,1) both;
+  left:50%; top:50%;
+  animation:pill-journey 2s cubic-bezier(0.65,0,0.35,1) both;
 }
 @keyframes pill-journey{
   0%{
     left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
     background:var(--cream);
   }
-  32%{
+  30%{
     left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
     background:var(--cream);
   }
-  38%{
+  36%{
     left:50%; top:50%; transform:translate(-50%,-50%) scale(0.94);
     background:var(--cream);
   }
-  46%{
+  44%{
     left:50%; top:50%; transform:translate(-50%,-50%) scale(1.05);
     background:var(--green-light);
   }
-  56%{
+  54%{
     left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
     background:var(--green-light);
   }
   88%{
-    left:14.8cqw; top:4.99cqw; transform:translate(0,0) scale(1);
+    left:var(--pill-dock-x, 28px); top:var(--pill-dock-y, 29px);
+    transform:translate(0,-50%) scale(0.85);
     background:var(--green-light);
+    opacity:1;
   }
   100%{
-    left:14.8cqw; top:4.99cqw; transform:translate(0,0) scale(1);
-    background:var(--cream);
+    left:var(--pill-dock-x, 28px); top:var(--pill-dock-y, 29px);
+    transform:translate(0,-50%) scale(0.8);
+    background:var(--green-light);
+    opacity:0;
   }
 }
 .name-pill span{
-  animation:pill-text-contrast 1.8s cubic-bezier(0.65,0,0.35,1) both;
+  animation:pill-text-contrast 2s cubic-bezier(0.65,0,0.35,1) both;
 }
 @keyframes pill-text-contrast{
-  0%, 45%{ color:var(--ink); }
-  50%, 85%{ color:white; }
-  95%, 100%{ color:var(--ink); }
+  0%, 42%{ color:var(--ink); }
+  47%, 100%{ color:white; }
+}
+
+/* The nav logo stays invisible until the traveling pill docks, then
+   fades in right as the pill fades out — a clean visual handoff. */
+.nav-logo{
+  opacity:0;
+  animation:nav-logo-reveal 0.3s ease-out both;
+  animation-delay:1.85s;
+}
+@keyframes nav-logo-reveal{
+  from{ opacity:0; }
+  to{ opacity:1; }
 }
 
 /* Staggered fade-up reveal for the rest of the hero content —
-   starts only once the pill has arrived at its final position */
+   starts only once the pill has docked into the nav */
 .eyebrow, .headline .line, .photo-cluster, .cta-row, .stat{
   animation:fade-up 0.7s ease-out both;
 }
@@ -582,6 +579,8 @@ a:focus-visible, button:focus-visible{
   from{ opacity:0; transform:translateY(14px); }
   to{ opacity:1; transform:translateY(0); }
 }
+.headline .line-dark{ transform:none; }
+.headline .line-light{ transform:none; }
 
 .scroll-indicator{
   animation:fade-in-dim 0.7s ease-out both;
@@ -592,33 +591,23 @@ a:focus-visible, button:focus-visible{
   to{ opacity:0.6; }
 }
 
-.eyebrow{ animation-delay:1.9s; }
-.headline .line-dark{ animation-delay:2s; }
-.headline .line-light{ animation-delay:2.12s; }
-.photo-cluster{ animation-delay:2.25s; }
-.cta-row{ animation-delay:2.35s; }
-.stat:nth-child(1){ animation-delay:2.45s; }
-.stat:nth-child(3){ animation-delay:2.52s; }
-.stat:nth-child(5){ animation-delay:2.59s; }
-
-/* The badge sits inside .photo-cluster and should settle in slightly after
-   its parent so it reads as a distinct little "pop", not a rigid unit. */
-.badge{
-  animation:badge-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
-  animation-delay:2.45s;
-}
-@keyframes badge-pop{
-  from{ opacity:0; transform:scale(0.7); }
-  to{ opacity:1; transform:scale(1); }
-}
+.eyebrow{ animation-delay:2.1s; }
+.headline .line-dark{ animation-delay:2.2s; }
+.headline .line-light{ animation-delay:2.32s; }
+.photo-cluster{ animation-delay:2.45s; }
+.cta-row{ animation-delay:2.55s; }
+.stat:nth-child(1){ animation-delay:2.65s; }
+.stat:nth-child(3){ animation-delay:2.72s; }
+.stat:nth-child(5){ animation-delay:2.79s; }
 
 /* Entrance choreography also respects reduced-motion preferences —
-   the pill appears directly in its final spot, no journey, no cursor */
+   the nav logo is simply there, no pill journey, no cursor at all */
 @media (prefers-reduced-motion: reduce){
-  .cursor-doodle{ display:none; }
-  .name-pill, .name-pill span, .eyebrow, .headline .line,
-  .photo-cluster, .cta-row, .stat, .scroll-indicator, .badge{
+  .cursor-doodle, .name-pill{ display:none; }
+  .nav-logo, .eyebrow, .headline .line,
+  .photo-cluster, .cta-row, .stat, .scroll-indicator{
     animation:none;
+    opacity:1;
   }
 }
 
@@ -626,10 +615,6 @@ a:focus-visible, button:focus-visible{
 @media (max-width:680px){
   .hero-scale-wrap{ container-type:normal; }
   .hero{ height:auto; min-height:0; padding:32px 20px 40px; }
-  .name-pill{ position:static; margin-bottom:16px; padding:8px 16px; }
-  .cursor-doodle{ display:none; }
-  .name-pill-photo{ width:32px; height:32px; }
-  .name-pill span{ font-size:15px; }
   .eyebrow{ position:static; transform:none; display:block; font-size:14px; margin-bottom:8px; }
   .headline{ position:static; width:auto; left:auto; margin-bottom:20px; }
   .line{ line-height:1; }
@@ -646,9 +631,6 @@ a:focus-visible, button:focus-visible{
   }
   .photo-card{ display:none; }
   .photo-circle{ position:static; width:120px; height:120px; transform:rotate(4deg); }
-  .badge{ position:static; display:inline-flex; margin-top:8px; }
-  .badge span{ font-size:13px; }
-  .badge svg{ width:16px; height:16px; }
 
   .cta-row{ position:static; transform:none; flex-wrap:wrap; margin-bottom:32px; }
   .btn-primary, .btn-secondary{ font-size:14px; padding:12px 20px; }
