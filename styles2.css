@@ -496,42 +496,64 @@ a:focus-visible, button:focus-visible{
   0%{
     left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
     background:var(--cream);
+    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+    gap:12px;
   }
   30%{
     left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
     background:var(--cream);
+    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+    gap:12px;
   }
   36%{
     left:50%; top:50%; transform:translate(-50%,-50%) scale(0.94);
     background:var(--cream);
+    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
   }
+  /* Click moment: pill stays white, a green ring flashes around it */
   44%{
-    left:50%; top:50%; transform:translate(-50%,-50%) scale(1.08);
-    background:var(--green-light);
+    left:50%; top:50%; transform:translate(-50%,-50%) scale(1.06);
+    background:var(--cream);
+    box-shadow:0 0 0 5px var(--green-light), 0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
   }
   54%{
     left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
-    background:var(--green-light);
+    background:var(--cream);
+    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+    gap:12px;
+  }
+  /* Travel: still plain white the whole way up */
+  76%{
+    background:var(--cream);
+    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+    gap:0px;
   }
   88%{
     left:var(--pill-dock-x, 28px); top:var(--pill-dock-y, 29px);
-    transform:translate(0,-50%) scale(0.5);
-    background:var(--green-light);
+    transform:translate(0,-50%) scale(0.6);
+    background:var(--cream);
+    box-shadow:none;
+    gap:0px;
     opacity:1;
   }
   100%{
     left:var(--pill-dock-x, 28px); top:var(--pill-dock-y, 29px);
-    transform:translate(0,-50%) scale(0.4);
-    background:var(--green-light);
+    transform:translate(0,-50%) scale(0.6);
+    background:var(--cream);
+    box-shadow:none;
+    gap:0px;
     opacity:0;
   }
 }
-.name-pill span{
-  animation:pill-text-contrast 2s cubic-bezier(0.65,0,0.35,1) both;
+
+/* The photo drops off partway through the travel, so only the name itself
+   arrives and crossfades with the nav logo — a cleaner, text-to-text handoff. */
+.name-pill-photo{
+  animation:pill-photo-drop 2s cubic-bezier(0.65,0,0.35,1) both;
 }
-@keyframes pill-text-contrast{
-  0%, 42%{ color:var(--ink); }
-  47%, 100%{ color:white; }
+@keyframes pill-photo-drop{
+  0%, 60%{ opacity:1; width:40px; }
+  78%, 100%{ opacity:0; width:0; }
 }
 
 /* Click ripple — a soft ring that expands from the pill and fades,
@@ -587,8 +609,12 @@ a:focus-visible, button:focus-visible{
 }
 
 /* Staggered fade-up reveal for the rest of the hero content —
-   starts only once the pill has docked into the nav */
-.eyebrow, .headline .line, .photo-cluster, .cta-row, .stat, .divider{
+   starts only once the pill has docked into the nav.
+   NOTE: .eyebrow and .cta-row are centered via transform:translateX(-50%)
+   in their base rules, so they get their own opacity-only fade below —
+   an animation that touches `transform` would overwrite that centering
+   and leave them stuck off-center once the animation finishes. */
+.headline .line, .photo-cluster, .stat, .divider{
   animation:fade-up 0.7s ease-out both;
 }
 @keyframes fade-up{
@@ -597,6 +623,14 @@ a:focus-visible, button:focus-visible{
 }
 .headline .line-dark{ transform:none; }
 .headline .line-light{ transform:none; }
+
+.eyebrow, .cta-row{
+  animation:fade-in-centered 0.7s ease-out both;
+}
+@keyframes fade-in-centered{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
 
 .scroll-indicator{
   animation:fade-in-dim 0.7s ease-out both;
