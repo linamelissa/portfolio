@@ -50,15 +50,12 @@
   padding-top:17px;
 }
 .site-nav.is-scrolled .nav-inner{
-  background:rgba(255,255,255,0.82);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,0.6);
+  background:var(--cream);
+  border:1px solid var(--hairline, #E3E8E4);
   border-radius:16px;
   box-shadow:
     0px 4px 24px rgba(22,31,23,0.1),
-    0px 1px 4px rgba(22,31,23,0.06),
-    inset 0px 1px 0px rgba(255,255,255,0.8);
+    0px 1px 4px rgba(22,31,23,0.06);
 }
 
 .nav-logo{
@@ -266,6 +263,7 @@ a:focus-visible, button:focus-visible{
   box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
   white-space:nowrap;
   line-height:1;
+  transform-origin:left center;
 }
 .name-pill-photo{
   width:40px;
