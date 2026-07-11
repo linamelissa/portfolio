@@ -1,4 +1,7 @@
-// Toggles the nav between its two Figma states:
+// script2.js — everything for this page: nav scroll-state toggle + hero.
+// Kept as a single file on purpose.
+
+// --- Navigation: toggles between its two Figma states -----------------
 // - default ("1136"): flat bar at the very top of the page
 // - .is-scrolled ("1137"): floating glass pill once the page has scrolled
 (function () {
@@ -15,3 +18,12 @@
   updateNavState();
   window.addEventListener('scroll', updateNavState, { passive: true });
 })();
+
+// --- Hero -----------------------------------------------------------------
+// The hero itself is intentionally free of JS dependencies:
+// - "CV herunterladen" is a real download link (a[download])
+// - "Über mich" and the scroll indicator are real anchor links
+// - scroll-behavior: smooth in styles2.css handles smooth scrolling with no JS
+//
+// This space is ready for future interactions (e.g. highlighting the active
+// nav item while scrolling) once more page sections are added.
