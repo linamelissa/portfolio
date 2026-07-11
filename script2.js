@@ -372,29 +372,57 @@ if (window.innerWidth <= 900) {
   videos.forEach(v => { v.muted = true; v.loop = true; v.playsInline = true; videoObs.observe(v); });
 }
 
-// ===== SPOTLIGHT (nur über dunklen Sektionen) =====
-const spotlight = document.getElementById('spotlight');
-let spotX = 0, spotY = 0, spotCX = 0, spotCY = 0;
-let overDark = false;
+// ===== MOTION: KINETISCHE BUCHSTABEN BEI "MELISSA" =====
+(function(){
+  const heroName = document.querySelector('.hero-name');
+  if (!heroName) return;
+  const nodes = Array.from(heroName.childNodes);
+  nodes.forEach(node => {
+    if (node.nodeType === 3 && node.textContent.trim().length) {
+      const text = node.textContent;
+      const frag = document.createDocumentFragment();
+      [...text].forEach((ch, i) => {
+        const span = document.createElement('span');
+        span.className = 'kinetic-letter';
+        span.style.setProperty('--i', i);
+        span.textContent = ch === ' ' ? '\u00A0' : ch;
+        frag.appendChild(span);
+      });
+      node.replaceWith(frag);
+    }
+  });
+})();
 
-document.addEventListener('mousemove', e => {
-  spotX = e.clientX;
-  spotY = e.clientY;
-});
+// ===== MOTION: MAGNETISCHE BUTTONS =====
+(function(){
+  const magnetTargets = document.querySelectorAll('.hero-actions .btn-primary, .hero-actions .btn-outline');
+  magnetTargets.forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      el.style.transform = `translate(${x / 6}px, ${y / 5}px)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = '';
+    });
+  });
+})();
 
-function animateSpotlight(){
-  spotCX += (spotX - spotCX) * 0.18;
-  spotCY += (spotY - spotCY) * 0.18;
-  if (spotlight){
-    spotlight.style.left = spotCX + 'px';
-    spotlight.style.top = spotCY + 'px';
-  }
-  requestAnimationFrame(animateSpotlight);
-}
-animateSpotlight();
-
-const darkSections = document.querySelectorAll('.theme-dark');
-darkSections.forEach(sec => {
-  sec.addEventListener('mouseenter', () => { if (spotlight) spotlight.classList.add('active'); });
-  sec.addEventListener('mouseleave', () => { if (spotlight) spotlight.classList.remove('active'); });
-});
+// ===== MOTION: ROLLEN-WECHSEL IM HERO =====
+(function(){
+  const el = document.getElementById('hero-role-text');
+  if (!el) return;
+  const rolesDE = ['UX/UI Design · Lüneburg', 'Ehemalige Mediengestalterin', 'Vibe Coderin'];
+  const rolesEN = ['UX/UI Design · Lüneburg', 'Former Media Designer', 'Vibe Coder'];
+  let idx = 0;
+  setInterval(() => {
+    el.classList.add('role-fade');
+    setTimeout(() => {
+      idx = (idx + 1) % rolesDE.length;
+      const list = (typeof currentLang !== 'undefined' && currentLang === 'en') ? rolesEN : rolesDE;
+      el.textContent = list[idx];
+      el.classList.remove('role-fade');
+    }, 300);
+  }, 3200);
+})();
