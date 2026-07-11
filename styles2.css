@@ -2,7 +2,7 @@
 :root{
   --green:#4E8B5C;--green-light:#EEF4EF;--green-mid:#4E8B5C;--green-dark:#1F4D28;
   --cream:#FFFEFA;--ink:#161F17;--ink-soft:#3a4a3c;--ink-muted:#6b7d6d;
-  --amber:#F2CB5A;--border:rgba(22,31,23,0.08);--font-body:'DM Sans',sans-serif;--font-mono:'Space Mono',monospace;
+  --amber:#F2CB5A;--lavender:#8577B0;--border:rgba(22,31,23,0.08);--font-body:'Fraunces',Georgia,serif;--font-mono:'Space Mono',monospace;
 }
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;width:100%}
 body{font-family:var(--font-body);background:var(--cream);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden;width:100%;max-width:100vw;padding-top:88px}
@@ -569,193 +569,43 @@ section{padding:112px 0;border-bottom:1px solid var(--border)}
   animation:pulse 2s ease-in-out infinite;
 }
 
-/* ============================================
-   WEBSITE 2 — DARK/LIGHT THEME, GRAIN, SPOTLIGHT
-   ============================================ */
+/* ===== HERO: MEHRFARBIGER TEXT + CHIP-HOVER ===== */
+.hl-green{color:var(--green-mid);font-weight:600}
+.hl-amber{color:#B8891F;font-weight:600}
+.hl-lavender{color:var(--lavender);font-weight:600}
+.hero-sub-2{font-size:15px;color:var(--ink-muted);max-width:520px;margin:-20px 0 32px;line-height:1.75}
 
-:root{
-  --night:#0B120D;
-  --night-soft:#131C15;
-  --night-border:rgba(242,245,240,0.1);
-  --on-dark-ink:#F2F5F0;
-  --on-dark-soft:#C7D2C9;
-  --on-dark-muted:#8AA090;
-}
+.hero-available-text{position:relative;display:inline-block;height:1.2em}
+.have-default,.have-hover{transition:opacity .25s ease}
+.have-hover{position:absolute;left:0;top:0;opacity:0;white-space:nowrap}
+.hero-available:hover .have-default{opacity:0}
+.hero-available:hover .have-hover{opacity:1}
 
-/* GRAIN OVERLAY */
-.grain-overlay{
-  position:fixed;
-  inset:0;
-  z-index:9998;
-  pointer-events:none;
-  opacity:0.05;
-  background-image:url('data:image/png;base64,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');
-  background-size:180px 180px;
-  mix-blend-mode:overlay;
-}
+/* ===== ALLE MOTION-IDEEN ===== */
 
-/* SPOTLIGHT (nur auf dunklen Sektionen sichtbar) */
-.spotlight{
-  position:fixed;
-  top:0;
-  left:0;
-  width:560px;
-  height:560px;
-  border-radius:50%;
-  pointer-events:none;
-  z-index:5;
-  transform:translate(-50%,-50%);
-  background:radial-gradient(circle, rgba(126,214,151,0.16) 0%, rgba(126,214,151,0.06) 35%, transparent 70%);
-  opacity:0;
-  transition:opacity .4s ease;
-  mix-blend-mode:screen;
-}
-.spotlight.active{opacity:1}
+/* 1. Foto-Ring dreht schneller beim Hover */
+.hero-photo-inner:hover .hero-photo-ring{animation-duration:4s}
 
-/* PAGE SECTIONS full-bleed theme backgrounds */
-.page-section{position:relative;width:100%;overflow:hidden;transition:background-color .3s}
-.page-section.theme-dark{background:var(--night)}
-.page-section.theme-light{background:var(--cream)}
+/* 2. Stat-Zahlen pulsen beim Hover */
+@keyframes statPulse{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+.hero-stats > div{cursor:default}
+.hero-stats > div:hover .hero-stat-num{animation:statPulse .5s ease}
 
-/* Textfarben innerhalb dunkler Sektionen anpassen */
-.theme-dark{color:var(--on-dark-ink)}
-.theme-dark .section-label{color:var(--on-dark-muted);background:linear-gradient(135deg,var(--night-soft) 0%,rgba(78,139,92,0.12) 100%);border-color:var(--night-border)}
-.theme-dark .section-label .label-icon svg.lucide{stroke:var(--on-dark-muted)}
-.theme-dark .section-heading{color:var(--on-dark-ink)}
-.theme-dark .section-sub{color:var(--on-dark-soft)}
-.theme-dark .drives-card,.theme-dark .expertise-card,.theme-dark .tl-card,.theme-dark .now-block-archive,.theme-dark .blog-card,.theme-dark .masonry-card{background:var(--night-soft);border-color:var(--night-border)}
-.theme-dark .drives-title,.theme-dark .expertise-card h3,.theme-dark .tl-role,.theme-dark h1,.theme-dark h2,.theme-dark h3{color:var(--on-dark-ink)}
-.theme-dark .drives-text,.theme-dark .expertise-tags span,.theme-dark .tl-where,.theme-dark .tl-bullets li,.theme-dark .now-text,.theme-dark p{color:var(--on-dark-soft)}
-.theme-dark .expertise-tags span{background:rgba(78,139,92,0.15);color:var(--on-dark-soft)}
-.theme-dark .expertise-icon{background:linear-gradient(135deg,var(--night-soft) 0%,rgba(78,139,92,0.2) 100%)}
-.theme-dark .tl-card-cert{background:rgba(78,139,92,0.12)}
-.theme-dark .tl-tag{background:var(--night-soft);border-color:var(--night-border);color:var(--on-dark-muted)}
-.theme-dark .tl-pills span{background:var(--night);border-color:rgba(78,139,92,.3);color:var(--on-dark-soft)}
-.theme-dark .now-block-current{background:linear-gradient(135deg,rgba(78,139,92,0.15) 0%,rgba(78,139,92,0.05) 100%)}
-.theme-dark .now-cv-tag{background:var(--night-soft);border-color:var(--night-border);color:var(--on-dark-muted)}
-.theme-dark .cv-section-label{color:var(--on-dark-muted);border-color:var(--night-border)}
-.theme-dark .tl-dot{border-color:var(--night)}
-.theme-dark .tl-dot-wrap::after{background:var(--night-border)}
+/* 3. Kinetische Buchstaben bei "Melissa" */
+.kinetic-letter{display:inline-block;transition:transform .35s cubic-bezier(.34,1.56,.64,1);transition-delay:calc(var(--i) * 28ms)}
+.hero-name:hover .kinetic-letter:nth-child(odd){transform:translateY(-9px) rotate(-3deg)}
+.hero-name:hover .kinetic-letter:nth-child(even){transform:translateY(-4px) rotate(2deg)}
 
-/* WAVE DIVIDERS */
-.wave-divider{position:absolute;left:0;width:100%;height:80px;line-height:0;z-index:2;bottom:-1px}
-.wave-divider svg{width:100%;height:100%;display:block}
-@media(min-width:900px){.wave-divider{height:110px}}
+/* 4. Cursor-Reaktion auf farbige Keywords */
+.hl-green,.hl-amber,.hl-lavender{transition:filter .2s ease,text-shadow .2s ease;cursor:default}
+.hl-green:hover{filter:brightness(1.2);text-shadow:0 0 16px rgba(78,139,92,0.35)}
+.hl-amber:hover{filter:brightness(1.15);text-shadow:0 0 16px rgba(184,137,31,0.35)}
+.hl-lavender:hover{filter:brightness(1.2);text-shadow:0 0 16px rgba(133,119,176,0.35)}
 
-/* ============================================
-   WORK: FULL-BLEED FEATURE CASE
-   ============================================ */
-.feature-bleed{
-  width:100vw;
-  position:relative;
-  left:50%;
-  right:50%;
-  margin-left:-50vw;
-  margin-right:-50vw;
-  padding:8px 0 48px;
-}
-.feature-card{
-  position:relative;
-  width:100%;
-  min-height:78vh;
-  overflow:hidden;
-  cursor:default;
-}
-.feature-img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:transform 1.2s cubic-bezier(.16,1,.3,1);
-}
-.feature-card:hover .feature-img{transform:scale(1.04)}
-.feature-scrim{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(0deg, rgba(11,18,13,0.92) 0%, rgba(11,18,13,0.55) 38%, rgba(11,18,13,0.15) 65%, rgba(11,18,13,0.35) 100%);
-}
-.feature-tag-pill{
-  position:absolute;
-  top:32px;
-  left:5%;
-  z-index:3;
-  font-family:var(--font-mono);
-  font-size:12px;
-  color:rgba(255,255,255,.95);
-  background:rgba(11,18,13,0.5);
-  backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:100px;
-  padding:6px 16px;
-  letter-spacing:.04em;
-}
-.feature-content{
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:3;
-  padding:48px 5% 56px;
-  max-width:760px;
-}
-.feature-title{
-  font-size:clamp(56px,9vw,120px);
-  font-weight:300;
-  letter-spacing:-.03em;
-  color:#fff;
-  line-height:1;
-  margin-bottom:16px;
-}
-.feature-tagline{
-  font-family:var(--font-mono);
-  font-size:14px;
-  color:#B9E6C4;
-  margin-bottom:16px;
-  letter-spacing:.01em;
-}
-.feature-desc{
-  font-size:16px;
-  color:rgba(255,255,255,.82);
-  line-height:1.7;
-  margin-bottom:28px;
-  max-width:600px;
-}
-.feature-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:340px}
-.feature-status{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.75)}
-.feature-arrow{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;color:#fff;transition:background .2s,transform .25s}
-.feature-card:hover .feature-arrow{background:rgba(255,255,255,.22);transform:translate(3px,-3px)}
+/* 5. Magnetische Buttons */
+.hero-actions .btn-primary,.hero-actions .btn-outline{transition:transform .15s ease-out,box-shadow .2s,border-color .2s,color .2s,filter .2s}
 
-.case-card-slim{max-width:420px}
-
-@media(max-width:700px){
-  .feature-card{min-height:64vh}
-  .feature-title{font-size:clamp(40px,14vw,68px)}
-  .feature-content{padding:32px 6% 40px}
-}
-
-/* HERO dark-theme text & component overrides */
-.theme-dark .hero-name{color:var(--on-dark-ink)}
-.theme-dark .hero-role{color:var(--on-dark-muted)}
-.theme-dark .hero-sub{color:var(--on-dark-soft)}
-.theme-dark .hero-available{background:var(--night-soft);border-color:var(--night-border);color:var(--on-dark-soft)}
-.theme-dark .hero-available-tooltip{background:var(--on-dark-ink);color:var(--night)}
-.theme-dark .hero-available-tooltip::after{border-top-color:var(--on-dark-ink)}
-.theme-dark .btn-outline{background:var(--night-soft);border-color:var(--night-border);color:var(--on-dark-soft)}
-.theme-dark .btn-outline:hover{border-color:var(--green);color:var(--on-dark-ink)}
-.theme-dark .hero-stats{border-color:var(--night-border)}
-.theme-dark .hero-stat-label{color:var(--on-dark-muted)}
-.theme-dark .hero-badge{background:var(--night-soft);border-color:var(--night-border);color:var(--on-dark-soft)}
-.theme-dark .scroll-text{color:var(--on-dark-muted)}
-.theme-dark .scroll-mouse{border-color:var(--on-dark-muted)}
-.theme-dark .hero::before{opacity:.6}
-
-/* case-card-placeholder auf dunklem Grund */
-.theme-dark .case-card-placeholder{background:var(--night-soft);border-color:var(--night-border)}
-.theme-dark .case-thumb-placeholder{background:var(--night)}
-.theme-dark .case-placeholder-line{background:rgba(242,245,240,0.08)}
-.theme-dark .case-card-cta-label{color:var(--on-dark-muted)}
-.theme-dark .case-arrow-btn-wip{background:var(--night) !important;color:var(--on-dark-soft) !important}
-.theme-dark .case-arrow-btn-wip svg{stroke:var(--on-dark-soft)}
-
-/* about photo, contact, footer bleiben hell/eigenständig, keine Änderung nötig */
+/* 6. Rollen-Wechsel Text */
+.hero-role{position:relative;overflow:hidden}
+.hero-role-text{display:inline-block;transition:opacity .3s ease,transform .3s ease}
+.hero-role-text.role-fade{opacity:0;transform:translateY(6px)}
