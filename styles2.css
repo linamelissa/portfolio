@@ -3,14 +3,43 @@
   --ink:#25302A;
   --green-dark:#405444;
   --green-light:#9DC0A3;
+  --hairline:#E3E8E4;
+  --focus-ring:0 0 0 3px rgba(64,84,68,0.35);
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   background:var(--cream);
   font-family:'Inter', sans-serif;
   color:var(--ink);
+}
+
+/* Skip link — hidden until keyboard focus, standard accessibility pattern */
+.skip-link{
+  position:absolute;
+  left:-9999px;
+  top:0;
+  z-index:100;
+  background:var(--ink);
+  color:white;
+  padding:12px 20px;
+  border-radius:0 0 8px 0;
+  font-weight:500;
+  text-decoration:none;
+}
+.skip-link:focus{
+  left:0;
+}
+
+/* Universal focus-visible ring for keyboard navigation */
+a:focus-visible, button:focus-visible{
+  outline:none;
+  box-shadow:var(--focus-ring);
 }
 
 /* Reference Figma frame: 1905 x 857px. Everything scales fluidly via
@@ -61,6 +90,7 @@ body{
   padding:0.52cqw 1.42cqw;
   box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
   white-space:nowrap;
+  line-height:1;
 }
 .name-pill-photo{
   width:2.1cqw;
@@ -169,6 +199,9 @@ body{
   font-size:1.05cqw;
 }
 
+/* Figure/figcaption resets (used for photo cluster) */
+.photo-cluster{ display:block; }
+
 /* CTA row */
 .cta-row{
   position:absolute;
@@ -192,9 +225,17 @@ body{
   min-font-size:13px;
   cursor:pointer;
   border:none;
+  text-decoration:none;
+  transition:background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 .btn-primary{ background:var(--ink); color:white; }
+.btn-primary:hover{ background:#374039; box-shadow:0 4px 12px rgba(37,48,42,0.25); }
+.btn-primary:active{ transform:scale(0.97); }
+
 .btn-secondary{ background:white; color:var(--ink); border:1.5px solid var(--ink); }
+.btn-secondary:hover{ background:var(--ink); color:white; }
+.btn-secondary:active{ transform:scale(0.97); }
+
 .btn-primary svg, .btn-secondary svg{ width:1.05cqw; height:1.05cqw; min-width:14px; min-height:14px; }
 
 /* Stats row — plain numbers with thin dividers, NO card backgrounds */
@@ -250,6 +291,12 @@ body{
   align-items:center;
   gap:0.42cqw;
   opacity:0.6;
+  text-decoration:none;
+  transition:opacity 0.2s ease, transform 0.2s ease;
+}
+.scroll-indicator:hover{
+  opacity:1;
+  transform:translateX(-50%) translateY(3px);
 }
 .scroll-indicator span{
   font-family:'Space Mono', monospace;
@@ -279,6 +326,13 @@ body{
 @keyframes scroll-bounce{
   0%, 100%{ transform:translateY(0); opacity:1; }
   50%{ transform:translateY(8px); opacity:0.4; }
+}
+
+/* Respect motion preferences: real websites don't force animation on people who've asked for less */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .scroll-dot{ animation:none; }
+  .btn-primary, .btn-secondary, .scroll-indicator{ transition:none; }
 }
 
 /* Mobile fallback: below this the cqw math gets illegible, switch to a stacked layout */
