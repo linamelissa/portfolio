@@ -374,7 +374,7 @@ if (window.innerWidth <= 900) {
 
 // ===== MOTION: KINETISCHE BUCHSTABEN BEI "MELISSA" =====
 (function(){
-  const heroName = document.querySelector('.hero-name');
+  const heroName = document.querySelector('.statement-name');
   if (!heroName) return;
   const nodes = Array.from(heroName.childNodes);
   nodes.forEach(node => {
