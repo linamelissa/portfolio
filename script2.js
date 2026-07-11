@@ -27,3 +27,21 @@
 //
 // This space is ready for future interactions (e.g. highlighting the active
 // nav item while scrolling) once more page sections are added.
+
+// --- Entrance animation: measure exactly where the nav logo sits, so the
+// traveling name-pill can dock pixel-perfectly into that spot regardless
+// of viewport width. Sets --pill-dock-x / --pill-dock-y, read by the
+// pill-journey keyframes in styles2.css.
+(function () {
+  var navLogo = document.getElementById('nav-logo');
+  if (!navLogo) return;
+
+  function setDockPosition() {
+    var rect = navLogo.getBoundingClientRect();
+    document.documentElement.style.setProperty('--pill-dock-x', rect.left + 'px');
+    document.documentElement.style.setProperty('--pill-dock-y', (rect.top + rect.height / 2) + 'px');
+  }
+
+  setDockPosition();
+  window.addEventListener('resize', setDockPosition);
+})();
