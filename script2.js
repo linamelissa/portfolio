@@ -109,3 +109,65 @@
     if (travelInterval) clearInterval(travelInterval);
   }, TRAVEL_END);
 })();
+
+// --- Custom cursor: dark green dot that grows into a ring over clickable
+// elements. Desktop/mouse only (guarded by CSS pointer:fine already
+// hiding the native cursor; here we just skip the JS work on touch too). -
+(function () {
+  var cursor = document.getElementById('live-cursor');
+  if (!cursor) return;
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+
+  window.addEventListener('mousemove', function (e) {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  }, { passive: true });
+
+  document.addEventListener('mouseover', function (e) {
+    if (e.target.closest('a, button')) {
+      cursor.classList.add('is-hovering');
+    }
+  });
+  document.addEventListener('mouseout', function (e) {
+    if (e.target.closest('a, button')) {
+      cursor.classList.remove('is-hovering');
+    }
+  });
+})();
+
+// --- Stats count-up: numbers animate from 0 to their target value once
+// they're revealed, timed to match the .stat entrance delays in styles2.css.
+(function () {
+  var nums = document.querySelectorAll('.stat-num[data-count]');
+  if (!nums.length) return;
+
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    if (prefersReducedMotion || isNaN(target)) {
+      el.textContent = target;
+      return;
+    }
+    var duration = 900;
+    var start = null;
+    function step(timestamp) {
+      if (start === null) start = timestamp;
+      var progress = Math.min((timestamp - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = target;
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Matches the .stat:nth-child delays already set in styles2.css
+  var delays = [2570, 2640, 2710];
+  nums.forEach(function (el, i) {
+    setTimeout(function () { animateCount(el); }, prefersReducedMotion ? 0 : (delays[i] || 2570));
+  });
+})();
