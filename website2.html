@@ -18,12 +18,12 @@
 <meta name="twitter:title" content="Lina Melissa — UX/UI Design">
 <meta name="twitter:description" content="UX/UI Designerin aus Lüneburg. Ich gestalte digitale Produkte, die sich gut anfühlen.">
 <meta name="twitter:image" content="https://linamelissa.de/og-image.png">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="styles2.css">
+<link rel="stylesheet" href="styles.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7R7JNY2FM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -65,20 +65,21 @@
   <a href="#weitere" class="mobile-nav-link" onclick="closeMobileNav()" data-de="Mehr" data-en="More">Mehr</a>
   <a href="#kontakt" class="mobile-nav-contact" onclick="closeMobileNav()" data-de="Kontakt" data-en="Contact">Kontakt</a>
 </div>
-<div class="grain-overlay"></div>
-<div class="spotlight" id="spotlight"></div>
-<section class="hero page-section theme-dark">
-  <div class="container">
+<div class="container">
+  <section class="hero">
     <div class="hero-grid">
       <div class="hero-content">
         <div class="hero-available">
           <span class="hero-available-dot"></span>
-          <span data-de="Verfügbar für neue Projekte" data-en="Available for new projects">Verfügbar für neue Projekte</span>
-          <div class="hero-available-tooltip" data-de="Verfügbar ab August 2026" data-en="Available from August 2026">Verfügbar ab August 2026</div>
+          <span class="hero-available-text">
+            <span class="have-default" data-de="Verfügbar für neue Projekte" data-en="Available for new projects">Verfügbar für neue Projekte</span>
+            <span class="have-hover" data-de="Ab sofort ✨" data-en="Right away ✨">Ab sofort ✨</span>
+          </span>
         </div>
         <h1 class="hero-name"><em>Lina</em> Melissa</h1>
-        <p class="hero-role" data-de="UX/UI Design · Lüneburg" data-en="UX/UI Design · Lüneburg">UX/UI Design · Lüneburg</p>
+        <p class="hero-role"><span class="hero-role-text" id="hero-role-text" data-de="UX/UI Design · Lüneburg" data-en="UX/UI Design · Lüneburg">UX/UI Design · Lüneburg</span></p>
         <p class="hero-sub" data-de="Ich denke viel darüber nach, wie Menschen sich mit anderen verbinden. Und wie Design dabei helfen oder im Weg stehen kann." data-en="I think a lot about how people connect with each other. And how design can help or get in the way.">Ich denke viel darüber nach, wie Menschen sich mit anderen verbinden. Und wie Design dabei helfen oder im Weg stehen kann.</p>
+        <p class="hero-sub-2" data-de="UX/UI Designerin, die <span class=&quot;hl-green&quot;>Nutzerforschung</span> mit einem Gespür für <span class=&quot;hl-amber&quot;>visuelle Sprache</span> verbindet. Von den ersten Interviews bis zum fertigen Interface, ich gestalte Produkte, die <span class=&quot;hl-lavender&quot;>echte Verbindung</span> ermöglichen, ganz ohne Dark Patterns." data-en="UX/UI designer who combines <span class=&quot;hl-green&quot;>user research</span> with a feel for <span class=&quot;hl-amber&quot;>visual language</span>. From the first interviews to the finished interface, I design products that make <span class=&quot;hl-lavender&quot;>real connection</span> possible, without dark patterns.">UX/UI Designerin, die <span class="hl-green">Nutzerforschung</span> mit einem Gespür für <span class="hl-amber">visuelle Sprache</span> verbindet. Von den ersten Interviews bis zum fertigen Interface, ich gestalte Produkte, die <span class="hl-lavender">echte Verbindung</span> ermöglichen, ganz ohne Dark Patterns.</p>
         <div class="hero-actions">
           <a href="CV_Lina-Melissa-Arndt.pdf" download class="btn-primary"><span class="icon" data-icon="download"></span><span data-de="CV herunterladen" data-en="Download CV">CV herunterladen</span></a>
           <a href="#about" class="btn-outline"><span data-de="Über mich" data-en="About me">Über mich</span> <span class="icon" data-icon="arrow-right"></span></a>
@@ -106,57 +107,51 @@
       <span class="scroll-text">SCROLL</span>
       <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
     </a>
-  </div>
-</section>
+  </section>
+</div>
 <div class="skills-banner">
   <div class="skills-marquee" id="skills-marquee"></div>
 </div>
-<section id="work" class="reveal page-section theme-dark">
-  <div class="container">
+<div class="container">
+  <section id="work" class="reveal">
     <p class="section-label"><span class="label-icon" data-icon="layout-grid"></span><span data-de="Ausgewählte Projekte" data-en="Selected Projects">Ausgewählte Projekte</span></p>
     <h2 class="section-heading" data-de="Echte Probleme, echte Lösungen." data-en="Real problems, real solutions.">Echte Probleme, echte Lösungen.</h2>
     <p class="section-sub" data-de="Jede Studie zeigt den Teil, den die meisten Portfolios überspringen. Das Audit,<br>die Interviews, die Irrwege und die Entscheidung, die ich am Ende getroffen habe, und warum." data-en="Each one shows the part most portfolios skip. The audit, the interviews, the wrong turns, and the call I made in the end, and why.">Jede Studie zeigt den Teil, den die meisten Portfolios überspringen. Das Audit,<br>die Interviews, die Irrwege und die Entscheidung, die ich am Ende getroffen habe, und warum.</p>
-  </div>
-
-  <div class="feature-bleed">
-    <div class="feature-card">
-      <img class="feature-img" src="samespot-vorschau.jpg" alt="sameSpot Vorschau" onerror="this.style.display='none'">
-      <div class="feature-scrim"></div>
-      <span class="feature-tag-pill">UX/UI Design</span>
-      <div class="feature-content">
-        <h3 class="feature-title">sameSpot</h3>
-        <p class="feature-tagline" data-de="Je öfter man sich sieht, desto vertrauter wird's" data-en="The more often you cross paths, the more familiar it feels">Je öfter man sich sieht, desto vertrauter wird's</p>
-        <p class="feature-desc" data-de="Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Der Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?" data-en="An app where local connection emerges as a by-product, not as a goal. For people who long for closeness but are put off by classic social apps. The guiding question: would my persona use it, even knowing she'd never meet anyone?">Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Der Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?</p>
-        <div class="feature-footer">
-          <span class="feature-status"><span class="case-wip-dot"></span><span data-de="Case Study in Arbeit" data-en="Case study in progress">Case Study in Arbeit</span></span>
-          <span class="feature-arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+    <div class="case-grid">
+      <div class="case-card case-card-samespot reveal" style="opacity:1;cursor:default;">
+        <div class="case-thumb case-thumb-1">
+          <span class="case-tag-pill">UX/UI Design</span>
+          <img src="samespot-vorschau.jpg" alt="sameSpot Vorschau" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:0;" onerror="this.style.display='none'">
+          <div class="case-thumb-inner">📍</div>
+        </div>
+        <div class="case-body">
+          <h3 data-de="sameSpot" data-en="sameSpot">sameSpot</h3>
+          <p class="case-card-tagline" data-de="Je öfter man sich sieht, desto vertrauter wird's" data-en="The more often you cross paths, the more familiar it feels">Je öfter man sich sieht, desto vertrauter wird's</p>
+          <p data-de="Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Der Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?" data-en="An app where local connection emerges as a by-product, not as a goal. For people who long for closeness but are put off by classic social apps. The guiding question: would my persona use it, even knowing she'd never meet anyone?">Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Der Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?</p>
+          <div class="case-card-footer">
+            <span class="case-card-cta-label case-card-cta-wip"><span class="case-wip-dot"></span><span data-de="Case Study in Arbeit" data-en="Case study in progress">Case Study in Arbeit</span></span>
+            <span class="case-arrow-btn case-arrow-btn-wip"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+          </div>
+        </div>
+      </div>
+      <div class="case-card case-card-placeholder">
+        <div class="case-thumb case-thumb-placeholder">
+          <img src="casestudy02.jpg" alt="Case Study 02" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:0;" onerror="this.style.display='none'">
+          <div class="case-placeholder-inner"></div>
+        </div>
+        <div class="case-body">
+          <div class="case-placeholder-line" style="width:55%"></div>
+          <div class="case-placeholder-line" style="width:80%;height:10px;margin-top:8px"></div>
+          <div class="case-placeholder-line" style="width:65%;height:10px;margin-top:6px"></div>
+          <div class="case-card-footer">
+            <span class="case-card-cta-label case-card-cta-wip"><span class="case-wip-dot"></span><span data-de="Case Study in Arbeit" data-en="Case study in progress">Case Study in Arbeit</span></span>
+            <span class="case-arrow-btn case-arrow-btn-wip"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="container">
-    <div class="case-card case-card-placeholder case-card-slim">
-      <div class="case-thumb case-thumb-placeholder">
-        <img src="casestudy02.jpg" alt="Case Study 02" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:0;" onerror="this.style.display='none'">
-        <div class="case-placeholder-inner"></div>
-      </div>
-      <div class="case-body">
-        <div class="case-placeholder-line" style="width:40%"></div>
-        <div class="case-placeholder-line" style="width:70%;height:10px;margin-top:8px"></div>
-        <div class="case-placeholder-line" style="width:50%;height:10px;margin-top:6px"></div>
-        <div class="case-card-footer">
-          <span class="case-card-cta-label case-card-cta-wip"><span class="case-wip-dot"></span><span data-de="Case Study in Arbeit" data-en="Case study in progress">Case Study in Arbeit</span></span>
-          <span class="case-arrow-btn case-arrow-btn-wip"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="wave-divider wave-to-light"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,40 C360,95 1080,-15 1440,40 L1440,100 L0,100 Z" fill="var(--cream)"/></svg></div>
-</section>
-<section id="antreibt" class="reveal page-section theme-light">
-  <div class="container">
+  </section>
+  <section id="antreibt" class="reveal">
     <p class="section-label"><span class="label-icon" data-icon="zap"></span><span data-de="Was mich antreibt" data-en="What drives me">Was mich antreibt</span></p>
     <h2 class="section-heading" data-de="Drei Dinge, die meine Arbeit prägen." data-en="Three things that shape my work.">Drei Dinge, die meine Arbeit prägen.</h2>
     <p class="section-sub" data-de="Gutes Design passiert nicht zufällig. Dahinter steckt eine Haltung, eine Art zu denken<br>und Entscheidungen zu treffen. Das hier sind die drei Dinge, die meine Arbeit am stärksten prägen." data-en="Good design doesn't happen by accident. Behind it is an attitude, a way of thinking<br>and making decisions. These are the three things that shape my work the most.">Gutes Design passiert nicht zufällig. Dahinter steckt eine Haltung, eine Art zu denken<br>und Entscheidungen zu treffen. Das hier sind die drei Dinge, die meine Arbeit am stärksten prägen.</p>
@@ -177,11 +172,8 @@
         <p class="drives-text" data-de="3 Monate Au-pair in London, die Ostküste Australiens bereist, übers Wochenende spontan nach Kopenhagen und Malmö, einfach so in die Niederlande, nach Italien, Spanien. Ich bin durch und durch neugierig. Genau das bringe ich in jedes Projekt mit." data-en="3 months as an au pair in London, travelled Australia's east coast, spontaneous weekends in Copenhagen and Malmö, just like that to the Netherlands, Italy, Spain. I'm curious through and through. That's exactly what I bring to every project.">3 Monate Au-pair in London, die Ostküste Australiens bereist, übers Wochenende spontan nach Kopenhagen und Malmö, einfach so in die Niederlande, nach Italien, Spanien. Ich bin durch und durch neugierig. Genau das bringe ich in jedes Projekt mit.</p>
       </div>
     </div>
-  </div>
-  <div class="wave-divider wave-to-dark"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,60 C360,5 1080,115 1440,60 L1440,100 L0,100 Z" fill="var(--night)"/></svg></div>
-</section>
-<section id="expertise" class="reveal page-section theme-dark">
-  <div class="container">
+  </section>
+  <section id="expertise" class="reveal">
     <p class="section-label"><span class="label-icon" data-icon="sparkles"></span><span data-de="Expertise" data-en="Expertise">Expertise</span></p>
     <h3 class="section-heading" data-de="Gelernt, geübt, angewendet." data-en="Learned, practised, applied.">Gelernt, geübt, angewendet.</h3>
     <p class="section-sub" data-de="Viele Jahre Designerfahrung hinterlassen Spuren. Aus der Mediengestaltung kommt das Gefühl für Layout<br>und Hierarchie, aus dem Bootcamp die UX-Methodik, und aus dem täglichen Ausprobieren der Rest." data-en="Years of design experience leave their mark. The sense for layout and hierarchy comes from media design, the UX methodology from the bootcamp, and the rest from daily trial and error.">Viele Jahre Designerfahrung hinterlassen Spuren. Aus der Mediengestaltung kommt das Gefühl für Layout<br>und Hierarchie, aus dem Bootcamp die UX-Methodik, und aus dem täglichen Ausprobieren der Rest.</p>
@@ -193,11 +185,8 @@
       <div class="expertise-card reveal reveal-delay-1"><div class="expertise-icon" data-icon="printer"></div><h3 data-de="Print &amp; Mediengestaltung" data-en="Print &amp; Media Design">Print &amp; Mediengestaltung</h3><div class="expertise-tags"><span class="tool">InDesign</span><span class="tool">Illustrator</span><span class="tool">Photoshop</span><span data-de="Druckproduktion" data-en="Print Production">Druckproduktion</span><span data-de="Reinzeichnung" data-en="Artwork Finalisation">Reinzeichnung</span></div></div>
       <div class="expertise-card reveal reveal-delay-2"><div class="expertise-icon" data-icon="sparkles"></div><h3 data-de="Tools &amp; KI" data-en="Tools &amp; AI">Tools &amp; KI</h3><div class="expertise-tags"><span class="tool">Framer</span><span class="tool">Notion</span><span class="tool">Miro</span><span class="tool">Blender</span><span data-de="Vibe Coding" data-en="Vibe Coding">Vibe Coding</span><span class="tool">Claude</span><span class="tool">ChatGPT</span><span class="tool">Gemini</span><span class="tool">Perplexity</span></div></div>
     </div>
-  </div>
-  <div class="wave-divider wave-to-light"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,50 C360,-10 1080,110 1440,50 L1440,100 L0,100 Z" fill="var(--cream)"/></svg></div>
-</section>
-<section id="about" class="reveal page-section theme-light">
-  <div class="container">
+  </section>
+  <section id="about" class="reveal">
     <p class="section-label"><span class="label-icon" data-icon="user"></span><span data-de="Über mich" data-en="About me">Über mich</span></p>
     <div class="about-intro-row">
       <div>
@@ -319,11 +308,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="wave-divider wave-to-dark"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,45 C360,100 1080,-10 1440,45 L1440,100 L0,100 Z" fill="var(--night)"/></svg></div>
-</section>
-<section id="now" class="reveal page-section theme-dark">
-  <div class="container">
+  </section>
+  <section id="now" class="reveal">
     <p class="section-label"><span class="label-icon" data-icon="map-pin"></span><span data-de="Now" data-en="Now">Now</span></p>
     <h2 class="section-heading" data-de="Was ich dir sagen würde, wenn du fragst." data-en="What I'd tell you if you asked.">Was ich dir sagen würde, wenn du fragst.</h2>
     <p class="now-intro-text" id="now-intro" data-de="Was mich gerade beschäftigt, woran ich arbeite und worüber ich nachdenke. Kein Social Media,<br>keine Highlights. Nur der ehrliche Stand der Dinge. Eine Idee von Derek Sivers: <a href='https://nownownow.com/about' target='_blank' style='color:var(--green-mid);text-decoration:none;'>mehr erfahren ↗</a>" data-en="What's on my mind right now, what I'm working on and thinking about. No social media,<br>no highlights. Just the honest state of things. An idea by Derek Sivers: <a href='https://nownownow.com/about' target='_blank' style='color:var(--green-mid);text-decoration:none;'>learn more ↗</a>">Was mich gerade beschäftigt, woran ich arbeite und worüber ich nachdenke. Kein Social Media,
@@ -348,11 +334,8 @@ keine Highlights. Nur der ehrliche Stand der Dinge. Eine Idee von Derek Sivers: 
         </div>
       </div>
     </div>
-  </div>
-  <div class="wave-divider wave-to-light"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,55 C360,0 1080,105 1440,55 L1440,100 L0,100 Z" fill="var(--cream)"/></svg></div>
-</section>
-<section id="blog" class="reveal page-section theme-light">
-  <div class="container">
+  </section>
+  <section id="blog" class="reveal">
     <p class="section-label"><span class="label-icon" data-icon="pen-line"></span><span data-de="Gedanken" data-en="Thoughts">Gedanken</span></p>
     <h2 class="section-heading" data-de="Was mir beim Arbeiten durch den Kopf geht." data-en="What goes through my head while working.">Was mir beim Arbeiten durch den Kopf geht.</h2>
     <p class="section-sub" data-de="Beobachtungen von jemandem, der gerade mitten im Prozess steckt. Über Design, KI und<br>die Fragen, die mich nicht loslassen. Keine Tutorials, keine Tipps, nur ehrliche Gedanken." data-en="Observations from someone right in the middle of the process. About design, AI and the questions that won't leave me alone. No tutorials, no tips, just honest thoughts.">Beobachtungen von jemandem, der gerade mitten im Prozess steckt. Über Design, KI und<br>die Fragen, die mich nicht loslassen. Keine Tutorials, keine Tipps, nur ehrliche Gedanken.</p>
@@ -362,11 +345,8 @@ keine Highlights. Nur der ehrliche Stand der Dinge. Eine Idee von Derek Sivers: 
       <a class="blog-card reveal reveal-delay-2" href="blog-artikel-03.html"><div class="blog-thumb blog-thumb-3"><img class="blog-thumb-img" src="blog-bild-03.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Haltung" data-en="Stance">Haltung</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Dark Patterns — und warum ich sie ablehne" data-en="Dark patterns — and why I reject them">Dark Patterns — und warum ich sie ablehne</h3><p class="blog-text" data-de="Manche Designs sind nicht schlecht gemacht. Sie sind absichtlich gegen dich gebaut. Warum ich da nicht mitmache." data-en="Some designs aren't badly made. They're deliberately built against you. Why I won't play along.">Manche Designs sind nicht schlecht gemacht. Sie sind absichtlich gegen dich gebaut. Warum ich da nicht mitmache.</p></div></a>
       <a class="blog-card reveal reveal-delay-3" href="blog-artikel-04.html"><div class="blog-thumb blog-thumb-4"><img class="blog-thumb-img" src="blog-bild-04.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="KI &amp; Tools" data-en="AI &amp; Tools">KI &amp; Tools</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Prompten als neue Designfähigkeit" data-en="Prompting as a new design skill">Prompten als neue Designfähigkeit</h3><p class="blog-text" data-de="Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue." data-en="Why good prompting is surprisingly close to what I do as a designer anyway.">Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue.</p></div></a>
     </div>
-  </div>
-  <div class="wave-divider wave-to-dark"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,50 C360,105 1080,-5 1440,50 L1440,100 L0,100 Z" fill="var(--night)"/></svg></div>
-</section>
-<section id="weitere" class="reveal page-section theme-dark">
-  <div class="container">
+  </section>
+  <section id="weitere" class="reveal">
     <p class="section-label"><span class="label-icon" data-icon="folder-open"></span><span data-de="Weitere Projekte" data-en="More Projects">Weitere Projekte</span></p>
     <h2 class="section-heading" data-de="Und da ist noch mehr." data-en="And there's more.">Und da ist noch mehr.</h2>
     <p class="section-sub" data-de="Von Web Design über App UI bis Instagram. Projekte aus verschiedenen Phasen, in verschiedenen Rollen und<br>für verschiedene Ziele. Nicht jedes davon ist eine Case Study, aber jedes davon hat mich hierhin gebracht." data-en="From web design to app UI to Instagram. Projects from different phases, different roles and different goals. Not all of them are case studies, but each one brought me here.">Von Web Design über App UI bis Instagram. Projekte aus verschiedenen Phasen, in verschiedenen Rollen und<br>für verschiedene Ziele. Nicht jedes davon ist eine Case Study, aber jedes davon hat mich hierhin gebracht.</p>
@@ -381,10 +361,9 @@ keine Highlights. Nur der ehrliche Stand der Dinge. Eine Idee von Derek Sivers: 
       <div class="masonry-card"><img src="blender.jpg" alt="3D Room Illustration" class="masonry-img"><div class="masonry-body"><span class="masonry-tag" data-de="3D Illustration" data-en="3D Illustration">3D Illustration</span><div class="masonry-title" data-de="Isometrischer Raum in Blender" data-en="Isometric room in Blender">Isometrischer Raum in Blender</div></div></div>
       <div class="masonry-card masonry-card-insta insta-swipe" data-slides="5"><div class="insta-swipe-track"><img src="2. Post-1.jpg" alt="Instagram Post 2-1" class="insta-slide"><img src="2. Post-2.jpg" alt="Instagram Post 2-2" class="insta-slide"><img src="2. Post-3.jpg" alt="Instagram Post 2-3" class="insta-slide"><img src="2. Post-4.jpg" alt="Instagram Post 2-4" class="insta-slide"><img src="2. Post-5.jpg" alt="Instagram Post 2-5" class="insta-slide"></div><div class="insta-dots"><span class="insta-dot active"></span><span class="insta-dot"></span><span class="insta-dot"></span><span class="insta-dot"></span><span class="insta-dot"></span></div><div class="masonry-body"><span class="masonry-tag">Instagram</span><div class="masonry-title" data-de="Social Media Carousel" data-en="Social Media Carousel">Social Media Carousel</div></div></div>
     </div>
-  </div>
-  <div class="wave-divider wave-to-light"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,45 C360,-10 1080,110 1440,45 L1440,100 L0,100 Z" fill="var(--cream)"/></svg></div>
-</section>
-<div id="kontakt" class="theme-light">
+  </section>
+</div>
+<div id="kontakt">
   <div class="contact-inner">
     <p class="contact-label" data-de="● Offen für neue Möglichkeiten" data-en="● Open for new opportunities">● Offen für neue Möglichkeiten</p>
     <h2 class="contact-title"><span data-de="Ich freue mich" data-en="I look forward">Ich freue mich</span><br><span data-de="von dir zu hören." data-en="to hearing from you.">von dir zu hören.</span></h2>
@@ -431,6 +410,6 @@ keine Highlights. Nur der ehrliche Stand der Dinge. Eine Idee von Derek Sivers: 
     </div>
   </div>
 </div>
-<script src="script2.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
