@@ -575,8 +575,8 @@ a:focus-visible, button:focus-visible{
   animation:pill-photo-drop 2.1s cubic-bezier(0.65,0,0.35,1) both;
 }
 @keyframes pill-photo-drop{
-  0%, 54%{ opacity:1; width:40px; }
-  70%, 100%{ opacity:0; width:0; }
+  0%, 54%{ opacity:1; width:40px; border-width:1px; }
+  70%, 100%{ opacity:0; width:0; border-width:0; }
 }
 
 /* Click ripple — a soft ring that expands from the pill and fades,
