@@ -193,24 +193,35 @@
   // Standard: "Prototyp & Lösung" ist aktiv (Hero + Überblick gehören zu diesem Kapitel)
   setActiveToc('prototyp');
 
-  var problemSection = document.getElementById('problem');
-  var researchSection = document.getElementById('research');
+  // Alle Sections, die per Sidebar ansteuerbar sind — generisch statt hart codiert,
+  // damit neu hinzugefügte Bereiche automatisch mitlaufen
+  var spySections = [];
+  tocLinks.forEach(function (link) {
+    var key = link.getAttribute('data-toc');
+    if (key === 'prototyp') return;
+    var href = link.getAttribute('href');
+    if (href && href.startsWith('#') && href.length > 1) {
+      var el = document.querySelector(href);
+      if (el) spySections.push({ key: key, el: el });
+    }
+  });
 
-  if ('IntersectionObserver' in window) {
+  if ('IntersectionObserver' in window && spySections.length) {
     var spyObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
+        var match = spySections.filter(function (s) { return s.el === entry.target; })[0];
+        if (!match) return;
+
         if (entry.isIntersecting) {
-          if (entry.target === problemSection) setActiveToc('problem');
-          else if (entry.target === researchSection) setActiveToc('research');
-        } else if (entry.target === problemSection || entry.target === researchSection) {
-          // Zurück zu "Prototyp & Lösung", falls man oberhalb von "Problem" ist
-          if (window.scrollY < entry.target.offsetTop) setActiveToc('prototyp');
+          setActiveToc(match.key);
+        } else if (window.scrollY < entry.target.offsetTop) {
+          // Zurück zu "Prototyp & Lösung", falls man oberhalb aller Sections ist
+          setActiveToc('prototyp');
         }
       });
     }, { threshold: 0, rootMargin: '-45% 0px -45% 0px' });
 
-    if (problemSection) spyObserver.observe(problemSection);
-    if (researchSection) spyObserver.observe(researchSection);
+    spySections.forEach(function (s) { spyObserver.observe(s.el); });
   }
 
   /* Smooth-scroll für TOC-Links, die auf reale Sections zeigen */
