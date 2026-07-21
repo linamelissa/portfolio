@@ -515,26 +515,36 @@ a { text-decoration: none; color: inherit; }
 }
 
 .eyebrow--onlight {
-  color: var(--border);
+  color: var(--white);
 }
 
 .ueberblick__heading {
   text-align: center;
 }
 
+.ueberblick__heading .eyebrow {
+  font-size: 16px;
+  letter-spacing: 0.32px;
+}
+
 .ueberblick__title {
   font-weight: 700;
-  font-size: clamp(24px, 2.6vw, 35px);
+  font-size: 35px;
   letter-spacing: 1px;
-  color: var(--white);
+  color: var(--deep-green);
   margin: 0;
+}
+
+@media (max-width: 480px) {
+  .ueberblick__title { font-size: 26px; }
 }
 
 .ueberblick__cards {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(16px, 2vw, 24px);
+  gap: 24px;
   justify-content: center;
+  align-items: flex-start;
   width: 100%;
 }
 
@@ -545,36 +555,25 @@ a { text-decoration: none; color: inherit; }
 
 .card--overview {
   position: relative;
-  flex: 1 1 280px;
+  flex: 328 0 0;
   max-width: 340px;
-  padding: clamp(22px, 2.4vw, 32px);
+  min-width: 0;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 2vw, 24px);
+  gap: 24px;
   transform-style: preserve-3d;
   transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
   will-change: transform;
-}
-
-.card--overview__step {
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  font-family: 'Gasoek One', sans-serif;
-  font-size: 22px;
-  color: var(--border);
-  letter-spacing: 0.02em;
-}
-
-.card--overview:hover .card--overview__step {
-  color: var(--sage);
 }
 
 /* Pfeile zwischen den Karten — verbinden die 3 Schritte zu einer Erzählung */
 .ueberblick__arrow {
   display: flex;
   align-items: center;
-  color: rgba(255, 255, 255, 0.65);
+  justify-content: center;
+  height: 260px;
+  color: rgba(37, 48, 42, 0.45);
   flex-shrink: 0;
   animation: arrow-nudge 2.4s ease-in-out infinite;
 }
@@ -598,13 +597,13 @@ a { text-decoration: none; color: inherit; }
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  margin: clamp(32px, 4vw, 48px) auto 0;
+  margin: 48px auto 0;
   width: fit-content;
   font-size: 13px;
   font-weight: 600;
-  color: var(--white);
+  color: var(--sage);
   letter-spacing: 0.02em;
-  opacity: 0.85;
+  opacity: 0.9;
   transition: opacity var(--dur-fast) var(--ease);
 }
 
@@ -630,12 +629,13 @@ a { text-decoration: none; color: inherit; }
 }
 
 .icon-badge {
-  width: clamp(58px, 5.4vw, 76px);
-  height: clamp(58px, 5.4vw, 76px);
-  border-radius: 18px;
+  width: 76px;
+  height: 76px;
+  border-radius: 78px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   transition: transform var(--dur-fast) var(--ease-bounce);
 }
 
@@ -657,11 +657,16 @@ a { text-decoration: none; color: inherit; }
 }
 
 .icon-badge--warning { background: #FFE3DB; }
+.icon-badge--validate { background: #F5E9D2; }
 .icon-badge--sage { background: var(--sage-tint); }
+
+@media (max-width: 480px) {
+  .icon-badge { width: 58px; height: 58px; }
+}
 
 .card--overview h3 {
   font-weight: 600;
-  font-size: clamp(17px, 1.6vw, 20px);
+  font-size: 20px;
   color: var(--dark-ink);
   margin: 0 0 8px;
 }
