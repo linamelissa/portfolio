@@ -1519,6 +1519,322 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ---------------------------------
+   Ideation
+---------------------------------- */
+.ideation {
+  padding: clamp(48px, 6vw, 90px) 24px;
+  scroll-margin-top: 80px;
+}
+
+.ideation__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(32px, 4vw, 52px);
+}
+
+.ideation__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.ideation__title,
+.napkin__title {
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 40px);
+  letter-spacing: 0.5px;
+  color: var(--ink);
+  margin: 0;
+}
+
+.ideation__title em,
+.napkin__title em {
+  font-style: italic;
+  color: var(--sage);
+  font-weight: 700;
+}
+
+.ideation__sub,
+.napkin__sub {
+  font-size: clamp(14px, 1.2vw, 17px);
+  color: var(--black-ink);
+  max-width: 640px;
+  margin: 0;
+}
+
+/* Ideen-Fächer — eine ausgewählte Karte vorn, drei weitere
+   dahinter gestaffelt wie eine aufgefächerte Kartenreihe */
+.idea-fan {
+  display: flex;
+  width: 100%;
+  padding: 10px 0 20px;
+}
+
+.idea-card {
+  flex: 1;
+  min-width: 0;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px -8px rgba(64, 84, 68, 0.18);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+
+.idea-card + .idea-card {
+  margin-left: -28px;
+}
+
+.idea-card:nth-child(2) { transform: rotate(1.2deg); z-index: 1; }
+.idea-card:nth-child(3) { transform: rotate(0.4deg); z-index: 1; padding-left: 40px; }
+.idea-card:nth-child(4) { transform: rotate(-0.8deg); z-index: 1; padding-left: 40px; }
+
+.idea-card:hover {
+  transform: translateY(-4px);
+  z-index: 5;
+}
+
+.idea-card--selected {
+  background: var(--black-ink);
+  z-index: 2;
+  box-shadow: 0 16px 32px -10px rgba(22, 19, 17, 0.4);
+  transform: rotate(-1.4deg);
+}
+
+.idea-card--selected:hover {
+  transform: rotate(-1.4deg) translateY(-4px);
+}
+
+.idea-card__text {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0;
+}
+
+.idea-card--selected .idea-card__text {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.idea-card__tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--sage);
+}
+
+.idea-card__tag--muted {
+  color: var(--slate-light);
+  font-weight: 400;
+}
+
+.idea-why {
+  width: 100%;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(64, 84, 68, 0.1), 0 4px 2px rgba(64, 84, 68, 0.08);
+  padding: clamp(20px, 2.4vw, 30px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.idea-why__label {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--dark-ink);
+  margin: 0;
+}
+
+.idea-why__text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--slate-light);
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .idea-fan { flex-direction: column; padding: 0; }
+  .idea-card { margin-left: 0 !important; transform: none !important; padding-left: 22px !important; }
+  .idea-card--selected:hover { transform: none !important; }
+}
+
+/* ---------------------------------
+   Idea Napkin
+---------------------------------- */
+.napkin {
+  padding: clamp(48px, 6vw, 90px) 24px;
+  scroll-margin-top: 80px;
+}
+
+.napkin__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(28px, 3.5vw, 44px);
+}
+
+.napkin__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.napkin-intro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(14px, 1.8vw, 20px);
+  width: 100%;
+}
+
+.napkin-intro__card {
+  flex: 1 1 300px;
+  min-width: 0;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(64, 84, 68, 0.1), 0 4px 2px rgba(64, 84, 68, 0.08);
+  padding: clamp(18px, 2vw, 26px);
+}
+
+.napkin-intro__label {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--dark-ink);
+  margin: 0 0 8px;
+}
+
+.napkin-intro__text {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--slate-light);
+  margin: 0;
+}
+
+.napkin-board {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(14px, 1.8vw, 20px);
+  width: 100%;
+}
+
+.napkin-col {
+  flex: 1 1 0;
+  min-width: 0;
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 2px rgba(64, 84, 68, 0.1), 0 4px 2px rgba(64, 84, 68, 0.08);
+}
+
+.napkin-col--wide {
+  flex: 2 1 0;
+}
+
+.napkin-col__head {
+  background: var(--black-ink);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  padding: 14px;
+}
+
+.napkin-col__body {
+  flex: 1;
+  padding: clamp(14px, 1.6vw, 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.napkin-note-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.napkin-note-row .napkin-note {
+  flex: 1 1 200px;
+}
+
+.napkin-note {
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0;
+}
+
+.napkin-note--problem { background: #FFE3DB; }
+.napkin-note--solution { background: var(--sage-tint); }
+.napkin-note--value { background: #F5E9D2; }
+
+.napkin-subhead {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--slate-light);
+  margin: 6px 0 0;
+}
+
+.napkin-subhead:first-child {
+  margin-top: 0;
+}
+
+.napkin-col__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px clamp(14px, 1.6vw, 20px);
+  border-top: 1px solid var(--border);
+}
+
+.napkin-rating__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--slate);
+}
+
+.napkin-rating {
+  display: flex;
+  gap: 4px;
+}
+
+.napkin-rating__sq {
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+  background: var(--border);
+}
+
+.napkin-rating__sq.is-filled--problem { background: var(--coral); }
+.napkin-rating__sq.is-filled--solution { background: var(--sage); }
+.napkin-rating__sq.is-filled--value { background: #C99B4E; }
+
+@media (max-width: 900px) {
+  .napkin-board { flex-direction: column; }
+  .napkin-col--wide { flex: 1; }
+  .napkin-note-row { flex-direction: column; }
+}
+
+/* ---------------------------------
    Responsive — kleinere Screens
 ---------------------------------- */
 @media (max-width: 700px) {
