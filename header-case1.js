@@ -44,11 +44,11 @@
   ---------------------------------- */
   function animateCount(el, target, duration) {
     var suffix = el.getAttribute('data-count-suffix') || '%';
-    var start = 0;
     var startTime = null;
 
     if (prefersReducedMotion) {
       el.textContent = target + suffix;
+      el.classList.add('is-done');
       return;
     }
 
@@ -56,10 +56,13 @@
       if (!startTime) startTime = timestamp;
       var progress = Math.min((timestamp - startTime) / duration, 1);
       var eased = 1 - Math.pow(1 - progress, 3); // ease-out-cubic
-      var value = Math.round(start + (target - start) * eased);
+      var value = Math.round(target * eased);
       el.textContent = value + suffix;
       if (progress < 1) {
         requestAnimationFrame(step);
+      } else {
+        el.classList.add('is-done');
+        setTimeout(function () { el.classList.remove('is-done'); }, 300);
       }
     }
     requestAnimationFrame(step);
@@ -67,7 +70,6 @@
 
   var countEls = document.querySelectorAll('[data-count-to]');
   var barEls = document.querySelectorAll('[data-target]');
-
   var statsAnimated = false;
 
   function animateStats() {
@@ -105,39 +107,64 @@
   }
 
   /* ---------------------------------
-     TOC scrollspy
-     (only sections that actually exist on this page)
+     Zitat-Karte: linker Rand "zeichnet" sich,
+     sobald die Karte sichtbar wird
   ---------------------------------- */
-  var sectionMap = [
-    { id: 'problem', key: 'problem' },
-    { id: 'ueberblick', key: 'prototyp' }
-  ];
-
-  var tocLinks = document.querySelectorAll('.toc__link');
-
-  function setActiveToc(key) {
-    tocLinks.forEach(function (link) {
-      link.classList.toggle('toc__link--active', link.getAttribute('data-toc') === key);
-    });
+  var quoteCard = document.querySelector('.card--quote');
+  if (quoteCard) {
+    if (!('IntersectionObserver' in window) || prefersReducedMotion) {
+      quoteCard.classList.add('is-visible');
+    } else {
+      var quoteObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            quoteObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      quoteObserver.observe(quoteCard);
+    }
   }
 
-  if ('IntersectionObserver' in window) {
-    var scrollSpyObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          var match = sectionMap.find(function (s) { return s.id === entry.target.id; });
-          if (match) setActiveToc(match.key);
-        }
+  /* ---------------------------------
+     Sanfter 3D-Tilt auf Karten
+     (folgt der Mausposition, nur bei Geräten mit Maus)
+  ---------------------------------- */
+  var supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  if (supportsHover && !prefersReducedMotion) {
+    var tiltCards = document.querySelectorAll('.card--overview, .card--stat');
+
+    tiltCards.forEach(function (card) {
+      var rect = null;
+
+      card.addEventListener('mouseenter', function () {
+        rect = card.getBoundingClientRect();
       });
-    }, { threshold: 0, rootMargin: '-40% 0px -50% 0px' });
 
-    sectionMap.forEach(function (s) {
-      var el = document.getElementById(s.id);
-      if (el) scrollSpyObserver.observe(el);
+      card.addEventListener('mousemove', function (e) {
+        if (!rect) rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        var rotateX = (y * -6).toFixed(2);
+        var rotateY = (x * 6).toFixed(2);
+        card.style.transform = 'perspective(700px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-4px)';
+      });
+
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+        rect = null;
+      });
     });
   }
 
-  /* Smooth-scroll for TOC links that point to real sections */
+  /* ---------------------------------
+     Smooth-scroll für TOC-Links,
+     die auf reale Sections zeigen
+  ---------------------------------- */
+  var tocLinks = document.querySelectorAll('.toc__link, .toc__current');
+
   tocLinks.forEach(function (link) {
     var href = link.getAttribute('href');
     if (href && href.startsWith('#') && href.length > 1) {
