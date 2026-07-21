@@ -33,7 +33,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
 }
 
 body {
@@ -496,6 +495,7 @@ a { text-decoration: none; color: inherit; }
   border-radius: clamp(48px, 6vw, 100px) clamp(48px, 6vw, 100px) 0 0;
   padding: clamp(56px, 7vw, 90px) 24px clamp(64px, 8vw, 100px);
   margin-top: clamp(24px, 3vw, 40px);
+  scroll-margin-top: 80px;
 }
 
 .ueberblick__inner {
@@ -689,6 +689,7 @@ a { text-decoration: none; color: inherit; }
 ---------------------------------- */
 .problem {
   padding: 0 24px clamp(32px, 4vw, 64px);
+  scroll-margin-top: 80px;
 }
 
 .problem__inner {
@@ -950,6 +951,7 @@ a { text-decoration: none; color: inherit; }
 ---------------------------------- */
 .research {
   padding: clamp(48px, 6vw, 90px) 24px clamp(56px, 7vw, 100px);
+  scroll-margin-top: 80px;
 }
 
 .research__inner {
@@ -958,28 +960,6 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   flex-direction: column;
   gap: clamp(28px, 3.5vw, 48px);
-}
-
-.research__heading {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.research__title {
-  font-weight: 700;
-  font-size: clamp(24px, 3vw, 40px);
-  letter-spacing: 0.5px;
-  color: var(--ink);
-  margin: 0;
-}
-
-.research__title em {
-  font-style: italic;
-  color: var(--sage);
-  font-weight: 700;
 }
 
 /* Sticky Stat-Reihe — bleibt oben, während man durch die drei
@@ -1072,15 +1052,13 @@ a { text-decoration: none; color: inherit; }
   gap: clamp(20px, 2.4vw, 32px);
   padding-top: clamp(44px, 5vw, 64px);
   scroll-margin-top: 150px;
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
 }
 
 .research__block-heading {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   text-align: center;
 }
 
