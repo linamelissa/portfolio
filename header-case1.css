@@ -1961,7 +1961,7 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: flex-start;
   gap: clamp(16px, 2vw, 24px);
-  background: var(--sage-tint);
+  background: rgba(157, 192, 163, 0.14);
   border-radius: 20px;
   padding: clamp(16px, 2vw, 22px) clamp(18px, 2.4vw, 26px);
 }
