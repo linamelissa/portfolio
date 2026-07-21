@@ -243,10 +243,13 @@
 
   /* ---------------------------------
      Research: Sticky Stat-Boxen — die passende Box
-     wird aktiv, während man durch die Blöcke scrollt
+     wird aktiv, während man durch die Blöcke scrollt.
+     Scroll-Position-basiert statt IntersectionObserver-Band,
+     damit der Wechsel exakt und ohne Flackern passiert.
   ---------------------------------- */
   var statMinis = document.querySelectorAll('.stat-mini');
   var researchBlocks = document.querySelectorAll('.research__block');
+  var statsWrap = document.querySelector('.research__stats-wrap');
 
   function setActiveStat(key) {
     statMinis.forEach(function (el) {
@@ -254,16 +257,22 @@
     });
   }
 
-  if (researchBlocks.length && 'IntersectionObserver' in window) {
-    var statSpy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          setActiveStat(entry.target.getAttribute('data-stat-trigger'));
-        }
-      });
-    }, { threshold: 0, rootMargin: '-35% 0px -50% 0px' });
+  if (researchBlocks.length) {
+    var refOffset = statsWrap ? statsWrap.offsetHeight + 80 : 160;
 
-    researchBlocks.forEach(function (block) { statSpy.observe(block); });
+    var updateActiveStat = function () {
+      var refLine = window.scrollY + refOffset;
+      var current = researchBlocks[0];
+      researchBlocks.forEach(function (block) {
+        if (block.offsetTop <= refLine) current = block;
+      });
+      setActiveStat(current.getAttribute('data-stat-trigger'));
+    };
+
+    window.addEventListener('scroll', updateActiveStat, { passive: true });
+    window.addEventListener('resize', updateActiveStat);
+    window.addEventListener('load', updateActiveStat);
+    updateActiveStat();
   }
 
   /* ---------------------------------
