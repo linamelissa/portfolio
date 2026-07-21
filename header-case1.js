@@ -38,22 +38,33 @@
 
   /* ---------------------------------
      Reveal on scroll
+     Bewusst NICHT nur IntersectionObserver: bei sehr schnellem
+     Scrollen (z.B. Scrollbar-Ziehen) kann ein einmaliger
+     Intersection-Callback verpasst werden, und Elemente blieben
+     dann für immer unsichtbar. Diese Prüfung läuft stattdessen
+     bei jedem Scroll erneut über die tatsächliche Position —
+     dadurch kann nichts dauerhaft übersprungen werden.
   ---------------------------------- */
-  var revealEls = document.querySelectorAll('[data-reveal]');
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
 
-  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+  if (prefersReducedMotion) {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+    revealEls = [];
   } else {
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
+    var checkReveal = function () {
+      for (var i = revealEls.length - 1; i >= 0; i--) {
+        var rect = revealEls[i].getBoundingClientRect();
+        if (rect.top < window.innerHeight + 80) {
+          revealEls[i].classList.add('is-visible');
+          revealEls.splice(i, 1);
         }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      }
+    };
 
-    revealEls.forEach(function (el) { revealObserver.observe(el); });
+    checkReveal();
+    window.addEventListener('scroll', checkReveal, { passive: true });
+    window.addEventListener('resize', checkReveal);
+    window.addEventListener('load', checkReveal);
   }
 
   /* ---------------------------------
@@ -108,41 +119,27 @@
   }
 
   var statsTrigger = document.querySelector('.card--flat');
-  if (statsTrigger) {
-    if (!('IntersectionObserver' in window)) {
-      animateStats();
-    } else {
-      var statsObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            animateStats();
-            statsObserver.disconnect();
-          }
-        });
-      }, { threshold: 0.3 });
-      statsObserver.observe(statsTrigger);
-    }
-  }
-
-  /* ---------------------------------
-     Zitat-Karte: linker Rand "zeichnet" sich,
-     sobald die Karte sichtbar wird
-  ---------------------------------- */
   var quoteCard = document.querySelector('.card--quote');
-  if (quoteCard) {
-    if (!('IntersectionObserver' in window) || prefersReducedMotion) {
-      quoteCard.classList.add('is-visible');
-    } else {
-      var quoteObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            quoteObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.4 });
-      quoteObserver.observe(quoteCard);
-    }
+  var extraTriggers = [];
+  if (statsTrigger) extraTriggers.push({ el: statsTrigger, fn: animateStats });
+  if (quoteCard) extraTriggers.push({ el: quoteCard, fn: function () { quoteCard.classList.add('is-visible'); } });
+
+  if (prefersReducedMotion) {
+    extraTriggers.forEach(function (t) { t.fn(); });
+  } else {
+    var checkExtraTriggers = function () {
+      for (var i = extraTriggers.length - 1; i >= 0; i--) {
+        var rect = extraTriggers[i].el.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 80) {
+          extraTriggers[i].fn();
+          extraTriggers.splice(i, 1);
+        }
+      }
+    };
+    checkExtraTriggers();
+    window.addEventListener('scroll', checkExtraTriggers, { passive: true });
+    window.addEventListener('resize', checkExtraTriggers);
+    window.addEventListener('load', checkExtraTriggers);
   }
 
   /* ---------------------------------
@@ -375,18 +372,25 @@
   }
 
   if (dataCards.length) {
-    if (!('IntersectionObserver' in window)) {
+    if (prefersReducedMotion) {
       dataCards.forEach(animateDataCard);
     } else {
-      var dataCardObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            animateDataCard(entry.target);
-            dataCardObserver.unobserve(entry.target);
+      var pendingDataCards = Array.prototype.slice.call(dataCards);
+
+      var checkDataCards = function () {
+        for (var i = pendingDataCards.length - 1; i >= 0; i--) {
+          var rect = pendingDataCards[i].getBoundingClientRect();
+          if (rect.top < window.innerHeight + 80) {
+            animateDataCard(pendingDataCards[i]);
+            pendingDataCards.splice(i, 1);
           }
-        });
-      }, { threshold: 0.3 });
-      dataCards.forEach(function (card) { dataCardObserver.observe(card); });
+        }
+      };
+
+      checkDataCards();
+      window.addEventListener('scroll', checkDataCards, { passive: true });
+      window.addEventListener('resize', checkDataCards);
+      window.addEventListener('load', checkDataCards);
     }
   }
 
