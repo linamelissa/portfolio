@@ -2420,6 +2420,169 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ---------------------------------
+   Business Model Canvas
+---------------------------------- */
+.bmc {
+  padding: clamp(48px, 6vw, 90px) 24px;
+  scroll-margin-top: 80px;
+}
+
+.bmc__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(32px, 4vw, 52px);
+}
+
+.bmc__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.bmc__title {
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 40px);
+  letter-spacing: 0.5px;
+  color: var(--ink);
+  margin: 0;
+}
+
+.bmc__title em {
+  font-style: italic;
+  color: var(--sage);
+  font-weight: 700;
+}
+
+.bmc__sub {
+  font-size: clamp(14px, 1.2vw, 17px);
+  color: var(--black-ink);
+  max-width: 640px;
+  margin: 0;
+  text-align: center;
+}
+
+.bmc-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto auto;
+  gap: clamp(10px, 1.4vw, 16px);
+  width: 100%;
+}
+
+.bmc-cell {
+  border-radius: 10px;
+  padding: clamp(14px, 1.6vw, 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bmc-cell h3 {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--dark-ink);
+  margin: 0;
+}
+
+.bmc-cell ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bmc-cell li {
+  position: relative;
+  padding-left: 13px;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--slate);
+}
+
+.bmc-cell li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--slate);
+}
+
+.bmc-cell--partners { grid-column: 1; grid-row: 1 / 3; background: var(--sage-tint); }
+.bmc-cell--activities { grid-column: 2; grid-row: 1; background: var(--sage-tint); }
+.bmc-cell--resources { grid-column: 2; grid-row: 2; background: var(--sage-tint); }
+.bmc-cell--relationships { grid-column: 4; grid-row: 1; background: var(--sage-tint); }
+.bmc-cell--channels { grid-column: 4; grid-row: 2; background: var(--sage-tint); }
+.bmc-cell--segments { grid-column: 5; grid-row: 1 / 3; background: var(--sage-tint); }
+
+.bmc-cell--value {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  background: var(--deep-green);
+}
+
+.bmc-cell--value h3,
+.bmc-cell--value li {
+  color: var(--white);
+}
+
+.bmc-cell--value li::before {
+  background: var(--white);
+}
+
+.bmc-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(10px, 1.4vw, 16px);
+  width: 100%;
+}
+
+.bmc-cell--wide {
+  flex: 1 1 300px;
+  background: var(--white);
+  box-shadow: 0 2px 2px rgba(64, 84, 68, 0.1), 0 4px 2px rgba(64, 84, 68, 0.08);
+}
+
+.bmc-cell--wide p {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--slate);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .bmc-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+  }
+  .bmc-cell--partners,
+  .bmc-cell--activities,
+  .bmc-cell--resources,
+  .bmc-cell--value,
+  .bmc-cell--relationships,
+  .bmc-cell--channels,
+  .bmc-cell--segments {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .bmc-cell--value { grid-column: span 2; }
+}
+
+@media (max-width: 600px) {
+  .bmc-grid { grid-template-columns: 1fr; }
+  .bmc-cell--value { grid-column: auto; }
+}
+
+/* ---------------------------------
    Responsive — kleinere Screens
 ---------------------------------- */
 @media (max-width: 700px) {
