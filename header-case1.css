@@ -1020,11 +1020,10 @@ a { text-decoration: none; color: inherit; }
   border: 2px solid transparent;
   border-radius: 10px;
   box-shadow: 0 2px 2px rgba(64, 84, 68, 0.1), 0 4px 2px rgba(64, 84, 68, 0.08);
-  padding: clamp(12px, 1.3vw, 18px) clamp(16px, 2vw, 28px);
+  padding: clamp(16px, 1.8vw, 26px) clamp(16px, 2vw, 28px);
   display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  gap: clamp(8px, 1vw, 12px);
+  flex-direction: column;
+  gap: clamp(6px, 0.8vw, 10px);
   opacity: 0.35;
   transform: scale(0.96);
   filter: saturate(0.6);
