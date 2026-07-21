@@ -20,6 +20,9 @@
   --coral: #FF5B3A;
   --coral-dark: #B23A1F;
   --black-ink: #161311;
+  --problem-base: #C1502E;
+  --problem-tint: #F5DED4;
+  --problem-dark: #8F3A20;
 
   /* Motion */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -2306,30 +2309,27 @@ a { text-decoration: none; color: inherit; }
 
 .ethik-card__num {
   font-weight: 700;
-  color: var(--coral);
+  color: var(--problem-base);
   font-size: 14px;
 }
 
 .ethik-card__hover-hint {
   flex-shrink: 0;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  color: rgba(255, 91, 58, 0.35);
+  color: var(--problem-tint);
   transition: opacity 0.3s var(--ease);
-  margin-top: 2px;
 }
 
 .ethik-card__dot {
   flex-shrink: 0;
-  width: 8px;
-  height: 8px;
+  width: 17px;
+  height: 17px;
   border-radius: 50%;
   background: var(--sage-hover);
   opacity: 0;
   transform: scale(0.5);
   transition: opacity 0.3s var(--ease), transform 0.3s var(--ease-bounce);
-  margin-top: 4px;
 }
 
 .ethik-card:hover .ethik-card__hover-hint {
@@ -2344,27 +2344,32 @@ a { text-decoration: none; color: inherit; }
 .ethik-card__tag {
   display: inline-flex;
   align-self: flex-start;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  padding: 4px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 12px;
   border-radius: 6px;
+  transition: background-color 0.35s var(--ease), color 0.35s var(--ease);
 }
 
 .ethik-card__tag--bumble {
-  background: #FFE3DB;
-  color: var(--coral-dark);
+  background: var(--problem-tint);
+  color: var(--problem-dark);
+}
+
+.ethik-card:hover .ethik-card__tag--bumble {
+  background: var(--problem-base);
+  color: var(--problem-tint);
 }
 
 .ethik-card__tag--same {
   background: var(--sage);
-  color: var(--deep-green);
+  color: var(--slate);
 }
 
 .ethik-card__desc {
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--slate-light);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--slate);
   margin: 0;
 }
 
@@ -2380,11 +2385,10 @@ a { text-decoration: none; color: inherit; }
 }
 
 .ethik-card__answer p {
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--deep-green);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--slate);
   margin: 0;
-  font-weight: 500;
 }
 
 .ethik-card:hover .ethik-card__answer {
