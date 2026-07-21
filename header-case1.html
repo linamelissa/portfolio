@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sameSpot — Case Study | Lina Melissa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,400;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="header-case1.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="topnav" id="topnav">
+    <div class="topnav__inner">
+      <a href="#" class="topnav__back">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M9.5 3L4.5 7.5L9.5 12" stroke="#3A4A3C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Alle Projekte</span>
+      </a>
+      <a href="#" class="topnav__brand">Lina Melissa</a>
+      <button class="topnav__lang" type="button" aria-label="Sprache wechseln">EN</button>
+    </div>
+  </header>
+
+  <!-- Table of Contents (sidebar) -->
+  <nav class="toc" id="toc" aria-label="Case Study Inhaltsverzeichnis">
+    <ul class="toc__list">
+      <li><a href="#problem" class="toc__link" data-toc="problem">Problem</a></li>
+      <li><a href="#" class="toc__link" data-toc="research">Research</a></li>
+      <li><a href="#" class="toc__link" data-toc="persona">Persona</a></li>
+      <li><a href="#" class="toc__link" data-toc="hmw">How Might We</a></li>
+      <li><a href="#" class="toc__link" data-toc="ideation">Ideation</a></li>
+      <li><a href="#" class="toc__link" data-toc="marktanalyse">Marktanalyse</a></li>
+      <li><a href="#" class="toc__link" data-toc="ethik">Design-Ethik</a></li>
+      <li><a href="#" class="toc__link" data-toc="bmc">Business Model Canvas</a></li>
+      <li><a href="#" class="toc__link" data-toc="funktionen">App-Funktionen</a></li>
+      <li><a href="#" class="toc__link" data-toc="metriken">UX-Metriken &amp; Journey</a></li>
+      <li><a href="#" class="toc__link" data-toc="a11y">Accessibility</a></li>
+      <li><a href="#" class="toc__link" data-toc="prozess">Prozess</a></li>
+      <li><a href="#" class="toc__link" data-toc="lofi">Lo-Fi Wireframes</a></li>
+      <li><a href="#" class="toc__link" data-toc="testing">Testing &amp; KPI</a></li>
+      <li><a href="#ueberblick" class="toc__link toc__link--active" data-toc="prototyp">Prototyp &amp; Lösung</a></li>
+      <li><a href="#" class="toc__link" data-toc="ki">KI im Prozess</a></li>
+      <li><a href="#" class="toc__link" data-toc="ausblick">Ausblick</a></li>
+      <li><a href="#" class="toc__link" data-toc="learnings">Learnings</a></li>
+      <li>
+        <a href="https://figma.com" target="_blank" rel="noopener" class="toc__figma">
+          <span>Figma</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 10L10 4M10 4H5.5M10 4V8.5" stroke="#405444" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__inner">
+
+        <span class="badge reveal" data-reveal>UX/UI Design</span>
+
+        <h1 class="hero__title reveal" data-reveal data-reveal-delay="1">
+          <span class="hero__title-accent">same</span><span class="hero__title-dark">Spot</span>
+        </h1>
+
+        <div class="hero__copy">
+          <p class="hero__desc reveal" data-reveal data-reveal-delay="2">
+            Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Der Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?
+          </p>
+
+          <div class="hero__meta reveal" data-reveal data-reveal-delay="3">
+            <div class="hero__meta-item">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M9 9.75a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" stroke="#3A4A3C" stroke-width="1.2"/>
+                <path d="M3 15.25c0-2.5 2.7-4 6-4s6 1.5 6 4" stroke="#3A4A3C" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+              <span>Product Designer</span>
+            </div>
+            <div class="hero__meta-item">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="9" cy="9" r="6.75" stroke="#3A4A3C" stroke-width="1.2"/>
+                <path d="M9 5.5V9l2.5 1.5" stroke="#3A4A3C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>4 Monate</span>
+            </div>
+            <div class="hero__meta-item">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M9 2.5c-2.3 0-4 1.8-4 4 0 1.6.8 2.6 1.6 3.4.4.4.7.9.7 1.5v.6h3.4v-.6c0-.6.3-1.1.7-1.5.8-.8 1.6-1.8 1.6-3.4 0-2.2-1.7-4-4-4Z" stroke="#3A4A3C" stroke-width="1.2" stroke-linejoin="round"/>
+                <path d="M7.2 14.5h3.6M7.7 16h2.6" stroke="#3A4A3C" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+              <span>Figma, Miro</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__phones reveal" data-reveal data-reveal-delay="2" aria-hidden="false">
+          <img src="header-case1.jpg" alt="Drei Mockups der sameSpot App: Wochenaufgaben-Übersicht, Aufgabendetail mit Karte und der Begegnungs-Moment zwischen zwei Personen" class="hero__phones-img" id="phonesImg">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Überblick -->
+    <section class="ueberblick" id="ueberblick">
+      <div class="ueberblick__inner">
+        <div class="ueberblick__heading">
+          <p class="eyebrow eyebrow--onlight reveal" data-reveal>ÜBERBLICK</p>
+          <h2 class="ueberblick__title reveal" data-reveal data-reveal-delay="1">Die Case auf einen Blick</h2>
+        </div>
+
+        <div class="ueberblick__cards">
+          <article class="card card--overview reveal" data-reveal data-reveal-delay="1">
+            <div class="icon-badge icon-badge--warning">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M10 3.5 17 16H3L10 3.5Z" stroke="#B23A1F" stroke-width="1.3" stroke-linejoin="round"/>
+                <path d="M10 8.5v3.2M10 14v.1" stroke="#B23A1F" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Das Problem</h3>
+            <p>Viele Menschen fühlen sich in ihrer eigenen Stadt nicht wirklich verbunden. Sie sehen im Alltag interessante Menschen, sprechen sie aber aus Angst vor Zurückweisung nicht an.</p>
+          </article>
+
+          <article class="card card--overview reveal" data-reveal data-reveal-delay="2">
+            <div class="icon-badge icon-badge--sage">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="10" cy="10" r="6.5" stroke="#4E8B5C" stroke-width="1.3"/>
+                <circle cx="10" cy="10" r="3.5" stroke="#4E8B5C" stroke-width="1.3"/>
+                <circle cx="10" cy="10" r="0.9" fill="#4E8B5C"/>
+              </svg>
+            </div>
+            <h3>Die Idee</h3>
+            <p>sameSpot bringt Menschen in ihrer Stadt zusammen, ohne dass jemand aktiv auf eine fremde Person zugehen muss. Aufgaben an echten Orten machen das möglich.</p>
+          </article>
+
+          <article class="card card--overview reveal" data-reveal data-reveal-delay="3">
+            <div class="icon-badge icon-badge--sage">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3.5 13.5 8 9l3 3 5.5-6.5" stroke="#4E8B5C" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13 5h3.5v3.5" stroke="#4E8B5C" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Was der Test zeigte</h3>
+            <p class="muted">Platzhalter für die finalen Testergebnisse. Hier stehen später die echten Zahlen zu Task Completion, SUS-Score und Erfolgsquote aus dem Usability-Test.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="problem" id="problem">
+      <div class="problem__inner">
+
+        <div class="problem__heading">
+          <p class="eyebrow reveal" data-reveal>PROBLEM</p>
+          <h2 class="problem__title reveal" data-reveal data-reveal-delay="1">
+            Viele Menschen wünschen sich Nähe, und werden von genau den Apps abgeschreckt, <em>die ihnen helfen sollen.</em>
+          </h2>
+        </div>
+
+        <div class="problem__content">
+
+          <article class="card card--flat reveal" data-reveal>
+            <p class="label">EIN ALTERSSPEZIFISCHES PROBLEM</p>
+            <div class="agebars">
+              <div class="agebar-row">
+                <span class="agebar-row__label">18–35 Jahre</span>
+                <div class="agebar-row__track">
+                  <div class="agebar-row__bar agebar-row__bar--deep" data-target="51" style="width:0%"></div>
+                </div>
+                <span class="agebar-row__value" data-count-to="51">0%</span>
+              </div>
+              <div class="agebar-row">
+                <span class="agebar-row__label">36–69 Jahre</span>
+                <div class="agebar-row__track">
+                  <div class="agebar-row__bar agebar-row__bar--sage" data-target="37" style="width:0%"></div>
+                </div>
+                <span class="agebar-row__value agebar-row__value--sage" data-count-to="37">0%</span>
+              </div>
+            </div>
+            <p class="footnote">mindestens moderat einsam, Deutschland · Bertelsmann Stiftung 2024</p>
+          </article>
+
+          <div class="stat-row">
+            <article class="card card--stat reveal" data-reveal>
+              <p class="stat-number" data-count-to="71">0%</p>
+              <p class="stat-desc">warten passiv darauf, angesprochen zu werden</p>
+              <span class="stat-asterisk">*</span>
+            </article>
+            <article class="card card--stat reveal" data-reveal data-reveal-delay="1">
+              <p class="stat-number" data-count-to="92">0%</p>
+              <p class="stat-desc">ziehen sich zurück, wenn niemand Zeit hat</p>
+              <span class="stat-asterisk">*</span>
+            </article>
+            <article class="card card--stat reveal" data-reveal data-reveal-delay="2">
+              <p class="stat-number stat-number--fraction">1/52</p>
+              <p class="stat-desc">spricht aktiv eine fremde Person an</p>
+              <span class="stat-asterisk">*</span>
+            </article>
+          </div>
+
+          <blockquote class="card card--quote reveal" data-reveal>
+            <p class="quote-text">„Einsamkeit kann das Zugehörigkeitsgefühl zur Gesellschaft vermindern.“</p>
+            <cite>Leander Berner, Bertelsmann Stiftung</cite>
+          </blockquote>
+
+          <p class="problem__footnote">* eigene Umfrage, n=52</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+<script src="header-case1.js"></script>
+</body>
+</html>
