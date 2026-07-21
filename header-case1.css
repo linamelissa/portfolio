@@ -1960,54 +1960,73 @@ a { text-decoration: none; color: inherit; }
 .pestel-row {
   display: flex;
   align-items: flex-start;
-  gap: clamp(16px, 2vw, 24px);
-  background: rgba(157, 192, 163, 0.14);
-  border-radius: 20px;
-  padding: clamp(16px, 2vw, 22px) clamp(18px, 2.4vw, 26px);
+  gap: 0;
+  background: var(--sage-tint);
+  border-radius: 10px;
+  padding: 8px 8px 8px 23px;
 }
 
-.pestel-row__mark {
+.pestel-row__markwrap {
   flex-shrink: 0;
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 6px;
-  width: 56px;
+  padding: 12px 12px 12px 0;
 }
 
 .pestel-row__letter {
-  font-family: 'Gasoek One', sans-serif;
-  font-size: 26px;
+  font-weight: 700;
+  font-size: clamp(24px, 2.4vw, 35px);
+  letter-spacing: 0.5px;
   color: var(--sage-hover);
   line-height: 1;
 }
 
-.pestel-row__body h3 {
+.pestel-row__icon-badge {
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pestel-row__card {
+  flex: 1;
+  min-width: 0;
+  background: var(--white);
+  border-radius: 10px;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pestel-row__card h3 {
+  font-weight: 600;
+  font-size: clamp(17px, 1.6vw, 20px);
+  color: var(--dark-ink);
+  margin: 0;
+}
+
+.pestel-row__card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--slate);
+  margin: 0;
+}
+
+.pestel-row__card p strong {
   font-weight: 600;
   font-size: 16px;
-  color: var(--dark-ink);
-  margin: 0 0 6px;
-}
-
-.pestel-row__body p {
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--ink);
-  margin: 0 0 3px;
-}
-
-.pestel-row__body p:last-child {
-  margin-bottom: 0;
-}
-
-.pestel-row__body strong {
-  font-weight: 600;
-  color: var(--ink);
+  color: var(--slate);
 }
 
 @media (max-width: 600px) {
-  .pestel-row { flex-direction: column; gap: 10px; }
-  .pestel-row__mark { flex-direction: row; }
+  .pestel-row { flex-direction: column; padding: 12px; gap: 10px; }
+  .pestel-row__markwrap { padding: 0; }
 }
 
 /* ---------------------------------
