@@ -180,7 +180,11 @@
   /* ---------------------------------
      TOC-Scrollspy: der jeweils passende
      Punkt leuchtet dunkelgrün auf, während
-     man durch die Seite scrollt
+     man durch die Seite scrollt.
+     Scroll-Position-basiert (wie bei den Research-Boxen),
+     damit es in BEIDE Scroll-Richtungen zuverlässig funktioniert —
+     kein Verlassen auf Enter/Exit-Events, die bei schnellem oder
+     rückwärtigem Scrollen Lücken lassen können.
   ---------------------------------- */
   var tocLinks = document.querySelectorAll('.toc__link');
 
@@ -190,12 +194,9 @@
     });
   }
 
-  // Standard: "Prototyp & Lösung" ist aktiv (Hero + Überblick gehören zu diesem Kapitel)
-  setActiveToc('prototyp');
-
-  // Alle Sections, die per Sidebar ansteuerbar sind — generisch statt hart codiert,
-  // damit neu hinzugefügte Bereiche automatisch mitlaufen
-  var spySections = [];
+  // Alle Sections in Dokument-Reihenfolge, inklusive eines synthetischen
+  // "prototyp"-Eintrags ganz am Anfang als Standard-Fallback
+  var spySections = [{ key: 'prototyp', el: document.body }];
   tocLinks.forEach(function (link) {
     var key = link.getAttribute('data-toc');
     if (key === 'prototyp') return;
@@ -206,22 +207,28 @@
     }
   });
 
-  if ('IntersectionObserver' in window && spySections.length) {
-    var spyObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var match = spySections.filter(function (s) { return s.el === entry.target; })[0];
-        if (!match) return;
+  // Nach tatsächlicher Position auf der Seite sortieren, damit die
+  // Reihenfolge im Dokument stimmt, unabhängig von der Sidebar-Reihenfolge
+  spySections.sort(function (a, b) { return a.el.offsetTop - b.el.offsetTop; });
 
-        if (entry.isIntersecting) {
-          setActiveToc(match.key);
-        } else if (window.scrollY < entry.target.offsetTop) {
-          // Zurück zu "Prototyp & Lösung", falls man oberhalb aller Sections ist
-          setActiveToc('prototyp');
-        }
+  if (spySections.length > 1) {
+    var tocRefOffset = 140;
+
+    var updateActiveToc = function () {
+      var refLine = window.scrollY + tocRefOffset;
+      var current = spySections[0];
+      spySections.forEach(function (s) {
+        if (s.el.offsetTop <= refLine) current = s;
       });
-    }, { threshold: 0, rootMargin: '-45% 0px -45% 0px' });
+      setActiveToc(current.key);
+    };
 
-    spySections.forEach(function (s) { spyObserver.observe(s.el); });
+    window.addEventListener('scroll', updateActiveToc, { passive: true });
+    window.addEventListener('resize', updateActiveToc);
+    window.addEventListener('load', updateActiveToc);
+    updateActiveToc();
+  } else {
+    setActiveToc('prototyp');
   }
 
   /* Smooth-scroll für TOC-Links, die auf reale Sections zeigen */
