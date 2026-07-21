@@ -594,21 +594,26 @@ a { text-decoration: none; color: inherit; }
 /* Übergangs-Cue: "diese 3 Dinge — und jetzt geht's los" */
 .ueberblick__cue {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   margin: 48px auto 0;
   width: fit-content;
+  padding: 10px 20px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 20px -8px rgba(37, 48, 42, 0.25);
   font-size: 13px;
   font-weight: 600;
-  color: var(--sage);
+  color: var(--sage-hover);
   letter-spacing: 0.02em;
-  opacity: 0.9;
-  transition: opacity var(--dur-fast) var(--ease);
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease);
 }
 
 .ueberblick__cue:hover {
-  opacity: 1;
+  transform: translateY(-2px);
+  background: var(--white);
+  box-shadow: 0 12px 26px -8px rgba(37, 48, 42, 0.32);
 }
 
 .ueberblick__cue svg {
@@ -617,11 +622,38 @@ a { text-decoration: none; color: inherit; }
 
 @keyframes cue-bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(5px); }
+  50% { transform: translateY(3px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .ueberblick__cue svg { animation: none; }
+}
+
+/* Faden — verbindet den Überblick sichtbar mit dem Problem-Kapitel,
+   damit klar wird: jetzt geht es ins Detail */
+.section-thread {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 0;
+  background: var(--light-green);
+}
+
+.section-thread span {
+  width: 2px;
+  height: 56px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, var(--sage), var(--deep-green));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1s var(--ease) 0.1s;
+}
+
+.section-thread.is-visible span {
+  transform: scaleY(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-thread span { transition: none; transform: scaleY(1); }
 }
 
 .card--overview:hover {
