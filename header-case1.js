@@ -251,9 +251,22 @@
   var researchBlocks = document.querySelectorAll('.research__block');
   var statsWrap = document.querySelector('.research__stats-wrap');
 
+  var currentActiveStat = null;
+
   function setActiveStat(key) {
+    if (key === currentActiveStat) return;
+    currentActiveStat = key;
+
     statMinis.forEach(function (el) {
-      el.classList.toggle('is-active', el.getAttribute('data-stat') === key);
+      var isMatch = el.getAttribute('data-stat') === key;
+      el.classList.toggle('is-active', isMatch);
+      el.classList.remove('is-switching');
+      if (isMatch) {
+        // kurzer Puls, damit der Wechsel klar erkennbar ist
+        requestAnimationFrame(function () {
+          el.classList.add('is-switching');
+        });
+      }
     });
   }
 
