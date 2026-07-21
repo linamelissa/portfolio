@@ -970,6 +970,7 @@ a { text-decoration: none; color: inherit; }
   top: 59px;
   z-index: 40;
   padding: 18px 0 0;
+  margin-bottom: -20px;
   background: var(--light-green);
 }
 
@@ -1049,8 +1050,11 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: clamp(20px, 2.4vw, 32px);
   padding-top: clamp(44px, 5vw, 64px);
+  padding-bottom: clamp(20px, 3vw, 40px);
+  min-height: calc(100vh - 150px);
   scroll-margin-top: 150px;
 }
 
