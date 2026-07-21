@@ -1962,23 +1962,23 @@ a { text-decoration: none; color: inherit; }
   align-items: flex-start;
   gap: clamp(16px, 2vw, 24px);
   background: var(--sage-tint);
-  border-radius: 12px;
+  border-radius: 20px;
   padding: clamp(16px, 2vw, 22px) clamp(18px, 2.4vw, 26px);
 }
 
 .pestel-row__mark {
   flex-shrink: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 4px;
-  width: 40px;
+  gap: 6px;
+  width: 56px;
 }
 
 .pestel-row__letter {
   font-family: 'Gasoek One', sans-serif;
   font-size: 26px;
-  color: var(--deep-green);
+  color: var(--sage-hover);
   line-height: 1;
 }
 
@@ -2002,7 +2002,7 @@ a { text-decoration: none; color: inherit; }
 
 .pestel-row__body strong {
   font-weight: 600;
-  color: var(--deep-green);
+  color: var(--ink);
 }
 
 @media (max-width: 600px) {
