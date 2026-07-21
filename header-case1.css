@@ -2297,6 +2297,13 @@ a { text-decoration: none; color: inherit; }
   gap: 8px;
 }
 
+.ethik-card__indicator {
+  position: relative;
+  flex-shrink: 0;
+  width: 48px;
+  height: 17px;
+}
+
 .ethik-card__title {
   font-weight: 600;
   font-size: 15px;
@@ -2314,15 +2321,20 @@ a { text-decoration: none; color: inherit; }
 }
 
 .ethik-card__hover-hint {
-  flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
   font-size: 15px;
   font-weight: 600;
   color: var(--problem-tint);
+  white-space: nowrap;
   transition: opacity 0.3s var(--ease);
 }
 
 .ethik-card__dot {
-  flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 17px;
   height: 17px;
   border-radius: 50%;
