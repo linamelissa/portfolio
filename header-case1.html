@@ -119,8 +119,9 @@
 
         <div class="ueberblick__cards">
           <article class="card card--overview reveal" data-reveal data-reveal-delay="1">
+            <span class="card--overview__step">01</span>
             <div class="icon-badge icon-badge--warning">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M10 3.5 17 16H3L10 3.5Z" stroke="#B23A1F" stroke-width="1.3" stroke-linejoin="round"/>
                 <path d="M10 8.5v3.2M10 14v.1" stroke="#B23A1F" stroke-width="1.3" stroke-linecap="round"/>
               </svg>
@@ -129,9 +130,16 @@
             <p>Viele Menschen fühlen sich in ihrer eigenen Stadt nicht wirklich verbunden. Sie sehen im Alltag interessante Menschen, sprechen sie aber aus Angst vor Zurückweisung nicht an.</p>
           </article>
 
+          <span class="ueberblick__arrow reveal" data-reveal data-reveal-delay="1" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 10h12M11 5l5 5-5 5" stroke="var(--white)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+
           <article class="card card--overview reveal" data-reveal data-reveal-delay="2">
+            <span class="card--overview__step">02</span>
             <div class="icon-badge icon-badge--sage">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <circle cx="10" cy="10" r="6.5" stroke="#4E8B5C" stroke-width="1.3"/>
                 <circle cx="10" cy="10" r="3.5" stroke="#4E8B5C" stroke-width="1.3"/>
                 <circle cx="10" cy="10" r="0.9" fill="#4E8B5C"/>
@@ -141,9 +149,16 @@
             <p>sameSpot bringt Menschen in ihrer Stadt zusammen, ohne dass jemand aktiv auf eine fremde Person zugehen muss. Aufgaben an echten Orten machen das möglich.</p>
           </article>
 
+          <span class="ueberblick__arrow reveal" data-reveal data-reveal-delay="2" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 10h12M11 5l5 5-5 5" stroke="var(--white)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+
           <article class="card card--overview reveal" data-reveal data-reveal-delay="3">
+            <span class="card--overview__step">03</span>
             <div class="icon-badge icon-badge--sage">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M3.5 13.5 8 9l3 3 5.5-6.5" stroke="#4E8B5C" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M13 5h3.5v3.5" stroke="#4E8B5C" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -153,6 +168,14 @@
           </article>
         </div>
       </div>
+
+      <!-- Übergang zum Problem-Abschnitt: "diese 3 Dinge — und jetzt geht's los" -->
+      <a href="#problem" class="ueberblick__cue reveal" data-reveal data-reveal-delay="1" aria-label="Weiter zum Problem-Abschnitt">
+        <span>Und jetzt im Detail</span>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M9 3v11M4 10l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </section>
 
     <!-- Problem -->
