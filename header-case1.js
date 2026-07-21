@@ -19,6 +19,24 @@
   handleNavScroll();
 
   /* ---------------------------------
+     Scroll-Fortschritt (immer sichtbar, ganz oben)
+  ---------------------------------- */
+  var scrollProgress = document.getElementById('scrollProgress');
+
+  function updateScrollProgress() {
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = pct + '%';
+  }
+
+  if (scrollProgress) {
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    window.addEventListener('resize', updateScrollProgress);
+    updateScrollProgress();
+  }
+
+  /* ---------------------------------
      Reveal on scroll
   ---------------------------------- */
   var revealEls = document.querySelectorAll('[data-reveal]');
