@@ -32,7 +32,7 @@
   <nav class="toc" id="toc" aria-label="Case Study Inhaltsverzeichnis">
     <ul class="toc__list">
       <li><a href="#problem" class="toc__link" data-toc="problem">Problem</a></li>
-      <li><a href="#" class="toc__link" data-toc="research">Research</a></li>
+      <li><a href="#research" class="toc__link" data-toc="research">Research</a></li>
       <li><a href="#" class="toc__link" data-toc="persona">Persona</a></li>
       <li><a href="#" class="toc__link" data-toc="hmw">How Might We</a></li>
       <li><a href="#" class="toc__link" data-toc="ideation">Ideation</a></li>
@@ -236,6 +236,181 @@
 
           <p class="problem__footnote">* eigene Umfrage, n=52</p>
         </div>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section class="research" id="research">
+      <div class="research__inner">
+
+        <div class="research__heading">
+          <p class="eyebrow reveal" data-reveal>RESEARCH</p>
+          <h2 class="research__title reveal" data-reveal data-reveal-delay="1">Zuhören, <em>bevor ich gestalte.</em></h2>
+        </div>
+
+        <div class="research__stats-wrap">
+          <div class="research__stats" id="researchStats">
+            <div class="stat-mini is-active" data-stat="interviews">
+              <span class="stat-mini__num">4</span>
+              <span class="stat-mini__label">Tiefeninterviews</span>
+            </div>
+            <div class="stat-mini" data-stat="befragte">
+              <span class="stat-mini__num">52</span>
+              <span class="stat-mini__label">Befragte</span>
+            </div>
+            <div class="stat-mini" data-stat="desk">
+              <span class="stat-mini__num">6</span>
+              <span class="stat-mini__label">Desk Research</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 1: Interviews -->
+        <div class="research__block" id="block-interviews" data-stat-trigger="interviews">
+          <div class="research__connector reveal" data-reveal aria-hidden="true"><span></span></div>
+
+          <div class="research__block-heading">
+            <h3 class="research__block-title reveal" data-reveal>Was Menschen <em>wirklich sagen</em></h3>
+            <p class="research__block-sub reveal" data-reveal data-reveal-delay="1">Vier Gespräche mit Menschen, die das Problem aus eigener Erfahrung kennen, in ihren eigenen Worten.</p>
+          </div>
+
+          <div class="quote-stack">
+            <blockquote class="quote-block quote-block--left reveal" data-reveal>
+              <p class="quote-block__text">„Ich bin halt einfach zu schüchtern dafür, ich kann nicht über meinen Schatten springen.“</p>
+              <cite>Interviewperson 2, Kernzielgruppe</cite>
+            </blockquote>
+            <blockquote class="quote-block quote-block--right reveal" data-reveal data-reveal-delay="1">
+              <p class="quote-block__text quote-block__text--light">„Heimatgefühl sind für mich Menschen, nicht Orte.“</p>
+              <cite>Aus der Empathy Map</cite>
+            </blockquote>
+            <blockquote class="quote-block quote-block--left reveal" data-reveal data-reveal-delay="2">
+              <p class="quote-block__text quote-block__text--muted">„Ich hab mich einfach damit abgefunden.“</p>
+              <cite class="quote-block__cite--muted">Aus der Empathy Map</cite>
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Block 2: Befragte -->
+        <div class="research__block" id="block-befragte" data-stat-trigger="befragte">
+          <div class="research__connector reveal" data-reveal aria-hidden="true"><span></span></div>
+
+          <div class="research__block-heading">
+            <h3 class="research__block-title reveal" data-reveal>Was die Daten <em>wirklich zeigen</em></h3>
+            <p class="research__block-sub reveal" data-reveal data-reveal-delay="1">Die Umfrage hat die Interview-Muster nicht nur bestätigt, sie hat zwei überraschende Erkenntnisse geliefert, die das Konzept grundlegend geprägt haben.</p>
+          </div>
+
+          <div class="data-cards">
+            <article class="data-card reveal" data-reveal>
+              <h4>Stille Resignation</h4>
+              <div class="data-bar" data-value="72.5">
+                <div class="data-bar__top"><span>Wunsch</span><span>2,9 / 4</span></div>
+                <div class="data-bar__track"><div class="data-bar__fill" data-target="72.5"></div></div>
+              </div>
+              <div class="data-bar" data-value="67.5">
+                <div class="data-bar__top"><span>Frustration</span><span>2,7 / 4</span></div>
+                <div class="data-bar__track"><div class="data-bar__fill" data-target="67.5"></div></div>
+              </div>
+              <p class="data-card__desc">Kein Widerspruch, sondern das Zeichen, dass Menschen aufgehört haben zu hoffen, ohne es bewusst zu entscheiden. Rückzug ist nicht Aufgeben, es ist die sicherste Option.</p>
+            </article>
+
+            <article class="data-card reveal" data-reveal data-reveal-delay="1">
+              <h4>Ort ≠ Verbundenheit</h4>
+              <div class="data-bar" data-value="77.5">
+                <div class="data-bar__top"><span>Verbunden mit dem Wohnort</span><span>3,1 / 4</span></div>
+                <div class="data-bar__track"><div class="data-bar__fill" data-target="77.5"></div></div>
+              </div>
+              <p class="data-card__big" data-count-to="63">0%</p>
+              <p class="data-card__bigsub">wünschen sich trotzdem neue Kontakte</p>
+              <p class="data-card__desc">Verbundenheit mit dem Ort und Verbundenheit mit Menschen sind zwei verschiedene Dinge. Das war eine echte Überraschung.</p>
+            </article>
+
+            <article class="data-card reveal" data-reveal data-reveal-delay="2">
+              <h4>Niemand spricht Neue an</h4>
+              <div class="dot-grid" id="dotGrid" aria-hidden="true"></div>
+              <div class="data-bar" data-value="46">
+                <div class="data-bar__top"><span>etwas anderes, alleine</span><span>46%</span></div>
+                <div class="data-bar__track"><div class="data-bar__fill" data-target="46"></div></div>
+              </div>
+              <div class="data-bar" data-value="35">
+                <div class="data-bar__top"><span>bleiben zuhause</span><span>35%</span></div>
+                <div class="data-bar__track"><div class="data-bar__fill" data-target="35"></div></div>
+              </div>
+              <div class="data-bar" data-value="12">
+                <div class="data-bar__top"><span>machen es allein</span><span>12%</span></div>
+                <div class="data-bar__track"><div class="data-bar__fill" data-target="12"></div></div>
+              </div>
+              <p class="data-card__desc">Nur 1 von 52 spricht jemanden Neues an. Die Hemmschwelle ist nicht hoch, sie existiert für die meisten schlicht nicht als Option.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Block 3: Desk Research -->
+        <div class="research__block" id="block-desk" data-stat-trigger="desk">
+          <div class="research__connector reveal" data-reveal aria-hidden="true"><span></span></div>
+
+          <div class="research__block-heading">
+            <h3 class="research__block-title reveal" data-reveal>Was die Forschung <em>schon zeigt</em></h3>
+            <p class="research__block-sub reveal" data-reveal data-reveal-delay="1">Sechs externe Studien ordnen das eigene Research in den größeren wissenschaftlichen Kontext ein.</p>
+          </div>
+
+          <div class="source-list">
+            <div class="source-row reveal" data-reveal>
+              <div class="source-row__text">
+                <p>Fehlende Aufenthaltsqualität und konsumfreie Räume in Innenstädten behindern natürliche Begegnungen junger Menschen.</p>
+                <span>Innenstadtprogramm des Bundes · 2023</span>
+              </div>
+              <a class="source-btn" href="#" target="_blank" rel="noopener">Quelle
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 9L9 4M9 4H5M9 4V8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+            <div class="source-row reveal" data-reveal>
+              <div class="source-row__text">
+                <p>Umzüge in neue Städte führen bei jungen Erwachsenen zu Einsamkeit durch fehlende Ortskenntnis und soziale Kontakte.</p>
+                <span>Nico Graef, „Ankommen in Freiburg“ · 2020</span>
+              </div>
+              <a class="source-btn" href="#" target="_blank" rel="noopener">Quelle
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 9L9 4M9 4H5M9 4V8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+            <div class="source-row reveal" data-reveal>
+              <div class="source-row__text">
+                <p>Soziale Medien ersetzen keine realen Begegnungen und führen zu Rückzug statt echter Vernetzung.</p>
+                <span>Gizem Agce · 2023</span>
+              </div>
+              <a class="source-btn" href="#" target="_blank" rel="noopener">Quelle
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 9L9 4M9 4H5M9 4V8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+            <div class="source-row reveal" data-reveal>
+              <div class="source-row__text">
+                <p>Kurze, beiläufige Kontakte („Weak Ties“) steigern das Zugehörigkeitsgefühl unabhängig von engen Beziehungen.</p>
+                <span>DGPP · 2025</span>
+              </div>
+              <a class="source-btn" href="#" target="_blank" rel="noopener">Quelle
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 9L9 4M9 4H5M9 4V8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+            <div class="source-row reveal" data-reveal>
+              <div class="source-row__text">
+                <p>Reale physische Interaktionen lindern Einsamkeit langfristig, digitale Kontakte nicht.</p>
+                <span>Bioethik Aktuell / Manfred Spitzer u.a. · 2024</span>
+              </div>
+              <a class="source-btn" href="#" target="_blank" rel="noopener">Quelle
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 9L9 4M9 4H5M9 4V8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+            <div class="source-row reveal" data-reveal>
+              <div class="source-row__text">
+                <p>51% der 18–35-Jährigen in Deutschland erleben mindestens moderate Einsamkeit.</p>
+                <span>Bertelsmann Stiftung · 2024</span>
+              </div>
+              <a class="source-btn" href="#" target="_blank" rel="noopener">Quelle
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 9L9 4M9 4H5M9 4V8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
