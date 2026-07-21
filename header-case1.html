@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,400;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="header-case1.css?v=19">
+<link rel="stylesheet" href="header-case1.css?v=20">
 </head>
 <body>
 
@@ -40,7 +40,7 @@
       <li><a href="#marktanalyse" class="toc__link" data-toc="marktanalyse">Marktanalyse</a></li>
       <li><a href="#pestel" class="toc__link" data-toc="pestel">PESTEL</a></li>
       <li><a href="#porter" class="toc__link" data-toc="porter">Porter's Five Forces</a></li>
-      <li><a href="#" class="toc__link" data-toc="ethik">Design-Ethik</a></li>
+      <li><a href="#ethik" class="toc__link" data-toc="ethik">Design-Ethik</a></li>
       <li><a href="#" class="toc__link" data-toc="bmc">Business Model Canvas</a></li>
       <li><a href="#" class="toc__link" data-toc="funktionen">App-Funktionen</a></li>
       <li><a href="#" class="toc__link" data-toc="metriken">UX-Metriken &amp; Journey</a></li>
@@ -884,8 +884,138 @@
       </div>
     </section>
 
+    <!-- Faden: verbindet Porter's Five Forces mit Design-Ethik -->
+    <div class="section-thread reveal" data-reveal aria-hidden="true"><span></span></div>
+
+    <!-- Design-Ethik -->
+    <section class="ethik" id="ethik">
+      <div class="ethik__inner">
+
+        <div class="ethik__heading">
+          <p class="eyebrow reveal" data-reveal>DESIGN-ETHIK</p>
+          <h2 class="ethik__title reveal" data-reveal data-reveal-delay="1">Die Psychologie des Marktes<br><em>vs. unsere Prinzipien</em></h2>
+          <p class="ethik__sub reveal" data-reveal data-reveal-delay="2">8 Dark Patterns aus Bumble BFF, jede mit der Gegenfrage, die sameSpot sich stattdessen stellt. Fahr über eine Karte, um die Antwort zu sehen.</p>
+        </div>
+
+        <div class="ethik-grid">
+          <article class="ethik-card reveal" data-reveal>
+            <div class="ethik-card__top">
+              <p class="ethik-card__title"><span class="ethik-card__num">01</span> Datenhunger &amp; Pflichtdaten</p>
+              <span class="ethik-card__hover-hint">HOVER</span>
+              <span class="ethik-card__dot" aria-hidden="true"></span>
+            </div>
+            <span class="ethik-card__tag ethik-card__tag--bumble">BUMBLE BFF</span>
+            <p class="ethik-card__desc">Maximale Datenerhebung durch schrittweises Onboarding (Telefonnummer, Fotos, Sexualität, Standort) nach Hicks Gesetz.</p>
+            <div class="ethik-card__answer">
+              <span class="ethik-card__tag ethik-card__tag--same">SAMESPOT FRAGT</span>
+              <p>Welche Daten brauche ich wirklich, und welche sammle ich nur, weil ich sie haben könnte?</p>
+            </div>
+          </article>
+
+          <article class="ethik-card reveal" data-reveal data-reveal-delay="1">
+            <div class="ethik-card__top">
+              <p class="ethik-card__title"><span class="ethik-card__num">02</span> Visuelle Manipulation</p>
+              <span class="ethik-card__hover-hint">HOVER</span>
+              <span class="ethik-card__dot" aria-hidden="true"></span>
+            </div>
+            <span class="ethik-card__tag ethik-card__tag--bumble">BUMBLE BFF</span>
+            <p class="ethik-card__desc">Visuelle Hierarchie lenkt Nutzer gegen ihre eigenen Interessen. „Akzeptieren“ dominant, „Ablehnen“ unsichtbar.</p>
+            <div class="ethik-card__answer">
+              <span class="ethik-card__tag ethik-card__tag--same">SAMESPOT FRAGT</span>
+              <p>Nutze ich visuelle Hierarchie, um Hanna zu helfen, oder um sie zu einer Entscheidung zu drängen, die ich will?</p>
+            </div>
+          </article>
+
+          <article class="ethik-card reveal" data-reveal data-reveal-delay="2">
+            <div class="ethik-card__top">
+              <p class="ethik-card__title"><span class="ethik-card__num">03</span> Paywall &amp; künstliche Frustration</p>
+              <span class="ethik-card__hover-hint">HOVER</span>
+              <span class="ethik-card__dot" aria-hidden="true"></span>
+            </div>
+            <span class="ethik-card__tag ethik-card__tag--bumble">BUMBLE BFF</span>
+            <p class="ethik-card__desc">Kernfunktionen (sehen, wer dich geliked hat) werden absichtlich gesperrt, um Upgrade-Druck via Loss Aversion zu erzeugen.</p>
+            <div class="ethik-card__answer">
+              <span class="ethik-card__tag ethik-card__tag--same">SAMESPOT FRAGT</span>
+              <p>Welche Funktionen gehören zum Kern meines Produkts und dürfen niemals hinter einer Paywall verschwinden?</p>
+            </div>
+          </article>
+
+          <article class="ethik-card reveal" data-reveal data-reveal-delay="3">
+            <div class="ethik-card__top">
+              <p class="ethik-card__title"><span class="ethik-card__num">04</span> Vervollständigungsdruck</p>
+              <span class="ethik-card__hover-hint">HOVER</span>
+              <span class="ethik-card__dot" aria-hidden="true"></span>
+            </div>
+            <span class="ethik-card__tag ethik-card__tag--bumble">BUMBLE BFF</span>
+            <p class="ethik-card__desc">Unvollständige Aufgaben, Fortschrittsbalken und rote Badges erzeugen Druck, der zur Profilvervollständigung manipuliert (Zeigarnik-Effekt).</p>
+            <div class="ethik-card__answer">
+              <span class="ethik-card__tag ethik-card__tag--same">SAMESPOT FRAGT</span>
+              <p>Setze ich Unvollständigkeit ein, um Hanna zu helfen, oder um sie länger in der App zu halten?</p>
+            </div>
+          </article>
+
+          <article class="ethik-card reveal" data-reveal>
+            <div class="ethik-card__top">
+              <p class="ethik-card__title"><span class="ethik-card__num">05</span> Irrelevante Pflichtdaten</p>
+              <span class="ethik-card__hover-hint">HOVER</span>
+              <span class="ethik-card__dot" aria-hidden="true"></span>
+            </div>
+            <span class="ethik-card__tag ethik-card__tag--bumble">BUMBLE BFF</span>
+            <p class="ethik-card__desc">Sexualität, Beziehungsstatus und intime Daten sind Standard im Profil, obwohl sie für platonische Freundschaft irrelevant sind.</p>
+            <div class="ethik-card__answer">
+              <span class="ethik-card__tag ethik-card__tag--same">SAMESPOT FRAGT</span>
+              <p>Welche Informationen über andere Menschen braucht Hanna wirklich, welche sind unwichtig?</p>
+            </div>
+          </article>
+
+          <article class="ethik-card reveal" data-reveal data-reveal-delay="1">
+            <div class="ethik-card__top">
+              <p class="ethik-card__title"><span class="ethik-card__num">06</span> Loop-Design &amp; Leere</p>
+              <span class="ethik-card__hover-hint">HOVER</span>
+              <span class="ethik-card__dot" aria-hidden="true"></span>
+            </div>
+            <span class="ethik-card__tag ethik-card__tag--bumble">BUMBLE BFF</span>
+            <p class="ethik-card__desc">Leere States führen sofort zurück in den unendlichen Swipe-Loop, um das In-App-Engagement stumpf zu maximieren.</p>
+            <div class="ethik-card__answer">
+              <span class="ethik-card__tag ethik-card__tag--same">SAMESPOT FRAGT</span>
+              <p>Hat meine App auch Wert, wenn Hanna gerade niemanden kennenlernt, oder halte ich sie nur durch künstliche Leere?</p>
+            </div>
+          </article>
+
+          <article class="ethik-card reveal" data-reveal data-reveal-delay="2">
+            <div class="ethik-card__top">
+              <p class="ethik-card__title"><span class="ethik-card__num">07</span> Vertrauen behaupten</p>
+              <span class="ethik-card__hover-hint">HOVER</span>
+              <span class="ethik-card__dot" aria-hidden="true"></span>
+            </div>
+            <span class="ethik-card__tag ethik-card__tag--bumble">BUMBLE BFF</span>
+            <p class="ethik-card__desc">Vertrauen wird durch glatte Marketing-Sprache behauptet, während das Interface gleichzeitig manipulative Patterns nutzt.</p>
+            <div class="ethik-card__answer">
+              <span class="ethik-card__tag ethik-card__tag--same">SAMESPOT FRAGT</span>
+              <p>An welchen Momenten verdiene ich Hannas Vertrauen aktiv, statt es vorauszusetzen?</p>
+            </div>
+          </article>
+
+          <article class="ethik-card reveal" data-reveal data-reveal-delay="3">
+            <div class="ethik-card__top">
+              <p class="ethik-card__title"><span class="ethik-card__num">08</span> Bewertungslogik</p>
+              <span class="ethik-card__hover-hint">HOVER</span>
+              <span class="ethik-card__dot" aria-hidden="true"></span>
+            </div>
+            <span class="ethik-card__tag ethik-card__tag--bumble">BUMBLE BFF</span>
+            <p class="ethik-card__desc">Die Swipe-Mechanik (Jakobs Gesetz) reduziert Menschen auf ein einziges Foto. Schnelle, oberflächliche Bewertungen ohne Kontext.</p>
+            <div class="ethik-card__answer">
+              <span class="ethik-card__tag ethik-card__tag--same">SAMESPOT FRAGT</span>
+              <p>Wie zeige ich andere Menschen, ohne dass Hanna sie bewerten oder beurteilen muss?</p>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-<script src="header-case1.js?v=19"></script>
+<script src="header-case1.js?v=20"></script>
 </body>
 </html>
