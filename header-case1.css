@@ -1781,9 +1781,9 @@ a { text-decoration: none; color: inherit; }
   margin: 0;
 }
 
-.napkin-note--problem { background: #FFE3DB; }
-.napkin-note--solution { background: var(--sage-tint); }
-.napkin-note--value { background: #F5E9D2; }
+.napkin-note--problem { background: #FFE3DB; color: #8B4A3A; }
+.napkin-note--solution { background: var(--sage-tint); color: var(--deep-green); }
+.napkin-note--value { background: #F5E9D2; color: #8A6A3A; }
 
 .napkin-subhead {
   font-size: 11px;
@@ -1807,9 +1807,9 @@ a { text-decoration: none; color: inherit; }
 }
 
 .napkin-rating__label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--slate);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark-ink);
 }
 
 .napkin-rating {
@@ -1818,15 +1818,15 @@ a { text-decoration: none; color: inherit; }
 }
 
 .napkin-rating__sq {
-  width: 15px;
-  height: 15px;
-  border-radius: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
   background: var(--border);
 }
 
-.napkin-rating__sq.is-filled--problem { background: var(--coral); }
-.napkin-rating__sq.is-filled--solution { background: var(--sage); }
-.napkin-rating__sq.is-filled--value { background: #C99B4E; }
+.napkin-rating__sq.is-filled--problem { background: #FFE3DB; }
+.napkin-rating__sq.is-filled--solution { background: var(--sage-tint); }
+.napkin-rating__sq.is-filled--value { background: #F5E9D2; }
 
 @media (max-width: 900px) {
   .napkin-board { flex-direction: column; }
