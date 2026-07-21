@@ -1835,6 +1835,182 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ---------------------------------
+   Marktanalyse
+---------------------------------- */
+.marktanalyse {
+  padding: clamp(48px, 6vw, 90px) 24px;
+  scroll-margin-top: 80px;
+}
+
+.marktanalyse__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(32px, 4vw, 52px);
+}
+
+.marktanalyse__heading,
+.pestel__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.marktanalyse__title,
+.pestel__title {
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 40px);
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  color: var(--ink);
+  margin: 0;
+  text-align: center;
+}
+
+.marktanalyse__title em,
+.pestel__title em {
+  font-style: italic;
+  color: var(--sage);
+  font-weight: 700;
+}
+
+.marktanalyse__sub,
+.pestel__sub {
+  font-size: clamp(14px, 1.2vw, 17px);
+  color: var(--black-ink);
+  max-width: 640px;
+  margin: 0;
+}
+
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  width: 100%;
+}
+
+.market-card {
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(64, 84, 68, 0.1), 0 4px 2px rgba(64, 84, 68, 0.08);
+  padding: clamp(20px, 2.2vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+
+.market-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 28px -10px rgba(64, 84, 68, 0.2);
+}
+
+.market-card .icon-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+}
+
+.market-card h3 {
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--dark-ink);
+  margin: 0;
+}
+
+.market-card p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--slate-light);
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .market-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------------------------------
+   PESTEL
+---------------------------------- */
+.pestel {
+  padding: clamp(48px, 6vw, 90px) 24px;
+  scroll-margin-top: 80px;
+}
+
+.pestel__inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(28px, 3.5vw, 44px);
+}
+
+.pestel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.pestel-row {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(16px, 2vw, 24px);
+  background: var(--sage-tint);
+  border-radius: 12px;
+  padding: clamp(16px, 2vw, 22px) clamp(18px, 2.4vw, 26px);
+}
+
+.pestel-row__mark {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 40px;
+}
+
+.pestel-row__letter {
+  font-family: 'Gasoek One', sans-serif;
+  font-size: 26px;
+  color: var(--deep-green);
+  line-height: 1;
+}
+
+.pestel-row__body h3 {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--dark-ink);
+  margin: 0 0 6px;
+}
+
+.pestel-row__body p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 3px;
+}
+
+.pestel-row__body p:last-child {
+  margin-bottom: 0;
+}
+
+.pestel-row__body strong {
+  font-weight: 600;
+  color: var(--deep-green);
+}
+
+@media (max-width: 600px) {
+  .pestel-row { flex-direction: column; gap: 10px; }
+  .pestel-row__mark { flex-direction: row; }
+}
+
+/* ---------------------------------
    Responsive — kleinere Screens
 ---------------------------------- */
 @media (max-width: 700px) {
