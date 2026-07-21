@@ -197,13 +197,13 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   gap: 10px;
   width: 100%;
-  min-height: 36px;
+  height: 36px;
   padding: 8px 12px;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 12px;
   color: var(--slate-light);
   white-space: nowrap;
-  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), padding var(--dur-fast) var(--ease), font-weight var(--dur-fast) var(--ease);
+  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), font-weight var(--dur-fast) var(--ease);
   position: relative;
 }
 
@@ -214,30 +214,34 @@ a { text-decoration: none; color: inherit; }
   border-radius: 3.5px;
   background: var(--border);
   flex-shrink: 0;
-  transition: background-color var(--dur-fast) var(--ease);
+  transition: background-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
 }
 
-/* Hover — nur Punkt + Schrift ändern sich, kein Flächen-Fill */
+/* Hover — Punkt wächst, Schrift wird fetter, leichter Versatz */
 .toc__link:hover {
+  background: transparent;
   color: var(--deep-green);
-  font-weight: 500;
+  font-weight: 600;
+  transform: translateX(3px);
 }
 
 .toc__link:hover::before {
   background: var(--sage-hover);
+  transform: scale(1.35);
 }
 
-/* Aktiv — immer dieselbe grüne Pille, egal welcher Bereich gerade
-   aktuell ist. Kein Sonderfall mehr für einzelne Punkte. */
+/* Aktiv (Scrollspy) — der Punkt leuchtet mit einem Glow auf,
+   während man durch die Seite scrollt */
 .toc__link.is-active {
-  background: var(--sage);
   color: var(--deep-green);
-  font-weight: 500;
-  padding: 8px 32px 8px 12px;
+  font-weight: 600;
+  background: transparent;
 }
 
 .toc__link.is-active::before {
   background: var(--sage-hover);
+  transform: scale(1.45);
+  box-shadow: 0 0 0 4px rgba(78, 139, 92, 0.22);
 }
 
 /* Exact button spec for the Figma pill:
