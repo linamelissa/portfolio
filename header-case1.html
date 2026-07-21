@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,400;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="header-case1.css?v=10">
+<link rel="stylesheet" href="header-case1.css?v=11">
 </head>
 <body>
 
@@ -35,7 +35,8 @@
       <li><a href="#research" class="toc__link" data-toc="research">Research</a></li>
       <li><a href="#persona" class="toc__link" data-toc="persona">Persona</a></li>
       <li><a href="#hmw" class="toc__link" data-toc="hmw">How Might We</a></li>
-      <li><a href="#" class="toc__link" data-toc="ideation">Ideation</a></li>
+      <li><a href="#ideation" class="toc__link" data-toc="ideation">Ideation</a></li>
+      <li><a href="#napkin" class="toc__link" data-toc="napkin">Idea Napkin</a></li>
       <li><a href="#" class="toc__link" data-toc="marktanalyse">Marktanalyse</a></li>
       <li><a href="#" class="toc__link" data-toc="ethik">Design-Ethik</a></li>
       <li><a href="#" class="toc__link" data-toc="bmc">Business Model Canvas</a></li>
@@ -513,8 +514,145 @@
       </div>
     </section>
 
+    <!-- Faden: verbindet How Might We mit Ideation -->
+    <div class="section-thread reveal" data-reveal aria-hidden="true"><span></span></div>
+
+    <!-- Ideation -->
+    <section class="ideation" id="ideation">
+      <div class="ideation__inner">
+
+        <div class="ideation__heading">
+          <p class="eyebrow reveal" data-reveal>IDEATION</p>
+          <h2 class="ideation__title reveal" data-reveal data-reveal-delay="1">8 Ideen, <em>eine Richtung</em></h2>
+          <p class="ideation__sub reveal" data-reveal data-reveal-delay="2">Aus der HMW-Frage entstanden 4 eigene und 4 KI-gestützte Ideen. Eine Auswahl der vier Gegensätzlichsten, nur eine trennt den Einstieg komplett vom sozialen Druck.</p>
+        </div>
+
+        <div class="idea-fan reveal" data-reveal>
+          <article class="idea-card idea-card--selected">
+            <p class="idea-card__text">Wöchentliche Aufgaben, Verbindung durch geteilte Orte.</p>
+            <span class="idea-card__tag">★ gewählt · eigene Idee</span>
+          </article>
+          <article class="idea-card">
+            <p class="idea-card__text">Digitale Spuren ohne Gesicht, Verbindung über Dinge.</p>
+            <span class="idea-card__tag idea-card__tag--muted">eigene Idee</span>
+          </article>
+          <article class="idea-card">
+            <p class="idea-card__text">Gemeinsames Stadtprojekt, Kiez-Wissen sammeln.</p>
+            <span class="idea-card__tag idea-card__tag--muted">mit KI erarbeitet</span>
+          </article>
+          <article class="idea-card">
+            <p class="idea-card__text">„Offene Zonen“ an realen Orten, kein Profil nötig.</p>
+            <span class="idea-card__tag idea-card__tag--muted">mit KI erarbeitet</span>
+          </article>
+        </div>
+
+        <div class="idea-why reveal" data-reveal data-reveal-delay="1">
+          <p class="idea-why__label">WARUM DIESE IDEE</p>
+          <p class="idea-why__text">Als einzige Idee trennt sie den Einstieg komplett vom sozialen Druck. Hanna lädt die App wegen der Aufgaben herunter, nicht wegen „Freunde finden“. Verbindung entsteht als Nebenprodukt, genau so wie es bei Hanna funktionieren muss.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Faden: verbindet Ideation mit Idea Napkin -->
+    <div class="section-thread reveal" data-reveal aria-hidden="true"><span></span></div>
+
+    <!-- Idea Napkin -->
+    <section class="napkin" id="napkin">
+      <div class="napkin__inner">
+
+        <div class="napkin__heading">
+          <p class="eyebrow reveal" data-reveal>IDEA NAPKIN</p>
+          <h2 class="napkin__title reveal" data-reveal data-reveal-delay="1">Aus der Idee wird ein <em>Konzept</em></h2>
+          <p class="napkin__sub reveal" data-reveal data-reveal-delay="2">Bevor ich weiterdesignt habe, hab ich die gewählte Idee einmal komplett durchdacht, von Problem über Lösung bis zum Mehrwert für Hanna.</p>
+        </div>
+
+        <div class="napkin-intro">
+          <article class="napkin-intro__card reveal" data-reveal>
+            <p class="napkin-intro__label">LÖSUNGSBESCHREIBUNG</p>
+            <p class="napkin-intro__text">Eine App die Hanna wöchentliche Alltagsaufgaben in ihrer Stadt gibt. Verbindung entsteht als Nebenprodukt durch geteilte Orte und einen Feed, nicht durch aktives Suchen.</p>
+          </article>
+          <article class="napkin-intro__card reveal" data-reveal data-reveal-delay="1">
+            <p class="napkin-intro__label">ZIELGRUPPE</p>
+            <p class="napkin-intro__text">Blockierte Einzelpersonen (20–35) in städtischen Gebieten, die sich Verbindung wünschen, aber den ersten Schritt scheuen.</p>
+          </article>
+        </div>
+
+        <div class="napkin-board">
+          <div class="napkin-col reveal" data-reveal>
+            <div class="napkin-col__head">Problem</div>
+            <div class="napkin-col__body">
+              <p class="napkin-note napkin-note--problem">„Ich hab mich damit abgefunden“, der Wunsch ist da, die Hoffnung weg.</p>
+              <p class="napkin-note napkin-note--problem">71% warten darauf angesprochen zu werden, niemand macht den ersten Schritt.</p>
+              <p class="napkin-note napkin-note--problem">Bisherige Apps wie Bumble BFF ausprobiert und abgehakt, zu viel sozialer Druck.</p>
+            </div>
+            <div class="napkin-col__footer">
+              <span class="napkin-rating__label">Importance</span>
+              <span class="napkin-rating" aria-hidden="true">
+                <span class="napkin-rating__sq is-filled--problem"></span><span class="napkin-rating__sq"></span><span class="napkin-rating__sq"></span><span class="napkin-rating__sq"></span>
+              </span>
+            </div>
+          </div>
+
+          <div class="napkin-col napkin-col--wide reveal" data-reveal data-reveal-delay="1">
+            <div class="napkin-col__head">Lösung</div>
+            <div class="napkin-col__body">
+              <p class="napkin-subhead">Was?</p>
+              <div class="napkin-note-row">
+                <p class="napkin-note napkin-note--solution">Wöchentliche Alltagsaufgaben bringen Hanna raus in die Stadt.</p>
+                <p class="napkin-note napkin-note--solution">Verbindung möglich über reale Begegnung.</p>
+              </div>
+              <div class="napkin-note-row">
+                <p class="napkin-note napkin-note--solution">Feed mit Profilen (Name, Foto, Aufgabe), baut langsam Vertrautheit auf.</p>
+                <p class="napkin-note napkin-note--solution">Kein Matching, kein aktives Suchen, man taucht im Feed durch Tun auf.</p>
+              </div>
+              <p class="napkin-subhead">Wie?</p>
+              <div class="napkin-note-row">
+                <p class="napkin-note napkin-note--solution">Fühlt sich beim Einstieg wie eine Stadtentdeckungs-App an, nicht wie Social Media.</p>
+                <p class="napkin-note napkin-note--solution">Feed läuft passiv im Hintergrund, Hanna entscheidet selbst ob/wann sie kontaktiert.</p>
+              </div>
+              <div class="napkin-note-row">
+                <p class="napkin-note napkin-note--solution">Wöchentlich neue Aufgaben-Challenges in der Stadt.</p>
+                <p class="napkin-note napkin-note--solution">Wöchentlich neue Aufgaben-Challenges in der Stadt.</p>
+              </div>
+              <p class="napkin-note napkin-note--solution">Profil wird automatisch sichtbar durch absolvierte Aufgaben, kein aktives „ich bin verfügbar“ nötig.</p>
+              <p class="napkin-subhead">Wann und wo?</p>
+              <div class="napkin-note-row">
+                <p class="napkin-note napkin-note--solution">In dem Moment, wo sie jemanden aus dem Feed in der Stadt sieht und sich zum ersten Mal traut.</p>
+                <p class="napkin-note napkin-note--solution">Beim stillen Scrollen durch den Feed, allein das Wissen gibt das Gefühl, nicht alleine zu sein.</p>
+              </div>
+            </div>
+            <div class="napkin-col__footer">
+              <span class="napkin-rating__label">Effort</span>
+              <span class="napkin-rating" aria-hidden="true">
+                <span class="napkin-rating__sq is-filled--solution"></span><span class="napkin-rating__sq is-filled--solution"></span><span class="napkin-rating__sq"></span><span class="napkin-rating__sq"></span>
+              </span>
+            </div>
+          </div>
+
+          <div class="napkin-col reveal" data-reveal data-reveal-delay="2">
+            <div class="napkin-col__head">Mehrwert</div>
+            <div class="napkin-col__body">
+              <p class="napkin-note napkin-note--value">Verbindung entsteht ohne bewussten sozialen Schritt.</p>
+              <p class="napkin-note napkin-note--value">Feed baut Vertrautheit auf, man „kennt“ jemanden vorab.</p>
+              <p class="napkin-note napkin-note--value">Gefühl, nicht alleine zu sein, entsteht schon durch passives Scrollen.</p>
+              <p class="napkin-note napkin-note--value">Eigenwert auch ohne sozialen Aspekt (Stadtentdeckung, Gewohnheit).</p>
+              <p class="napkin-note napkin-note--value">Kein Profil zum aktiv pflegen, Sichtbarkeit durch Tun statt Selbstdarstellung.</p>
+            </div>
+            <div class="napkin-col__footer">
+              <span class="napkin-rating__label">Impact</span>
+              <span class="napkin-rating" aria-hidden="true">
+                <span class="napkin-rating__sq is-filled--value"></span><span class="napkin-rating__sq is-filled--value"></span><span class="napkin-rating__sq is-filled--value"></span><span class="napkin-rating__sq"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-<script src="header-case1.js?v=10"></script>
+<script src="header-case1.js?v=11"></script>
 </body>
 </html>
