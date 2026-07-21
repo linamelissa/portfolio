@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,400;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="header-case1.css?v=12">
+<link rel="stylesheet" href="header-case1.css?v=13">
 </head>
 <body>
 
@@ -37,7 +37,8 @@
       <li><a href="#hmw" class="toc__link" data-toc="hmw">How Might We</a></li>
       <li><a href="#ideation" class="toc__link" data-toc="ideation">Ideation</a></li>
       <li><a href="#napkin" class="toc__link" data-toc="napkin">Idea Napkin</a></li>
-      <li><a href="#" class="toc__link" data-toc="marktanalyse">Marktanalyse</a></li>
+      <li><a href="#marktanalyse" class="toc__link" data-toc="marktanalyse">Marktanalyse</a></li>
+      <li><a href="#pestel" class="toc__link" data-toc="pestel">PESTEL</a></li>
       <li><a href="#" class="toc__link" data-toc="ethik">Design-Ethik</a></li>
       <li><a href="#" class="toc__link" data-toc="bmc">Business Model Canvas</a></li>
       <li><a href="#" class="toc__link" data-toc="funktionen">App-Funktionen</a></li>
@@ -651,8 +652,178 @@
       </div>
     </section>
 
+    <!-- Faden: verbindet Idea Napkin mit Marktanalyse -->
+    <div class="section-thread reveal" data-reveal aria-hidden="true"><span></span></div>
+
+    <!-- Marktanalyse -->
+    <section class="marktanalyse" id="marktanalyse">
+      <div class="marktanalyse__inner">
+
+        <div class="marktanalyse__heading">
+          <p class="eyebrow reveal" data-reveal>MARKTANALYSE</p>
+          <h2 class="marktanalyse__title reveal" data-reveal data-reveal-delay="1">Warum alle bestehenden Lösungen <em>scheitern</em></h2>
+          <p class="marktanalyse__sub reveal" data-reveal data-reveal-delay="2">Das größte Problem ist nicht schlechtes UX, es ist verlorenes Vertrauen.</p>
+        </div>
+
+        <div class="market-grid">
+          <article class="market-card reveal" data-reveal>
+            <div class="icon-badge icon-badge--sage">
+              <svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="6.5" cy="7" r="2.5" stroke="#4E8B5C" stroke-width="1.3"/>
+                <circle cx="13.5" cy="7" r="2.5" stroke="#4E8B5C" stroke-width="1.3"/>
+                <path d="M2.5 15.5c0-2.2 1.8-3.5 4-3.5s4 1.3 4 3.5M9.5 15.5c0-2.2 1.8-3.5 4-3.5s4 1.3 4 3.5" stroke="#4E8B5C" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Meetup</h3>
+            <p>8.428 Bewertungen, 4,6 Sterne, aber alle positiven Bewertungen 5+ Jahre alt. Heute: „Payment screen is everywhere“, „Je länger ich die App nutze, desto enttäuschter bin ich“.</p>
+          </article>
+
+          <article class="market-card reveal" data-reveal data-reveal-delay="1">
+            <div class="icon-badge icon-badge--sage">
+              <svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M10 3.5s-3.5 1-3.5 5 3.5 8.5 3.5 8.5 3.5-4.5 3.5-8.5-3.5-5-3.5-5Z" stroke="#4E8B5C" stroke-width="1.3" stroke-linejoin="round"/>
+                <circle cx="10" cy="8" r="1.3" fill="#4E8B5C"/>
+              </svg>
+            </div>
+            <h3>Bumble BFF</h3>
+            <p>2.184 Bewertungen, 3,2 Sterne. Tinder-Logik für Freundschaften, Matching funktioniert nicht. „5€ die Woche ist echt happig, vor allem bei so vielen inaktiven Nutzern“.</p>
+          </article>
+
+          <article class="market-card reveal" data-reveal data-reveal-delay="2">
+            <div class="icon-badge icon-badge--sage">
+              <svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M10 3 3 6.5v7L10 17l7-3.5v-7L10 3Z" stroke="#4E8B5C" stroke-width="1.3" stroke-linejoin="round"/>
+                <path d="M3 6.5 10 10l7-3.5M10 10v7" stroke="#4E8B5C" stroke-width="1.3" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>nebenan.de</h3>
+            <p>7.703 Bewertungen, 4,5 Sterne, positive Bewertungen 5–8 Jahre alt. „Das Design ist wirr und extrem viel Werbung, die übernehmen den Feed richtig“.</p>
+          </article>
+
+          <article class="market-card reveal" data-reveal data-reveal-delay="3">
+            <div class="icon-badge icon-badge--sage">
+              <svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M10 17.5c4.5-4 6-7 6-9.8A6 6 0 0 0 4 7.7c0 2.8 1.5 5.8 6 9.8Z" stroke="#4E8B5C" stroke-width="1.3" stroke-linejoin="round"/>
+                <circle cx="10" cy="7.7" r="2.2" stroke="#4E8B5C" stroke-width="1.3"/>
+              </svg>
+            </div>
+            <h3>Pokémon Go</h3>
+            <p>65.467 Bewertungen, 3,9 Sterne. Hat tatsächlich funktioniert, aber: „Daten der Kamera wurden mit KI ausgelesen ohne dass Nutzer es wussten“.</p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Faden: verbindet Marktanalyse mit PESTEL -->
+    <div class="section-thread reveal" data-reveal aria-hidden="true"><span></span></div>
+
+    <!-- PESTEL -->
+    <section class="pestel" id="pestel">
+      <div class="pestel__inner">
+
+        <div class="pestel__heading">
+          <p class="eyebrow reveal" data-reveal>PESTEL</p>
+          <h2 class="pestel__title reveal" data-reveal data-reveal-delay="1">Der Markt von <em>außen betrachtet</em></h2>
+          <p class="pestel__sub reveal" data-reveal data-reveal-delay="2">Politische, wirtschaftliche, soziale, technologische, ökologische und rechtliche Faktoren, die sameSpot beeinflussen.</p>
+        </div>
+
+        <div class="pestel-list">
+          <div class="pestel-row reveal" data-reveal>
+            <div class="pestel-row__mark">
+              <span class="pestel-row__letter">P</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 3 4 7v1h16V7l-8-4Z" stroke="#4E8B5C" stroke-width="1.4" stroke-linejoin="round"/>
+                <path d="M6 10v8M10 10v8M14 10v8M18 10v8M4 20h16" stroke="#4E8B5C" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="pestel-row__body">
+              <h3>Politisch</h3>
+              <p><strong>Fakten:</strong> DSGVO klar geregelt, explizite Zustimmung vor Datensammlung Pflicht.</p>
+              <p><strong>Implikation:</strong> Datenschutz-Onboarding als aktiver Vertrauensmoment, nicht als Pflichttext.</p>
+            </div>
+          </div>
+
+          <div class="pestel-row reveal" data-reveal data-reveal-delay="1">
+            <div class="pestel-row__mark">
+              <span class="pestel-row__letter">E</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <ellipse cx="9" cy="9" rx="6" ry="3.4" stroke="#4E8B5C" stroke-width="1.4"/>
+                <ellipse cx="14" cy="14" rx="6" ry="3.4" stroke="#4E8B5C" stroke-width="1.4"/>
+              </svg>
+            </div>
+            <div class="pestel-row__body">
+              <h3>Wirtschaftlich</h3>
+              <p><strong>Fakten:</strong> „5€ die Woche ist echt happig“, Zielgruppe preissensibel, misstrauisch gegen versteckte Kosten.</p>
+              <p><strong>Implikation:</strong> Kernfunktionen kostenlos, Monetarisierung transparent und optional.</p>
+            </div>
+          </div>
+
+          <div class="pestel-row reveal" data-reveal data-reveal-delay="2">
+            <div class="pestel-row__mark">
+              <span class="pestel-row__letter">S</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="12" cy="6" r="2.2" stroke="#4E8B5C" stroke-width="1.4"/>
+                <path d="M12 8.8v5.4M12 14.2 8 21M12 14.2l4 6.8M8 11.5l4 1.5 4-1.5" stroke="#4E8B5C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="pestel-row__body">
+              <h3>Sozial</h3>
+              <p><strong>Fakten:</strong> Einsamkeit wissenschaftlich belegt wachsendes Problem (IEEE-Studie), Grundidee wird gewollt, Vertrauen in Lösungen fehlt.</p>
+              <p><strong>Implikation:</strong> Gesellschaftliches Bewusstsein gestiegen, Hemmschwelle für Download sinkt.</p>
+            </div>
+          </div>
+
+          <div class="pestel-row reveal" data-reveal data-reveal-delay="3">
+            <div class="pestel-row__mark">
+              <span class="pestel-row__letter">T</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="7" y="7" width="10" height="10" rx="1.5" stroke="#4E8B5C" stroke-width="1.4"/>
+                <path d="M10 7V4M14 7V4M10 20v-3M14 20v-3M7 10H4M7 14H4M20 10h-3M20 14h-3" stroke="#4E8B5C" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="pestel-row__body">
+              <h3>Technologisch</h3>
+              <p><strong>Fakten:</strong> KI macht neue Social-Apps technisch einfach, Pokémon Go zeigt Datenschutz-Risiko standortbasierter Apps.</p>
+              <p><strong>Implikation:</strong> KI darf personalisieren, aber nie unsichtbar Daten sammeln. Transparenz Pflicht.</p>
+            </div>
+          </div>
+
+          <div class="pestel-row reveal" data-reveal data-reveal-delay="4">
+            <div class="pestel-row__mark">
+              <span class="pestel-row__letter">E</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 18c8 0 12-4 12-12-8 0-12 4-12 12Z" stroke="#4E8B5C" stroke-width="1.4" stroke-linejoin="round"/>
+                <path d="M6 18c0-4 2-7 5-9" stroke="#4E8B5C" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="pestel-row__body">
+              <h3>Ökologisch</h3>
+              <p><strong>Fakten:</strong> App bringt Menschen raus in die Stadt, Pokémon-Go-Nutzer berichten mehr Bewegung.</p>
+              <p><strong>Implikation:</strong> Kein Kernargument, aber authentischer Mehrwert fürs Onboarding.</p>
+            </div>
+          </div>
+
+          <div class="pestel-row reveal" data-reveal data-reveal-delay="5">
+            <div class="pestel-row__mark">
+              <span class="pestel-row__letter">L</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M5 21h14M12 3v4M6 10l6-3 6 3M4 10h4v6H4v-6ZM16 10h4v6h-4v-6Z" stroke="#4E8B5C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="pestel-row__body">
+              <h3>Rechtlich</h3>
+              <p><strong>Fakten:</strong> Apple App Store Guidelines schreiben vor: Standortzustimmung, Löschmöglichkeit, Meldemechanismus für UGC.</p>
+              <p><strong>Implikation:</strong> Minimale Datenerhebung ist rechtliche Pflicht und Vertrauensfaktor zugleich.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-<script src="header-case1.js?v=12"></script>
+<script src="header-case1.js?v=13"></script>
 </body>
 </html>
