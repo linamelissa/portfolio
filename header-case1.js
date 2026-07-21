@@ -194,14 +194,23 @@
   setActiveToc('prototyp');
 
   var problemSection = document.getElementById('problem');
-  if (problemSection && 'IntersectionObserver' in window) {
+  var researchSection = document.getElementById('research');
+
+  if ('IntersectionObserver' in window) {
     var spyObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        setActiveToc(entry.isIntersecting ? 'problem' : 'prototyp');
+        if (entry.isIntersecting) {
+          if (entry.target === problemSection) setActiveToc('problem');
+          else if (entry.target === researchSection) setActiveToc('research');
+        } else if (entry.target === problemSection || entry.target === researchSection) {
+          // Zurück zu "Prototyp & Lösung", falls man oberhalb von "Problem" ist
+          if (window.scrollY < entry.target.offsetTop) setActiveToc('prototyp');
+        }
       });
     }, { threshold: 0, rootMargin: '-45% 0px -45% 0px' });
 
-    spyObserver.observe(problemSection);
+    if (problemSection) spyObserver.observe(problemSection);
+    if (researchSection) spyObserver.observe(researchSection);
   }
 
   /* Smooth-scroll für TOC-Links, die auf reale Sections zeigen */
@@ -217,5 +226,81 @@
       });
     }
   });
+
+  /* ---------------------------------
+     Research: Punkte-Raster "1 von 52"
+  ---------------------------------- */
+  var dotGrid = document.getElementById('dotGrid');
+  if (dotGrid) {
+    var totalDots = 52;
+    var accentIndex = 38; // rein optische Platzierung des einen farbigen Punkts
+    for (var i = 0; i < totalDots; i++) {
+      var dot = document.createElement('span');
+      dot.className = 'dot-grid__dot' + (i === accentIndex ? ' is-accent' : '');
+      dotGrid.appendChild(dot);
+    }
+  }
+
+  /* ---------------------------------
+     Research: Sticky Stat-Boxen — die passende Box
+     wird aktiv, während man durch die Blöcke scrollt
+  ---------------------------------- */
+  var statMinis = document.querySelectorAll('.stat-mini');
+  var researchBlocks = document.querySelectorAll('.research__block');
+
+  function setActiveStat(key) {
+    statMinis.forEach(function (el) {
+      el.classList.toggle('is-active', el.getAttribute('data-stat') === key);
+    });
+  }
+
+  if (researchBlocks.length && 'IntersectionObserver' in window) {
+    var statSpy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          setActiveStat(entry.target.getAttribute('data-stat-trigger'));
+        }
+      });
+    }, { threshold: 0, rootMargin: '-35% 0px -50% 0px' });
+
+    researchBlocks.forEach(function (block) { statSpy.observe(block); });
+  }
+
+  /* ---------------------------------
+     Research: Balken + Zähler in den Daten-Karten
+     animieren, sobald die jeweilige Karte sichtbar wird
+  ---------------------------------- */
+  var dataCards = document.querySelectorAll('.data-card');
+
+  function animateDataCard(card) {
+    card.querySelectorAll('.data-bar__fill').forEach(function (fill) {
+      var target = parseFloat(fill.getAttribute('data-target'));
+      requestAnimationFrame(function () {
+        fill.style.width = target + '%';
+      });
+    });
+
+    var bigNum = card.querySelector('[data-count-to]');
+    if (bigNum) {
+      var target2 = parseInt(bigNum.getAttribute('data-count-to'), 10);
+      animateCount(bigNum, target2, 1000);
+    }
+  }
+
+  if (dataCards.length) {
+    if (!('IntersectionObserver' in window)) {
+      dataCards.forEach(animateDataCard);
+    } else {
+      var dataCardObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateDataCard(entry.target);
+            dataCardObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      dataCards.forEach(function (card) { dataCardObserver.observe(card); });
+    }
+  }
 
 })();
