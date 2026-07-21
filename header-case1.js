@@ -286,6 +286,53 @@
     window.addEventListener('resize', updateActiveStat);
     window.addEventListener('load', updateActiveStat);
     updateActiveStat();
+
+    /* ---------------------------------
+       Ein Scroll = ein Block. Innerhalb der Research-Blöcke
+       springt jede Wheel-Geste direkt zum nächsten/vorherigen
+       Block, statt frei durchzuscrollen. Am ersten/letzten
+       Block gibt die Seite den normalen Scroll wieder frei,
+       damit man nie "gefangen" ist.
+    ---------------------------------- */
+    if (!prefersReducedMotion) {
+      var isPaging = false;
+      var blocksArr = Array.prototype.slice.call(researchBlocks);
+      var researchSectionEl = document.getElementById('research');
+
+      var getCurrentBlockIndex = function () {
+        var idx = 0;
+        blocksArr.forEach(function (block, i) {
+          if (block.offsetTop <= window.scrollY + refOffset) idx = i;
+        });
+        return idx;
+      };
+
+      var goToBlock = function (index) {
+        if (index < 0 || index >= blocksArr.length) return false;
+        isPaging = true;
+        blocksArr[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(function () { isPaging = false; }, 700);
+        return true;
+      };
+
+      window.addEventListener('wheel', function (e) {
+        if (isPaging || !researchSectionEl) return;
+
+        var rect = researchSectionEl.getBoundingClientRect();
+        var withinResearch = rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.5;
+        if (!withinResearch) return;
+
+        var idx = getCurrentBlockIndex();
+        var goingDown = e.deltaY > 0;
+        var nextIndex = goingDown ? idx + 1 : idx - 1;
+
+        // Am Rand (erster Block hoch / letzter Block runter) normalen Scroll zulassen
+        if (nextIndex < 0 || nextIndex >= blocksArr.length) return;
+
+        e.preventDefault();
+        goToBlock(nextIndex);
+      }, { passive: false });
+    }
   }
 
   /* ---------------------------------
