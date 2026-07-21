@@ -2216,6 +2216,194 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ---------------------------------
+   Design-Ethik
+---------------------------------- */
+.ethik {
+  padding: clamp(48px, 6vw, 90px) 24px;
+  scroll-margin-top: 80px;
+}
+
+.ethik__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(32px, 4vw, 52px);
+}
+
+.ethik__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.ethik__title {
+  font-weight: 700;
+  font-size: clamp(22px, 2.8vw, 36px);
+  line-height: 1.25;
+  letter-spacing: 0.5px;
+  color: var(--ink);
+  margin: 0;
+}
+
+.ethik__title em {
+  font-style: italic;
+  color: var(--sage);
+  font-weight: 700;
+}
+
+.ethik__sub {
+  font-size: clamp(14px, 1.2vw, 17px);
+  color: var(--black-ink);
+  max-width: 640px;
+  margin: 0;
+}
+
+.ethik-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(14px, 1.8vw, 20px);
+  width: 100%;
+}
+
+.ethik-card {
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(64, 84, 68, 0.1), 0 4px 2px rgba(64, 84, 68, 0.08);
+  padding: clamp(18px, 2vw, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: default;
+  transition: background-color 0.35s var(--ease), box-shadow 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+.ethik-card:hover {
+  background: var(--sage-tint);
+  box-shadow: 0 10px 24px -10px rgba(64, 84, 68, 0.22);
+  transform: translateY(-2px);
+}
+
+.ethik-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.ethik-card__title {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--dark-ink);
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.ethik-card__num {
+  font-weight: 700;
+  color: var(--coral);
+  font-size: 14px;
+}
+
+.ethik-card__hover-hint {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 91, 58, 0.35);
+  transition: opacity 0.3s var(--ease);
+  margin-top: 2px;
+}
+
+.ethik-card__dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sage-hover);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease-bounce);
+  margin-top: 4px;
+}
+
+.ethik-card:hover .ethik-card__hover-hint {
+  opacity: 0;
+}
+
+.ethik-card:hover .ethik-card__dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ethik-card__tag {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.ethik-card__tag--bumble {
+  background: #FFE3DB;
+  color: var(--coral-dark);
+}
+
+.ethik-card__tag--same {
+  background: var(--sage);
+  color: var(--deep-green);
+}
+
+.ethik-card__desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--slate-light);
+  margin: 0;
+}
+
+.ethik-card__answer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease), opacity 0.35s var(--ease), margin-top 0.4s var(--ease);
+  margin-top: 0;
+}
+
+.ethik-card__answer p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--deep-green);
+  margin: 0;
+  font-weight: 500;
+}
+
+.ethik-card:hover .ethik-card__answer {
+  max-height: 160px;
+  opacity: 1;
+  margin-top: 4px;
+}
+
+@media (max-width: 700px) {
+  .ethik-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ethik-card, .ethik-card__answer, .ethik-card__dot, .ethik-card__hover-hint {
+    transition: none;
+  }
+}
+
+/* ---------------------------------
    Responsive — kleinere Screens
 ---------------------------------- */
 @media (max-width: 700px) {
