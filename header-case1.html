@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,400;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="header-case1.css?v=18">
+<link rel="stylesheet" href="header-case1.css?v=19">
 </head>
 <body>
 
@@ -39,6 +39,7 @@
       <li><a href="#napkin" class="toc__link" data-toc="napkin">Idea Napkin</a></li>
       <li><a href="#marktanalyse" class="toc__link" data-toc="marktanalyse">Marktanalyse</a></li>
       <li><a href="#pestel" class="toc__link" data-toc="pestel">PESTEL</a></li>
+      <li><a href="#porter" class="toc__link" data-toc="porter">Porter's Five Forces</a></li>
       <li><a href="#" class="toc__link" data-toc="ethik">Design-Ethik</a></li>
       <li><a href="#" class="toc__link" data-toc="bmc">Business Model Canvas</a></li>
       <li><a href="#" class="toc__link" data-toc="funktionen">App-Funktionen</a></li>
@@ -832,8 +833,59 @@
       </div>
     </section>
 
+    <!-- Faden: verbindet PESTEL mit Porter's Five Forces -->
+    <div class="section-thread reveal" data-reveal aria-hidden="true"><span></span></div>
+
+    <!-- Porter's Five Forces -->
+    <section class="porter" id="porter">
+      <div class="porter__inner">
+
+        <div class="porter__heading">
+          <p class="eyebrow reveal" data-reveal>PORTER'S FIVE FORCES</p>
+          <h2 class="porter__title reveal" data-reveal data-reveal-delay="1">Der Markt <em>unter Druck</em></h2>
+          <p class="porter__sub reveal" data-reveal data-reveal-delay="2">Fünf Kräfte bestimmen, wie hart der Wettbewerb wirklich ist, nicht nur wie viele Apps es schon gibt.</p>
+        </div>
+
+        <div class="porter-diagram">
+          <article class="porter-box porter-box--top reveal" data-reveal>
+            <h3>Neue Marktteilnehmer</h3>
+            <p>KI macht neue Social-Apps einfach. „Verbindung als Nebenprodukt“ bleibt unbesetzt.</p>
+          </article>
+
+          <div class="porter-arrow porter-arrow--down" aria-hidden="true"><span class="porter-arrow__line"></span><span class="porter-arrow__head"></span></div>
+
+          <article class="porter-box porter-box--left reveal" data-reveal data-reveal-delay="1">
+            <h3>Lieferantenpower</h3>
+            <p>Abhängigkeit vom Apple App Store, verlangt Standortzustimmung und Datenschutzerklärung.</p>
+          </article>
+
+          <div class="porter-arrow porter-arrow--right" aria-hidden="true"><span class="porter-arrow__line"></span><span class="porter-arrow__head"></span></div>
+
+          <article class="porter-box porter-box--center reveal" data-reveal data-reveal-delay="2">
+            <h3>Wettbewerbsintensität</h3>
+            <p>Gesättigter Markt, Vertrauen in die Kategorie grundlegend beschädigt. Experience und Vertrauen sind der einzige Differenzierungsfaktor.</p>
+          </article>
+
+          <div class="porter-arrow porter-arrow--left" aria-hidden="true"><span class="porter-arrow__line"></span><span class="porter-arrow__head"></span></div>
+
+          <article class="porter-box porter-box--right reveal" data-reveal data-reveal-delay="3">
+            <h3>Kundenpower</h3>
+            <p>Kostenlos wechselbar, keine sozialen Netze verloren. Nutzer löschen schnell bei Vertrauensbruch.</p>
+          </article>
+
+          <div class="porter-arrow porter-arrow--up" aria-hidden="true"><span class="porter-arrow__line"></span><span class="porter-arrow__head"></span></div>
+
+          <article class="porter-box porter-box--bottom reveal" data-reveal data-reveal-delay="4">
+            <h3>Alternativprodukte</h3>
+            <p>Meetup kaputt, Bumble BFF ohne Antworten, Nebenan.de mit Werbung überflutet.</p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-<script src="header-case1.js?v=18"></script>
+<script src="header-case1.js?v=19"></script>
 </body>
 </html>
