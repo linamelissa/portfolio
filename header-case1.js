@@ -160,11 +160,33 @@
   }
 
   /* ---------------------------------
-     Smooth-scroll für TOC-Links,
-     die auf reale Sections zeigen
+     TOC-Scrollspy: der jeweils passende
+     Punkt leuchtet dunkelgrün auf, während
+     man durch die Seite scrollt
   ---------------------------------- */
-  var tocLinks = document.querySelectorAll('.toc__link, .toc__current');
+  var tocLinks = document.querySelectorAll('.toc__link');
 
+  function setActiveToc(key) {
+    tocLinks.forEach(function (link) {
+      link.classList.toggle('is-active', link.getAttribute('data-toc') === key);
+    });
+  }
+
+  // Standard: "Prototyp & Lösung" ist aktiv (Hero + Überblick gehören zu diesem Kapitel)
+  setActiveToc('prototyp');
+
+  var problemSection = document.getElementById('problem');
+  if (problemSection && 'IntersectionObserver' in window) {
+    var spyObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        setActiveToc(entry.isIntersecting ? 'problem' : 'prototyp');
+      });
+    }, { threshold: 0, rootMargin: '-45% 0px -45% 0px' });
+
+    spyObserver.observe(problemSection);
+  }
+
+  /* Smooth-scroll für TOC-Links, die auf reale Sections zeigen */
   tocLinks.forEach(function (link) {
     var href = link.getAttribute('href');
     if (href && href.startsWith('#') && href.length > 1) {
