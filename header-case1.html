@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,400;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="header-case1.css?v=8">
+<link rel="stylesheet" href="header-case1.css?v=9">
 </head>
 <body>
 
@@ -33,8 +33,8 @@
     <ul class="toc__list">
       <li><a href="#problem" class="toc__link" data-toc="problem">Problem</a></li>
       <li><a href="#research" class="toc__link" data-toc="research">Research</a></li>
-      <li><a href="#" class="toc__link" data-toc="persona">Persona</a></li>
-      <li><a href="#" class="toc__link" data-toc="hmw">How Might We</a></li>
+      <li><a href="#persona" class="toc__link" data-toc="persona">Persona</a></li>
+      <li><a href="#hmw" class="toc__link" data-toc="hmw">How Might We</a></li>
       <li><a href="#" class="toc__link" data-toc="ideation">Ideation</a></li>
       <li><a href="#" class="toc__link" data-toc="marktanalyse">Marktanalyse</a></li>
       <li><a href="#" class="toc__link" data-toc="ethik">Design-Ethik</a></li>
@@ -414,8 +414,107 @@
       </div>
     </section>
 
+    <!-- Faden: verbindet Research mit Persona -->
+    <div class="section-thread reveal" data-reveal aria-hidden="true"><span></span></div>
+
+    <!-- Persona -->
+    <section class="persona" id="persona">
+      <div class="persona__inner">
+
+        <div class="persona__heading">
+          <p class="eyebrow reveal" data-reveal>PERSONA</p>
+          <h2 class="persona__title reveal" data-reveal data-reveal-delay="1">Aus den Daten <em>entstanden</em></h2>
+          <p class="persona__sub reveal" data-reveal data-reveal-delay="2">Hanna ist keine Annahme, sie ist die Verdichtung von 4 Interviews und 52 Antworten in eine Person.</p>
+        </div>
+
+        <div class="persona-card reveal" data-reveal>
+          <div class="persona-card__head">
+            <span class="persona-card__avatar">H</span>
+            <div class="persona-card__id">
+              <span class="persona-card__name">Hanna Polm</span>
+              <span class="persona-card__tag">Die Blockierte</span>
+            </div>
+          </div>
+          <blockquote class="persona-card__quote">
+            „Ich bin wohl einfach zu schüchtern dafür und kann nicht über meinen Schatten springen. Ich hab mich einfach damit abgefunden, dass mir irgendwas fehlt, ich aber nicht weiß was.“
+          </blockquote>
+        </div>
+
+        <p class="persona__note reveal" data-reveal>Hanna lebt allein und wünscht sich Verbindung, ist aber überfordert von alltäglicher Ansprache. Sie merkt das Problem besonders in den kleinen, unverabredeten Momenten des Alltags.</p>
+
+        <div class="persona-traits">
+          <article class="trait-card reveal" data-reveal>
+            <div class="icon-badge icon-badge--sage">
+              <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="11.5" cy="4" r="1.6" fill="#4E8B5C"/>
+                <path d="M10 6.2 7 8l.8 3.2L6 14.5M10 6.2l2.5 1.3 2 3.7M12.5 7.5 10 9.8l1 3.2 2.5 2" stroke="#4E8B5C" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Verhalten</h3>
+            <p>Wartet auf Ansprache statt selbst zuzugehen, zerdenkt soziale Momente, bevor sie passieren.</p>
+          </article>
+
+          <article class="trait-card reveal" data-reveal data-reveal-delay="1">
+            <div class="icon-badge icon-badge--validate">
+              <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="10" cy="10" r="6.5" stroke="#B8894A" stroke-width="1.3"/>
+                <circle cx="10" cy="10" r="3.5" stroke="#B8894A" stroke-width="1.3"/>
+                <circle cx="10" cy="10" r="0.9" fill="#B8894A"/>
+              </svg>
+            </div>
+            <h3>Needs &amp; Goals</h3>
+            <p>Verbindung ohne Druck, den ersten Schritt nicht selbst machen zu müssen.</p>
+          </article>
+
+          <article class="trait-card reveal" data-reveal data-reveal-delay="2">
+            <div class="icon-badge icon-badge--sage">
+              <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M10 16.2S3.5 12.2 3.5 7.7c0-2.1 1.7-3.6 3.6-3.6 1.3 0 2.4.7 2.9 1.7.5-1 1.6-1.7 2.9-1.7 1.9 0 3.6 1.5 3.6 3.6 0 4.5-6.5 8.5-6.5 8.5Z" stroke="#4E8B5C" stroke-width="1.3" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Motivation</h3>
+            <p>Möchte, dass sich ihr Leben wieder echt anfühlt, nicht mehr taub durch den Alltag gehen.</p>
+          </article>
+
+          <article class="trait-card reveal" data-reveal data-reveal-delay="3">
+            <div class="icon-badge icon-badge--warning">
+              <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M10 3.5 17 16H3L10 3.5Z" stroke="#B23A1F" stroke-width="1.3" stroke-linejoin="round"/>
+                <path d="M10 8.5v3.2M10 14v.1" stroke="#B23A1F" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Pain Points</h3>
+            <p>Angst vor Ablehnung, sucht Fehler immer bei sich selbst, fühlt sich sozial inkompetent.</p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Faden: verbindet Persona mit How Might We -->
+    <div class="section-thread reveal" data-reveal aria-hidden="true"><span></span></div>
+
+    <!-- How Might We -->
+    <section class="hmw" id="hmw">
+      <div class="hmw__inner">
+
+        <div class="hmw__heading">
+          <p class="eyebrow reveal" data-reveal>HOW MIGHT WE</p>
+          <h2 class="hmw__title reveal" data-reveal data-reveal-delay="1">Aus den Daten <em>entstanden</em></h2>
+          <p class="hmw__sub reveal" data-reveal data-reveal-delay="2">Aus Hannas Situation wird eine Frage, mit der ich weiterarbeite.</p>
+        </div>
+
+        <blockquote class="hmw-card reveal" data-reveal>
+          „Wie könnten wir Hanna so unterstützen, dass sie gar nicht aktiv merkt, dass sie gerade einen sozialen Schritt macht?“
+        </blockquote>
+
+        <p class="hmw__note reveal" data-reveal>71% der Befragten warten passiv darauf, angesprochen zu werden. Alle 4 Interviews zeigen: nicht der Wunsch nach Verbindung fehlt, sondern der bewusste erste Schritt ist die eigentliche Blockade. Diese Frage lässt bewusst offen, wie die Lösung aussieht, sie trifft nur den Kern.</p>
+
+      </div>
+    </section>
+
   </main>
 
-<script src="header-case1.js?v=8"></script>
+<script src="header-case1.js?v=9"></script>
 </body>
 </html>
