@@ -1,7 +1,7 @@
 /* ===================================================
    sameSpot — Case Study Header
    Farben & Fonts strikt nach Figma-Vorgabe
-   VERSION-MARKER: stat-boxen-gestapelt-v2
+   VERSION-MARKER: sidebar-einheitlich-pestel-schatten-v18
 =================================================== */
 
 :root {
@@ -1957,6 +1957,7 @@ a { text-decoration: none; color: inherit; }
   background: var(--white);
   border-radius: 10px;
   padding: 16px 24px;
+  box-shadow: 0 1px 3px rgba(64, 84, 68, 0.12);
   display: flex;
   flex-direction: column;
   gap: 8px;
