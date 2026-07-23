@@ -1,7 +1,7 @@
 /* ===================================================
    sameSpot — Case Study Header
    Farben & Fonts strikt nach Figma-Vorgabe
-   VERSION-MARKER: hat-toc-restructure-v31
+   VERSION-MARKER: hat-ausblick-entfernt-v33
 =================================================== */
 
 :root {
@@ -516,6 +516,20 @@ a { text-decoration: none; color: inherit; }
 
 .eyebrow--onlight {
   color: var(--white);
+}
+
+.eyebrow--dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.eyebrow__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sage-hover);
+  flex-shrink: 0;
 }
 
 .ueberblick__heading {
@@ -4536,6 +4550,433 @@ a { text-decoration: none; color: inherit; }
 
 @media (max-width: 500px) {
   .hifi-card { flex: 1 1 100%; }
+}
+
+/* ---------------------------------
+   KI im Prozess
+---------------------------------- */
+.kiprozess {
+  padding: clamp(48px, 6vw, 90px) 24px;
+  scroll-margin-top: 80px;
+}
+
+.kiprozess__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(32px, 4vw, 52px);
+}
+
+.kiprozess__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.kiprozess__title {
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 40px);
+  letter-spacing: 0.5px;
+  color: var(--ink);
+  margin: 0;
+}
+
+.kiprozess__title em {
+  font-style: italic;
+  color: var(--sage);
+  font-weight: 700;
+}
+
+.kiprozess__sub {
+  font-size: clamp(14px, 1.2vw, 17px);
+  color: var(--black-ink);
+  max-width: 640px;
+  margin: 0;
+  text-align: center;
+}
+
+.kiprozess-grid {
+  display: flex;
+  gap: clamp(16px, 2vw, 24px);
+  width: 100%;
+  align-items: stretch;
+}
+
+.kiprozess-card {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  background: var(--white);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(64, 84, 68, 0.1), 0 4px 2px rgba(64, 84, 68, 0.08);
+  padding: clamp(20px, 2.4vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+
+.kiprozess-card:hover {
+  border-color: var(--sage);
+  transform: translateY(-2px);
+}
+
+.kiprozess-card__dot {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--sage-hover);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease-bounce);
+}
+
+.kiprozess-card:hover .kiprozess-card__dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.kiprozess-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  margin-bottom: 2px;
+}
+
+.kiprozess-card h3 {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--dark-ink);
+  margin: 0;
+}
+
+.kiprozess-card p {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--slate);
+  margin: 0;
+}
+
+.kiprozess-terminal {
+  margin-top: 4px;
+  background: var(--black-ink);
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.kiprozess-terminal__idle,
+.kiprozess-terminal__cmd {
+  margin: 0;
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  font-size: 13px;
+  color: var(--sage);
+}
+
+.kiprozess-terminal__cmd {
+  display: none;
+}
+
+.kiprozess-card:hover .kiprozess-terminal__idle {
+  display: none;
+}
+
+.kiprozess-card:hover .kiprozess-terminal__cmd {
+  display: block;
+}
+
+.kiprozess-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  margin-left: 2px;
+  background: var(--sage);
+  vertical-align: middle;
+  animation: kiprozess-blink 1s steps(2) infinite;
+}
+
+@keyframes kiprozess-blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kiprozess-cursor { animation: none; }
+}
+
+.kiprozess-attrib {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: max-height 0.4s var(--ease), opacity 0.35s var(--ease), margin-top 0.4s var(--ease);
+}
+
+.kiprozess-card:hover .kiprozess-attrib {
+  max-height: 160px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
+.kiprozess-attrib p {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--slate-light);
+  margin: 0;
+}
+
+.kitag {
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 100px;
+  margin-right: 6px;
+}
+
+.kitag--human {
+  background: var(--sage-tint);
+  color: var(--deep-green);
+}
+
+.kitag--ai {
+  background: var(--black-ink);
+  color: var(--sage);
+}
+
+@media (max-width: 900px) {
+  .kiprozess-grid { flex-direction: column; }
+}
+
+/* ---------------------------------
+   Learnings
+---------------------------------- */
+.learnings {
+  padding: clamp(48px, 6vw, 90px) 24px;
+  scroll-margin-top: 80px;
+}
+
+.learnings__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(32px, 4vw, 52px);
+}
+
+.learnings__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.learnings__title {
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 40px);
+  letter-spacing: 0.5px;
+  color: var(--ink);
+  margin: 0;
+}
+
+.learnings__title em {
+  font-style: italic;
+  color: var(--sage-hover);
+  font-weight: 700;
+}
+
+.learnings__sub {
+  font-size: clamp(14px, 1.2vw, 17px);
+  color: var(--black-ink);
+  max-width: 620px;
+  margin: 0;
+  text-align: center;
+}
+
+.learnings-grid {
+  display: flex;
+  gap: clamp(16px, 2vw, 24px);
+  width: 100%;
+  align-items: stretch;
+}
+
+.learnings-card {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(64, 84, 68, 0.1), 0 4px 2px rgba(64, 84, 68, 0.08);
+  padding: clamp(20px, 2.4vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.learnings-card__dot {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--sage-hover);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease-bounce);
+}
+
+.learnings-card:hover .learnings-card__dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.learnings-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  margin-bottom: 2px;
+}
+
+.learnings-card h3 {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--dark-ink);
+  margin: 0;
+}
+
+.learnings-card__cut {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.learnings-card__cut li {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--slate);
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.learnings-card:hover .learnings-card__cut li {
+  color: var(--problem-dark);
+  text-decoration: line-through;
+}
+
+.learnings-card__note {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--slate-light);
+  margin: 0;
+}
+
+.learnings-flip {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.learnings-flip__box {
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.learnings-flip__label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0 0 4px;
+}
+
+.learnings-flip__box p:last-child {
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.learnings-flip__box--before {
+  background: var(--problem-tint);
+}
+
+.learnings-flip__box--before .learnings-flip__label,
+.learnings-flip__box--before p:last-child {
+  color: var(--problem-dark);
+}
+
+.learnings-flip__box--after {
+  background: var(--sage-tint);
+}
+
+.learnings-flip__box--after .learnings-flip__label,
+.learnings-flip__box--after p:last-child {
+  color: var(--deep-green);
+}
+
+.trust-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.trust-bar__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dark-ink);
+}
+
+.trust-bar__track {
+  height: 6px;
+  border-radius: 100px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.trust-bar__fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 100px;
+  transition: width 0.6s var(--ease);
+}
+
+.trust-bar__fill--bad {
+  background: var(--problem-base);
+}
+
+.trust-bar__fill--good {
+  background: var(--sage-hover);
+}
+
+.learnings-card--trust:hover .trust-bar__fill--bad {
+  width: 22%;
+}
+
+.learnings-card--trust:hover .trust-bar__fill--good {
+  width: 88%;
+}
+
+.trust-bar__desc {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--slate-light);
+  margin: 2px 0 0;
+}
+
+@media (max-width: 900px) {
+  .learnings-grid { flex-direction: column; }
 }
 
 /* ---------------------------------
