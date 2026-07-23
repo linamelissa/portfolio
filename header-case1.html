@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,400;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="header-case1.css?v=34">
+<link rel="stylesheet" href="header-case1.css?v=35">
 </head>
 <body>
 
@@ -47,8 +47,6 @@
       <li><a href="#testing" class="toc__link" data-toc="testing">Testing &amp; KPI</a></li>
       <li><a href="#vornach" class="toc__link" data-toc="vornach">Vorher &amp; Nachher</a></li>
       <li><a href="#hifi" class="toc__link toc__link--highlight" data-toc="prototyp">Prototyp &amp; Lösung</a></li>
-      <li><a href="#ki" class="toc__link" data-toc="ki">KI im Prozess</a></li>
-      <li><a href="#learnings" class="toc__link" data-toc="learnings">Learnings</a></li>
       <li>
         <a href="https://figma.com" target="_blank" rel="noopener" class="toc__figma">
           <span>Figma</span>
@@ -1942,159 +1940,8 @@
       </div>
     </section>
 
-    <!-- Faden: verbindet Prototyp & Lösung mit KI im Prozess -->
-    <div class="section-thread reveal" data-reveal aria-hidden="true"><span></span></div>
-
-    <!-- KI im Prozess -->
-    <section class="kiprozess" id="ki">
-      <div class="kiprozess__inner">
-
-        <div class="kiprozess__heading">
-          <p class="eyebrow reveal" data-reveal>KI IM PROZESS</p>
-          <h2 class="kiprozess__title reveal" data-reveal data-reveal-delay="1">Wie KI mir <em>geholfen hat</em></h2>
-          <p class="kiprozess__sub reveal" data-reveal data-reveal-delay="2">KI als Werkzeug, nicht als Entscheiderin. Leitfaden üben, Erkenntnisse clustern, Ideen generieren.</p>
-        </div>
-
-        <div class="kiprozess-grid">
-          <article class="kiprozess-card reveal" data-reveal>
-            <span class="kiprozess-card__dot" aria-hidden="true"></span>
-            <div class="icon-badge icon-badge--sage kiprozess-card__icon">
-              <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <circle cx="8.5" cy="8.5" r="5.5" stroke="#4E8B5C" stroke-width="1.4"/>
-                <path d="M16 16l-3.8-3.8" stroke="#4E8B5C" stroke-width="1.4" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3>Research-Synthese</h3>
-            <p>Häufigkeit erkannt, Bedeutung entschieden, ich. Affinity Mapping und Cluster entstanden im Dialog.</p>
-            <div class="kiprozess-terminal">
-              <p class="kiprozess-terminal__idle">&gt; <span class="kiprozess-cursor"></span></p>
-              <p class="kiprozess-terminal__cmd">&gt; /synthesize_research_data</p>
-              <div class="kiprozess-attrib">
-                <p><span class="kitag kitag--human">Mensch</span> Bedeutung entschieden &amp; validiert</p>
-                <p><span class="kitag kitag--ai">KI</span> Muster erkannt, Cluster &amp; Affinity Mapping im Dialog erstellt</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="kiprozess-card reveal" data-reveal data-reveal-delay="1">
-            <span class="kiprozess-card__dot" aria-hidden="true"></span>
-            <div class="icon-badge icon-badge--sage kiprozess-card__icon">
-              <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M4 16 15 5l1.5 1.5L5.5 17.5H4V16Z" stroke="#4E8B5C" stroke-width="1.4" stroke-linejoin="round"/>
-                <path d="M12.5 7.5l1.5 1.5" stroke="#4E8B5C" stroke-width="1.4" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3>Ideation</h3>
-            <p>Vier Ideen parallel generiert, ich habe bewertet. Zwei der stärksten Ideen kamen aus diesem Dialog.</p>
-            <div class="kiprozess-terminal">
-              <p class="kiprozess-terminal__idle">&gt; <span class="kiprozess-cursor"></span></p>
-              <p class="kiprozess-terminal__cmd">&gt; /generate_ideas --parallel</p>
-              <div class="kiprozess-attrib">
-                <p><span class="kitag kitag--human">Mensch</span> Kriterien gesetzt &amp; die 2 stärksten Ansätze ausgewählt</p>
-                <p><span class="kitag kitag--ai">KI</span> 4 strategische Konzepte parallel im Dialog generiert</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="kiprozess-card reveal" data-reveal data-reveal-delay="2">
-            <span class="kiprozess-card__dot" aria-hidden="true"></span>
-            <div class="icon-badge icon-badge--sage kiprozess-card__icon">
-              <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M7 5.5 2.5 10 7 14.5M13 5.5 17.5 10 13 14.5" stroke="#4E8B5C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3>Vibe Coding</h3>
-            <p>Portfolio per Vibe Coding mit Claude gebaut, beschreiben statt programmiert.</p>
-            <div class="kiprozess-terminal">
-              <p class="kiprozess-terminal__idle">&gt; <span class="kiprozess-cursor"></span></p>
-              <p class="kiprozess-terminal__cmd">&gt; /vibe_code_portfolio_section</p>
-              <div class="kiprozess-attrib">
-                <p><span class="kitag kitag--human">Mensch</span> Sektionen konzipiert, Logik &amp; Animationen beschrieben</p>
-                <p><span class="kitag kitag--ai">KI</span> Code injiziert, Transitions &amp; Layout gerendert</p>
-              </div>
-            </div>
-          </article>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Faden: verbindet KI im Prozess mit Learnings -->
-    <div class="section-thread reveal" data-reveal aria-hidden="true"><span></span></div>
-
-    <!-- Learnings -->
-    <section class="learnings" id="learnings">
-      <div class="learnings__inner">
-
-        <div class="learnings__heading">
-          <p class="eyebrow reveal" data-reveal>LEARNINGS</p>
-          <h2 class="learnings__title reveal" data-reveal data-reveal-delay="1">Was ich <em>gelernt habe</em></h2>
-          <p class="learnings__sub reveal" data-reveal data-reveal-delay="2">Die ehrlichsten Erkenntnisse aus dem Prozess, nicht die schönsten, sondern die, die sich am stärksten auf meine Designentscheidungen ausgewirkt haben.</p>
-        </div>
-
-        <div class="learnings-grid">
-          <article class="learnings-card reveal" data-reveal>
-            <span class="learnings-card__dot" aria-hidden="true"></span>
-            <div class="icon-badge icon-badge--sage learnings-card__icon">
-              <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M11 2.5 4.5 11h4L8 17.5 15.5 9h-4L11 2.5Z" stroke="#4E8B5C" stroke-width="1.3" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3>Ein klarer Filter entscheidet</h3>
-            <ul class="learnings-card__cut">
-              <li>Unendlicher Swipe-Loop</li>
-              <li>Gamifizierte Login-Streaks</li>
-              <li>Profil-Bewertungs-Logik</li>
-            </ul>
-            <p class="learnings-card__note">„Würde Hanna es nutzen, ohne je jemanden zu treffen?“ hat Funktionen aussortiert, bevor sie überhaupt entstanden.</p>
-          </article>
-
-          <article class="learnings-card reveal" data-reveal data-reveal-delay="1">
-            <div class="icon-badge icon-badge--sage learnings-card__icon">
-              <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M10 5.5c-1.2-1-2.8-1.5-4.5-1.5-1 0-2 .15-2.5.4v10.6c.5-.25 1.5-.4 2.5-.4 1.7 0 3.3.5 4.5 1.5m0-10.6c1.2-1 2.8-1.5 4.5-1.5 1 0 2 .15 2.5.4v10.6c-.5-.25-1.5-.4-2.5-.4-1.7 0-3.3.5-4.5 1.5m0-10.6V16.1" stroke="#4E8B5C" stroke-width="1.3" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3>Widerlegte Hypothesen sind Gold</h3>
-            <div class="learnings-flip">
-              <div class="learnings-flip__box learnings-flip__box--before">
-                <p class="learnings-flip__label">MEINE ANNAHME</p>
-                <p>Ich dachte, Verbundenheit entsteht rein über die gemeinsamen Orte in der Stadt.</p>
-              </div>
-              <div class="learnings-flip__box learnings-flip__box--after">
-                <p class="learnings-flip__label">DIE REALITÄT</p>
-                <p>Verbundenheit entsteht nicht durch Orte, durch Menschen. Das hat das Konzept komplett verschoben.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="learnings-card learnings-card--trust reveal" data-reveal data-reveal-delay="2">
-            <span class="learnings-card__dot" aria-hidden="true"></span>
-            <div class="icon-badge icon-badge--sage learnings-card__icon">
-              <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M4 15.5 12 7.5l1.3 1.3-8 8H4v-1.3ZM11.5 6l1.5-1.5a1.4 1.4 0 0 1 2 0l.5.5a1.4 1.4 0 0 1 0 2L14 8.5 11.5 6Z" stroke="#4E8B5C" stroke-width="1.3" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3>Vertrauen verdient man, nicht behauptet man</h3>
-            <div class="trust-bar">
-              <span class="trust-bar__label">Bumble BFF</span>
-              <div class="trust-bar__track"><div class="trust-bar__fill trust-bar__fill--bad"></div></div>
-              <p class="trust-bar__desc">Verlorenes Vertrauen durch manipulative Dark Patterns hinter glatter Sprache.</p>
-            </div>
-            <div class="trust-bar">
-              <span class="trust-bar__label">sameSpot</span>
-              <div class="trust-bar__track"><div class="trust-bar__fill trust-bar__fill--good"></div></div>
-              <p class="trust-bar__desc">Jede einzelne Designentscheidung als Entscheidung über echtes Vertrauen behandelt.</p>
-            </div>
-            <p class="learnings-card__note">Bumble BFF hat gezeigt: Das Problem ist nicht schlechtes UX, es ist verlorenes Vertrauen.</p>
-          </article>
-        </div>
-
-      </div>
-    </section>
-
   </main>
 
-<script src="header-case1.js?v=34"></script>
+<script src="header-case1.js?v=35"></script>
 </body>
 </html>
