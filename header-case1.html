@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,400;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="header-case1.css?v=33">
+<link rel="stylesheet" href="header-case1.css?v=34">
 </head>
 <body>
 
@@ -44,7 +44,7 @@
       <li><a href="#a11y" class="toc__link" data-toc="a11y">Accessibility</a></li>
       <li><a href="#prozess" class="toc__link" data-toc="prozess">Prozess</a></li>
       <li><a href="#lofi" class="toc__link" data-toc="lofi">Lo-Fi Wireframes</a></li>
-      <li><a href="#testing" class="toc__link" data-toc="testing">Testing</a></li>
+      <li><a href="#testing" class="toc__link" data-toc="testing">Testing &amp; KPI</a></li>
       <li><a href="#vornach" class="toc__link" data-toc="vornach">Vorher &amp; Nachher</a></li>
       <li><a href="#hifi" class="toc__link toc__link--highlight" data-toc="prototyp">Prototyp &amp; Lösung</a></li>
       <li><a href="#ki" class="toc__link" data-toc="ki">KI im Prozess</a></li>
@@ -1473,30 +1473,30 @@
     <div class="section-thread reveal" data-reveal aria-hidden="true"><span></span></div>
 
     <!-- User Flow -->
-    <section class="flow" id="flow">
-      <div class="flow__inner">
+    <section class="userflow" id="flow">
+      <div class="userflow__inner">
 
-        <div class="flow__heading">
+        <div class="userflow__heading">
           <p class="eyebrow reveal" data-reveal>USER FLOW</p>
-          <h2 class="flow__title reveal" data-reveal data-reveal-delay="1">Eine Aufgabe, <em>ein Weg</em></h2>
-          <p class="flow__sub reveal" data-reveal data-reveal-delay="2">Vom Feed bis zum Abschluss, mit nur einer Entscheidung dazwischen: hat sie es gemacht oder nicht?</p>
+          <h2 class="userflow__title reveal" data-reveal data-reveal-delay="1">Eine Aufgabe, <em>ein Weg</em></h2>
+          <p class="userflow__sub reveal" data-reveal data-reveal-delay="2">Vom Feed bis zum Abschluss, mit nur einer Entscheidung dazwischen: hat sie es gemacht oder nicht?</p>
         </div>
 
-        <div class="flow-diagram reveal" data-reveal>
-          <div class="flow-node flow-node--pill">Start</div>
-          <span class="flow-arrow" aria-hidden="true"></span>
+        <div class="userflow-diagram reveal" data-reveal>
+          <div class="userflow-node userflow-node--pill">Start</div>
+          <span class="userflow-arrow" aria-hidden="true"></span>
 
-          <div class="flow-node flow-node--box">Feed</div>
-          <span class="flow-arrow" aria-hidden="true"></span>
+          <div class="userflow-node userflow-node--box">Feed</div>
+          <span class="userflow-arrow" aria-hidden="true"></span>
 
-          <div class="flow-node flow-node--box">Aufgaben-Detail</div>
-          <span class="flow-arrow" aria-hidden="true"></span>
+          <div class="userflow-node userflow-node--box">Aufgaben-Detail</div>
+          <span class="userflow-arrow" aria-hidden="true"></span>
 
-          <div class="flow-decision-row">
-            <div class="flow-decision">
-              <span class="flow-decision__text">Aufgaben gemacht?</span>
+          <div class="userflow-decision-row">
+            <div class="userflow-decision">
+              <span class="userflow-decision__text">Aufgaben gemacht?</span>
             </div>
-            <div class="flow-branch-note">
+            <div class="userflow-branch-note">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M13 5.5A5.5 5.5 0 1 0 14.2 9" stroke="#405444" stroke-width="1.3" stroke-linecap="round"/>
                 <path d="M13.4 2.5v3.3h-3.3" stroke="#405444" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1505,18 +1505,18 @@
             </div>
           </div>
 
-          <div class="flow-arrow-labeled">
-            <span class="flow-arrow" aria-hidden="true"></span>
-            <span class="flow-arrow-labeled__text">Ja</span>
+          <div class="userflow-arrow-labeled">
+            <span class="userflow-arrow" aria-hidden="true"></span>
+            <span class="userflow-arrow-labeled__text">Ja</span>
           </div>
 
-          <div class="flow-node flow-node--box">Feed</div>
-          <span class="flow-arrow" aria-hidden="true"></span>
+          <div class="userflow-node userflow-node--box">Feed</div>
+          <span class="userflow-arrow" aria-hidden="true"></span>
 
-          <div class="flow-node flow-node--box">Abschluss-Screen</div>
-          <span class="flow-arrow" aria-hidden="true"></span>
+          <div class="userflow-node userflow-node--box">Abschluss-Screen</div>
+          <span class="userflow-arrow" aria-hidden="true"></span>
 
-          <div class="flow-node flow-node--pill">Ende</div>
+          <div class="userflow-node userflow-node--pill">Ende</div>
         </div>
 
       </div>
@@ -1950,7 +1950,7 @@
       <div class="kiprozess__inner">
 
         <div class="kiprozess__heading">
-          <p class="eyebrow eyebrow--dot reveal" data-reveal><span class="eyebrow__dot" aria-hidden="true"></span>KI IN DESIGN</p>
+          <p class="eyebrow reveal" data-reveal>KI IM PROZESS</p>
           <h2 class="kiprozess__title reveal" data-reveal data-reveal-delay="1">Wie KI mir <em>geholfen hat</em></h2>
           <p class="kiprozess__sub reveal" data-reveal data-reveal-delay="2">KI als Werkzeug, nicht als Entscheiderin. Leitfaden üben, Erkenntnisse clustern, Ideen generieren.</p>
         </div>
@@ -2027,7 +2027,7 @@
       <div class="learnings__inner">
 
         <div class="learnings__heading">
-          <p class="eyebrow eyebrow--dot reveal" data-reveal><span class="eyebrow__dot" aria-hidden="true"></span>LEARNINGS</p>
+          <p class="eyebrow reveal" data-reveal>LEARNINGS</p>
           <h2 class="learnings__title reveal" data-reveal data-reveal-delay="1">Was ich <em>gelernt habe</em></h2>
           <p class="learnings__sub reveal" data-reveal data-reveal-delay="2">Die ehrlichsten Erkenntnisse aus dem Prozess, nicht die schönsten, sondern die, die sich am stärksten auf meine Designentscheidungen ausgewirkt haben.</p>
         </div>
@@ -2095,6 +2095,6 @@
 
   </main>
 
-<script src="header-case1.js?v=33"></script>
+<script src="header-case1.js?v=34"></script>
 </body>
 </html>
