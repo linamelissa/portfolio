@@ -280,6 +280,7 @@ a:focus-visible, button:focus-visible{
   white-space:nowrap;
   line-height:1;
   transform-origin:left center;
+  pointer-events:none;
 }
 .name-pill-photo{
   width:40px;
