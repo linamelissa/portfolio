@@ -943,12 +943,6 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 .masonry-tag{position:absolute;top:14px;left:14px;display:inline-block;font-size:10px;font-family:var(--port-font-mono);border:1px solid rgba(255,255,255,0.3);padding:3px 8px;border-radius:100px;background:rgba(0,0,0,0.35);backdrop-filter:blur(6px);color:rgba(255,255,255,0.95);letter-spacing:.04em;z-index:3}
 .masonry-title{position:absolute;bottom:0;left:0;right:0;padding:40px 18px 18px;font-size:15px;font-weight:500;color:#ffffff;background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s}
 .masonry-card:hover .masonry-title{opacity:1;transform:translateY(0)}
-.masonry-card-insta{position:relative;overflow:hidden}
-.insta-swipe-track{display:flex;transition:transform .4s ease;height:100%}
-.insta-slide{width:100%;height:100%;object-fit:cover;flex-shrink:0}
-.insta-dots{position:absolute;bottom:52px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:4;background:rgba(0,0,0,0.3);backdrop-filter:blur(4px);padding:6px 10px;border-radius:100px}
-.insta-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.45);transition:background .3s,transform .2s}
-.insta-dot.active{background:#fff;transform:scale(1.2)}
 .masonry-ext-link{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,0.45);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.95);text-decoration:none;z-index:4;opacity:1;transition:background .2s,transform .2s}
 .masonry-ext-link:hover{background:rgba(255,255,255,0.25);transform:scale(1.1)}
 
