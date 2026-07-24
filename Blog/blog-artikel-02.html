@@ -4,31 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Navigationsarchitektur und Prototyping — Lina Melissa</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
-<link rel="icon" type="image/png" sizes="512x512" href="favicon.png?v=2">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="blog-artikel.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/Blog/blog-artikel.css">
+<style>body{ cursor:auto; } a, button{ cursor:pointer; }</style>
 </head>
 <body>
 
-<div id="progress-bar"></div>
-<div id="custom-cursor"></div>
-
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-back">
+<nav class="blog-nav">
+  <div class="blog-nav-inner">
+    <a href="/#blog" class="blog-nav-back">
       <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
       <span data-de="Zum Blog" data-en="Back to Blog">Zum Blog</span>
     </a>
-    <a href="index.html" class="nav-name nav-name-center">Lina Melissa</a>
-    <div class="nav-right">
-      <a href="index.html#kontakt" class="nav-contact-link" data-de="Kontakt" data-en="Contact">Kontakt</a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button>
+    <a href="/" class="blog-nav-logo">Lina Melissa</a>
+    <div class="blog-nav-right">
+      <a href="/#kontakt" class="blog-nav-contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+      <button type="button" class="nav-lang" onclick="toggleLang()" id="lang-btn" aria-label="Sprache wechseln zu Englisch">EN</button>
     </div>
   </div>
 </nav>
+<div class="blog-nav-spacer" aria-hidden="true"></div>
 
 <article class="blog-article">
 
@@ -79,7 +81,7 @@
   </div>
 
   <footer class="ba-author">
-    <img src="bild2.jpg" alt="Lina Melissa" class="ba-author-img">
+    <img src="/ich/bild2.jpg" alt="Lina Melissa" class="ba-author-img">
     <div>
       <span class="ba-author-name">Lina Melissa</span>
       <span class="ba-author-role" data-de="UX/UI Designerin" data-en="UX/UI Designer">UX/UI Designerin</span>
@@ -91,9 +93,9 @@
 <section class="ba-more">
   <h2 class="ba-more-heading" data-de="Weitere Gedanken" data-en="More thoughts">Weitere Gedanken</h2>
   <div class="ba-more-grid">
-    <a class="blog-card" href="blog-artikel-01.html"><div class="blog-thumb blog-thumb-1"><img class="blog-thumb-img" src="blog-bild-01.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Prozess" data-en="Process">Prozess</span></div><div class="blog-body"><div class="blog-meta" data-de="Mai 2026" data-en="May 2026">Mai 2026</div><h3 class="blog-title" data-de="Wie ich dieses Portfolio mit Vibe Coding gebaut habe" data-en="How I built this portfolio with vibe coding">Wie ich dieses Portfolio mit Vibe Coding gebaut habe</h3><p class="blog-text" data-de="Vier Tage Figma-Design, und dann spontan über Bord geworfen. Wie diese Seite entstanden ist." data-en="Four days of Figma design, then spontaneously thrown overboard. How this site came to be.">Vier Tage Figma-Design, und dann spontan über Bord geworfen. Wie diese Seite entstanden ist.</p></div></a>
-    <a class="blog-card" href="blog-artikel-03.html"><div class="blog-thumb blog-thumb-3"><img class="blog-thumb-img" src="blog-bild-03.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Haltung" data-en="Stance">Haltung</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Dark Patterns — und warum ich sie ablehne" data-en="Dark patterns — and why I reject them">Dark Patterns — und warum ich sie ablehne</h3><p class="blog-text" data-de="Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut." data-en="Some designs aren't badly made — they're deliberately built against you.">Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut.</p></div></a>
-    <a class="blog-card" href="blog-artikel-04.html"><div class="blog-thumb blog-thumb-4"><img class="blog-thumb-img" src="blog-bild-04.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="KI &amp; Tools" data-en="AI &amp; Tools">KI &amp; Tools</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Prompten als neue Designfähigkeit" data-en="Prompting as a new design skill">Prompten als neue Designfähigkeit</h3><p class="blog-text" data-de="Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue." data-en="Why good prompting is surprisingly close to what I do as a designer anyway.">Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue.</p></div></a>
+    <a class="blog-card" href="/Blog/blog-artikel-01.html"><div class="blog-thumb blog-thumb-1"><img class="blog-thumb-img" src="/Blog/blog-bild-01.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Prozess" data-en="Process">Prozess</span></div><div class="blog-body"><div class="blog-meta" data-de="Mai 2026" data-en="May 2026">Mai 2026</div><h3 class="blog-title" data-de="Wie ich dieses Portfolio mit Vibe Coding gebaut habe" data-en="How I built this portfolio with vibe coding">Wie ich dieses Portfolio mit Vibe Coding gebaut habe</h3><p class="blog-text" data-de="Vier Tage Figma-Design, und dann spontan über Bord geworfen. Wie diese Seite entstanden ist." data-en="Four days of Figma design, then spontaneously thrown overboard. How this site came to be.">Vier Tage Figma-Design, und dann spontan über Bord geworfen. Wie diese Seite entstanden ist.</p></div></a>
+    <a class="blog-card" href="/Blog/blog-artikel-03.html"><div class="blog-thumb blog-thumb-3"><img class="blog-thumb-img" src="/Blog/blog-bild-03.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Haltung" data-en="Stance">Haltung</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Dark Patterns — und warum ich sie ablehne" data-en="Dark patterns — and why I reject them">Dark Patterns — und warum ich sie ablehne</h3><p class="blog-text" data-de="Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut." data-en="Some designs aren't badly made — they're deliberately built against you.">Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut.</p></div></a>
+    <a class="blog-card" href="/Blog/blog-artikel-04.html"><div class="blog-thumb blog-thumb-4"><img class="blog-thumb-img" src="/Blog/blog-bild-04.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="KI &amp; Tools" data-en="AI &amp; Tools">KI &amp; Tools</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Prompten als neue Designfähigkeit" data-en="Prompting as a new design skill">Prompten als neue Designfähigkeit</h3><p class="blog-text" data-de="Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue." data-en="Why good prompting is surprisingly close to what I do as a designer anyway.">Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue.</p></div></a>
   </div>
 </section>
 
@@ -101,22 +103,22 @@
   <div class="site-footer-inner">
     <div class="site-footer-brand">
       <span class="site-footer-name-text">Lina Melissa</span>
-      <span class="site-footer-sub" data-de="UX/UI Design · Hamburg" data-en="UX/UI Design · Hamburg">UX/UI Design · Hamburg</span>
+      <span class="site-footer-sub" data-de="UX/UI Design · Lüneburg" data-en="UX/UI Design · Lüneburg">UX/UI Design · Lüneburg</span>
       <span class="site-footer-status"><span class="site-footer-dot"></span><span data-de="Verfügbar ab August 2026" data-en="Available from August 2026">Verfügbar ab August 2026</span></span>
     </div>
     <div class="site-footer-socials">
       <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" class="site-footer-link" aria-label="LinkedIn"><span class="icon" data-icon="linkedin"></span></a>
-      <a href="https://www.behance.net/linwelss" target="_blank" class="site-footer-link" aria-label="Behance"><span class="icon" data-icon="behance"></span></a>
-      <a href="https://dribbble.com/linwelss" target="_blank" class="site-footer-link" aria-label="Dribbble"><span class="icon" data-icon="dribbble"></span></a>
-      <a href="https://www.instagram.com/linwelss/" target="_blank" class="site-footer-link" aria-label="Instagram"><span class="icon" data-icon="instagram"></span></a>
+      <a href="https://www.behance.net/linamelissa" target="_blank" class="site-footer-link" aria-label="Behance"><span class="icon" data-icon="behance"></span></a>
+      <a href="https://dribbble.com/linamelissade" target="_blank" class="site-footer-link" aria-label="Dribbble"><span class="icon" data-icon="dribbble"></span></a>
+      <a href="https://www.instagram.com/linamelissa.de/" target="_blank" class="site-footer-link" aria-label="Instagram"><span class="icon" data-icon="instagram"></span></a>
     </div>
   </div>
   <div class="site-footer-bottom">
     <span class="site-footer-copy">© 2026 Lina Melissa Arndt</span>
-    <a href="impressum.html" class="site-footer-impressum">Impressum &amp; Datenschutz</a>
+    <a href="/impressum.html" class="site-footer-impressum">Impressum &amp; Datenschutz</a>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="/script.js"></script>
 </body>
 </html>
