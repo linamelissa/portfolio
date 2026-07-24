@@ -110,6 +110,16 @@
   box-shadow:0 0 0 3px rgba(78,139,92,0.35);
   border-radius:4px;
 }
+/* Scrollspy: whichever section you're currently viewing gets the same
+   underline treatment as hover, but permanent — so it "travels" with
+   you as you scroll from section to section. */
+.nav-link.is-active{
+  color:var(--nav-ink);
+  font-weight:500;
+}
+.nav-link.is-active::after{
+  width:100%;
+}
 
 .nav-contact{
   position:relative;
