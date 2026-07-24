@@ -251,6 +251,7 @@ a:focus-visible, button:focus-visible{
   align-items:center;
   gap:12px;
   background:var(--cream);
+  border:2px solid transparent;
   border-radius:999px;
   padding:12px 28px;
   box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
@@ -513,6 +514,7 @@ a:focus-visible, button:focus-visible{
   0%, 30%{
     left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
     background:var(--cream);
+    border:2px solid transparent;
     box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
     padding:12px 28px;
     gap:12px;
@@ -520,6 +522,7 @@ a:focus-visible, button:focus-visible{
   36%{
     left:50%; top:50%; transform:translate(-50%,-50%) scale(0.94);
     background:var(--cream);
+    border:2px solid var(--green-light);
     box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
     padding:12px 28px;
     gap:12px;
@@ -527,6 +530,7 @@ a:focus-visible, button:focus-visible{
   44%{
     left:50%; top:50%; transform:translate(-50%,-50%) scale(1.06);
     background:var(--cream);
+    border:2px solid var(--green-light);
     box-shadow:0 0 0 5px var(--green-light), 0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
     padding:12px 28px;
     gap:12px;
@@ -534,6 +538,7 @@ a:focus-visible, button:focus-visible{
   54%{
     left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
     background:var(--cream);
+    border:2px solid var(--green-light);
     box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
     padding:12px 28px;
     gap:12px;
@@ -542,6 +547,7 @@ a:focus-visible, button:focus-visible{
     left:var(--pill-dock-x, 28px); top:var(--pill-dock-y, 29px);
     transform:translate(0,-50%) scale(1);
     background:var(--cream);
+    border:2px solid transparent;
     box-shadow:none;
     padding:0;
     gap:0px;
@@ -551,6 +557,7 @@ a:focus-visible, button:focus-visible{
     left:var(--pill-dock-x, 28px); top:var(--pill-dock-y, 29px);
     transform:translate(0,-50%) scale(1);
     background:var(--cream);
+    border:2px solid transparent;
     box-shadow:none;
     padding:0;
     gap:0px;
@@ -696,6 +703,75 @@ a:focus-visible, button:focus-visible{
   .divider{ height:40px; min-height:0; }
 
   .scroll-indicator{ display:none; }
+
+  /* Name-pill: smaller footprint so "Lina Melissa Arndt" plus photo
+     comfortably fits centered on narrow phone screens too. The docked
+     end-state (19px) is left untouched since it already matches the
+     nav-logo's fixed size regardless of viewport. */
+  .name-pill{ padding:10px 18px; gap:8px; }
+  .name-pill-photo{ width:30px; height:30px; }
+  @keyframes pill-journey{
+    0%, 30%{
+      left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
+      background:var(--cream);
+      border:2px solid transparent;
+      box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+      padding:10px 18px;
+      gap:8px;
+    }
+    36%{
+      left:50%; top:50%; transform:translate(-50%,-50%) scale(0.94);
+      background:var(--cream);
+      border:2px solid var(--green-light);
+      box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+      padding:10px 18px;
+      gap:8px;
+    }
+    44%{
+      left:50%; top:50%; transform:translate(-50%,-50%) scale(1.06);
+      background:var(--cream);
+      border:2px solid var(--green-light);
+      box-shadow:0 0 0 4px var(--green-light), 0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+      padding:10px 18px;
+      gap:8px;
+    }
+    54%{
+      left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
+      background:var(--cream);
+      border:2px solid var(--green-light);
+      box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
+      padding:10px 18px;
+      gap:8px;
+    }
+    80%{
+      left:var(--pill-dock-x, 20px); top:var(--pill-dock-y, 26px);
+      transform:translate(0,-50%) scale(1);
+      background:var(--cream);
+      border:2px solid transparent;
+      box-shadow:none;
+      padding:0;
+      gap:0px;
+      opacity:1;
+    }
+    100%{
+      left:var(--pill-dock-x, 20px); top:var(--pill-dock-y, 26px);
+      transform:translate(0,-50%) scale(1);
+      background:var(--cream);
+      border:2px solid transparent;
+      box-shadow:none;
+      padding:0;
+      gap:0px;
+      opacity:0;
+    }
+  }
+  @keyframes pill-text-size{
+    0%, 54%{ font-size:22px; }
+    80%, 100%{ font-size:19px; }
+  }
+  @keyframes pill-photo-drop{
+    0%, 54%{ opacity:1; width:30px; border-width:1px; }
+    70%, 100%{ opacity:0; width:0; border-width:0; }
+  }
 }
 
 @media (pointer: fine){
@@ -951,6 +1027,7 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 .contact-inner{max-width:680px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
 .contact-label{font-family:var(--port-font-mono);font-weight:600;font-size:14px;color:var(--port-green-mid);letter-spacing:.02em;text-transform:uppercase;margin-bottom:12px}
 .contact-title{font-size:clamp(36px,5vw,56px);line-height:1.15;font-weight:500;color:var(--port-ink);margin-bottom:24px;letter-spacing:-.02em}
+.contact-title em{white-space:nowrap}
 .contact-desc{font-size:16px;line-height:1.6;color:var(--port-ink-soft);margin-bottom:40px}
 .contact-buttons{display:flex;gap:16px;justify-content:center;align-items:center}
 
