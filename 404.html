@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seite nicht gefunden — Lina Melissa</title>
+<title>Seite nicht gefunden · Lina Melissa</title>
 <meta name="robots" content="noindex">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -12,9 +12,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/style.css">
 <style>
-  body{ cursor:auto; }
+  body{ cursor:auto; background:var(--cream); }
   a, button{ cursor:pointer; }
   .nf-wrap{
     min-height:100vh; display:flex; flex-direction:column;
@@ -28,32 +28,22 @@
     letter-spacing:-.02em;
   }
   .nf-title{
-    font-family:'Inter', sans-serif; font-size:clamp(24px,5vw,34px); font-weight:600;
+    font-family:'Inter', sans-serif; font-size:clamp(24px,5vw,34px); font-weight:700;
     color:var(--ink); margin:16px 0 12px; letter-spacing:-.01em;
   }
-  .nf-text{ font-size:16px; color:var(--port-ink-soft); max-width:420px; line-height:1.7; margin-bottom:36px; }
-  .nf-btn{
-    display:inline-flex; align-items:center; gap:8px;
-    background:linear-gradient(120deg,var(--green-dark) 0%,var(--ink) 100%);
-    color:#fff; text-decoration:none; padding:14px 28px; border-radius:100px;
-    font-size:15px; font-weight:600;
-    transition:filter .2s,transform .15s,box-shadow .2s;
-    box-shadow:0 4px 16px rgba(37,48,42,0.25);
-  }
-  .nf-btn:hover{ filter:brightness(1.1); transform:translateY(-2px); box-shadow:0 8px 24px rgba(37,48,42,0.3); }
-  .nf-btn svg{ width:16px; height:16px; stroke:#fff; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .nf-text{ font-size:16px; color:var(--port-ink-soft); max-width:440px; line-height:1.7; margin-bottom:36px; }
 </style>
 </head>
 <body>
 <div class="nf-wrap">
   <div class="nf-code">404</div>
-  <h1 class="nf-title" data-de="Diese Seite hat sich verlaufen." data-en="This page got lost.">Diese Seite hat sich verlaufen.</h1>
-  <p class="nf-text" data-de="Passt eigentlich zum Thema — manchmal findet man nicht den Weg, den man gesucht hat. Lass uns zurück zum Anfang gehen." data-en="Fitting, really — sometimes you don't find the path you were looking for. Let's head back to the start.">Passt eigentlich zum Thema — manchmal findet man nicht den Weg, den man gesucht hat. Lass uns zurück zum Anfang gehen.</p>
-  <a href="index.html" class="nf-btn">
-    <svg viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-    <span data-de="Zur Startseite" data-en="Back to home">Zur Startseite</span>
+  <h1 class="nf-title" data-de="Diese Seite hat sich <em>verlaufen.</em>" data-en="This page got <em>lost.</em>">Diese Seite hat sich <em>verlaufen.</em></h1>
+  <p class="nf-text" data-de="Kenn ich nur zu gut. Wege sind selten gradlinig, aber trotzdem findet man immer wieder zurück nachhause :)" data-en="I know that feeling all too well. Paths are rarely straight, but you still find your way back home eventually :)">Kenn ich nur zu gut. Wege sind selten gradlinig, aber trotzdem findet man immer wieder zurück nachhause :)</p>
+  <a href="/" class="contact-btn-primary">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+    <span data-de="Zurück zu mir (also zur Startseite)" data-en="Back to me (well, the homepage)">Zurück zu mir (also zur Startseite)</span>
   </a>
 </div>
-<script src="script.js"></script>
+<script src="/script.js"></script>
 </body>
 </html>
