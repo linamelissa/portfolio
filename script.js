@@ -19,6 +19,19 @@
   window.addEventListener('scroll', updateNavState, { passive: true });
 })();
 
+// --- Clicking the name (nav logo) always takes you to the very top of
+// the page, smoothly, instead of reloading — even if you're already home.
+(function () {
+  var navLogo = document.getElementById('nav-logo');
+  if (!navLogo) return;
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  navLogo.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+  });
+})();
+
 // --- Hero -----------------------------------------------------------------
 // The hero itself is intentionally free of JS dependencies:
 // - "CV herunterladen" is a real download link (a[download])
