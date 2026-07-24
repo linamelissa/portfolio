@@ -763,7 +763,7 @@ svg.lucide{width:16px;height:16px;stroke:var(--port-green-mid);stroke-width:1.75
 section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 .section-label{display:inline-flex;align-items:center;justify-content:center;width:100%;font-family:var(--port-font-mono);font-weight:600;font-size:14px;color:var(--port-green-mid);letter-spacing:.02em;text-transform:uppercase;margin-bottom:12px;text-align:center}
 .section-heading{font-size:clamp(26px,3.5vw,38px);font-weight:700;letter-spacing:.5px;color:var(--port-ink);margin-bottom:12px;line-height:1.2;text-align:center}
-.section-heading em,.about-heading em,.contact-title em{font-style:italic;color:var(--port-green-mid);font-weight:700}
+.section-heading em,.about-heading em,.contact-title em,.nf-title em{font-style:italic;color:var(--port-green-mid);font-weight:700}
 .section-sub{font-size:16px;color:var(--port-ink-soft);line-height:1.8;margin-bottom:48px;text-align:center}
 
 /* "Über mich" keeps its original left-aligned, two-column layout */
