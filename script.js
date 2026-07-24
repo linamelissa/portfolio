@@ -316,34 +316,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-// Instagram swipe carousel (Weitere Projekte masonry)
-document.querySelectorAll('.insta-swipe').forEach(card => {
-  const track = card.querySelector('.insta-swipe-track');
-  const slides = card.querySelectorAll('.insta-slide');
-  const dots = card.querySelectorAll('.insta-dot');
-  let current = 0;
-  let interval = null;
-
-  function goTo(i) {
-    current = (i + slides.length) % slides.length;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
-  }
-
-  card.addEventListener('mouseenter', () => {
-    interval = setInterval(() => goTo(current + 1), 1200);
-  });
-  card.addEventListener('mouseleave', () => {
-    clearInterval(interval);
-    goTo(0);
-  });
-  card.addEventListener('click', (e) => {
-    e.stopPropagation();
-    clearInterval(interval);
-    goTo(current + 1);
-  });
-});
-
 // Lightbox
 let lbCarouselCurrent = 0;
 let lbCarouselSlides = [];
@@ -433,11 +405,6 @@ document.querySelectorAll('.masonry-card').forEach(card => {
     if (card.classList.contains('card-scroll')) {
       const si = card.querySelector('.scroll-img');
       if (si) { openLightbox('scroll', si.src); return; }
-    }
-    if (card.classList.contains('insta-swipe')) {
-      const slides = [...card.querySelectorAll('.insta-slide')].map(s => s.src);
-      openLightbox('carousel', null, slides);
-      return;
     }
     const vid = card.querySelector('.masonry-video');
     if (vid) { openLightbox('video', vid.src); return; }
