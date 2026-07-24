@@ -739,7 +739,7 @@ a:focus-visible, button:focus-visible{
 :root{
   --port-green:#4E8B5C;--port-green-light:#EEF4EF;--port-green-mid:#4E8B5C;--port-green-dark:#1F4D28;
   --port-ink:#161F17;--port-ink-soft:#3a4a3c;--port-ink-muted:#6b7d6d;
-  --port-amber:#F2CB5A;--port-border:rgba(22,31,23,0.08);
+  --coral:#FF5B3A;--port-border:rgba(22,31,23,0.08);
   --port-font-body:'Inter',sans-serif;--port-font-mono:'Inter',sans-serif;--port-font-display:'Gasoek One',sans-serif;
 }
 
@@ -763,6 +763,7 @@ svg.lucide{width:16px;height:16px;stroke:var(--port-green-mid);stroke-width:1.75
 section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 .section-label{display:inline-flex;align-items:center;font-family:var(--port-font-mono);font-size:11px;color:var(--port-ink-muted);letter-spacing:.06em;border:1px solid var(--port-border);border-radius:100px;padding:5px 12px;margin-bottom:36px;text-transform:uppercase;box-shadow:0 1px 3px rgba(22,31,23,0.04);background:linear-gradient(135deg,white 0%,var(--port-green-light) 100%)}
 .section-heading{font-size:clamp(26px,3.5vw,38px);font-weight:500;letter-spacing:-.02em;color:var(--port-ink);margin-bottom:12px;line-height:1.2}
+.section-heading em,.about-heading em,.contact-title em{font-style:italic;color:var(--port-green-mid)}
 .section-sub{font-size:16px;color:var(--port-ink-soft);line-height:1.8;margin-bottom:48px}
 
 /* CASE CARDS */
@@ -805,7 +806,7 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
 /* SKILLS BANNER */
-.skills-banner{background:linear-gradient(100deg,var(--port-green-dark) 0%,var(--port-green) 50%,var(--port-green-mid) 100%);overflow:hidden;padding:20px 0;user-select:none}
+.skills-banner{background:linear-gradient(100deg,var(--ink) 0%,var(--green-dark) 55%,var(--green-light) 100%);overflow:hidden;padding:20px 0;user-select:none}
 .skills-marquee{display:flex;width:max-content;animation:scrollLeft 40s linear infinite;pointer-events:none;animation-play-state:running !important}
 @keyframes scrollLeft{from{transform:translateX(0)}to{transform:translateX(-25%)}}
 .skills-group{display:flex;flex-shrink:0}
@@ -814,10 +815,10 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 /* DRIVES */
 .drives-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .drives-card{background:white;border:1px solid var(--port-border);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:14px;box-shadow:0 1px 3px rgba(22,31,23,0.04);transition:border-color .2s,transform .2s,box-shadow .2s;position:relative;overflow:hidden}
-.drives-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--port-green) 0%,var(--port-amber) 100%);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.drives-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--port-green) 0%,var(--coral) 100%);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.4,0,.2,1)}
 .drives-card:hover::before{transform:scaleX(1)}
 .drives-card:hover{border-color:var(--port-green-mid);transform:translateY(-3px);box-shadow:0 8px 24px rgba(22,31,23,0.09);background:linear-gradient(160deg,white 0%,var(--port-green-light) 100%)}
-.drives-num{font-family:var(--port-font-mono);font-size:26px;font-weight:300;background:linear-gradient(120deg,var(--port-green) 0%,var(--port-amber) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:.06em}
+.drives-num{font-family:var(--port-font-mono);font-size:26px;font-weight:300;background:linear-gradient(120deg,var(--port-green) 0%,var(--coral) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:.06em}
 .drives-title{font-size:20px;font-weight:500;color:var(--port-ink);letter-spacing:-.01em;line-height:1.2}
 .drives-text{font-size:14px;color:var(--port-ink-soft);line-height:1.75;flex:1}
 
@@ -900,6 +901,8 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 .now-entry:last-child{margin-bottom:0}
 .now-month{display:flex;align-items:center;font-family:var(--port-font-mono);font-size:11px;color:var(--port-ink-muted);margin-bottom:10px}
 .now-text{font-size:15px;color:var(--port-ink-soft);line-height:1.75;margin:0}
+.now-link{color:var(--port-green-mid);text-decoration:underline;text-underline-offset:2px;transition:color .2s}
+.now-link:hover{color:var(--port-green-dark)}
 
 /* BLOG */
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
@@ -951,17 +954,38 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 
 /* KONTAKT */
 #kontakt{width:100%;max-width:100%;display:block;clear:both;padding:120px 0;text-align:center;background:linear-gradient(180deg,var(--cream) 0%,var(--port-green-light) 100%);position:relative;overflow:hidden}
-#kontakt::before{content:"";position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);width:min(800px,95vw);height:440px;background:radial-gradient(ellipse,rgba(242,203,90,0.15) 0%,transparent 70%);pointer-events:none;filter:blur(30px);max-width:100%}
+#kontakt::before{content:"";position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);width:min(800px,95vw);height:440px;background:radial-gradient(ellipse,rgba(255,91,58,0.12) 0%,transparent 70%);pointer-events:none;filter:blur(30px);max-width:100%}
 .contact-inner{max-width:680px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
 .contact-label{font-family:var(--port-font-mono);font-size:11px;color:var(--port-green-mid);letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px}
 .contact-title{font-size:clamp(36px,5vw,56px);line-height:1.15;font-weight:500;color:var(--port-ink);margin-bottom:24px;letter-spacing:-.02em}
 .contact-desc{font-size:16px;line-height:1.6;color:var(--port-ink-soft);margin-bottom:40px}
 .contact-buttons{display:flex;gap:16px;justify-content:center;align-items:center}
-.contact-btn-primary,.contact-btn-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:500;text-decoration:none;transition:background .2s,border-color .2s,transform .15s,box-shadow .2s,filter .2s;position:relative;overflow:hidden}
-.contact-btn-primary{background:linear-gradient(120deg,var(--port-green) 0%,var(--port-green-dark) 60%,var(--port-ink) 100%);color:white;box-shadow:0 2px 8px rgba(22,31,23,0.2),inset 0 1px 0 rgba(255,255,255,0.08)}
-.contact-btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 6px 20px rgba(22,31,23,0.25)}
-.contact-btn-outline{border:1.5px solid var(--port-ink);background:transparent;color:var(--port-ink)}
-.contact-btn-outline:hover{background:var(--port-ink);color:white;box-shadow:0 4px 12px rgba(22,31,23,0.1)}
+
+/* Same look & hover behaviour as the hero buttons (.btn-primary/.btn-secondary):
+   same colors, same pill shape, same shine-sweep on hover — just fixed px
+   sizing since this sits outside the hero's cqw scaling container. */
+.contact-btn-primary,.contact-btn-outline{
+  position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;
+  border-radius:999px;padding:14px 28px;font-family:'Inter',sans-serif;font-weight:500;font-size:15px;
+  cursor:pointer;text-decoration:none;
+  transition:background-color .2s ease,border-color .2s ease,transform .15s ease,box-shadow .2s ease;
+}
+.contact-btn-primary{background:var(--ink);color:#fff;box-shadow:0 2px 8px rgba(37,48,42,.2)}
+.contact-btn-primary:hover{background:#374039;transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,48,42,.28)}
+.contact-btn-outline{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+.contact-btn-outline:hover{border-color:var(--green-dark);transform:translateY(-1px)}
+
+.contact-btn-primary::after,.contact-btn-outline::after{
+  content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;
+  background:linear-gradient(115deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:skewX(-18deg);pointer-events:none;
+}
+.contact-btn-outline::after{background:linear-gradient(115deg,transparent,rgba(64,84,68,.25),transparent)}
+.contact-btn-primary:hover::after,.contact-btn-outline:hover::after{animation:shine-sweep .7s ease forwards}
+@media(prefers-reduced-motion:reduce){
+  .contact-btn-primary:hover::after,.contact-btn-outline:hover::after{animation:none}
+}
+
 .contact-email-hint{font-family:var(--port-font-mono);font-size:13px;color:var(--port-ink-soft);margin-top:16px;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s;letter-spacing:.04em}
 .contact-email-hint.visible{opacity:1;transform:translateY(0)}
 
