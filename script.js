@@ -19,6 +19,43 @@
   window.addEventListener('scroll', updateNavState, { passive: true });
 })();
 
+// --- Scrollspy: highlights whichever section is currently in view,
+// so the nav always shows "you are here". Scroll-position-based (not
+// IntersectionObserver) so it works reliably in both scroll directions
+// without gaps, same approach used elsewhere on this site.
+(function () {
+  var navLinks = document.querySelectorAll('.nav-link');
+  if (!navLinks.length) return;
+
+  var sections = [];
+  navLinks.forEach(function (link) {
+    var href = link.getAttribute('href');
+    if (href && href.charAt(0) === '#' && href.length > 1) {
+      var el = document.querySelector(href);
+      if (el) sections.push({ id: href.slice(1), el: el, link: link });
+    }
+  });
+  if (!sections.length) return;
+
+  var REF_OFFSET = 140; // px below the top of the viewport used as the "which section am I in" line
+
+  function updateActiveNav() {
+    var refLine = window.scrollY + REF_OFFSET;
+    var current = sections[0];
+    sections.forEach(function (s) {
+      if (s.el.offsetTop <= refLine) current = s;
+    });
+    sections.forEach(function (s) {
+      s.link.classList.toggle('is-active', s === current);
+    });
+  }
+
+  updateActiveNav();
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  window.addEventListener('resize', updateActiveNav);
+  window.addEventListener('load', updateActiveNav);
+})();
+
 // --- Clicking the name (nav logo) always takes you to the very top of
 // the page, smoothly, instead of reloading — even if you're already home.
 (function () {
