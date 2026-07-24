@@ -41,7 +41,7 @@
 
   function updateActiveNav() {
     var refLine = window.scrollY + REF_OFFSET;
-    var current = sections[0];
+    var current = null;
     sections.forEach(function (s) {
       if (s.el.offsetTop <= refLine) current = s;
     });
