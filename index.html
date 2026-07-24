@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+<script>
+  // Beim Neuladen behalten Browser sonst die Scroll-Position bei — die
+  // Pill-Journey-Animation soll aber IMMER oben am Seitenanfang starten,
+  // nie mittendrin über beliebigem Content. Deshalb hier ganz früh,
+  // noch vor dem Rendern, die automatische Wiederherstellung abschalten
+  // und die Position zurücksetzen.
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.scrollTo(0, 0);
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lina Melissa Arndt · UX/UI Designerin in Lüneburg</title>
@@ -21,6 +30,8 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="intro-overlay" aria-hidden="true"></div>
 
 <a class="skip-link" href="#main-content" data-de="Zum Inhalt springen" data-en="Skip to content">Zum Inhalt springen</a>
 
