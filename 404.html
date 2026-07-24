@@ -5,22 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Seite nicht gefunden — Lina Melissa</title>
 <meta name="robots" content="noindex">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-  .nf-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px}
-  .nf-code{font-family:var(--font-mono);font-size:clamp(80px,22vw,180px);line-height:1;font-weight:400;background:linear-gradient(120deg,var(--green) 0%,var(--amber) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.04em}
-  .nf-title{font-size:clamp(24px,5vw,34px);font-weight:500;color:var(--ink);margin:16px 0 12px;letter-spacing:-.01em}
-  .nf-text{font-size:16px;color:var(--ink-soft);max-width:420px;line-height:1.7;margin-bottom:36px}
-  .nf-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(120deg,var(--green) 0%,var(--green-dark) 100%);color:#fff;text-decoration:none;padding:14px 28px;border-radius:100px;font-size:15px;font-weight:500;transition:filter .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 16px rgba(31,77,40,0.25)}
-  .nf-btn:hover{filter:brightness(0.94);transform:translateY(-2px);box-shadow:0 8px 24px rgba(31,77,40,0.3)}
-  .nf-btn svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  body{ cursor:auto; }
+  a, button{ cursor:pointer; }
+  .nf-wrap{
+    min-height:100vh; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; padding:40px 24px;
+  }
+  .nf-code{
+    font-family:'Gasoek One', sans-serif; font-weight:400;
+    font-size:clamp(80px,22vw,180px); line-height:1;
+    background:linear-gradient(120deg,var(--green-dark) 0%,var(--green-light) 50%,var(--port-amber) 100%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    letter-spacing:-.02em;
+  }
+  .nf-title{
+    font-family:'Inter', sans-serif; font-size:clamp(24px,5vw,34px); font-weight:600;
+    color:var(--ink); margin:16px 0 12px; letter-spacing:-.01em;
+  }
+  .nf-text{ font-size:16px; color:var(--port-ink-soft); max-width:420px; line-height:1.7; margin-bottom:36px; }
+  .nf-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:linear-gradient(120deg,var(--green-dark) 0%,var(--ink) 100%);
+    color:#fff; text-decoration:none; padding:14px 28px; border-radius:100px;
+    font-size:15px; font-weight:600;
+    transition:filter .2s,transform .15s,box-shadow .2s;
+    box-shadow:0 4px 16px rgba(37,48,42,0.25);
+  }
+  .nf-btn:hover{ filter:brightness(1.1); transform:translateY(-2px); box-shadow:0 8px 24px rgba(37,48,42,0.3); }
+  .nf-btn svg{ width:16px; height:16px; stroke:#fff; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
 </style>
 </head>
 <body>
-
-<div id="custom-cursor"></div>
-
 <div class="nf-wrap">
   <div class="nf-code">404</div>
   <h1 class="nf-title" data-de="Diese Seite hat sich verlaufen." data-en="This page got lost.">Diese Seite hat sich verlaufen.</h1>
@@ -30,7 +54,6 @@
     <span data-de="Zur Startseite" data-en="Back to home">Zur Startseite</span>
   </a>
 </div>
-
 <script src="script.js"></script>
 </body>
 </html>
