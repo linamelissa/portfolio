@@ -171,3 +171,29 @@
     setTimeout(function () { animateCount(el); }, prefersReducedMotion ? 0 : (delays[i] || 2570));
   });
 })();
+
+// --- Below-the-fold sections: scroll reveal ---------------------------
+// Everything below the hero uses the same .reveal / data-reveal-delay
+// pattern as the sameSpot case study, so both pages feel consistent.
+(function () {
+  var revealEls = document.querySelectorAll('.reveal');
+  if (!revealEls.length) return;
+
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion) {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+
+  var revealObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  revealEls.forEach(function (el) { revealObs.observe(el); });
+})();
