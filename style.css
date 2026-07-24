@@ -239,6 +239,28 @@ a:focus-visible, button:focus-visible{
   background:var(--cream);
 }
 
+/* Covers the entire page while the entrance sequence plays, so nothing
+   behind (nav, other sections, scroll position edge cases) can ever
+   show through. Sits above the nav (z-index 100) but below the
+   traveling pill/cursor (200/210), and fades out right as the pill
+   docks into the nav. */
+.intro-overlay{
+  position:fixed;
+  inset:0;
+  z-index:150;
+  background:var(--cream);
+  pointer-events:none;
+  animation:intro-overlay-fade 0.5s ease-out both;
+  animation-delay:1.7s;
+}
+@keyframes intro-overlay-fade{
+  from{ opacity:1; }
+  to{ opacity:0; visibility:hidden; }
+}
+@media (prefers-reduced-motion: reduce){
+  .intro-overlay{ display:none; }
+}
+
 .cursor-doodle{
   position:fixed;
   z-index:210;
