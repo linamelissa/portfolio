@@ -9,12 +9,15 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lina Melissa Arndt — UX/UI Designerin">
 <meta property="og:description" content="Soft edges in a sharp world. UX/UI Design aus Lüneburg.">
-<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:image" content="og-image.png">
 
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Space+Mono&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles2.css">
 </head>
 <body>
@@ -27,11 +30,11 @@
   <path d="M4.04 4.69a.5.5 0 0 1 .65-.65l16 6.5a.5.5 0 0 1-.06.95l-6.12 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.12a.5.5 0 0 1-.95.06z" fill="#25302A"/>
 </svg>
 <p class="name-pill" id="name-pill">
-  <img src="bild1.jpg" alt="" width="40" height="40" class="name-pill-photo">
+  <img src="ich/bild1.jpg" alt="" width="40" height="40" class="name-pill-photo">
   <span>Lina Melissa Arndt</span>
 </p>
 
-<nav class="site-nav" aria-label="Hauptnavigation">
+<nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
   <div class="nav-inner">
     <a href="index2.html" class="nav-logo" id="nav-logo">Lina Melissa Arndt</a>
     <ul class="nav-list">
@@ -43,7 +46,6 @@
       <li><a href="#blog" class="nav-link">Blog</a></li>
       <li><a href="#mehr" class="nav-link">Mehr</a></li>
       <li><a href="#kontakt" class="nav-contact">Kontakt</a></li>
-      <li><button type="button" class="nav-lang" aria-label="Sprache wechseln zu Englisch">EN</button></li>
     </ul>
   </div>
 </nav>
@@ -59,14 +61,15 @@
       <span class="line line-light">sharp world.</span>
     </h1>
 
+
     <div class="photo-cluster">
       <div class="photo-circle">
-        <img src="bild1.jpg" alt="Portrait von Lina Melissa Arndt" width="181" height="184" fetchpriority="high">
+        <img src="ich/bild1.jpg" alt="Portrait von Lina Melissa Arndt" width="181" height="184" fetchpriority="high">
       </div>
     </div>
 
     <div class="cta-row">
-      <a class="btn-primary" href="CV_Lina-Melissa-Arndt.pdf" download>
+      <a class="btn-primary" href="CV/CV_Lina-Melissa-Arndt.pdf" download>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M12 3v12M6.5 10.5L12 16l5.5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         CV herunterladen
       </a>
@@ -93,8 +96,285 @@
 </header>
 
 <main id="main-content">
-  <!-- Nächste Sektion der Seite folgt hier -->
+
+  <!-- PROJEKTE -->
+  <section class="section" id="projekte">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal>Projekte</p>
+      <h2 class="section-title reveal" data-reveal data-reveal-delay="1">Echte Probleme, <em>echte Lösungen.</em></h2>
+      <p class="section-sub reveal" data-reveal data-reveal-delay="2">Jede Studie zeigt den Teil, den die meisten Portfolios überspringen. Das Audit, die Interviews, die Irrwege und die Entscheidung, die ich am Ende getroffen habe, und warum.</p>
+
+      <div class="project-grid">
+        <a href="samespot.html" class="project-card project-card--live reveal" data-reveal>
+          <div class="project-thumb">
+            <span class="project-tag">UX/UI Design</span>
+            <img src="samespot-vorschau.jpg" alt="sameSpot Vorschau" onerror="this.style.display='none'">
+          </div>
+          <div class="project-body">
+            <h3>sameSpot</h3>
+            <p class="project-tagline">Je öfter man sich sieht, desto vertrauter wird's</p>
+            <p>Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden.</p>
+            <div class="project-footer">
+              <span class="project-cta">Case Study ansehen</span>
+              <span class="project-arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <div class="project-card project-card--wip reveal" data-reveal data-reveal-delay="1">
+          <div class="project-thumb project-thumb--placeholder"></div>
+          <div class="project-body">
+            <div class="project-placeholder-line" style="width:55%"></div>
+            <div class="project-placeholder-line" style="width:80%"></div>
+            <div class="project-placeholder-line" style="width:65%"></div>
+            <div class="project-footer">
+              <span class="project-cta project-cta--wip"><span class="wip-dot"></span>Case Study in Arbeit</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANTRIEB -->
+  <section class="section section--tint" id="antrieb">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal>Antrieb</p>
+      <h2 class="section-title reveal" data-reveal data-reveal-delay="1">Drei Dinge, die meine Arbeit <em>prägen.</em></h2>
+      <p class="section-sub reveal" data-reveal data-reveal-delay="2">Gutes Design passiert nicht zufällig. Dahinter steckt eine Haltung, eine Art zu denken und Entscheidungen zu treffen.</p>
+
+      <div class="drives-grid">
+        <article class="drives-card reveal" data-reveal>
+          <span class="drives-num">01</span>
+          <h3>Design, das sich selbst erklärt</h3>
+          <p>Ich denke in Systemen, in Layouts, in Hierarchie. Das kommt aus der Mediengestaltung und sitzt einfach. Gutes Design braucht keine Bedienungsanleitung.</p>
+        </article>
+        <article class="drives-card reveal" data-reveal data-reveal-delay="1">
+          <span class="drives-num">02</span>
+          <h3>Menschen vor Pixel</h3>
+          <p>Research, Befragungen, echte Mitsprache. Für mich kein optionaler Schritt, sondern die Grundlage. Der Mensch steht im Fokus, das System wird um ihn herum gebaut.</p>
+        </article>
+        <article class="drives-card reveal" data-reveal data-reveal-delay="2">
+          <span class="drives-num">03</span>
+          <h3>Echte Neugierde</h3>
+          <p>Au-pair in London, die Ostküste Australiens bereist, spontane Wochenenden quer durch Europa. Ich bin durch und durch neugierig, und genau das bringe ich in jedes Projekt mit.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section class="section" id="expertise">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal>Expertise</p>
+      <h2 class="section-title reveal" data-reveal data-reveal-delay="1">Gelernt, geübt, <em>angewendet.</em></h2>
+      <p class="section-sub reveal" data-reveal data-reveal-delay="2">Aus der Mediengestaltung kommt das Gefühl für Layout und Hierarchie, aus dem Bootcamp die UX-Methodik, aus dem täglichen Ausprobieren der Rest.</p>
+
+      <div class="expertise-grid">
+        <article class="expertise-card reveal" data-reveal>
+          <span class="expertise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4E8B5C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+          <h3>UX Research</h3>
+          <div class="tag-row"><span>Nutzerinterviews</span><span>Umfragen</span><span>Persona Mapping</span><span>Usability Testing</span></div>
+        </article>
+        <article class="expertise-card reveal" data-reveal data-reveal-delay="1">
+          <span class="expertise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4E8B5C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></span>
+          <h3>UX-Methodik</h3>
+          <div class="tag-row"><span>Card Sorting</span><span>A/B-Testing</span><span>User Journeys</span><span>Infoarchitektur</span></div>
+        </article>
+        <article class="expertise-card reveal" data-reveal data-reveal-delay="2">
+          <span class="expertise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4E8B5C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/></svg></span>
+          <h3>UX/UI Design</h3>
+          <div class="tag-row"><span>Wireframing</span><span>Prototyping</span><span>Design Systems</span><span>Responsive Design</span></div>
+        </article>
+        <article class="expertise-card reveal" data-reveal>
+          <span class="expertise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4E8B5C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m2.3 2.3 7.286 7.286"/><circle cx="11" cy="11" r="2"/><path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18"/></svg></span>
+          <h3>Visual Design</h3>
+          <div class="tag-row"><span class="tool">Figma</span><span class="tool">FigJam</span><span>Design Tokens</span><span>Branding</span></div>
+        </article>
+        <article class="expertise-card reveal" data-reveal data-reveal-delay="1">
+          <span class="expertise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4E8B5C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14" rx="1"/></svg></span>
+          <h3>Print &amp; Mediengestaltung</h3>
+          <div class="tag-row"><span class="tool">InDesign</span><span class="tool">Illustrator</span><span class="tool">Photoshop</span></div>
+        </article>
+        <article class="expertise-card reveal" data-reveal data-reveal-delay="2">
+          <span class="expertise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4E8B5C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg></span>
+          <h3>Tools &amp; KI</h3>
+          <div class="tag-row"><span class="tool">Claude</span><span class="tool">ChatGPT</span><span>Vibe Coding</span><span class="tool">Framer</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER MICH -->
+  <section class="section section--tint" id="ueber-mich">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal>Über mich</p>
+      <h2 class="section-title reveal" data-reveal data-reveal-delay="1">Hi, ich bin <em>Lina.</em></h2>
+
+      <div class="about-row">
+        <p class="about-text reveal" data-reveal>Ich bin UX/UI Designerin, komme eigentlich aus der Mediengestaltung Digital &amp; Print. Irgendwo zwischen all den Erfahrungen der letzten Jahre habe ich gemerkt: Mich interessiert nicht nur, wie etwas aussieht, sondern wie es sich anfühlt, wenn man es benutzt. Welches Gefühl löst es aus? Was geht dabei im Kopf vor? Genau das treibt mich an.</p>
+        <div class="about-photo reveal" data-reveal data-reveal-delay="1">
+          <img src="ich/bild2.jpg" alt="Lina Melissa Arndt">
+        </div>
+      </div>
+
+      <div class="about-socials reveal" data-reveal>
+        <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.behance.net/linamelissa" target="_blank" rel="noopener">Behance</a>
+        <a href="https://dribbble.com/linamelissade" target="_blank" rel="noopener">Dribbble</a>
+        <a href="https://www.instagram.com/linamelissa.de/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+
+      <p class="section-eyebrow reveal" data-reveal style="margin-top:56px;">Erfahrung</p>
+      <div class="timeline">
+        <div class="tl-row reveal" data-reveal>
+          <div class="tl-date">Apr 2026 —<br>heute</div>
+          <div class="tl-dot tl-dot--active"></div>
+          <div class="tl-card tl-card--accent">
+            <span class="tl-tag">Weiterbildung</span>
+            <h3>Product Design Bootcamp</h3>
+            <p class="tl-where">Digitale Leute School · Remote</p>
+            <p>Eigenes Konzept von der ersten Idee bis zum klickbaren Hi-Fi Prototyp entwickelt, komplett eigenständig, von Research bis Figma.</p>
+          </div>
+        </div>
+        <div class="tl-row reveal" data-reveal>
+          <div class="tl-date">Feb 2025 —<br>Feb 2026</div>
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-tag">Job</span>
+            <h3>Mediengestalterin / Social Media &amp; Produktion</h3>
+            <p class="tl-where">PR Druck · Lüneburg</p>
+            <p>Vollständigen Produktionszyklus eigenverantwortlich gesteuert, von Auftragsannahme bis Druckfreigabe, in einem Team von 10.</p>
+          </div>
+        </div>
+        <div class="tl-row reveal" data-reveal>
+          <div class="tl-date">Nov 2025 —<br>Dez 2025</div>
+          <div class="tl-dot tl-dot--cert"></div>
+          <div class="tl-card tl-card--accent">
+            <span class="tl-tag">Zertifikat</span>
+            <h3>Google UX Design Professional Certificate</h3>
+            <p class="tl-where">Coursera · Remote</p>
+            <p>8-kursiges Zertifikatsprogramm, abgeschlossen neben einer Teilzeitanstellung.</p>
+          </div>
+        </div>
+        <div class="tl-row reveal" data-reveal>
+          <div class="tl-date">Aug 2020 —<br>Jul 2023</div>
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-tag">Ausbildung</span>
+            <h3>Mediengestalterin Digital &amp; Print</h3>
+            <p class="tl-where">Machbar GmbH · Kassel</p>
+            <p>Web-Grafiken, Illustrationen und Print-Materialien für reale Kundenprojekte gestaltet, erstes UX-Projekt entwickelt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AKTUELL -->
+  <section class="section" id="aktuell">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal>Now</p>
+      <h2 class="section-title reveal" data-reveal data-reveal-delay="1">Was ich dir sagen würde, <em>wenn du fragst.</em></h2>
+      <p class="section-sub reveal" data-reveal data-reveal-delay="2">Was mich gerade beschäftigt, woran ich arbeite und worüber ich nachdenke. Kein Social Media, keine Highlights.</p>
+
+      <div class="now-grid">
+        <div class="now-card now-card--accent reveal" data-reveal>
+          <span class="now-tag">Aktuelles</span>
+          <h3>Was gerade so geht</h3>
+          <p class="now-month">Mai 2026</p>
+          <p>Ich hatte endlich die finale Idee für mein Portfolio: erst eine Struktur, dann den Wireframe in Figma. Nach vier Tagen Arbeit hab ich mich spontan entschieden, Vibe Coding mit Claude auszuprobieren. Das Ergebnis siehst du hier.</p>
+        </div>
+        <div class="now-card reveal" data-reveal data-reveal-delay="1">
+          <span class="now-tag">Archiv</span>
+          <h3>Schnee von gestern</h3>
+          <p class="now-month">April 2026</p>
+          <p>Das Product-Design-Bootcamp von der Digitale Leute School hat gestartet. Kleiner Spoiler: es ist mein Case, Passives Connecten mit dem lokalen Umfeld.</p>
+          <p class="now-month">November 2025</p>
+          <p>Neben meinem Angestellten-Job das Google UX Design Certificate bei Coursera gemacht und festgestellt: Ja, genau das will ich machen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="section section--tint" id="blog">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal>Gedanken</p>
+      <h2 class="section-title reveal" data-reveal data-reveal-delay="1">Was mir beim Arbeiten <em>durch den Kopf geht.</em></h2>
+      <p class="section-sub reveal" data-reveal data-reveal-delay="2">Beobachtungen von jemandem, der gerade mitten im Prozess steckt. Über Design, KI und die Fragen, die mich nicht loslassen.</p>
+
+      <div class="blog-grid">
+        <a class="blog-card reveal" data-reveal href="Blog/blog-artikel-01.html">
+          <div class="blog-thumb"><img src="Blog/blog-bild-01.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag">Prozess</span></div>
+          <div class="blog-body"><span class="blog-meta">Mai 2026</span><h3>Wie ich dieses Portfolio mit Vibe Coding gebaut habe</h3></div>
+        </a>
+        <a class="blog-card reveal" data-reveal data-reveal-delay="1" href="Blog/blog-artikel-02.html">
+          <div class="blog-thumb"><img src="Blog/blog-bild-02.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag">UX Design</span></div>
+          <div class="blog-body"><span class="blog-meta">Juni 2026</span><h3>Erst der Plan, dann das Gefühl: Navigationsarchitektur</h3></div>
+        </a>
+        <a class="blog-card reveal" data-reveal data-reveal-delay="2" href="Blog/blog-artikel-03.html">
+          <div class="blog-thumb"><img src="Blog/blog-bild-03.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag">Haltung</span></div>
+          <div class="blog-body"><span class="blog-meta">Juni 2026</span><h3>Dark Patterns, und warum ich sie ablehne</h3></div>
+        </a>
+        <a class="blog-card reveal" data-reveal data-reveal-delay="3" href="Blog/blog-artikel-04.html">
+          <div class="blog-thumb"><img src="Blog/blog-bild-04.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag">KI &amp; Tools</span></div>
+          <div class="blog-body"><span class="blog-meta">Juni 2026</span><h3>Prompten als neue Designfähigkeit</h3></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEHR -->
+  <section class="section" id="mehr">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal>Weitere Projekte</p>
+      <h2 class="section-title reveal" data-reveal data-reveal-delay="1">Und da ist noch <em>mehr.</em></h2>
+      <p class="section-sub reveal" data-reveal data-reveal-delay="2">Von Web Design über App UI bis Instagram, nicht jedes davon ist eine Case Study, aber jedes davon hat mich hierhin gebracht.</p>
+
+      <div class="more-grid">
+        <div class="more-card reveal" data-reveal><img src="Weitere Projekte/tm.jpg" alt="tm" onerror="this.style.display='none'"><span class="more-tag">Web Design</span><span class="more-title">E-Commerce &amp; Branding für tm</span></div>
+        <div class="more-card reveal" data-reveal data-reveal-delay="1"><img src="Weitere Projekte/cover_yumi.jpg" alt="yumi" onerror="this.style.display='none'"><span class="more-tag">App Design</span><span class="more-title">Mobile App UI für yumi</span></div>
+        <div class="more-card reveal" data-reveal data-reveal-delay="2"><img src="Weitere Projekte/prdruck.jpg" alt="pr.druck" onerror="this.style.display='none'"><span class="more-tag">Web Design</span><span class="more-title">Corporate Website für pr.druck</span></div>
+        <div class="more-card reveal" data-reveal><img src="Weitere Projekte/blender.jpg" alt="Blender" onerror="this.style.display='none'"><span class="more-tag">3D Illustration</span><span class="more-title">Isometrischer Raum in Blender</span></div>
+      </div>
+    </div>
+  </section>
+
 </main>
+
+<div class="contact" id="kontakt">
+  <div class="contact-inner">
+    <p class="section-eyebrow reveal" data-reveal>● Offen für neue Möglichkeiten</p>
+    <h2 class="contact-title reveal" data-reveal data-reveal-delay="1">Ich freue mich<br>von dir zu hören.</h2>
+    <p class="contact-desc reveal" data-reveal data-reveal-delay="2">Ob Jobmöglichkeit, Freelance-Anfrage oder einfach ein nettes Hallo. Ich bin immer offen für neue Gespräche.</p>
+    <div class="contact-buttons reveal" data-reveal data-reveal-delay="3">
+      <a href="CV/CV_Lina-Melissa-Arndt.pdf" download class="contact-btn-outline">CV herunterladen</a>
+      <a href="mailto:Lina-Melissa@web.de" class="contact-btn-primary">Mail me</a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <span class="footer-name">Lina Melissa Arndt</span>
+      <span class="footer-sub">UX/UI Design · Lüneburg</span>
+    </div>
+    <div class="footer-socials">
+      <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.behance.net/linamelissa" target="_blank" rel="noopener">Behance</a>
+      <a href="https://dribbble.com/linamelissade" target="_blank" rel="noopener">Dribbble</a>
+      <a href="https://www.instagram.com/linamelissa.de/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Lina Melissa Arndt</span>
+    <a href="impressum.html">Impressum &amp; Datenschutz</a>
+  </div>
+</footer>
 
 <script src="script2.js"></script>
 </body>
