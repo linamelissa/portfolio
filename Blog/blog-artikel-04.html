@@ -4,31 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prompten als neue Designfähigkeit · Lina Melissa</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
-<link rel="icon" type="image/png" sizes="512x512" href="favicon.png?v=2">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="blog-artikel.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/Blog/blog-artikel.css">
+<style>body{ cursor:auto; } a, button{ cursor:pointer; }</style>
 </head>
 <body>
 
-<div id="progress-bar"></div>
-<div id="custom-cursor"></div>
-
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-back">
+<nav class="blog-nav">
+  <div class="blog-nav-inner">
+    <a href="/#blog" class="blog-nav-back">
       <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
       <span data-de="Zum Blog" data-en="Back to Blog">Zum Blog</span>
     </a>
-    <a href="index.html" class="nav-name nav-name-center">Lina Melissa</a>
-    <div class="nav-right">
-      <a href="index.html#kontakt" class="nav-contact-link" data-de="Kontakt" data-en="Contact">Kontakt</a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">EN</button>
+    <a href="/" class="blog-nav-logo">Lina Melissa</a>
+    <div class="blog-nav-right">
+      <a href="/#kontakt" class="blog-nav-contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+      <button type="button" class="nav-lang" onclick="toggleLang()" id="lang-btn" aria-label="Sprache wechseln zu Englisch">EN</button>
     </div>
   </div>
 </nav>
+<div class="blog-nav-spacer" aria-hidden="true"></div>
 
 <article class="blog-article">
 
@@ -38,43 +40,40 @@
       <span class="ba-dot">·</span>
       <time data-de="Juni 2026" data-en="June 2026">Juni 2026</time>
       <span class="ba-dot">·</span>
-      <span data-de="6 Min. Lesezeit" data-en="6 min read">6 Min. Lesezeit</span>
+      <span data-de="5 Min. Lesezeit" data-en="5 min read">5 Min. Lesezeit</span>
     </div>
     <h1 class="ba-title" data-de="Prompten als neue Designfähigkeit" data-en="Prompting as a new design skill">Prompten als neue Designfähigkeit</h1>
-    <p class="ba-lead" data-de="Viele denken bei Prompten an einen technischen Trick. Die richtigen Worte finden, damit die KI etwas Brauchbares ausspuckt. Ich sehe das anders, und ich merke, dass ich das immer öfter sagen muss: Gutes Prompten hat mit Technik fast nichts zu tun." data-en="Many think of prompting as a technical trick. Finding the right words so the AI spits out something usable. I see it differently, and I notice I'm saying this more and more often: good prompting has almost nothing to do with technology.">Viele denken bei Prompten an einen technischen Trick. Die richtigen Worte finden, damit die KI etwas Brauchbares ausspuckt. Ich sehe das anders, und ich merke, dass ich das immer öfter sagen muss: Gutes Prompten hat mit Technik fast nichts zu tun.</p>
+    <p class="ba-lead" data-de="Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue." data-en="Why good prompting is surprisingly close to what I do as a designer anyway.">Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue.</p>
   </header>
 
   <div class="ba-body">
 
-    <p data-de="Als ich diese Website mit Vibe Coding gebaut habe, habe ich etwas gemerkt. Die Qualität des Ergebnisses hing fast nie an der Technik. Sie hing daran, wie klar ich beschreiben konnte, was ich will. Und das ist keine technische Fähigkeit. Das ist Design." data-en="When I built this website with vibe coding, I noticed something. The quality of the result almost never came down to the technology. It came down to how clearly I could describe what I wanted. And that's not a technical skill. That's design.">Als ich diese Website mit Vibe Coding gebaut habe, habe ich etwas gemerkt. Die Qualität des Ergebnisses hing fast nie an der Technik. Sie hing daran, wie klar ich beschreiben konnte, was ich will. Und das ist keine technische Fähigkeit. Das ist Design.</p>
+    <p data-de="Als ich anfing, regelmäßig mit KI-Tools wie Claude oder ChatGPT zu arbeiten, dachte ich, ich müsste eine neue Fähigkeit lernen. Etwas Technisches, etwas, das nichts mit Design zu tun hat. Nach ein paar Monaten habe ich gemerkt: Das stimmt so nicht. Gutes Prompten ist im Kern das, was ich als Designerin ohnehin die ganze Zeit mache." data-en="When I started working regularly with AI tools like Claude or ChatGPT, I thought I'd have to learn a new skill. Something technical, something with nothing to do with design. After a few months I noticed: that's not quite true. Good prompting, at its core, is what I do as a designer all the time anyway.">Als ich anfing, regelmäßig mit KI-Tools wie Claude oder ChatGPT zu arbeiten, dachte ich, ich müsste eine neue Fähigkeit lernen. Etwas Technisches, etwas, das nichts mit Design zu tun hat. Nach ein paar Monaten habe ich gemerkt: Das stimmt so nicht. Gutes Prompten ist im Kern das, was ich als Designerin ohnehin die ganze Zeit mache.</p>
 
-    <h2 data-de="Was Prompten mit Design teilt" data-en="What prompting shares with design">Was Prompten mit Design teilt</h2>
+    <h2 data-de="Ein Prompt ist ein Briefing" data-en="A prompt is a briefing">Ein Prompt ist ein Briefing</h2>
 
-    <p data-de="Ich war am Anfang wirklich schlecht darin. Ich dachte, die KI versteht es schon irgendwie, ich muss ja nicht jeden Gedanken ausschreiben. Das Ergebnis war entsprechend vage. Mit der Zeit habe ich gemerkt: Je klarer ich werde, desto besser wird die Ausgabe. Klingt offensichtlich, ist es aber nicht, wenn man es zum ersten Mal macht." data-en="I was genuinely bad at it at first. I thought the AI would somehow understand, I didn't need to spell out every thought. The result was correspondingly vague. Over time I realised: the clearer I am, the better the output. Sounds obvious, but it isn't when you're doing it for the first time.">Ich war am Anfang wirklich schlecht darin. Ich dachte, die KI versteht es schon irgendwie, ich muss ja nicht jeden Gedanken ausschreiben. Das Ergebnis war entsprechend vage. Mit der Zeit habe ich gemerkt: Je klarer ich werde, desto besser wird die Ausgabe. Klingt offensichtlich, ist es aber nicht, wenn man es zum ersten Mal macht.</p>
+    <p data-de="Wer schonmal ein schlechtes Briefing bekommen hat, kennt das Ergebnis: Man rätselt, fragt nach, produziert etwas, das am eigentlichen Bedarf vorbeigeht. Ein Prompt ist nichts anderes als ein Briefing an ein sehr leistungsfähiges, aber eben auch sehr wörtlich denkendes Gegenüber. Je unklarer der Prompt, desto vager das Ergebnis. Klingt bekannt? Genau das kenne ich aus jedem Projekt mit Stakeholdern, die „einfach mal was Modernes" wollen." data-en="Anyone who's ever received a bad brief knows the outcome: you guess, you ask follow-up questions, you produce something that misses the actual need. A prompt is nothing other than a brief to a very capable but also very literal-minded counterpart. The vaguer the prompt, the vaguer the result. Sounds familiar? That's exactly what I know from every project with stakeholders who just want &quot;something modern&quot;.">Wer schonmal ein schlechtes Briefing bekommen hat, kennt das Ergebnis: Man rätselt, fragt nach, produziert etwas, das am eigentlichen Bedarf vorbeigeht. Ein Prompt ist nichts anderes als ein Briefing an ein sehr leistungsfähiges, aber eben auch sehr wörtlich denkendes Gegenüber. Je unklarer der Prompt, desto vager das Ergebnis. Klingt bekannt? Genau das kenne ich aus jedem Projekt mit Stakeholdern, die „einfach mal was Modernes" wollen.</p>
 
-    <p data-de="Irgendwann habe ich angefangen, mir vorzustellen, dass ich das gerade einem Menschen erklären würde. Denn einem Menschen gegenüber wäre ich automatisch detaillierter, geduldiger, empathischer. Und wenn mein Gegenüber mich beim ersten Satz nicht versteht, ist das nicht deren Problem, sondern meins. Genau das gilt für Prompts genauso." data-en="At some point I started imagining I was explaining it to a person. Because with a person I'd automatically be more detailed, more patient, more empathetic. And if the other person doesn't understand me at the first sentence, that's not their problem, it's mine. The exact same thing applies to prompts.">Irgendwann habe ich angefangen, mir vorzustellen, dass ich das gerade einem Menschen erklären würde. Denn einem Menschen gegenüber wäre ich automatisch detaillierter, geduldiger, empathischer. Und wenn mein Gegenüber mich beim ersten Satz nicht versteht, ist das nicht deren Problem, sondern meins. Genau das gilt für Prompts genauso.</p>
+    <p data-de="Deshalb bringe ich beim Prompten dieselben Fragen mit, die ich auch an den Anfang jedes Designprojekts stelle: Wer ist die Zielgruppe? Was ist das Ziel? Welcher Ton, welcher Kontext? Was darf auf keinen Fall passieren? Ein Prompt ohne diese Antworten ist wie ein Briefing ohne Persona: Es kann funktionieren, ist aber Zufall." data-en="That's why I bring the same questions to prompting that I put at the start of every design project: who's the audience? What's the goal? What tone, what context? What must absolutely not happen? A prompt without these answers is like a brief without a persona: it might work, but it's luck.">Deshalb bringe ich beim Prompten dieselben Fragen mit, die ich auch an den Anfang jedes Designprojekts stelle: Wer ist die Zielgruppe? Was ist das Ziel? Welcher Ton, welcher Kontext? Was darf auf keinen Fall passieren? Ein Prompt ohne diese Antworten ist wie ein Briefing ohne Persona: Es kann funktionieren, ist aber Zufall.</p>
 
-    <p data-de="Wenn ich es mir anschaue, sind es dieselben Dinge, die ich als Designerin sowieso mache:" data-en="When I look at it, it's the same things I do as a designer anyway:">Wenn ich es mir anschaue, sind es dieselben Dinge, die ich als Designerin sowieso mache:</p>
+    <blockquote data-de="Prompten ist keine neue Sprache. Es ist dieselbe Klarheit, die gutes Design schon immer gebraucht hat, nur an ein anderes Gegenüber gerichtet." data-en="Prompting isn't a new language. It's the same clarity good design has always needed, just directed at a different counterpart.">Prompten ist keine neue Sprache. Es ist dieselbe Klarheit, die gutes Design schon immer gebraucht hat, nur an ein anderes Gegenüber gerichtet.</blockquote>
 
-    <ul>
-      <li data-de="&lt;strong&gt;Ein Briefing schreiben.&lt;/strong&gt; Einer KI sagen, was ich will, ist nichts anderes als einem Kunden oder Teammitglied ein klares Briefing zu geben. Vage rein, vage raus. Das gilt für Menschen genauso wie für Maschinen." data-en="&lt;strong&gt;Writing a brief.&lt;/strong&gt; Telling an AI what I want is no different from giving a client or teammate a clear brief. Vague in, vague out. That applies to people just as much as to machines."><strong>Ein Briefing schreiben.</strong> Einer KI sagen, was ich will, ist nichts anderes als einem Kunden oder Teammitglied ein klares Briefing zu geben. Vage rein, vage raus. Das gilt für Menschen genauso wie für Maschinen.</li>
-      <li data-de="&lt;strong&gt;Feedback geben.&lt;/strong&gt; „Mach den Abstand größer, das wirkt gedrängt" sage ich zur KI genauso wie in einem Designreview. Präzises, begründetes Feedback ist eine Kunst für sich, und die lernt man nicht über Nacht." data-en="&lt;strong&gt;Giving feedback.&lt;/strong&gt; &quot;Make the spacing bigger, it feels cramped&quot; — I say that to the AI just like in a design review. Precise, reasoned feedback is an art in itself, and you don't learn it overnight."><strong>Feedback geben.</strong> „Mach den Abstand größer, das wirkt gedrängt" sage ich zur KI genauso wie in einem Designreview. Präzises, begründetes Feedback ist eine Kunst für sich, und die lernt man nicht über Nacht.</li>
-      <li data-de="&lt;strong&gt;Iterieren.&lt;/strong&gt; Niemals beim ersten Versuch fertig. Beschreiben, anschauen, nachschärfen. Derselbe Kreislauf wie bei jedem Entwurf, immer und immer wieder." data-en="&lt;strong&gt;Iterating.&lt;/strong&gt; Never done on the first try. Describe, look, refine. The same loop as with any draft, again and again."><strong>Iterieren.</strong> Niemals beim ersten Versuch fertig. Beschreiben, anschauen, nachschärfen. Derselbe Kreislauf wie bei jedem Entwurf, immer und immer wieder.</li>
-      <li data-de="&lt;strong&gt;Das Ziel kennen.&lt;/strong&gt; Ich kann nur gut prompten, weil ich weiß, wie das Ergebnis aussehen und sich anfühlen soll. Ohne diese Vision sind die besten Prompt-Tricks wertlos. Die KI kann nur so gut sein wie das Bild, das ich ihr gebe." data-en="&lt;strong&gt;Knowing the goal.&lt;/strong&gt; I can only prompt well because I know how the result should look and feel. Without that vision, the best prompt tricks are worthless. The AI can only be as good as the picture I give it."><strong>Das Ziel kennen.</strong> Ich kann nur gut prompten, weil ich weiß, wie das Ergebnis aussehen und sich anfühlen soll. Ohne diese Vision sind die besten Prompt-Tricks wertlos. Die KI kann nur so gut sein wie das Bild, das ich ihr gebe.</li>
-    </ul>
+    <h2 data-de="Iteration statt Einmalschuss" data-en="Iteration, not a one-shot">Iteration statt Einmalschuss</h2>
 
-    <blockquote data-de="Die KI ist nicht die Designerin. Sie ist das Werkzeug. Die Entscheidungen, was gut ist, was bleibt, was fliegt, treffe immer noch ich." data-en="The AI isn't the designer. It's the tool. The decisions, what's good, what stays, what goes, are still mine.">Die KI ist nicht die Designerin. Sie ist das Werkzeug. Die Entscheidungen, was gut ist, was bleibt, was fliegt, treffe immer noch ich.</blockquote>
+    <p data-de="Der zweite Punkt, der mir vertraut vorkam: Der erste Versuch ist selten der richtige. Genau wie im Design gehe ich in Runden vor. Erster Entwurf, anschauen, was passt und was nicht, präziser nachfragen, nochmal. Wer erwartet, beim ersten Prompt das perfekte Ergebnis zu bekommen, hat wahrscheinlich auch noch nie einen ersten Entwurf in Figma für final gehalten." data-en="The second thing that felt familiar to me: the first attempt is rarely the right one. Just like in design, I work in rounds. First draft, look at what fits and what doesn't, ask more precisely, again. Anyone who expects to get the perfect result on the first prompt has probably also never mistaken a first Figma draft for final.">Der zweite Punkt, der mir vertraut vorkam: Der erste Versuch ist selten der richtige. Genau wie im Design gehe ich in Runden vor. Erster Entwurf, anschauen, was passt und was nicht, präziser nachfragen, nochmal. Wer erwartet, beim ersten Prompt das perfekte Ergebnis zu bekommen, hat wahrscheinlich auch noch nie einen ersten Entwurf in Figma für final gehalten.</p>
 
-    <h2 data-de="Warum ich keine Angst davor habe" data-en="Why I'm not afraid of it">Warum ich keine Angst davor habe</h2>
+    <p data-de="Was mir dabei hilft, ist genau das Vokabular, das ich aus dem Design mitbringe: „Mehr Weißraum", „Das wirkt zu verspielt für die Zielgruppe", „Reduzier das auf die Kernaussage". Ich beschreibe kein Feature, ich beschreibe ein Gefühl und eine Wirkung. Das ist eine Sprache, die ich schon spreche." data-en="What helps me here is exactly the vocabulary I bring from design: &quot;more whitespace&quot;, &quot;that feels too playful for the audience&quot;, &quot;reduce that to the core message&quot;. I'm not describing a feature, I'm describing a feeling and an effect. That's a language I already speak.">Was mir dabei hilft, ist genau das Vokabular, das ich aus dem Design mitbringe: „Mehr Weißraum", „Das wirkt zu verspielt für die Zielgruppe", „Reduzier das auf die Kernaussage". Ich beschreibe kein Feature, ich beschreibe ein Gefühl und eine Wirkung. Das ist eine Sprache, die ich schon spreche.</p>
 
-    <p data-de="Es gibt die Sorge, dass KI Designer ersetzt. Ich höre das oft, und ich verstehe, wo sie herkommt. Aber ich sehe es umgekehrt. KI verschiebt nur, worauf es ankommt. Das Handwerk allein wird weniger wichtig, das Urteilsvermögen wichtiger. Zu wissen, was eine gute Lösung ist und warum, das kann mir keine KI abnehmen. Sie kann nur schneller umsetzen, was ich mir vorstelle." data-en="There's a worry that AI replaces designers. I hear that often, and I understand where it comes from. But I see it the other way around. AI just shifts what matters. Craft alone becomes less important, judgement more important. Knowing what a good solution is and why, no AI can take that off my hands. It can only realise faster what I imagine.">Es gibt die Sorge, dass KI Designer ersetzt. Ich höre das oft, und ich verstehe, wo sie herkommt. Aber ich sehe es umgekehrt. KI verschiebt nur, worauf es ankommt. Das Handwerk allein wird weniger wichtig, das Urteilsvermögen wichtiger. Zu wissen, was eine gute Lösung ist und warum, das kann mir keine KI abnehmen. Sie kann nur schneller umsetzen, was ich mir vorstelle.</p>
+    <h2 data-de="Wo die Analogie endet" data-en="Where the analogy ends">Wo die Analogie endet</h2>
 
-    <p data-de="Deshalb übe ich Prompten inzwischen bewusst, wie ein neues Werkzeug im Werkzeugkasten. Nicht statt Design zu lernen, sondern als Teil davon. Wer klar denken und klar beschreiben kann, hat hier einen echten Vorteil. Und das fühlt sich für mich nicht nach Bedrohung an, sondern nach Möglichkeit. :)" data-en="So I now practise prompting deliberately, like a new tool in the toolbox. Not instead of learning design, but as part of it. Those who can think clearly and describe clearly have a real advantage here. And to me that doesn't feel like a threat, but like possibility. :)">Deshalb übe ich Prompten inzwischen bewusst, wie ein neues Werkzeug im Werkzeugkasten. Nicht statt Design zu lernen, sondern als Teil davon. Wer klar denken und klar beschreiben kann, hat hier einen echten Vorteil. Und das fühlt sich für mich nicht nach Bedrohung an, sondern nach Möglichkeit. :)</p>
+    <p data-de="Ich will das nicht kleinreden: KI-Werkzeuge sind kein Ersatz für Urteilsvermögen. Sie erledigen nicht die eigentliche Design-Entscheidung, das Abwägen zwischen dem, was möglich ist und dem, was richtig ist. Genau da bleibt der Mensch gefragt. Die KI schlägt vor, ich entscheide. Das war schon beim Vibe Coding meiner Portfolio-Website so, und es gilt beim Prompten genauso." data-en="I don't want to downplay this: AI tools are no substitute for judgement. They don't make the actual design decision, weighing what's possible against what's right. That's exactly where the human is still needed. The AI proposes, I decide. That was already true when vibe coding my portfolio website, and it applies just the same to prompting.">Ich will das nicht kleinreden: KI-Werkzeuge sind kein Ersatz für Urteilsvermögen. Sie erledigen nicht die eigentliche Design-Entscheidung, das Abwägen zwischen dem, was möglich ist und dem, was richtig ist. Genau da bleibt der Mensch gefragt. Die KI schlägt vor, ich entscheide. Das war schon beim Vibe Coding meiner Portfolio-Website so, und es gilt beim Prompten genauso.</p>
+
+    <p data-de="Deshalb sehe ich Prompten auch nicht als Konkurrenz zu Design, sondern als weiteres Werkzeug im Kasten. Eins, das erstaunlich gut zu dem passt, was ich als Designerin sowieso kann: klar denken, präzise formulieren und wissen, wann etwas noch nicht fertig ist. :)" data-en="That's why I don't see prompting as competition to design, but as another tool in the box. One that fits surprisingly well with what I can already do as a designer: think clearly, phrase things precisely, and know when something isn't finished yet. :)">Deshalb sehe ich Prompten auch nicht als Konkurrenz zu Design, sondern als weiteres Werkzeug im Kasten. Eins, das erstaunlich gut zu dem passt, was ich als Designerin sowieso kann: klar denken, präzise formulieren und wissen, wann etwas noch nicht fertig ist. :)</p>
 
   </div>
 
   <footer class="ba-author">
-    <img src="bild2.jpg" alt="Lina Melissa" class="ba-author-img">
+    <img src="/ich/bild2.jpg" alt="Lina Melissa" class="ba-author-img">
     <div>
       <span class="ba-author-name">Lina Melissa</span>
       <span class="ba-author-role" data-de="UX/UI Designerin" data-en="UX/UI Designer">UX/UI Designerin</span>
@@ -86,9 +85,9 @@
 <section class="ba-more">
   <h2 class="ba-more-heading" data-de="Weitere Gedanken" data-en="More thoughts">Weitere Gedanken</h2>
   <div class="ba-more-grid">
-    <a class="blog-card" href="blog-artikel-01.html"><div class="blog-thumb blog-thumb-1"><img class="blog-thumb-img" src="blog-bild-01.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Prozess" data-en="Process">Prozess</span></div><div class="blog-body"><div class="blog-meta" data-de="Mai 2026" data-en="May 2026">Mai 2026</div><h3 class="blog-title" data-de="Wie ich dieses Portfolio mit Vibe Coding gebaut habe" data-en="How I built this portfolio with vibe coding">Wie ich dieses Portfolio mit Vibe Coding gebaut habe</h3><p class="blog-text" data-de="Vier Tage Figma-Design, und dann spontan über Bord geworfen. Wie diese Seite entstanden ist." data-en="Four days of Figma design, then spontaneously thrown overboard. How this site came to be.">Vier Tage Figma-Design, und dann spontan über Bord geworfen. Wie diese Seite entstanden ist.</p></div></a>
-    <a class="blog-card" href="blog-artikel-02.html"><div class="blog-thumb blog-thumb-2"><img class="blog-thumb-img" src="blog-bild-02.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="UX Design" data-en="UX Design">UX Design</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping" data-en="First the plan, then the feeling: navigation architecture and prototyping">Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping</h3><p class="blog-text" data-de="Wie man eine Struktur baut, in der sich Menschen nicht verlaufen, und sie zum Leben erweckt." data-en="How to build a structure people don't get lost in, and bring it to life.">Wie man eine Struktur baut, in der sich Menschen nicht verlaufen, und sie zum Leben erweckt.</p></div></a>
-    <a class="blog-card" href="blog-artikel-03.html"><div class="blog-thumb blog-thumb-3"><img class="blog-thumb-img" src="blog-bild-03.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Haltung" data-en="Stance">Haltung</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Dark Patterns und warum ich sie ablehne" data-en="Dark patterns and why I reject them">Dark Patterns und warum ich sie ablehne</h3><p class="blog-text" data-de="Manche Designs sind nicht schlecht gemacht. Sie sind absichtlich gegen dich gebaut." data-en="Some designs aren't badly made. They're deliberately built against you.">Manche Designs sind nicht schlecht gemacht. Sie sind absichtlich gegen dich gebaut.</p></div></a>
+    <a class="blog-card" href="/Blog/blog-artikel-01.html"><div class="blog-thumb blog-thumb-1"><img class="blog-thumb-img" src="/Blog/blog-bild-01.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Prozess" data-en="Process">Prozess</span></div><div class="blog-body"><div class="blog-meta" data-de="Mai 2026" data-en="May 2026">Mai 2026</div><h3 class="blog-title" data-de="Wie ich dieses Portfolio mit Vibe Coding gebaut habe" data-en="How I built this portfolio with vibe coding">Wie ich dieses Portfolio mit Vibe Coding gebaut habe</h3><p class="blog-text" data-de="Vier Tage Figma-Design, und dann spontan über Bord geworfen. Wie diese Seite entstanden ist." data-en="Four days of Figma design, then spontaneously thrown overboard. How this site came to be.">Vier Tage Figma-Design, und dann spontan über Bord geworfen. Wie diese Seite entstanden ist.</p></div></a>
+    <a class="blog-card" href="/Blog/blog-artikel-02.html"><div class="blog-thumb blog-thumb-2"><img class="blog-thumb-img" src="/Blog/blog-bild-02.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="UX Design" data-en="UX Design">UX Design</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping" data-en="First the plan, then the feeling: navigation architecture and prototyping">Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping</h3><p class="blog-text" data-de="Wie man eine Struktur baut, in der sich Menschen nicht verlaufen, und sie zum Leben erweckt." data-en="How to build a structure people don't get lost in, and bring it to life.">Wie man eine Struktur baut, in der sich Menschen nicht verlaufen, und sie zum Leben erweckt.</p></div></a>
+    <a class="blog-card" href="/Blog/blog-artikel-03.html"><div class="blog-thumb blog-thumb-3"><img class="blog-thumb-img" src="/Blog/blog-bild-03.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Haltung" data-en="Stance">Haltung</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Dark Patterns — und warum ich sie ablehne" data-en="Dark patterns — and why I reject them">Dark Patterns — und warum ich sie ablehne</h3><p class="blog-text" data-de="Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut." data-en="Some designs aren't badly made — they're deliberately built against you.">Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut.</p></div></a>
   </div>
 </section>
 
@@ -96,22 +95,22 @@
   <div class="site-footer-inner">
     <div class="site-footer-brand">
       <span class="site-footer-name-text">Lina Melissa</span>
-      <span class="site-footer-sub" data-de="UX/UI Design · Hamburg" data-en="UX/UI Design · Hamburg">UX/UI Design · Hamburg</span>
+      <span class="site-footer-sub" data-de="UX/UI Design · Lüneburg" data-en="UX/UI Design · Lüneburg">UX/UI Design · Lüneburg</span>
       <span class="site-footer-status"><span class="site-footer-dot"></span><span data-de="Verfügbar ab August 2026" data-en="Available from August 2026">Verfügbar ab August 2026</span></span>
     </div>
     <div class="site-footer-socials">
       <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" class="site-footer-link" aria-label="LinkedIn"><span class="icon" data-icon="linkedin"></span></a>
-      <a href="https://www.behance.net/linwelss" target="_blank" class="site-footer-link" aria-label="Behance"><span class="icon" data-icon="behance"></span></a>
-      <a href="https://dribbble.com/linwelss" target="_blank" class="site-footer-link" aria-label="Dribbble"><span class="icon" data-icon="dribbble"></span></a>
-      <a href="https://www.instagram.com/linwelss/" target="_blank" class="site-footer-link" aria-label="Instagram"><span class="icon" data-icon="instagram"></span></a>
+      <a href="https://www.behance.net/linamelissa" target="_blank" class="site-footer-link" aria-label="Behance"><span class="icon" data-icon="behance"></span></a>
+      <a href="https://dribbble.com/linamelissade" target="_blank" class="site-footer-link" aria-label="Dribbble"><span class="icon" data-icon="dribbble"></span></a>
+      <a href="https://www.instagram.com/linamelissa.de/" target="_blank" class="site-footer-link" aria-label="Instagram"><span class="icon" data-icon="instagram"></span></a>
     </div>
   </div>
   <div class="site-footer-bottom">
     <span class="site-footer-copy">© 2026 Lina Melissa Arndt</span>
-    <a href="impressum.html" class="site-footer-impressum">Impressum &amp; Datenschutz</a>
+    <a href="/impressum.html" class="site-footer-impressum">Impressum &amp; Datenschutz</a>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="/script.js"></script>
 </body>
 </html>
