@@ -246,6 +246,7 @@ p, li, .fid-note, .concept-why, .loop-node p, .after{text-wrap:pretty;}
 @media (min-width:1600px){
   .hero-split{
     max-width:1800px;
+    grid-template-columns:minmax(340px,640px) minmax(420px,1fr);
     column-gap:20px;
     padding-left:clamp(64px,8vw,140px);
     padding-right:clamp(64px,8vw,140px);
