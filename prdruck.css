@@ -257,6 +257,7 @@ p, li, .fid-note, .concept-why, .loop-node p, .after{text-wrap:pretty;}
   .hero-split .hero-desc{font-size:18px;max-width:52ch;}
   .hero-logo{height:clamp(96px,10vw,130px);}
   .wipe-frame{max-height:min(58vh,560px);width:min(100%,620px);}
+  .hero-split-image{justify-content:flex-start;}
 }
 .hero-split-content{
   display:flex;
