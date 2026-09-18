@@ -8,7 +8,6 @@
   --r-card:24px;
   --r-tile:18px;
   --r-pill:100px;
-  --nav-gutter:236px;
 
   /* ink / neutrals */
   --ink:#1b1714;
@@ -195,9 +194,9 @@ body.side-on .sidebar{opacity:1;transform:translateY(-50%) translateX(0);pointer
 .nav-figma:hover svg{transform:translate(2px,-2px);}
 .sidebar-footer{flex:0 0 auto;border-top:1px solid var(--ink-08);margin-top:12px;padding-top:12px;font-size:11px;color:var(--ink-35);}
 
-main{padding-left:var(--nav-gutter);}
-@media (max-width:1080px){:root{--nav-gutter:200px;}.sidebar{width:180px;}}
-@media (max-width:860px){:root{--nav-gutter:0px;}.sidebar{display:none;}main{padding:28px 0 64px;}}
+main{padding-left:0;}
+@media (max-width:1080px){.sidebar{width:180px;}}
+@media (max-width:860px){.sidebar{display:none;}main{padding:28px 0 64px;}}
 @media (prefers-reduced-motion: reduce){.sidebar{transition:none;}}
 
 /* ================= SECTION SPACING ================= */
