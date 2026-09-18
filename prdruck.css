@@ -3129,10 +3129,13 @@ main{
   }
 
   /* ================================================================
-   HERO FIX v3 — Inhalt nach links statt zentriert
+   HERO FIX v4 — Browser-Chrome hellgrau statt beige
    ================================================================ */
-.hero-split{
-  justify-content:start !important;
-  padding-left:clamp(16px,3vw,40px) !important;
+.wipe-chrome{
+  background:#F0F0F2 !important;
 }
+.wipe-dot{
+  background:#D5D5D9 !important;
+}
+  
 }
