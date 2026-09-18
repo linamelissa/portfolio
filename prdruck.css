@@ -242,6 +242,19 @@ p, li, .fid-note, .concept-why, .loop-node p, .after{text-wrap:pretty;}
   margin:0 auto;
   padding:calc(84px + clamp(10px,2vh,24px)) clamp(48px,7vw,120px) clamp(32px,4vh,56px);
 }
+
+@media (min-width:1600px){
+  .hero-split{
+    max-width:1800px;
+    column-gap:clamp(64px,7vw,140px);
+    padding-left:clamp(64px,8vw,140px);
+    padding-right:clamp(64px,8vw,140px);
+  }
+  .hero-split-content{max-width:640px;}
+  .hero-split .hero-desc{font-size:18px;max-width:52ch;}
+  .hero-logo{height:clamp(96px,10vw,130px);}
+  .wipe-frame{max-height:min(58vh,560px);width:min(100%,620px);}
+}
 .hero-split-content{
   display:flex;
   flex-direction:column;
