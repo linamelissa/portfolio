@@ -233,13 +233,12 @@ p, li, .fid-note, .concept-why, .loop-node p, .after{text-wrap:pretty;}
    ================================================================ */
 .hero-split{
   display:grid;
-  grid-template-columns:minmax(0,460px) minmax(0,560px);
-  justify-content:center;
+  grid-template-columns:minmax(340px,1fr) minmax(420px,1fr);
   align-items:center;
   column-gap:clamp(48px,6vw,110px);
   row-gap:40px;
   width:100%;
-  max-width:1440px;
+  max-width:1600px;
   margin:0 auto;
   padding:calc(96px + clamp(16px,3vh,40px)) clamp(24px,4vw,56px) clamp(56px,7vh,96px);
   min-height:100vh;
@@ -249,7 +248,7 @@ p, li, .fid-note, .concept-why, .loop-node p, .after{text-wrap:pretty;}
   flex-direction:column;
   justify-content:center;
   align-items:flex-start;
-  max-width:460px;
+  max-width:560px;
   width:100%;
 }
 .hero-split .kategorie{
@@ -315,9 +314,9 @@ p, li, .fid-note, .concept-why, .loop-node p, .after{text-wrap:pretty;}
 /* Browser-frame chrome wrapping the wipe image */
 .wipe-frame{
   position:relative;
-  width:min(100%,480px);
+  width:min(100%,640px);
   height:auto;
-  max-height:min(64vh,600px);
+  max-height:min(70vh,680px);
   margin:0 auto;
   border-radius:10px;
   overflow:hidden;
