@@ -249,6 +249,8 @@ p, li, .fid-note, .concept-why, .loop-node p, .after{text-wrap:pretty;}
     column-gap:clamp(64px,7vw,140px);
     padding-left:clamp(64px,8vw,140px);
     padding-right:clamp(64px,8vw,140px);
+    padding-top:calc(84px + clamp(48px,7vh,110px));
+    padding-bottom:clamp(120px,16vh,220px);
   }
   .hero-split-content{max-width:640px;}
   .hero-split .hero-desc{font-size:18px;max-width:52ch;}
