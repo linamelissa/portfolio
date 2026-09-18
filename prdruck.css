@@ -3127,4 +3127,12 @@ main{
     max-width:420px !important;
     max-height:none !important;
   }
+
+  /* ================================================================
+   HERO FIX v3 — Inhalt nach links statt zentriert
+   ================================================================ */
+.hero-split{
+  justify-content:start !important;
+  padding-left:clamp(16px,3vw,40px) !important;
+}
 }
