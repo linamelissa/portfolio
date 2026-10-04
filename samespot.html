@@ -102,6 +102,18 @@
 @media (max-width:760px){
   .pe-device{height:auto;width:min(76vw,320px,calc((100dvh - 190px) * 390 / 800));}
 }
+/* Rahmen eng ums Handy: keine dunkle Fläche, das iPhone-Mockup aus Figma ist der Rahmen */
+.pe-stage{padding:8px 0;}
+.pe-stage::before{inset:14% 4%;}
+.pe-device{
+  background:transparent;border:0;border-radius:0;box-shadow:none;overflow:visible;
+  height:min(760px,calc(100vh - 150px),calc(100dvh - 150px));
+}
+.pe-loading{color:var(--ink-35);}
+.pe-loading span:first-child{border-color:var(--ink-14);border-top-color:var(--sage);}
+@media (max-width:760px){
+  .pe-device{height:auto;width:min(76vw,320px,calc((100dvh - 190px) * 390 / 800));box-shadow:none;}
+}
 </style>
 </head>
 <body>
@@ -1030,7 +1042,7 @@
           <div class="proto-embed">
             <div class="pe-copy">
               <h3 data-de="Probier es selbst: <span class=&quot;accent-italic&quot;>einmal durch den ganzen Loop.</span>" data-en="Try it yourself: <span class=&quot;accent-italic&quot;>once through the whole loop.</span>">Probier es selbst: <span class="accent-italic">einmal durch den ganzen Loop.</span></h3>
-              <p class="pe-lede" data-de="Das ist der echte Prototyp aus Figma, nicht ein Video davon. Tipp oder klick dich von der Aufgabe bis zum Code-Austausch." data-en="This is the real prototype from Figma, not a video of it. Tap or click your way from the task to the code exchange.">Das ist der echte Prototyp aus Figma, nicht ein Video davon. Tipp oder klick dich von der Aufgabe bis zum Code-Austausch.</p>
+              <p class="pe-lede" data-de="Das ist der echte Prototyp aus Figma. Tipp oder klick dich von der Aufgabe bis zum Code-Austausch." data-en="This is the real prototype from Figma. Tap or click your way from the task to the code exchange.">Das ist der echte Prototyp aus Figma. Tipp oder klick dich von der Aufgabe bis zum Code-Austausch.</p>
 
               <ol class="pe-steps">
                 <li><span class="pe-num">01</span><span data-de="Eine Aufgabe auswählen und den Spot starten" data-en="Pick a task and start the spot">Eine Aufgabe auswählen und den Spot starten</span></li>
@@ -1051,7 +1063,7 @@
             <div class="pe-stage">
               <div class="pe-device">
                 <iframe class="pe-frame" title="sameSpot Prototyp" loading="lazy" allowfullscreen
-                  src="https://embed.figma.com/proto/X3G53I8NYxDh8QRXJ1snOi/sameSpot?node-id=45-5335&scaling=scale-down&content-scaling=fixed&starting-point-node-id=45%3A5335&page-id=45%3A3875&hide-ui=1&hotspot-hints=1&bg-color=17140f&embed-host=share"></iframe>
+                  src="https://embed.figma.com/proto/X3G53I8NYxDh8QRXJ1snOi/sameSpot?node-id=45-5335&scaling=scale-down&content-scaling=fixed&starting-point-node-id=45%3A5335&page-id=45%3A3875&hide-ui=1&hotspot-hints=1&bg-color=ffffff&embed-host=share"></iframe>
                 <div class="pe-loading" aria-hidden="true"><span></span><span data-de="Prototyp lädt …" data-en="Loading prototype …">Prototyp lädt …</span></div>
               </div>
             </div>
