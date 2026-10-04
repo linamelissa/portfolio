@@ -59,8 +59,7 @@
       <a href="#learnings" class="sub" data-nav data-de="Learnings" data-en="Learnings">Learnings</a>
 
       <a href="#werkstatt" class="chapter" data-nav data-chapter-for="werkstatt"><span class="num">05</span><span data-de="Vertiefung" data-en="Going Deeper">Vertiefung</span></a>
-      <a href="#walkthrough" class="sub" data-nav data-de="Walkthrough" data-en="Walkthrough">Walkthrough</a>
-      <a href="#figma-einblick" class="sub" data-nav data-de="In Figma" data-en="In Figma">In Figma</a>
+      <a href="#prototyp" class="sub" data-nav data-de="Prototyp" data-en="Prototype">Prototyp</a>
       <a href="#constraints" class="sub" data-nav data-de="Constraints" data-en="Constraints">Constraints</a>
     </nav>
 
@@ -104,7 +103,7 @@
           <span class="eyebrow" data-de="Das Ergebnis zuerst" data-en="The result, first">Das Ergebnis zuerst</span>
           <h2 data-de="Der Loop, <span class=&quot;accent-italic&quot;>in drei Schritten.</span>" data-en="The loop, <span class=&quot;accent-italic&quot;>in three steps.</span>">Der Loop, <span class="accent-italic">in drei Schritten.</span></h2>
           <p class="loop-desc" data-de="Eine Aufgabe an einem Ort, ein passives Wiedersehen, ein Austausch nur bei beidseitigem Wollen." data-en="A task at a place, a passive re-encounter, an exchange only if both people want it.">Eine Aufgabe an einem Ort, ein passives Wiedersehen, ein Austausch nur bei beidseitigem Wollen.</p>
-          <a href="#walkthrough" class="btn-outline-dark" data-de="Walkthrough ansehen" data-en="Watch the walkthrough">Walkthrough ansehen</a>
+          <a href="#prototyp" class="btn-outline-dark" data-de="Prototyp ausprobieren" data-en="Try the prototype">Prototyp ausprobieren</a>
         </div>
 
         <div class="hp-layer" id="hpLayer">
@@ -923,48 +922,42 @@
           </div>
         </div>
 
-        <!-- 60-Sekunden-Walkthrough -->
-        <div class="sub-block sub-gap" id="walkthrough">
+        <!-- Klickbarer Prototyp (Figma-Einbettung) -->
+        <div class="sub-block sub-gap" id="prototyp">
           <div class="ia-head block-head">
-            <span class="eyebrow" data-de="Walkthrough" data-en="Walkthrough">Walkthrough</span>
-            <span class="hint" data-de="60 Sekunden, mit Ton" data-en="60 seconds, with sound">60 Sekunden, mit Ton</span>
+            <span class="eyebrow" data-de="Prototyp" data-en="Prototype">Prototyp</span>
+            <span class="hint" data-de="live aus Figma, zum Durchklicken" data-en="live from Figma, click through it">live aus Figma, zum Durchklicken</span>
           </div>
-          <h3 data-de="Ich gehe einmal durch die App <span class=&quot;accent-italic&quot;>und erkläre, warum sie so aufgebaut ist.</span>" data-en="I walk through the app once <span class=&quot;accent-italic&quot;>and explain why it's built this way.</span>">Ich gehe einmal durch die App <span class="accent-italic">und erkläre, warum sie so aufgebaut ist.</span></h3>
-          <div class="video-frame">
-            <video controls preload="metadata" playsinline poster="samespot/screen04.jpg">
-              <source src="samespot/walkthrough.mp4" type="video/mp4" onerror="this.closest('.video-frame').classList.add('is-empty');">
-            </video>
-            <span class="proof-missing">samespot/walkthrough.mp4</span>
-          </div>
-        </div>
 
-        <!-- In Figma -->
-        <div class="sub-block" id="figma-einblick">
-          <div class="ia-head block-head">
-            <span class="eyebrow" data-de="In Figma" data-en="In Figma">In Figma</span>
-            <span class="hint" data-de="unaufgeräumt, absichtlich" data-en="messy, on purpose">unaufgeräumt, absichtlich</span>
+          <div class="proto-embed">
+            <div class="pe-copy">
+              <h3 data-de="Probier es selbst: <span class=&quot;accent-italic&quot;>einmal durch den ganzen Loop.</span>" data-en="Try it yourself: <span class=&quot;accent-italic&quot;>once through the whole loop.</span>">Probier es selbst: <span class="accent-italic">einmal durch den ganzen Loop.</span></h3>
+              <p class="pe-lede" data-de="Das ist der echte Prototyp aus Figma, nicht ein Video davon. Tipp oder klick dich von der Aufgabe bis zum Code-Austausch." data-en="This is the real prototype from Figma, not a video of it. Tap or click your way from the task to the code exchange.">Das ist der echte Prototyp aus Figma, nicht ein Video davon. Tipp oder klick dich von der Aufgabe bis zum Code-Austausch.</p>
+
+              <ol class="pe-steps">
+                <li><span class="pe-num">01</span><span data-de="Eine Aufgabe auswählen und den Spot starten" data-en="Pick a task and start the spot">Eine Aufgabe auswählen und den Spot starten</span></li>
+                <li><span class="pe-num">02</span><span data-de="Die Wiederbegegnung im Feed entdecken" data-en="Discover the re-encounter in the feed">Die Wiederbegegnung im Feed entdecken</span></li>
+                <li><span class="pe-num">03</span><span data-de="Den Code tauschen, wenn beide wollen" data-en="Exchange the code if both want to">Den Code tauschen, wenn beide wollen</span></li>
+              </ol>
+
+              <p class="pe-tip" data-de="Tipp: Wenn du nicht weiterweißt, klick irgendwo ins Bild. Figma markiert dann die klickbaren Stellen." data-en="Tip: If you're stuck, click anywhere on the screen. Figma will then highlight the clickable areas.">Tipp: Wenn du nicht weiterweißt, klick irgendwo ins Bild. Figma markiert dann die klickbaren Stellen.</p>
+
+              <div class="pe-actions">
+                <a class="btn-ghost" href="https://www.figma.com/proto/K3P6UZj5vIFdPjekV2EqNj/Lina-Arndt?node-id=623-3895&scaling=scale-down&content-scaling=fixed&starting-point-node-id=623%3A3895&page-id=8%3A977" target="_blank" rel="noopener"><span data-de="Im Vollbild öffnen" data-en="Open full screen">Im Vollbild öffnen</span>
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a class="pe-link" href="https://www.figma.com/design/g6wltKVSQ6ipxQGrpJsTzh/sameSpot?node-id=0-1&p=f&t=LeglzDRXDl3uudy7-0" target="_blank" rel="noopener" data-de="Oder die Design-Datei ansehen" data-en="Or view the design file">Oder die Design-Datei ansehen</a>
+              </div>
+            </div>
+
+            <div class="pe-stage">
+              <div class="pe-device">
+                <iframe class="pe-frame" title="sameSpot Prototyp" loading="lazy" allowfullscreen
+                  src="https://embed.figma.com/proto/K3P6UZj5vIFdPjekV2EqNj/Lina-Arndt?node-id=623-3895&scaling=scale-down&content-scaling=fixed&starting-point-node-id=623%3A3895&page-id=8%3A977&hide-ui=1&hotspot-hints=1&bg-color=17140f&embed-host=share"></iframe>
+                <div class="pe-loading" aria-hidden="true"><span></span><span data-de="Prototyp lädt …" data-en="Loading prototype …">Prototyp lädt …</span></div>
+              </div>
+            </div>
           </div>
-          <h3 data-de="Wie die Datei wirklich aussieht, <span class=&quot;accent-italic&quot;>Verlinkungen inklusive.</span>" data-en="What the file actually looks like, <span class=&quot;accent-italic&quot;>links included.</span>">Wie die Datei wirklich aussieht, <span class="accent-italic">Verlinkungen inklusive.</span></h3>
-          <div class="proof-grid">
-          <figure class="proof-shot wide">
-            <img src="samespot/figma-prototyp.png" alt="Prototyp-Verlinkungen im Kernflow" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
-            <span class="proof-missing">samespot/figma-prototyp.png</span>
-            <figcaption data-de="<b>Prototyp-Verlinkungen im Kernflow</b>: jede Verbindung vom Spot bis zum Code-Austausch." data-en="<b>Prototype links across the core flow</b>: every connection from spot to code exchange."><b>Prototyp-Verlinkungen im Kernflow</b>: jede Verbindung vom Spot bis zum Code-Austausch.</figcaption>
-          </figure>
-          <figure class="proof-shot ">
-            <img src="samespot/figma-komponenten.png" alt="Komponenten und Varianten" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
-            <span class="proof-missing">samespot/figma-komponenten.png</span>
-            <figcaption data-de="<b>Komponenten und Varianten</b>: die Bausteine, aus denen alle 16 Screens bestehen." data-en="<b>Components and variants</b>: the building blocks all 16 screens are made of."><b>Komponenten und Varianten</b>: die Bausteine, aus denen alle 16 Screens bestehen.</figcaption>
-          </figure>
-          <figure class="proof-shot ">
-            <img src="samespot/figma-flow.png" alt="Nutzerflow" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
-            <span class="proof-missing">samespot/figma-flow.png</span>
-            <figcaption data-de="<b>Nutzerflow</b>: der Kernflow, wie er vor den Screens entstanden ist." data-en="<b>User flow</b>: the core flow, as it existed before the screens did."><b>Nutzerflow</b>: der Kernflow, wie er vor den Screens entstanden ist.</figcaption>
-          </figure>
-          </div>
-          <a class="btn-ghost" href="https://www.figma.com/design/g6wltKVSQ6ipxQGrpJsTzh/sameSpot?node-id=0-1&p=f&t=LeglzDRXDl3uudy7-0" target="_blank" rel="noopener"><span data-de="Datei in Figma öffnen" data-en="Open file in Figma">Datei in Figma öffnen</span>
-            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
         </div>
       </div>
 
