@@ -674,3 +674,224 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btn) toggle(btn);
   });
 })();
+
+
+/* ============================================================
+   sameSpot · Mobile-Layer
+   Kapitel-Pille unten + Bottom-Sheet mit der kompletten Navigation
+   (ersetzt die Sidebar unter 860px). Wird NACH samespot.js geladen.
+   ============================================================ */
+(function () {
+  var mq = window.matchMedia('(max-width:860px)');
+  var srcNav = document.querySelector('.sidebar .nav');
+  if (!srcNav) return;
+
+  var lang = function () { return document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'de'; };
+  var T = {
+    de: { title: 'Kapitel', open: 'Kapitelübersicht öffnen', close: 'Schließen', figma: 'Datei in Figma öffnen', start: 'Überblick' },
+    en: { title: 'Chapters', open: 'Open chapter overview', close: 'Close', figma: 'Open file in Figma', start: 'Overview' }
+  };
+
+  /* ---------- Elemente bauen ---------- */
+  var pill = document.createElement('button');
+  pill.type = 'button';
+  pill.className = 'mnav-pill';
+  pill.setAttribute('aria-haspopup', 'dialog');
+  pill.setAttribute('aria-expanded', 'false');
+  pill.setAttribute('aria-controls', 'mnavSheet');
+  pill.innerHTML = '<span class="mnav-num">01</span><span class="mnav-label"></span><span class="mnav-chev" aria-hidden="true"></span>';
+
+  var backdrop = document.createElement('div');
+  backdrop.className = 'mnav-backdrop';
+
+  var sheet = document.createElement('div');
+  sheet.className = 'mnav-sheet';
+  sheet.id = 'mnavSheet';
+  sheet.setAttribute('role', 'dialog');
+  sheet.setAttribute('aria-modal', 'true');
+  sheet.setAttribute('tabindex', '-1');
+
+  var handle = document.createElement('div');
+  handle.className = 'mnav-handle';
+  var title = document.createElement('span');
+  title.className = 'mnav-title';
+  var list = document.createElement('nav');
+  list.className = 'mnav-list';
+
+  // Links aus der Sidebar übernehmen (inkl. data-de/data-en für den Sprachumschalter)
+  Array.prototype.forEach.call(srcNav.querySelectorAll('a[data-nav]'), function (a) {
+    var c = a.cloneNode(true);
+    c.classList.remove('active');
+    list.appendChild(c);
+  });
+
+  var figmaSrc = document.querySelector('.nav-figma a');
+  var figma = null;
+  if (figmaSrc) {
+    figma = document.createElement('a');
+    figma.className = 'mnav-figma';
+    figma.href = figmaSrc.href;
+    figma.target = '_blank';
+    figma.rel = 'noopener';
+    figma.innerHTML = '<span></span><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
+
+  sheet.appendChild(handle);
+  sheet.appendChild(title);
+  sheet.appendChild(list);
+  if (figma) sheet.appendChild(figma);
+  document.body.appendChild(backdrop);
+  document.body.appendChild(sheet);
+  document.body.appendChild(pill);
+
+  /* ---------- Kapitel-Erkennung ---------- */
+  var chapterLinks = Array.prototype.slice.call(list.querySelectorAll('a.chapter'));
+  var allLinks = Array.prototype.slice.call(list.querySelectorAll('a'));
+  var targets = allLinks.map(function (a) {
+    return { a: a, el: document.getElementById(a.getAttribute('href').slice(1)) };
+  }).filter(function (t) { return t.el; });
+
+  var hero = document.querySelector('.hero-scroll');
+  var firstChapter = document.getElementById('widerspruch');
+  var aboutEnd = document.getElementById('ueber-mich-cs');
+  var currentLink = null;
+
+  function chapterOf(link) {
+    // zum aktiven Unterpunkt das übergeordnete Kapitel finden
+    var idx = allLinks.indexOf(link), ch = null;
+    for (var i = 0; i <= idx; i++) if (allLinks[i].classList.contains('chapter')) ch = allLinks[i];
+    return ch;
+  }
+
+  function labelText(link) {
+    var spans = link.querySelectorAll('span');
+    return (spans.length ? spans[spans.length - 1] : link).textContent.trim();
+  }
+
+  function update() {
+    var line = 120, cur = null;
+    targets.forEach(function (t) { if (t.el.getBoundingClientRect().top <= line) cur = t.a; });
+    if (cur !== currentLink) {
+      currentLink = cur;
+      allLinks.forEach(function (a) { a.classList.toggle('is-current', a === cur); });
+    }
+    var ch = cur ? chapterOf(cur) : null;
+    var num = pill.querySelector('.mnav-num');
+    var lab = pill.querySelector('.mnav-label');
+    if (ch) {
+      num.textContent = ch.querySelector('.num').textContent;
+      lab.textContent = labelText(ch);
+    } else {
+      num.textContent = '00';
+      lab.textContent = T[lang()].start;
+    }
+
+    // sichtbar ab Kapitel 01, bis „Über mich“ ins Bild kommt
+    var vh = window.innerHeight;
+    var show = mq.matches &&
+      (firstChapter ? firstChapter.getBoundingClientRect().top < vh * 0.85 : (hero ? hero.getBoundingClientRect().bottom < 0 : true)) &&
+      (!aboutEnd || aboutEnd.getBoundingClientRect().top > vh * 0.6);
+    pill.classList.toggle('is-on', show || document.body.classList.contains('mnav-open'));
+  }
+
+  function texts() {
+    var t = T[lang()];
+    title.textContent = t.title;
+    pill.setAttribute('aria-label', t.open);
+    sheet.setAttribute('aria-label', t.title);
+    if (figma) figma.querySelector('span').textContent = t.figma;
+    update();
+  }
+
+  /* ---------- Öffnen / Schließen ---------- */
+  var lastFocus = null;
+  function open() {
+    lastFocus = document.activeElement;
+    document.body.classList.add('mnav-open');
+    pill.setAttribute('aria-expanded', 'true');
+    var cur = list.querySelector('.is-current');
+    if (cur) cur.scrollIntoView({ block: 'center' });
+    sheet.focus({ preventScroll: true });
+  }
+  function close() {
+    document.body.classList.remove('mnav-open');
+    pill.setAttribute('aria-expanded', 'false');
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+  }
+
+  pill.addEventListener('click', function () {
+    document.body.classList.contains('mnav-open') ? close() : open();
+  });
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.body.classList.contains('mnav-open')) close();
+  });
+
+  list.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var el = document.getElementById(a.getAttribute('href').slice(1));
+    if (!el) return;
+    e.preventDefault();
+    close();
+    // erst nach dem Schließen scrollen, sonst blockiert overflow:hidden
+    requestAnimationFrame(function () {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Nach unten wischen schließt das Sheet
+  var startY = null;
+  sheet.addEventListener('touchstart', function (e) {
+    startY = sheet.scrollTop <= 0 ? e.touches[0].clientY : null;
+  }, { passive: true });
+  sheet.addEventListener('touchmove', function (e) {
+    if (startY === null) return;
+    var dy = e.touches[0].clientY - startY;
+    if (dy > 0) sheet.style.transform = 'translateY(' + dy + 'px)';
+  }, { passive: true });
+  sheet.addEventListener('touchend', function (e) {
+    if (startY === null) return;
+    var dy = e.changedTouches[0].clientY - startY;
+    sheet.style.transform = '';
+    startY = null;
+    if (dy > 90) close();
+  });
+
+  /* ---------- Laufzeit ---------- */
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { ticking = false; update(); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  (mq.addEventListener ? mq.addEventListener('change', function () { if (!mq.matches) close(); update(); })
+                       : mq.addListener(function () { if (!mq.matches) close(); update(); }));
+
+  // Sprachumschalter: Texte der Pille/des Sheets nachziehen
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('#lang-toggle')) setTimeout(texts, 0);
+  });
+
+  texts();
+})();
+
+
+/* ============================================================
+   Bausteine-Grafik antippen = groß ansehen (auf dem Handy sonst zu klein)
+   ============================================================ */
+(function () {
+  var img = document.querySelector('.baustein-single img');
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  if (!img || !lb || !lbImg) return;
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', function () {
+    lbImg.src = img.src;
+    lbImg.alt = img.alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+})();
