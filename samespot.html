@@ -114,6 +114,29 @@
 @media (max-width:760px){
   .pe-device{height:auto;width:min(76vw,320px,calc((100dvh - 190px) * 390 / 800));box-shadow:none;}
 }
+/* Touch-Geräte: Figma lässt dort seinen iPhone-Rahmen weg,
+   also kommt der eigene Phone-Rahmen der Seite um den Prototyp */
+.pe-phone{display:none;}
+@media (hover:none) and (pointer:coarse){
+  .pe-device{
+    aspect-ratio:337/681;
+    height:auto;
+    width:min(76vw,320px,calc((100dvh - 190px) * 337 / 681));
+    filter:drop-shadow(0 22px 40px rgba(27,23,20,.22));
+  }
+  .pe-frame,.pe-loading{
+    inset:var(--pf-inset-y) var(--pf-inset-x);
+    width:auto;height:auto;
+    border-radius:var(--pf-radius);
+    overflow:hidden;
+    background:#fff;
+  }
+  .pe-frame{width:calc(100% - 2 * var(--pf-inset-x));height:calc(100% - 2 * var(--pf-inset-y));}
+  .pe-phone{
+    display:block;position:absolute;inset:0;z-index:3;
+    width:100%;height:100%;object-fit:contain;pointer-events:none;
+  }
+}
 </style>
 </head>
 <body>
@@ -1065,6 +1088,7 @@
                 <iframe class="pe-frame" title="sameSpot Prototyp" loading="lazy" allowfullscreen
                   src="https://embed.figma.com/proto/X3G53I8NYxDh8QRXJ1snOi/sameSpot?node-id=45-5335&scaling=scale-down&content-scaling=fixed&starting-point-node-id=45%3A5335&page-id=45%3A3875&hide-ui=1&hotspot-hints=1&bg-color=ffffff&embed-host=share"></iframe>
                 <div class="pe-loading" aria-hidden="true"><span></span><span data-de="Prototyp lädt …" data-en="Loading prototype …">Prototyp lädt …</span></div>
+                <img class="pe-phone" src="samespot/Phone-Rahmen.png" alt="" aria-hidden="true">
               </div>
             </div>
           </div>
