@@ -4431,3 +4431,17 @@ body{overflow-x:clip;}
 @media (max-width:760px){
   .pe-device{height:auto;width:min(76vw,320px,calc((100dvh - 190px) * 390 / 800));}
 }
+
+
+/* Rahmen eng ums Handy: keine dunkle Fläche, das iPhone-Mockup aus Figma ist der Rahmen */
+.pe-stage{padding:8px 0;}
+.pe-stage::before{inset:14% 4%;}
+.pe-device{
+  background:transparent;border:0;border-radius:0;box-shadow:none;overflow:visible;
+  height:min(760px,calc(100vh - 150px),calc(100dvh - 150px));
+}
+.pe-loading{color:var(--ink-35);}
+.pe-loading span:first-child{border-color:var(--ink-14);border-top-color:var(--sage);}
+@media (max-width:760px){
+  .pe-device{height:auto;width:min(76vw,320px,calc((100dvh - 190px) * 390 / 800));box-shadow:none;}
+}
